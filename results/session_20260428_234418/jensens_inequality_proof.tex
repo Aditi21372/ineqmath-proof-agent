@@ -1,0 +1,74 @@
+\begin{proof}
+\textbf{Step 1. Notation.}  
+Let \(x_{1},\dots ,x_{n}\in\mathbb{R}\) and let \(\lambda_{1},\dots ,\lambda_{n}\ge 0\) satisfy \(\displaystyle\sum_{i=1}^{n}\lambda_{i}=1\).  
+Set  
+\[
+X:=\sum_{i=1}^{n}\lambda_{i}x_{i}.
+\]
+
+\textbf{Step 2. Trivial cases.}  
+If \(\lambda_{k}=1\) for some \(k\) (hence \(\lambda_{i}=0\) for \(i\neq k\)), then \(X=x_{k}\) and the desired inequality reduces to \(f(x_{k})\le f(x_{k})\), which holds with equality.  
+The same conclusion follows when all points that receive positive weight are equal, because both sides of the inequality are then the common value \(f(x)\).
+
+\textbf{Step 3. Base case \(n=2\).}  
+For two points \(x_{1},x_{2}\) and a weight \(\lambda\in[0,1]\), convexity of \(f\) gives  
+\[
+f\bigl(\lambda x_{1}+(1-\lambda)x_{2}\bigr)\le
+\lambda f(x_{1})+(1-\lambda)f(x_{2}),
+\]
+which is Jensen’s inequality for \(n=2\).
+
+\textbf{Step 4. Inductive step.}  
+Assume the inequality holds for any collection of \(n-1\) points with non‑negative weights summing to 1.  
+Without loss of generality suppose \(\lambda_{n}<1\) (the case \(\lambda_{n}=1\) is covered by Step 2).  Write
+\begin{align*}
+X &=\lambda_{1}x_{1}+\cdots +\lambda_{n-1}x_{n-1}+\lambda_{n}x_{n}\\
+  &= (1-\lambda_{n})\Bigl(\sum_{i=1}^{n-1}\frac{\lambda_{i}}{1-\lambda_{n}}x_{i}\Bigr)+\lambda_{n}x_{n}.
+\end{align*}
+Define
+\[
+t:=1-\lambda_{n}\in(0,1],\qquad 
+y:=\sum_{i=1}^{n-1}\frac{\lambda_{i}}{1-\lambda_{n}}\,x_{i}.
+\]
+Because \(\sum_{i=1}^{n}\lambda_{i}=1\) we have \(\sum_{i=1}^{n-1}\lambda_{i}=t\); dividing by \(t\) yields \(\sum_{i=1}^{n-1}\frac{\lambda_{i}}{t}=1\).  Hence the coefficients \(\frac{\lambda_{i}}{t}\) are non‑negative and sum to 1, so \(y\) is a convex combination of the first \(n-1\) points.
+
+\textbf{Step 5. Apply convexity to the pair \((y,x_{n})\).}  
+Convexity with weight \(t\) gives
+\begin{align*}
+f\bigl(t\,y+(1-t)x_{n}\bigr)&\le t\,f(y)+(1-t)f(x_{n})\\
+\intertext{Since \(t\,y+(1-t)x_{n}=X\) and \(1-t=\lambda_{n}\), we obtain}
+f(X)&\le (1-\lambda_{n})f(y)+\lambda_{n}f(x_{n}). \tag{5.1}
+\end{align*}
+
+\textbf{Step 6. Use the induction hypothesis on \(f(y)\).}  
+Applying the induction hypothesis to the \((n-1)\)-tuple \(\{x_{1},\dots ,x_{n-1}\}\) with the normalized weights \(\frac{\lambda_{i}}{1-\lambda_{n}}\) yields
+\begin{align*}
+f(y)&\le\sum_{i=1}^{n-1}\frac{\lambda_{i}}{1-\lambda_{n}}\,f(x_{i}). \tag{6.1}
+\end{align*}
+Multiplying (6.1) by \(1-\lambda_{n}\) and substituting into (5.1) gives
+\begin{align*}
+f(X)&\le (1-\lambda_{n})\sum_{i=1}^{n-1}\frac{\lambda_{i}}{1-\lambda_{n}}f(x_{i})+\lambda_{n}f(x_{n})\\
+&=\sum_{i=1}^{n-1}\lambda_{i}f(x_{i})+\lambda_{n}f(x_{n})\\
+&=\sum_{i=1}^{n}\lambda_{i}f(x_{i}),
+\end{align*}
+which is Jensen’s inequality for \(n\) points.
+
+\textbf{Step 7. Equality case.}  
+Equality in the binary convexity step (5.1) holds iff either \(y=x_{n}\) or \(t\in\{0,1\}\).  Because \(t=1-\lambda_{n}\), the latter means \(\lambda_{n}=0\) or \(\lambda_{n}=1\).  
+Equality in the induction hypothesis (6.1) holds iff all points with positive normalized weight are identical, i.e. \(x_{i}=x_{j}\) whenever \(\lambda_{i}>0\) and \(\lambda_{j}>0\).  
+Combining these observations, equality in the final inequality occurs precisely when either
+
+\begin{itemize}
+\item one weight equals 1 (the degenerate case), or
+\item all points that receive positive weight are equal.
+\end{itemize}
+These are exactly the usual equality conditions for Jensen’s inequality.
+
+\textbf{Step 8. Conclusion.}  
+The base case (Step 3) and the inductive step (Steps 4–6) establish Jensen’s inequality
+\[
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)\le \sum_{i=1}^{n}\lambda_{i}f(x_{i})
+\]
+for every integer \(n\ge 2\), every convex function \(f\), and every family of non‑negative weights summing to 1.  
+The equality cases are described in Step 7.  ∎
+\end{proof}

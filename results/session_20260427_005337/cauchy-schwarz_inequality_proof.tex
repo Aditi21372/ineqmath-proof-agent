@@ -1,0 +1,81 @@
+\textbf{Theorem (Cauchy–Schwarz).}  
+For any real numbers \(a_{1},\dots ,a_{n}\) and \(b_{1},\dots ,b_{n}\),
+\[
+\Bigl(\sum_{i=1}^{n} a_i b_i\Bigr)^{2}
+   \le
+\Bigl(\sum_{i=1}^{n} a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n} b_i^{2}\Bigr).
+\]
+
+\begin{proof}
+\paragraph{1. Construction of a non‑negative quadratic.}  
+Define
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_i - t b_i\bigr)^{2},\qquad t\in\mathbb{R}.
+\]
+Each summand is a square, hence \(f(t)\ge 0\) for every real \(t\).
+
+\paragraph{2. Algebraic expansion.}  
+Using \((x-y)^{2}=x^{2}-2xy+y^{2}\) and linearity of the sum,
+\begin{align*}
+f(t)
+   &=\sum_{i=1}^{n}\bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\bigr) \\
+   &=\sum_{i=1}^{n}a_i^{2}
+      -2t\sum_{i=1}^{n}a_i b_i
+      +t^{2}\sum_{i=1}^{n}b_i^{2}.
+\end{align*}
+Thus
+\begin{equation}
+f(t)=\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)t^{2}
+      -2\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)t
+      +\sum_{i=1}^{n}a_i^{2}. \tag{1}
+\end{equation}
+
+\paragraph{3. Applying the discriminant condition.}  
+The polynomial in \((1)\) has leading coefficient
+\(A=\sum_{i=1}^{n}b_i^{2}\ge 0\).  
+Since \(f(t)\ge 0\) for all \(t\in\mathbb{R}\), its discriminant must be non‑positive:
+\[
+\Delta =\bigl(-2\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+        -4\bigl(\sum_{i=1}^{n}b_i^{2}\bigr)
+           \bigl(\sum_{i=1}^{n}a_i^{2}\bigr)
+      =4\Bigl[\bigl(\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+               -\bigl(\sum_{i=1}^{n}a_i^{2}\bigr)
+                \bigl(\sum_{i=1}^{n}b_i^{2}\bigr)\Bigr].
+\]
+Thus \(\Delta\le 0\) is equivalent to
+\begin{equation}
+\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+   \le
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr). \tag{2}
+\end{equation}
+
+\paragraph{4. Degenerate cases.}  
+If \(\sum_{i=1}^{n}a_i^{2}=0\) then each \(a_i=0\) and both sides of \((2)\) equal \(0\).  
+If \(\sum_{i=1}^{n}b_i^{2}=0\) then each \(b_i=0\) and again \((2)\) reduces to \(0\le 0\).  
+In either situation the quadratic \(f(t)\) becomes a constant non‑negative
+function, so the argument remains valid.
+
+\paragraph{5. Equality condition.}  
+Equality in \((2)\) occurs exactly when \(\Delta=0\).  For a quadratic with
+non‑negative leading coefficient, \(\Delta=0\) means there is a single real
+root \(\lambda\) such that
+\[
+f(\lambda)=\sum_{i=1}^{n}\bigl(a_i-\lambda b_i\bigr)^{2}=0.
+\]
+A sum of squares vanishes only when each square is zero, i.e.
+\(a_i-\lambda b_i=0\) for all \(i\).  Hence
+\begin{equation}
+a_i=\lambda\,b_i\qquad(i=1,\dots ,n). \tag{3}
+\end{equation}
+Conversely, if \((3)\) holds for some \(\lambda\in\mathbb{R}\) (including
+\(\lambda=0\) when one vector is the zero vector), then
+\[
+\sum_{i}a_i b_i=\lambda\sum_{i}b_i^{2},\qquad
+\sum_{i}a_i^{2}=\lambda^{2}\sum_{i}b_i^{2},
+\]
+and substitution into \((2)\) yields equality.  Thus \((3)\) characterises
+precisely the case of equality: the two vectors are linearly dependent.
+
+\end{proof}

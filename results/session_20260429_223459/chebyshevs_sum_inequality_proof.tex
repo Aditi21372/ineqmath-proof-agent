@@ -1,0 +1,57 @@
+\begin{proof}
+\textbf{Theorem (Chebyshev’s Sum Inequality).}
+Let $a_{1}\le a_{2}\le\cdots\le a_{n}$ and $b_{1}\le b_{2}\le\cdots\le b_{n}$ be real numbers. Then
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr).
+\]
+
+\medskip
+\textbf{1. Rearrangement Inequality.}
+For any permutation $\sigma$ of $\{1,\dots,n\}$,
+\begin{align*}
+\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;\sum_{i=1}^{n}a_{i}b_{\sigma(i)}. \tag{1}
+\end{align*}
+Since both sequences are non‑decreasing, the pairing in the same order yields the maximal sum (classical rearrangement inequality).
+
+\medskip
+\textbf{2. Average over all permutations.}
+Consider the sum of the right–hand side of \eqref{1} over all $n!$ permutations:
+\[
+\sum_{\sigma}\sum_{i=1}^{n}a_{i}b_{\sigma(i)} .
+\]
+By symmetry each ordered pair $(a_{i},b_{j})$ appears exactly $(n-1)!$ times, whence
+\begin{align*}
+\sum_{\sigma}\sum_{i=1}^{n}a_{i}b_{\sigma(i)}
+   =(n-1)!\sum_{i=1}^{n}\sum_{j=1}^{n}a_{i}b_{j}. \tag{2}
+\end{align*}
+Dividing \eqref{2} by the total number $n!$ of permutations gives the average value:
+\begin{align*}
+\frac{1}{n!}\sum_{\sigma}\sum_{i=1}^{n}a_{i}b_{\sigma(i)}
+   &=\frac{(n-1)!}{n!}\sum_{i=1}^{n}\sum_{j=1}^{n}a_{i}b_{j} \\
+   &=\frac{1}{n}\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{j=1}^{n}b_{j}\Bigr). \tag{3}
+\end{align*}
+
+\medskip
+\textbf{3. Comparison of the maximal sum with the average.}
+The left‑most sum in \eqref{1} is the maximum among all permutation sums, therefore it is at least as large as the average \eqref{3}. Hence
+\begin{align*}
+\sum_{i=1}^{n}a_{i}b_{i}
+   \;\ge\;
+   \frac{1}{n}\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{j=1}^{n}b_{j}\Bigr). \tag{4}
+\end{align*}
+Multiplying \eqref{4} by $n$ yields the desired Chebyshev inequality.
+
+\medskip
+\textbf{4. Equality condition.}
+Equality in \eqref{1} (and hence in \eqref{4}) occurs precisely when the maximal sum equals the average of all permutation sums.  
+If the two sequences are not constant, there exist indices $p<q$ with $a_{p}<a_{q}$ and $b_{p}<b_{q}$; swapping $b_{p}$ and $b_{q}$ produces a strictly smaller sum, so the maximal sum is strictly larger than the average. Consequently equality can hold only when at least one of the sequences is constant (or when $n=1$, which is a special case of a constant sequence). Thus
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}
+   =\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr)
+   \quad\Longleftrightarrow\quad
+   a_{1}=a_{2}=\dots =a_{n}\ \text{or}\ b_{1}=b_{2}=\dots =b_{n}.
+\]
+
+\medskip
+Hence Chebyshev’s sum inequality holds for any two non‑decreasing real sequences, with equality exactly in the constant‑sequence cases. \qed
+\end{proof}

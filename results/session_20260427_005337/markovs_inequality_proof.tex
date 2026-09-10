@@ -1,0 +1,85 @@
+\textbf{Theorem (Markov’s inequality).}  
+Let \((\Omega,\mathcal{F},\mathbb{P})\) be a probability space and let  
+\(X:\Omega\to[0,\infty]\) be a non‑negative random variable.  
+For any real number \(a>0\),
+\[
+\mathbb{P}\bigl(X\ge a\bigr)\;\le\;\frac{\mathbb{E}[X]}{a}.
+\]
+
+\begin{proof}
+\paragraph{1. Trivial and degenerate cases.}  
+If \(X\equiv0\) a.s., then \(\mathbb{E}[X]=0\) and \(\mathbb{P}(X\ge a)=0\) for every
+\(a>0\); the inequality holds with equality.  
+Henceforth assume \(a>0\) and that \(X\) is an arbitrary non‑negative random
+variable (not identically zero).
+
+\paragraph{2. Indicator of the event \(\{X\ge a\}\).}  
+Define the indicator function
+\[
+\mathbf{1}_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2mm]
+0, & X(\omega)< a,
+\end{cases}
+\qquad (\omega\in\Omega).
+\]
+Since \(\{X\ge a\}\in\mathcal{F}\), this function is measurable.
+
+\paragraph{3. Pointwise bound.}  
+For every \(\omega\in\Omega\) we have
+\begin{equation}
+\mathbf{1}_{\{X\ge a\}}(\omega)\;\le\;\frac{X(\omega)}{a}. \tag{1}
+\end{equation}
+Indeed, if \(X(\omega)<a\) then the left–hand side is \(0\le X(\omega)/a\);
+if \(X(\omega)\ge a\) then \(X(\omega)/a\ge1\), whence \(1\le X(\omega)/a\).
+
+\paragraph{4. Taking expectations.}  
+Because (1) holds pointwise, the monotonicity of the Lebesgue integral gives
+\[
+\mathbb{E}\bigl[\mathbf{1}_{\{X\ge a\}}\bigr]\;\le\;\mathbb{E}\!\left[\frac{X}{a}\right].
+\]
+Linearity of the expectation allows us to pull out the constant \(1/a\):
+\begin{equation}
+\mathbb{E}\bigl[\mathbf{1}_{\{X\ge a\}}\bigr]\;\le\;\frac{1}{a}\,\mathbb{E}[X]. \tag{2}
+\end{equation}
+
+\paragraph{5. Identification of the left‑hand side.}  
+For any event \(A\in\mathcal{F}\),
+\[
+\mathbb{E}\bigl[\mathbf{1}_{A}\bigr]=\mathbb{P}(A).
+\]
+With \(A=\{X\ge a\}\) we obtain
+\[
+\mathbb{E}\bigl[\mathbf{1}_{\{X\ge a\}}\bigr]=\mathbb{P}\bigl(X\ge a\bigr).
+\]
+Substituting this into (2) yields the desired inequality
+\[
+\boxed{\;\mathbb{P}\bigl(X\ge a\bigr)\le\frac{\mathbb{E}[X]}{a}\;}.
+\]
+
+\paragraph{6. Equality conditions.}  
+Equality in (2) can occur only if every inequality used in the proof is an
+equality.
+
+\begin{enumerate}
+\item \textbf{Equality in the pointwise bound \eqref{1}.}  
+    This requires
+    \begin{equation}
+    \mathbf{1}_{\{X\ge a\}}(\omega)=\frac{X(\omega)}{a}
+    \quad\text{for }\mathbb{P}\text{-a.e. }\omega. \tag{3}
+    \end{equation}
+\item \textbf{Solving \eqref{3}.}  
+    If \(X(\omega)<a\), then \eqref{3} forces \(X(\omega)=0\).  
+    If \(X(\omega)\ge a\), then \eqref{3} forces \(X(\omega)=a\).
+    Hence \eqref{3} holds a.s. iff \(X\) takes only the two values \(0\) and
+    \(a\) (with arbitrary probabilities).  Formally,
+    \begin{equation}
+    \mathbb{P}\bigl(X\in\{0,a\}\bigr)=1. \tag{4}
+    \end{equation}
+    The degenerate case \(X\equiv0\) is included in (4) by allowing the
+    probability of the value \(a\) to be zero.
+\end{enumerate}
+Thus equality in Markov’s inequality holds exactly when \(X\) is almost surely
+supported on \(\{0,a\}\).
+
+\end{proof}

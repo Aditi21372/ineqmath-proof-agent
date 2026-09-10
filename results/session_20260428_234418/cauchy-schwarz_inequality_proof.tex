@@ -1,0 +1,70 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Notation.}  
+Let
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n},
+\]
+and set
+\[
+A=\sum_{i=1}^{n}a_{i}^{2},\qquad 
+B=\sum_{i=1}^{n}b_{i}^{2},\qquad 
+C=\sum_{i=1}^{n}a_{i}b_{i}.
+\]
+
+\item \textbf{Degenerate case.}  
+If \(B=0\) then every \(b_{i}=0\); consequently \(C=0\) and \(AB=0\). Hence
+\[
+\bigl(\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}=0=AB,
+\]
+so the inequality holds with equality. In the sequel we assume \(B>0\).
+
+\item \textbf{Quadratic construction.}  
+For a real parameter \(t\) consider
+\[
+Q(t)=\sum_{i=1}^{n}(a_{i}-t b_{i})^{2}.
+\]
+Each term is a square, therefore \(Q(t)\ge 0\) for all \(t\in\mathbb R\).
+
+\item \textbf{Expansion.}  
+Expanding gives
+\begin{align*}
+Q(t) &=\sum_{i=1}^{n}\bigl(a_{i}^{2}-2t a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)\\
+     &=A-2Ct+Bt^{2}.
+\end{align*}
+Thus \(Q(t)=Bt^{2}-2Ct+A\) is a quadratic polynomial with leading coefficient \(B>0\).
+
+\item \textbf{Discriminant argument.}  
+A quadratic \(Bt^{2}-2Ct+A\) that is non‑negative for every real \(t\) must have non‑positive discriminant:
+\[
+\Delta =(-2C)^{2}-4BA =4\bigl(C^{2}-AB\bigr)\le 0.
+\]
+Hence \(C^{2}\le AB\).
+
+\item \textbf{Desired inequality.}  
+Since \(C=\sum_{i=1}^{n}a_{i}b_{i}\), \(A=\sum_{i=1}^{n}a_{i}^{2}\) and \(B=\sum_{i=1}^{n}b_{i}^{2}\), the inequality \(C^{2}\le AB\) is exactly
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\]
+
+\item \textbf{Equality condition.}  
+Equality occurs iff \(\Delta =0\), i.e. \(C^{2}=AB\). With \(B>0\) this means the quadratic \(Q(t)\) has a double root, so
+\[
+t_{0}= \frac{C}{B}
+\]
+satisfies \(a_{i}=t_{0}b_{i}\) for every \(i\); that is, \(\mathbf a\) is a scalar multiple of \(\mathbf b\).  
+In the degenerate case \(B=0\) we already have equality. Hence equality holds precisely when \(\mathbf b=0\) or \(\mathbf a\) and \(\mathbf b\) are linearly dependent (one is a scalar multiple of the other).
+
+\item \textbf{Conclusion.}  
+For any real sequences \((a_{i})_{i=1}^{n}\) and \((b_{i})_{i=1}^{n}\) we have
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr),
+\]
+with equality exactly in the cases described above. \(\square\)
+\end{enumerate}
+\end{proof}

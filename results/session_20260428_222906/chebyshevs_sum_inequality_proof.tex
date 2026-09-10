@@ -1,0 +1,91 @@
+\begin{theorem}[Chebyshev’s sum inequality]
+Let  
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad 
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers. Then  
+\[
+n\sum_{i=1}^{n}a_i b_i\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i\Bigr),
+\tag{1}
+\]
+with equality iff at least one of the two sequences is constant
+($a_{1}=a_{2}= \dots =a_{n}$ or $b_{1}=b_{2}= \dots =b_{n}$).
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate cases.}  
+If $n=1$ both sides of \eqref{1} coincide, so the inequality holds with equality.  
+If all $a_i$ are equal, say $a_i\equiv c$, then the left–hand side of \eqref{1} is $nc\sum b_i$ and the right–hand side is $c\sum b_i\cdot n$, which are identical; the same argument applies when all $b_i$ are equal. Hence the statement is true in these degenerate situations.  
+In the sequel we assume $n\ge2$ and that neither sequence is constant.
+
+\medskip\noindent\textbf{2. Algebraic reformulation.}  
+Set  
+\[
+\bar a:=\frac1n\sum_{i=1}^{n}a_i,\qquad 
+\bar b:=\frac1n\sum_{i=1}^{n}b_i .
+\]
+Then
+\begin{align*}
+n\sum_{i=1}^{n}a_i b_i-\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)
+&=n\sum_{i=1}^{n}a_i b_i-n^{2}\bar a\,\bar b   \\
+&=n\Bigl[\sum_{i=1}^{n}a_i b_i-n\bar a\,\bar b\Bigr].
+\end{align*}
+Moreover
+\[
+\sum_{i=1}^{n}(a_i-\bar a)(b_i-\bar b)
+   =\sum_{i=1}^{n}a_i b_i-n\bar a\,\bar b .
+\]
+Consequently
+\begin{equation}
+n\sum_{i=1}^{n}a_i b_i-\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)
+   =n\sum_{i=1}^{n}(a_i-\bar a)(b_i-\bar b).
+\tag{2}
+\end{equation}
+Since $n>0$, inequality \eqref{1} is equivalent to
+\begin{equation}
+\sum_{i=1}^{n}(a_i-\bar a)(b_i-\bar b)\ge0 .
+\tag{3}
+\end{equation}
+Define the centred sequences
+\[
+\alpha_i:=a_i-\bar a,\qquad \beta_i:=b_i-\bar b\qquad(i=1,\dots ,n).
+\]
+Subtracting a constant does not change the order, so
+\[
+\alpha_1\le\alpha_2\le\cdots\le\alpha_n,\qquad 
+\beta_1\le\beta_2\le\cdots\le\beta_n .
+\]
+Thus $(\alpha_i)$ and $(\beta_i)$ are **similarly ordered**.
+
+\medskip\noindent\textbf{3. Application of the rearrangement inequality.}  
+The rearrangement inequality states that for any permutation $\sigma$ of $\{1,\dots ,n\}$,
+\begin{equation}
+\sum_{i=1}^{n}\alpha_i\beta_i
+   \;\ge\;\frac1{n!}\sum_{\sigma}\sum_{i=1}^{n}\alpha_i\beta_{\sigma(i)} .
+\tag{4}
+\end{equation}
+Because the centred sequences have zero sum,
+\[
+\sum_{i=1}^{n}\alpha_i=0=\sum_{i=1}^{n}\beta_i,
+\]
+the inner double sum equals $0$, and therefore the right–hand side of \eqref{4} is $0$. Hence
+\[
+\sum_{i=1}^{n}\alpha_i\beta_i\ge0 .
+\]
+Using the definitions of $\alpha_i,\beta_i$ this is precisely \eqref{3}, and by \eqref{2} we obtain \eqref{1}.
+
+\medskip\noindent\textbf{4. Equality condition.}  
+Equality in the rearrangement inequality occurs iff the two sequences are equal up to a permutation or one of them is constant.  
+Since $\sum\alpha_i=0=\sum\beta_i$, the “equal up to a permutation’’ case forces every $\alpha_i$ and $\beta_i$ to be zero; otherwise the sum $\sum\alpha_i\beta_i$ could not be zero. Hence equality in \eqref{3} (and thus in \eqref{1}) holds precisely when
+
+\begin{itemize}
+\item all $\alpha_i=0$, i.e. $a_1=a_2=\dots =a_n$, or
+\item all $\beta_i=0$, i.e. $b_1=b_2=\dots =b_n$.
+\end{itemize}
+These are exactly the cases stated in the theorem (the case $n=1$ being included).
+
+\qed
+\end{proof}

@@ -1,0 +1,73 @@
+\begin{proof}
+\textbf{Theorem (Cauchy–Schwarz Inequality).}  
+For real numbers $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$,
+\[
+\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)^{2}\le
+\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr).
+\]
+Equality holds iff there exists a constant $\lambda$ such that $a_{i}= \lambda b_{i}$ for every $i$ (the degenerate case $b_{1}= \dots =b_{n}=0$ is included).
+
+\medskip
+\textbf{1. Construction of a non‑negative quadratic form.}  
+Define
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_{i}-t b_{i}\bigr)^{2},\qquad t\in\mathbb{R}.
+\]
+Each summand is a square, hence $f(t)\ge0$ for all real $t$.
+
+\medskip
+\textbf{2. Expansion of $f(t)$.}  
+Using the identity $(x-y)^{2}=x^{2}-2xy+y^{2}$ we obtain
+\begin{align*}
+f(t)
+&=\sum_{i=1}^{n}\Bigl(a_{i}^{2}-2t a_{i}b_{i}+t^{2}b_{i}^{2}\Bigr)\\
+&=\underbrace{\sum_{i=1}^{n} b_{i}^{2}}_{A}\,t^{2}
+   \;-\;2\underbrace{\sum_{i=1}^{n} a_{i}b_{i}}_{\displaystyle \frac{-B}{2}}\,t
+   \;+\;\underbrace{\sum_{i=1}^{n} a_{i}^{2}}_{C}.
+\end{align*}
+Thus the quadratic coefficients are
+\[
+A=\sum_{i=1}^{n} b_{i}^{2},\qquad
+B=-2\sum_{i=1}^{n} a_{i}b_{i},\qquad
+C=\sum_{i=1}^{n} a_{i}^{2},
+\]
+and $A\ge0$ because it is a sum of squares.
+
+\medskip
+\textbf{3. Application of the quadratic discriminant theorem.}  
+The discriminant theorem states: if a quadratic $A t^{2}+B t+C$ satisfies $A\ge0$ and $A t^{2}+B t+C\ge0$ for all $t\in\mathbb{R}$, then $B^{2}-4AC\le0$.  
+Since $f(t)=A t^{2}+B t+C\ge0$ for every $t$ and $A\ge0$, we have
+\[
+B^{2}-4AC\le0.
+\]
+Substituting the identified coefficients gives
+\[
+\bigl(-2\sum_{i=1}^{n} a_{i}b_{i}\bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr)
+        \Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)\le0.
+\]
+Dividing by $4$ yields the Cauchy–Schwarz inequality:
+\[
+\boxed{\;
+\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)
+   \Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr)\; }.
+\]
+
+\medskip
+\textbf{4. Degenerate case $A=0$.}  
+If $A=\sum_{i=1}^{n} b_{i}^{2}=0$, then each $b_{i}=0$. Both sides of the inequality are zero, so the inequality holds with equality. An analogous argument applies when $C=\sum_{i=1}^{n} a_{i}^{2}=0$.
+
+\medskip
+\textbf{5. Equality condition.}  
+The discriminant inequality becomes an equality precisely when $B^{2}-4AC=0$, i.e. when the quadratic $f(t)$ has a real root $t_{0}$. Hence $f(t_{0})=0$, which means
+\[
+\sum_{i=1}^{n}(a_{i}-t_{0}b_{i})^{2}=0.
+\]
+A sum of non‑negative squares can vanish only if each term is zero, so $a_{i}=t_{0}b_{i}$ for all $i$. Conversely, if $a_{i}=\lambda b_{i}$ for some constant $\lambda$, then $f(\lambda)=0$, the discriminant is zero, and equality holds in the Cauchy–Schwarz inequality. Thus equality occurs iff the vectors $(a_{1},\dots ,a_{n})$ and $(b_{1},\dots ,b_{n})$ are proportional (including the trivial case where one vector is the zero vector).
+
+\medskip
+\textbf{Conclusion.}  
+The Cauchy–Schwarz inequality holds for all real sequences $(a_i)$ and $(b_i)$, with equality precisely in the proportional case described above. \qed
+\end{proof}

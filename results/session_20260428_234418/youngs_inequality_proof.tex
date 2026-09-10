@@ -1,0 +1,42 @@
+\begin{proof}
+\textbf{Degenerate cases.}
+If \(a=0\) or \(b=0\) then \(ab=0\) while \(\dfrac{a^{p}}{p}+\dfrac{b^{q}}{q}\ge 0\); the inequality holds with equality. Hence we assume \(a>0\) and \(b>0\) for the remainder of the proof.
+
+\textbf{Weighted AM–GM inequality.}
+Let \(\lambda\in[0,1]\) and \(u,v\ge 0\).  
+Since \(\log t\) is concave on \((0,\infty)\), Jensen’s inequality gives
+\[
+\lambda\log u+(1-\lambda)\log v\le \log\bigl(\lambda u+(1-\lambda)v\bigr).
+\]
+Exponentiating (the exponential function is monotone increasing) yields
+\begin{align*}
+u^{\lambda}v^{\,1-\lambda}\le \lambda u+(1-\lambda)v . \tag{2}
+\end{align*}
+Equality in \((2)\) holds exactly when \(u=v\) (or when \(\lambda\in\{0,1\}\), which cannot occur here because \(p,q>1\)).
+
+\textbf{Choice of the weight.}
+Because \(\dfrac1p+\dfrac1q=1\) with \(p,q>1\), the numbers
+\[
+\lambda:=\frac1p,\qquad 1-\lambda:=\frac1q
+\]
+satisfy \(\lambda,1-\lambda\in(0,1)\) and \(\lambda+(1-\lambda)=1\).
+
+\textbf{Apply \((2)\) to \(u=a^{p}\) and \(v=b^{q}\).}
+Substituting \(u=a^{p}\), \(v=b^{q}\) and the above \(\lambda\) into \((2)\) we obtain
+\begin{align*}
+(a^{p})^{1/p}\,(b^{q})^{1/q}
+\le \frac1p\,a^{p}+\frac1q\,b^{q}.
+\end{align*}
+
+\textbf{Simplify the left‑hand side.}
+Since \((a^{p})^{1/p}=a\) and \((b^{q})^{1/q}=b\),
+\[
+ab\le \frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+which is the desired inequality.
+
+\textbf{Equality condition.}
+Equality in the weighted AM–GM step \((2)\) occurs precisely when \(a^{p}=b^{q}\).  
+When \(a=b=0\) both sides of Young’s inequality are zero and the condition \(a^{p}=b^{q}=0\) is satisfied.  
+Consequently, equality holds \emph{iff} \(a^{p}=b^{q}\) (including the trivial zero case).
+\end{proof}

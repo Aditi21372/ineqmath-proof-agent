@@ -1,0 +1,101 @@
+\begin{theorem}[Triangle Inequality]
+Let \(V\) be an inner‑product space over \(\mathbb{R}\) or \(\mathbb{C}\) with inner product \(\langle\cdot,\cdot\rangle\) and norm \(\|v\|:=\sqrt{\langle v,v\rangle}\).
+For all \(x,y\in V\) one has  
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Degenerate cases.}  
+If \(x=0\) then \(\|x+y\|=\|y\|=\|0\|+\|y\|\).  
+If \(y=0\) the same argument gives \(\|x+0\|=\|x\|=\|x\|+\|0\|\).  
+Hence the inequality holds (with equality) when either vector is the zero vector.
+In the sequel we assume \(\,x\neq0\) and \(y\neq0\).
+
+\medskip
+\textbf{Squaring the inequality.}  
+Since norms are non‑negative, \(\|x+y\|\le\|x\|+\|y\|\) is equivalent to  
+\[
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}. \tag{1}
+\]
+
+Using the definition of the norm we expand each side.
+
+\noindent\textit{Left‑hand side:}
+\begin{align*}
+\|x+y\|^{2}
+   &=\langle x+y,\,x+y\rangle\\
+   &=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\\
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}. \tag{2}
+\end{align*}
+(The equality \(\langle x,y\rangle+\langle y,x\rangle
+   =2\operatorname{Re}\langle x,y\rangle\) follows from conjugate‑symmetry.)
+
+\noindent\textit{Right‑hand side:}
+\begin{align}
+(\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}. \tag{3}
+\end{align}
+
+\medskip
+\textbf{Application of Cauchy–Schwarz.}  
+For all \(u,v\in V\),
+\[
+|\langle u,v\rangle|\le\|u\|\,\|v\|,
+\]
+with equality iff \(u\) and \(v\) are linearly dependent.
+Consequently,
+\[
+\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|
+                                 \le \|x\|\,\|y\|. \tag{4}
+\]
+
+\medskip
+\textbf{Deriving the squared inequality.}  
+Insert the bound (4) into (2):
+\begin{align*}
+\|x+y\|^{2}
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}\\
+   &\le\|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}\qquad\text{by (4)}\\
+   &= (\|x\|+\|y\|)^{2} \qquad\text{by (3)}.
+\end{align*}
+Thus (1) holds:
+\[
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\]
+
+\medskip
+\textbf{Taking square roots.}  
+Both sides of the previous inequality are non‑negative, so taking the
+(non‑negative) square root yields
+\[
+\|x+y\|\le\|x\|+\|y\|.
+\]
+
+\medskip
+\textbf{Equality case.}  
+Equality can occur only if every inequality used above is an equality.
+The algebraic expansions (2)–(3) are identities; the potentially strict step
+is the Cauchy–Schwarz estimate (4). Hence equality requires
+\[
+|\langle x,y\rangle|=\|x\|\,\|y\|\quad\text{and}\quad
+\operatorname{Re}\langle x,y\rangle=|\langle x,y\rangle|.
+\]
+
+The first condition is the equality case of Cauchy–Schwarz, i.e. \(x\) and
+\(y\) are linearly dependent: \(y=\lambda x\) for some scalar \(\lambda\) (or one
+vector is zero). The second condition forces \(\langle x,y\rangle\) to be a
+non‑negative real number, which implies that \(\lambda\) is a non‑negative real
+scalar.  
+
+Thus equality holds \emph{iff}
+\begin{itemize}
+\item \(x=0\) or \(y=0\), or
+\item there exists \(\lambda\ge0\) such that \(y=\lambda x\) (the vectors are
+positively collinear).
+\end{itemize}
+
+Therefore, for any vectors \(x,y\in V\) the triangle inequality
+\(\|x+y\|\le\|x\|+\|y\|\) holds, with equality precisely in the cases
+described above. \(\square\)
+\end{proof}

@@ -1,0 +1,118 @@
+\begin{proof}
+\textbf{Theorem (Jensen’s Inequality).}
+Let $f:\mathbb R\to\mathbb R$ be convex.  
+For real numbers $x_{1},\dots ,x_{n}$ and weights $\lambda_{1},\dots ,\lambda_{n}$ satisfying  
+\[
+\lambda_{i}\ge 0\;(i=1,\dots ,n),\qquad 
+\sum_{i=1}^{n}\lambda_{i}=1,
+\]
+we have
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\Bigr)\;\le\;
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}).\tag{1}
+\]
+
+\medskip
+\textbf{1. Base case $n=2.}
+Write $\lambda_{1}=t$ and $\lambda_{2}=1-t$ with $t\in[0,1]$.  
+Convexity of $f$ gives
+\begin{align*}
+f\bigl(t x_{1}+(1-t)x_{2}\bigr)\le t\,f(x_{1})+(1-t)\,f(x_{2}).\tag{2}
+\end{align*}
+Taking $t=\lambda_{1}$ yields \eqref{1} for $n=2$.
+
+\medskip
+\textbf{2. Induction hypothesis.}
+Assume that \eqref{1} holds for every collection of $k$ points with any non‑negative
+weights summing to $1$, for all $k\le n-1$ (with $n\ge3$).
+
+\medskip
+\textbf{3. Induction step (the case of $n$ points).}
+Let $\lambda_{1},\dots ,\lambda_{n}$ be as in the statement and set
+\[
+\mu:=\sum_{i=1}^{n-1}\lambda_{i}.
+\]
+
+\medskip
+\textbf{3.1 Degenerate sub‑case $\mu=0$.}
+If $\mu=0$ then $\lambda_{i}=0$ for $i=1,\dots ,n-1$ and $\lambda_{n}=1$, so both
+sides of \eqref{1} reduce to $f(x_{n})$ and the inequality holds with equality.
+
+\medskip
+\textbf{3.2 Non‑degenerate sub‑case $\mu>0$.}
+Define normalised weights for the first $n-1$ points
+\[
+\alpha_{i}:=\frac{\lambda_{i}}{\mu},\qquad i=1,\dots ,n-1,
+\]
+so that $\alpha_{i}\ge0$ and $\sum_{i=1}^{n-1}\alpha_{i}=1$.
+Set
+\[
+y:=\sum_{i=1}^{n-1}\alpha_{i}x_{i}.
+\]
+Then $\mu y=\sum_{i=1}^{n-1}\lambda_{i}x_{i}$.
+
+Applying the induction hypothesis to the points $(x_{i})_{i=1}^{n-1}$ with
+weights $(\alpha_{i})$ yields
+\begin{align*}
+f(y)\le \sum_{i=1}^{n-1}\alpha_{i}f(x_{i}).\tag{3}
+\end{align*}
+Multiplying \eqref{3} by the positive scalar $\mu$ gives
+\begin{align*}
+\mu f(y)\le \sum_{i=1}^{n-1}\lambda_{i}f(x_{i}).\tag{4}
+\end{align*}
+
+Since $\mu+\lambda_{n}=1$ and $\mu\in[0,1]$, convexity applied to the two points
+$y$ and $x_{n}$ with weights $\mu$ and $\lambda_{n}$ yields
+\begin{align*}
+f\!\bigl(\mu y+\lambda_{n}x_{n}\bigr)\le
+\mu f(y)+\lambda_{n}f(x_{n}).\tag{5}
+\end{align*}
+Because $\mu y=\sum_{i=1}^{n-1}\lambda_{i}x_{i}$, the left–hand side of \eqref{5}
+is $f\!\bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\bigr)$.  Substituting \eqref{4} into the
+right–hand side of \eqref{5} we obtain
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\Bigr)
+\le
+\sum_{i=1}^{n-1}\lambda_{i}f(x_{i})+\lambda_{n}f(x_{n})
+=
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}),
+\]
+which is exactly \eqref{1} for $n$ points.  This completes the induction.
+
+\medskip
+\textbf{4. Equality condition.}
+Equality in \eqref{1} can occur only when equality holds in every convexity
+application used above.
+
+\begin{itemize}
+\item In the base case $n=2$, equality in \eqref{2} holds precisely when either
+  $t=0$, $t=1$ (i.e. one weight is zero) \emph{or} $f$ is affine on the segment
+  $[x_{1},x_{2}]$ (the latter includes $x_{1}=x_{2}$ when $f$ is strictly convex).
+
+\item In the induction step, the second convexity application \eqref{5} is an
+  equality iff either $\mu=0$ or $\lambda_{n}=0$ (so the combination reduces to a
+  single point) \emph{or} $f$ is affine on the segment $[y,x_{n}]$.
+\end{itemize}
+Consequently, equality in \eqref{1} holds exactly in one of the following
+situations:
+
+\begin{enumerate}
+\item \textbf{Trivial concentration of weight:} there exists $k$ with
+  $\lambda_{k}=1$ and $\lambda_{i}=0$ for $i\neq k$; both sides equal $f(x_{k})$.
+
+\item \textbf{All positively‑weighted points coincide:} if $\lambda_{i}>0$ and
+  $\lambda_{j}>0$ then $x_{i}=x_{j}$.  The convex combination reduces to that common
+  value, giving equality.
+
+\item \textbf{Affineness of $f$ on the relevant convex hull:} the restriction of
+  $f$ to the convex hull of $\{x_{i}:\lambda_{i}>0\}$ is affine (linear).  This
+  includes the case where $f$ is globally affine.
+\end{enumerate}
+These possibilities are exhaustive; each indeed yields equality in \eqref{1}.
+
+\medskip
+Thus for any convex $f$, any real numbers $x_{1},\dots ,x_{n}$, and any
+non‑negative weights $\lambda_{1},\dots ,\lambda_{n}$ summing to $1$, Jensen’s
+inequality \eqref{1} holds, with equality precisely in the cases described
+above. \qed
+\end{proof}

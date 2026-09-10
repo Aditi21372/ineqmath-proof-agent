@@ -1,0 +1,81 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Degenerate cases.}  
+If \(n=1\) the statement reads \(a_{1}b_{1}\ge a_{1}b_{1}\), which holds with equality.  
+If the \(a\)-sequence is constant, say \(a_{i}=c\) for all \(i\), then
+\[
+n\sum_{i=1}^{n}a_i b_i
+   = n c\sum_{i=1}^{n} b_i
+   =\Bigl(\sum_{i=1}^{n} a_i\Bigr)\Bigl(\sum_{i=1}^{n} b_i\Bigr),
+\]
+so the inequality is an equality.  The same argument applies when the \(b\)-sequence is constant.  
+Hence we may assume \(n\ge2\) and that neither sequence is identically constant.
+
+\item \textbf{Pairwise non‑negativity.}  
+For any indices \(i<j\) we have \(a_i\le a_j\) and \(b_i\le b_j\); therefore
+\[
+(a_i-a_j)(b_i-b_j)\ge0. \tag{1}
+\]
+
+\item \textbf{Summing over all pairs.}  
+Summing \((1)\) over all unordered pairs \((i,j)\) with \(1\le i<j\le n\) gives
+\[
+\sum_{1\le i<j\le n}(a_i-a_j)(b_i-b_j)\ge0. \tag{2}
+\]
+
+\item \textbf{Algebraic identity.}  
+For a fixed pair \((i,j)\),
+\[
+(a_i-a_j)(b_i-b_j)=a_i b_i + a_j b_j - a_i b_j - a_j b_i .
+\]
+Summing this expression over all \(i<j\) yields
+\begin{align*}
+\sum_{i<j}(a_i-a_j)(b_i-b_j)
+&= \underbrace{\sum_{i<j}(a_i b_i + a_j b_j)}_{\text{each }a_k b_k\text{ appears }n-1\text{ times}}
+   -\underbrace{\sum_{i<j}(a_i b_j + a_j b_i)}_{\text{each }a_k b_\ell\;(k\neq\ell)\text{ appears once}} \\[4pt]
+&= (n-1)\sum_{k=1}^{n}a_k b_k
+   -\Bigl(\sum_{k=1}^{n}a_k\Bigr)\Bigl(\sum_{\ell=1}^{n}b_\ell\Bigr)
+   +\sum_{k=1}^{n}a_k b_k \\[4pt]
+&= n\sum_{k=1}^{n}a_k b_k
+   -\Bigl(\sum_{k=1}^{n}a_k\Bigr)\Bigl(\sum_{\ell=1}^{n}b_\ell\Bigr). \tag{3}
+\end{align*}
+The counting argument above is valid for every integer \(n\ge2\).
+
+\item \textbf{Chebyshev’s inequality.}  
+Insert \((3)\) into \((2)\):
+\[
+0\le
+n\sum_{i=1}^{n}a_i b_i
+-\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr).
+\]
+Rearranging gives the desired inequality
+\[
+n\sum_{i=1}^{n}a_i b_i\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr). \tag{4}
+\]
+
+\item \textbf{Equality condition.}  
+Equality in \((4)\) can occur only if equality holds in every instance of \((1)\), because \((2)\) is a sum of non‑negative terms.  
+For a particular pair \((i,j)\) we have equality in \((1)\) precisely when \(a_i=a_j\) \emph{or} \(b_i=b_j\).  
+Thus equality in the whole sum \((2)\) forces either
+
+\begin{itemize}
+\item \(a_i=a_j\) for all \(i,j\) (the \(a\)-sequence is constant), or
+\item \(b_i=b_j\) for all \(i,j\) (the \(b\)-sequence is constant).
+\end{itemize}
+The case \(n=1\) is included in both possibilities. Hence equality holds \emph{iff} one of the two sequences is constant.
+
+\item \textbf{Conclusion.}  
+For any integer \(n\ge1\) and any real numbers
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad
+b_{1}\le b_{2}\le\cdots\le b_{n},
+\]
+the inequality
+\[
+n\sum_{i=1}^{n} a_i b_i\;\ge\;
+\Bigl(\sum_{i=1}^{n} a_i\Bigr)\Bigl(\sum_{i=1}^{n} b_i\Bigr)
+\]
+holds, with equality exactly when the \(a\)-sequence or the \(b\)-sequence is constant (including the trivial case \(n=1\)). \(\square\)
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,91 @@
+\begin{proof}
+\textbf{Step 1. Degenerate cases.}  
+If \(S_{b^{2}}=0\) then each \(b_{i}=0\); consequently \(S_{ab}=0\) and
+\[
+(S_{ab})^{2}=0\le S_{a^{2}}\,S_{b^{2}}=0 .
+\]
+The same argument works when \(S_{a^{2}}=0\). Hence the inequality is trivial
+in these cases. In what follows we assume
+\[
+S_{a^{2}}>0,\qquad S_{b^{2}}>0 .
+\]
+
+\textbf{Step 2. An auxiliary quadratic function.}  
+Define
+\[
+Q(t)=\sum_{i=1}^{n}\bigl(a_{i}-t\,b_{i}\bigr)^{2},\qquad t\in\mathbb{R}.
+\]
+Expanding each term,
+\[
+(a_{i}-t b_{i})^{2}=a_{i}^{2}-2t\,a_{i}b_{i}+t^{2}b_{i}^{2},
+\]
+and summing over \(i\) gives
+\begin{align*}
+Q(t)&=\sum_{i=1}^{n}a_{i}^{2}
+      -2t\sum_{i=1}^{n}a_{i}b_{i}
+      +t^{2}\sum_{i=1}^{n}b_{i}^{2}  \\
+    &=S_{a^{2}}-2t\,S_{ab}+t^{2}S_{b^{2}}.\tag{2.1}
+\end{align*}
+Since each summand \((a_{i}-t b_{i})^{2}\) is non‑negative,
+\[
+Q(t)\ge0\qquad\text{for every }t\in\mathbb{R}.\tag{2.2}
+\]
+
+\textbf{Step 3. Discriminant argument.}  
+Equation \((2.1)\) shows that \(Q(t)\) is a quadratic polynomial in \(t\) with
+\[
+A=S_{b^{2}},\qquad B=-2S_{ab},\qquad C=S_{a^{2}}.
+\]
+Because \(A>0\) and \(Q(t)\ge0\) for all real \(t\), the discriminant must be
+non‑positive:
+\[
+B^{2}-4AC\le0 .
+\]
+Explicitly,
+\[
+(-2S_{ab})^{2}-4\,S_{b^{2}}\,S_{a^{2}}
+=4\bigl(S_{ab}^{2}-S_{a^{2}}S_{b^{2}}\bigr)\le0 .
+\]
+Dividing by the positive number \(4\) yields
+\[
+S_{ab}^{2}\le S_{a^{2}}\,S_{b^{2}}.\tag{3.1}
+\]
+This is precisely the Cauchy–Schwarz inequality
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+   \Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\]
+
+\textbf{Step 4. Equality condition.}  
+Equality in \((3.1)\) occurs exactly when the discriminant is zero, i.e.
+\(B^{2}-4AC=0\). In this case the quadratic \(Q(t)\) has the unique real root
+\[
+t_{0}= -\frac{B}{2A}= \frac{S_{ab}}{S_{b^{2}}}.
+\]
+Evaluating \(Q\) at \(t_{0}\) using \((2.1)\),
+\[
+Q(t_{0})=\frac{S_{a^{2}}S_{b^{2}}-S_{ab}^{2}}{S_{b^{2}}}=0 .
+\]
+Since each term \((a_{i}-t_{0}b_{i})^{2}\) is non‑negative, \(Q(t_{0})=0\)
+forces
+\[
+a_{i}=t_{0}\,b_{i}\qquad\text{for all }i=1,\dots ,n.
+\]
+Thus equality holds iff the vectors \((a_{1},\dots ,a_{n})\) and
+\((b_{1},\dots ,b_{n})\) are linearly dependent, i.e. one is a scalar multiple
+of the other. The degenerate cases \(S_{a^{2}}=0\) or \(S_{b^{2}}=0\) fit this
+description because the zero vector is a multiple of every vector.
+
+\textbf{Step 5. Conclusion.}  
+For all real sequences \(\{a_{i}\},\{b_{i}\}\) we have
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+   \Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr),
+\]
+with equality if and only if the two vectors are linearly dependent (including
+the trivial zero‑vector cases). \(\square\)
+\end{proof}

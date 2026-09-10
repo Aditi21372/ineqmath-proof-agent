@@ -1,0 +1,66 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Degenerate / edge cases.}  
+If $x=0$ then $\|x+y\|=\|y\|=\|0\|+\|y\|$; similarly if $y=0$. Hence the inequality holds with equality. From now on assume $x\neq0$ and $y\neq0$.
+
+\item \textbf{Squaring the inequality.}  
+The norm is non‑negative, so $\|x+y\|\le\|x\|+\|y\|$ is equivalent to
+\begin{align*}
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}. \tag{1}
+\end{align*}
+
+\item \textbf{Expansion of $\|x+y\|^{2}$.}  
+Using sesquilinearity of the inner product (linearity in the first argument, conjugate‑linearity in the second) we have
+\begin{align*}
+\|x+y\|^{2}
+&=\langle x+y,\;x+y\rangle \\[2mm]
+&=\langle x,x\rangle+\langle y,y\rangle+\langle x,y\rangle+\langle y,x\rangle \\[2mm]
+&=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\tag{2}
+\end{align*}
+
+\item \textbf{Cauchy–Schwarz inequality.}  
+For any $x,y\in V$,
+\begin{align*}
+|\langle x,y\rangle|\le\|x\|\,\|y\|,
+\tag{3}
+\end{align*}
+with equality iff $x$ and $y$ are linearly dependent. Since $\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|$, we obtain
+\begin{align*}
+\operatorname{Re}\langle x,y\rangle\le\|x\|\,\|y\|.
+\tag{4}
+\end{align*}
+
+\item \textbf{Substitution into (2).}  
+Inserting the bound (4) into (2) gives
+\begin{align*}
+\|x+y\|^{2}
+&\le\|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2} \\
+&=(\|x\|+\|y\|)^{2}.
+\tag{5}
+\end{align*}
+Inequality (5) is precisely (1).
+
+\item \textbf{Taking square roots.}  
+Both sides of (5) are non‑negative, therefore
+\[
+\|x+y\|\le\|x\|+\|y\|.
+\]
+
+\item \textbf{Equality condition.}  
+Equality in the final inequality requires equality in every intermediate step:
+\begin{itemize}
+\item Equality in (4) forces $|\langle x,y\rangle|=\|x\|\,\|y\|$, which by the equality case of Cauchy–Schwarz means $y=\lambda x$ for some scalar $\lambda$.
+\item Moreover we need $\operatorname{Re}\langle x,y\rangle=|\langle x,y\rangle|$. If $y=\lambda x$ then $\langle x,y\rangle=\lambda\langle x,x\rangle=\lambda\|x\|^{2}$, so $\operatorname{Re}\langle x,y\rangle=\operatorname{Re}(\lambda)\|x\|^{2}$ and $|\langle x,y\rangle|=|\lambda|\|x\|^{2}$. Equality of the real part with the modulus forces $\lambda$ to be a non‑negative real number.
+\end{itemize}
+Consequently,
+\[
+\|x+y\|=\|x\|+\|y\|
+\;\Longleftrightarrow\;
+\exists\,\lambda\ge0\ \text{such that } y=\lambda x
+\quad(\text{equivalently } x=\mu y,\ \mu\ge0).
+\]
+
+Thus the triangle inequality holds for all vectors in an inner‑product space, and the equality case has been fully characterized. \qed
+\end{enumerate}
+\end{proof}

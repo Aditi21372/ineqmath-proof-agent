@@ -1,0 +1,104 @@
+\begin{theorem}[Markov’s inequality]
+Let \((\Omega,\mathcal F,\mathbb P)\) be a probability space and let
+\(X:\Omega\to[0,\infty]\) be a non‑negative random variable.  
+For any real number \(a>0\),
+
+\[
+\mathbb P\bigl(X\ge a\bigr)\le \frac{\mathbb E[X]}{a}.
+\]
+
+Moreover,
+
+\[
+\mathbb P\bigl(X\ge a\bigr)=\frac{\mathbb E[X]}{a}
+\quad\Longleftrightarrow\quad
+\mathbb P\bigl(X\in\{0,a\}\bigr)=1 .
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Notation.}  
+For the fixed \(a>0\) define the indicator of the event \(\{X\ge a\}\) by
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\]
+
+\item \textbf{Pointwise elementary inequality.}  
+For every \(\omega\in\Omega\),
+\begin{align}
+a\,\mathbf 1_{\{X\ge a\}}(\omega)\le X(\omega). \tag{2.1}
+\end{align}
+Indeed, if \(X(\omega)\ge a\) the left‑hand side equals \(a\le X(\omega)\);  
+if \(X(\omega)<a\) the left‑hand side is \(0\le X(\omega)\) because \(X\ge0\).
+
+\item \textbf{Take expectations.}  
+Both sides of \eqref{2.1} are non‑negative, so by monotonicity of expectation
+(if \(Y\le Z\) a.s.\ then \(\mathbb E[Y]\le\mathbb E[Z]\)) we obtain
+\begin{align}
+a\,\mathbb E\!\bigl[\mathbf 1_{\{X\ge a\}}\bigr]\le\mathbb E[X]. \tag{3.1}
+\end{align}
+Linearity of expectation allows pulling the constant \(a\) out.
+
+\item \textbf{Identify the expectation of an indicator.}  
+For any event \(A\), \(\mathbb E[\mathbf 1_A]=\mathbb P(A)\).  Hence
+\begin{align}
+a\,\mathbb P(X\ge a)\le\mathbb E[X]. \tag{4.1}
+\end{align}
+
+\item \textbf{Divide by \(a>0\).}  
+Since \(a\) is positive,
+\[
+\mathbb P(X\ge a)\le\frac{\mathbb E[X]}{a},
+\]
+which is Markov’s inequality.
+
+\item \textbf{Equality condition.}  
+Equality in the final inequality can occur only if equality holds in every
+preceding step.
+
+\begin{itemize}
+\item \emph{Equality in \eqref{2.1}.}  
+Equality a.s.\ in \eqref{2.1} means
+\[
+a\,\mathbf 1_{\{X\ge a\}}(\omega)=X(\omega)\qquad\text{for }\mathbb P\text{-a.e.\ }\omega,
+\]
+i.e.
+\[
+X(\omega)=
+\begin{cases}
+a, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\tag{6.1}
+\]
+Thus \(X\) takes only the two values \(0\) and \(a\) (almost surely).
+
+\item \emph{Equality in the monotonicity step \eqref{3.1}.}  
+The inequality \(\mathbb E[Y]\le\mathbb E[Z]\) is an equality iff
+\(Y=Z\) \(\mathbb P\)-a.s.; hence \eqref{3.1} is an equality precisely when
+\eqref{6.1} holds, which is the same condition obtained from \eqref{2.1}.
+\end{itemize}
+
+Consequently,
+\[
+\mathbb P\bigl(X\ge a\bigr)=\frac{\mathbb E[X]}{a}
+\quad\Longleftrightarrow\quad
+\mathbb P\bigl(X\in\{0,a\}\bigr)=1 .
+\]
+
+\item \textbf{Conclusion.}  
+For any non‑negative random variable \(X\) and any \(a>0\),
+
+\[
+\mathbb P\bigl(X\ge a\bigr)\le\frac{\mathbb E[X]}{a},
+\]
+
+with equality exactly when \(X\) assumes only the values \(0\) and \(a\)
+almost surely. \(\qed\)
+\end{enumerate}
+\end{proof}

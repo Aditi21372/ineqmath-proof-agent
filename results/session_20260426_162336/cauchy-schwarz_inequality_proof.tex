@@ -1,0 +1,50 @@
+\begin{proof}
+Consider the quadratic
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_i-t b_i\bigr)^2\ge 0\qquad(t\in\mathbb R).
+\]
+
+Expanding we obtain
+\begin{align*}
+f(t)&=\sum_{i=1}^{n}\bigl(a_i^{2}-2t\,a_i b_i+t^{2}b_i^{2}\bigr)\\
+    &=\sum_{i=1}^{n}a_i^{2}-2t\sum_{i=1}^{n}a_i b_i
+      +t^{2}\sum_{i=1}^{n}b_i^{2}\\
+    &=C+Bt+At^{2},
+\end{align*}
+where
+\[
+A=\sum_{i=1}^{n}b_i^{2},\qquad
+B=-2\sum_{i=1}^{n}a_i b_i,\qquad
+C=\sum_{i=1}^{n}a_i^{2}.
+\]
+
+If $A>0$ (i.e. not all $b_i$ are zero), the quadratic $At^{2}+Bt+C$ is non‑negative for every real $t$, hence its discriminant must be non‑positive:
+\[
+B^{2}-4AC\le 0.
+\]
+If $A=0$ then $b_i=0$ for all $i$, and the inequality to be proved reduces to $0\le0$, which is true.
+
+Substituting the expressions for $A,B,C$ into the discriminant inequality yields
+\begin{align*}
+\bigl(-2\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+-4\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)
+   \Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)&\le 0,\\[4pt]
+\left(\sum_{i=1}^{n}a_i b_i\right)^{2}
+&\le\left(\sum_{i=1}^{n}a_i^{2}\right)
+   \left(\sum_{i=1}^{n}b_i^{2}\right),
+\end{align*}
+which is the Cauchy–Schwarz inequality.
+
+\medskip
+\textbf{Equality condition.} Equality holds exactly when the discriminant is zero.  
+For $A>0$ this means that $f(t)$ has a double root
+\[
+t_{0}=-\frac{B}{2A}
+     =\frac{\sum_{i=1}^{n}a_i b_i}{\sum_{i=1}^{n}b_i^{2}}.
+\]
+Since $f(t_{0})=0$ and each term $(a_i-t_{0}b_i)^{2}$ is non‑negative, every term must vanish; thus $a_i=t_{0}b_i$ for all $i$.  
+
+If $A=0$ (all $b_i=0$), the inequality is an equality for any $a_i$, which is also compatible with $a_i=\lambda b_i$ for arbitrary $\lambda$.
+
+Hence equality holds precisely when there exists $\lambda\in\mathbb R$ such that $a_i=\lambda b_i$ for every $i$.
+\end{proof}

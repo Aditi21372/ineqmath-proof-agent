@@ -1,0 +1,99 @@
+\begin{theorem}[Jensen’s Inequality]
+Let \(f:\mathbb R\to\mathbb R\) be convex; that is,
+\[
+\forall\,x,y\in\mathbb R,\ \forall\,t\in[0,1]:
+\quad f\big(tx+(1-t)y\big)\le t\,f(x)+(1-t)\,f(y). \tag{C}
+\]
+Let \(x_{1},\dots ,x_{n}\in\mathbb R\) and let weights \(\lambda_{1},\dots ,\lambda_{n}\) satisfy  
+\(\lambda_{i}\ge0\) for all \(i\) and \(\sum_{i=1}^{n}\lambda_{i}=1\).  
+Then
+\[
+f\!\Big(\sum_{i=1}^{n}\lambda_{i}x_{i}\Big)\le \sum_{i=1}^{n}\lambda_{i}f(x_{i}). \tag{J}
+\]
+\end{theorem}
+
+\begin{proof}
+\paragraph{1. Degenerate cases}  
+If \(\lambda_{k}=1\) for some index \(k\) (hence all other \(\lambda_{i}=0\)), then
+\[
+\sum_{i=1}^{n}\lambda_{i}x_{i}=x_{k},\qquad
+\sum_{i=1}^{n}\lambda_{i}f(x_{i})=f(x_{k}),
+\]
+so \((J)\) reduces to the identity \(f(x_{k})\le f(x_{k})\), which holds with equality.
+If any weight equals zero, the corresponding term disappears from both sides of \((J)\);
+therefore such indices may be omitted without affecting the statement.
+
+\paragraph{2. Base case \(n=2\)}  
+Let \(\lambda\in[0,1]\) and set \(\lambda_{1}=\lambda\), \(\lambda_{2}=1-\lambda\).
+Applying convexity \((C)\) with \(t=\lambda\), \(x=x_{1}\), \(y=x_{2}\) yields
+\[
+f(\lambda x_{1}+(1-\lambda)x_{2})
+\le \lambda f(x_{1})+(1-\lambda)f(x_{2}),
+\]
+which is exactly \((J)\) for \(n=2\).
+
+\paragraph{3. Inductive hypothesis}  
+Assume that for some integer \(m\ge2\) the inequality holds for every collection of
+\(m\) points with non‑negative weights summing to one:
+\[
+f\!\Big(\sum_{i=1}^{m}\lambda_{i}x_{i}\Big)
+\le \sum_{i=1}^{m}\lambda_{i}f(x_{i})
+\qquad
+\bigl(\lambda_{i}\ge0,\ \sum_{i=1}^{m}\lambda_{i}=1\bigr). \tag{IH}
+\]
+
+\paragraph{4. Inductive step \(m\to m+1\)}  
+Let \(\lambda_{1},\dots ,\lambda_{m+1}\ge0\) with \(\sum_{i=1}^{m+1}\lambda_{i}=1\) and set
+\(\mu:=\lambda_{m+1}\).
+
+If \(\mu=1\) we are back to the degenerate case.  
+Otherwise \(0\le\mu<1\). Define normalized weights for the first \(m\) indices:
+\[
+\alpha_{i}:=\frac{\lambda_{i}}{1-\mu},\qquad i=1,\dots ,m.
+\]
+Since \(\sum_{i=1}^{m}\lambda_{i}=1-\mu\), we have
+\[
+\alpha_{i}\ge0,\qquad \sum_{i=1}^{m}\alpha_{i}=1. \tag{4.1}
+\]
+
+Now rewrite the full convex combination as a two‑point convex combination:
+\[
+\sum_{i=1}^{m+1}\lambda_{i}x_{i}
+=(1-\mu)\Big(\sum_{i=1}^{m}\alpha_{i}x_{i}\Big)+\mu x_{m+1}. \tag{4.2}
+\]
+
+Applying convexity \((C)\) with \(t=1-\mu\) to the points
+\(y:=\sum_{i=1}^{m}\alpha_{i}x_{i}\) and \(x:=x_{m+1}\) gives
+\[
+f\!\Big(\sum_{i=1}^{m+1}\lambda_{i}x_{i}\Big)
+\le (1-\mu)\,f\!\Big(\sum_{i=1}^{m}\alpha_{i}x_{i}\Big)+\mu f(x_{m+1}). \tag{4.3}
+\]
+
+By the inductive hypothesis \((IH)\) applied to the \(m\) points \(\{x_{i}\}_{i=1}^{m}\) with
+weights \(\{\alpha_{i}\}\),
+\[
+f\!\Big(\sum_{i=1}^{m}\alpha_{i}x_{i}\Big)
+\le \sum_{i=1}^{m}\alpha_{i}f(x_{i}). \tag{4.4}
+\]
+
+Inserting \((4.4)\) into \((4.3)\) yields
+\[
+f\!\Big(\sum_{i=1}^{m+1}\lambda_{i}x_{i}\Big)
+\le (1-\mu)\sum_{i=1}^{m}\alpha_{i}f(x_{i})+\mu f(x_{m+1}). \tag{4.5}
+\]
+
+Since \(\alpha_{i}= \lambda_{i}/(1-\mu)\), we have \((1-\mu)\alpha_{i}= \lambda_{i}\) for \(i=1,\dots ,m\); thus the right–hand side of \((4.5)\) becomes
+\[
+\sum_{i=1}^{m}\lambda_{i}f(x_{i})+\lambda_{m+1}f(x_{m+1})
+= \sum_{i=1}^{m+1}\lambda_{i}f(x_{i}),
+\]
+which is precisely \((J)\) for \(m+1\) points. Hence the statement holds for all \(n\ge1\) by induction.
+
+\paragraph{5. Equality case}  
+Equality in \((J)\) can occur only if every inequality used above is an equality.
+In the base case \(n=2\) this happens when \(\lambda\in\{0,1\}\), when \(x_{1}=x_{2}\), or more generally when \(f\) is affine on the segment joining \(x_{1}\) and \(x_{2}\).
+In the inductive step, equality in \((4.3)\) requires either \(\mu\in\{0,1\}\) or
+\(\sum_{i=1}^{m}\alpha_{i}x_{i}=x_{m+1}\); equality in \((4.4)\) forces, by the induction hypothesis, that all points with positive \(\alpha_{i}\) coincide (or that \(f\) is affine on their convex hull).
+Consequently, a simple sufficient condition for equality is that **all points with positive weight are identical**; if \(f\) is strictly convex, this condition is also necessary.
+
+\end{proof}

@@ -1,0 +1,74 @@
+Proof of the Cauchy-Schwarz Inequality
+
+Let a₁, a₂, …, aₙ and b₁, b₂, …, bₙ be real numbers. Define:
+  A = Σbᵢ²,  B = Σaᵢbᵢ,  C = Σaᵢ².
+
+Consider the quadratic function in the real variable t:
+  f(t) = Σ(aᵢ + t·bᵢ)².
+
+Since f(t) is a sum of squares of real numbers, f(t) ≥ 0 for all real t.
+
+Expand f(t):
+  f(t) = Σ(aᵢ² + 2t·aᵢbᵢ + t²·bᵢ²)
+       = (Σaᵢ²) + 2t(Σaᵢbᵢ) + t²(Σbᵢ²)
+       = C + 2Bt + At².
+
+Thus f(t) = At² + 2Bt + C, a quadratic in t (or linear if A = 0).
+
+Case 1: A = 0. Then Σbᵢ² = 0, so every bᵢ = 0. The inequality (Σaᵢbᵢ)² ≤ (Σaᵢ²)(Σbᵢ²) becomes 0 ≤ 0, which holds with equality. Moreover, aᵢ and bᵢ are trivially proportional (bᵢ = 0 = 0·aᵢ).
+
+Case 2: A > 0. Since f(t) ≥ 0 for all t, the quadratic At² + 2Bt + C has at most one real root. Therefore its discriminant must be non-positive:
+  (2B)² - 4AC ≤ 0
+  ⇒ 4B² - 4AC ≤ 0
+  ⇒ B² ≤ AC.
+
+Substituting back the definitions:
+  (Σaᵢbᵢ)² ≤ (Σaᵢ²)(Σbᵢ²),
+
+which is the Cauchy-Schwarz inequality.
+
+Equality condition: Equality holds if and only if the discriminant is zero, which occurs when f(t) has a real double root t₀. That is, f(t₀) = Σ(aᵢ + t₀·bᵢ)² = 0, which implies aᵢ + t₀·bᵢ = 0 for all i, i.e., aᵢ = -t₀·bᵢ for all i. Thus aᵢ and bᵢ are proportional (linearly dependent). The case A = 0 (all bᵢ = 0) also satisfies this proportionality condition. Therefore equality holds if and only if the sequences (aᵢ) and (bᵢ) are proportional.
+
+This completes the proof.
+
+---
+LaTeX version:
+
+\begin{proof}
+Let $a_1, a_2, \dots, a_n$ and $b_1, b_2, \dots, b_n$ be real numbers. Define
+\[
+A = \sum_{i=1}^n b_i^2, \quad
+B = \sum_{i=1}^n a_i b_i, \quad
+C = \sum_{i=1}^n a_i^2.
+\]
+Consider the quadratic function in $t \in \mathbb{R}$:
+\[
+f(t) = \sum_{i=1}^n (a_i + t b_i)^2.
+\]
+Since $f(t)$ is a sum of squares, $f(t) \ge 0$ for all $t$.
+
+Expanding:
+\[
+f(t) = \sum_{i=1}^n (a_i^2 + 2t a_i b_i + t^2 b_i^2)
+       = \left(\sum_{i=1}^n a_i^2\right) 
+         + 2t \left(\sum_{i=1}^n a_i b_i\right) 
+         + t^2 \left(\sum_{i=1}^n b_i^2\right)
+       = C + 2Bt + At^2.
+\]
+Thus $f(t) = At^2 + 2Bt + C$.
+
+\textbf{Case 1:} $A = 0$. Then all $b_i = 0$, and the inequality $(\sum a_i b_i)^2 \le (\sum a_i^2)(\sum b_i^2)$ becomes $0 \le 0$, which is true.
+
+\textbf{Case 2:} $A > 0$. The quadratic $f(t)$ is non-negative for all $t$, so its discriminant must be non-positive:
+\[
+(2B)^2 - 4AC \le 0 \implies 4B^2 - 4AC \le 0 \implies B^2 \le AC.
+\]
+Substituting back yields
+\[
+\left(\sum_{i=1}^n a_i b_i\right)^2 \le 
+\left(\sum_{i=1}^n a_i^2\right)\left(\sum_{i=1}^n b_i^2\right),
+\]
+which is the Cauchy-Schwarz inequality.
+
+\textbf{Equality condition:} Equality holds iff the discriminant is zero, meaning $f(t)$ has a real double root $t_0$. Then $f(t_0) = \sum (a_i + t_0 b_i)^2 = 0$, so $a_i + t_0 b_i = 0$ for all $i$, i.e., $a_i = -t_0 b_i$. Thus $(a_i)$ and $(b_i)$ are proportional. This also covers the $A = 0$ case. Therefore, equality holds if and only if the sequences are linearly dependent.
+\end{proof}

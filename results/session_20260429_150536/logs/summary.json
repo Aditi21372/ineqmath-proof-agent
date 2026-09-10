@@ -1,0 +1,8 @@
+{
+  "total_entries": 255,
+  "lm_calls": 0,
+  "tool_calls": 173,
+  "judge_calls": 20,
+  "gepa_steps": 0,
+  "log_path": "results/session_20260429_150536/logs/llm_trace.json"
+}

@@ -1,0 +1,91 @@
+\begin{proof}
+\textbf{Trivial (degenerate) cases.}
+\begin{enumerate}
+\item \textbf{Case \(n=0\).}  
+\[
+(1+x)^{0}=1 \qquad\text{and}\qquad 1+0\cdot x =1 .
+\]  
+Equality holds.
+
+\item \textbf{Case \(n=1\).}  
+\[
+(1+x)^{1}=1+x = 1+1\cdot x .
+\]  
+Equality holds.
+
+\item \textbf{Case \(x=0\).} For any \(n\ge 0\),
+\[
+(1+0)^{n}=1 = 1+n\cdot 0 .
+\]  
+Equality holds.
+\end{enumerate}
+These three situations constitute all edge cases that will be excluded from the induction argument that follows.
+
+\medskip
+\textbf{Base of induction (\(n=2\)).}  
+Using the binomial theorem (or direct multiplication) we have the algebraic identity
+\begin{align*}
+(1+x)^{2}=1+2x+x^{2},
+\end{align*}
+and since \(x^{2}\ge 0\) for every real \(x\),
+\begin{align*}
+(1+x)^{2}=1+2x+x^{2}\;\ge\;1+2x .
+\end{align*}
+Thus the inequality holds for \(n=2\).
+
+\medskip
+\textbf{Inductive step.}
+
+\textit{Inductive hypothesis.}  
+Assume that for some integer \(k\ge 2\) and for all \(x\ge -1\),
+\begin{equation}
+(1+x)^{k}\;\ge\;1+kx .\tag{IH}
+\end{equation}
+
+\textit{Multiplication by a non‑negative factor.}  
+Because \(x\ge -1\) we have \(1+x\ge 0\). Multiplying both sides of \eqref{IH} by \(1+x\) preserves the inequality:
+\begin{align}
+(1+x)^{k+1}&=(1+x)^{k}(1+x) \nonumber\\
+&\ge (1+kx)(1+x). \tag{1}
+\end{align}
+
+\textit{Expansion of the right‑hand side.}  
+The product expands as
+\begin{align}
+(1+kx)(1+x)=1+(k+1)x+kx^{2}\;\ge\;1+(k+1)x .\tag{2}
+\end{align}
+Since \(k\ge 0\) and \(x^{2}\ge 0\), the term \(kx^{2}\) is non‑negative, giving the last inequality.
+
+Combining \eqref{1} and \eqref{2} yields
+\[
+(1+x)^{k+1}\;\ge\;1+(k+1)x .
+\]
+Thus the statement holds for \(k+1\). By mathematical induction the inequality is true for every integer \(n\ge 2\).
+
+Together with the trivial cases handled in Section 1, the inequality holds for **all** integers \(n\ge 0\) and all real numbers \(x\ge -1\).
+
+\medskip
+\textbf{Equality conditions.}  
+Equality in the inductive step requires simultaneously  
+
+\begin{enumerate}
+\item equality in the hypothesis \((1+x)^{k}=1+kx\); and
+\item vanishing of the non‑negative term \(kx^{2}\).
+\end{enumerate}
+Because \(k\ge 0\), the second condition forces either \(k=0\) (i.e. \(n=0\)) or \(x=0\).
+The case \(n=1\) gives equality for every admissible \(x\) because the inequality reduces to the identity \(1+x=1+x\).
+The boundary point \(x=-1\) yields \((1-1)^{n}=0\) and \(1-n\); equality occurs only when \(n=1\), already included.
+
+Hence **equality holds precisely when**
+\[
+n=0\quad\text{or}\quad n=1\quad\text{or}\quad x=0 .
+\]
+
+\medskip
+\textbf{Conclusion.}  
+For every real number \(x\ge -1\) and every integer \(n\ge 0\),
+\[
+\boxed{\, (1+x)^{n}\;\ge\;1+nx \,}
+\]
+with equality exactly in the cases \(n=0\), \(n=1\) or \(x=0\). \qed
+\end{proof}

@@ -1,0 +1,90 @@
+\begin{theorem}[Cauchy–Schwarz Inequality]
+For any real numbers $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$,
+\[
+\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr).
+\]
+Equality holds iff the vectors 
+$\mathbf a=(a_{1},\dots ,a_{n})$ and $\mathbf b=(b_{1},\dots ,b_{n})$ are
+linearly dependent; i.e. either one of them is the zero vector or there exists
+$\lambda\in\mathbb R$ such that $a_{i}=\lambda b_{i}$ for every $i$.
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Vector notation.}  
+Set 
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+Their Euclidean inner product and norm are
+\[
+\mathbf a\cdot\mathbf b=\sum_{i=1}^{n}a_{i}b_{i},\qquad
+\|\mathbf a\|^{2}= \sum_{i=1}^{n}a_{i}^{2},\qquad
+\|\mathbf b\|^{2}= \sum_{i=1}^{n}b_{i}^{2}.
+\]
+Thus we must show $(\mathbf a\cdot\mathbf b)^{2}\le\|\mathbf a\|^{2}\,\|\mathbf b\|^{2}$.
+
+\textbf{2. A non‑negative quadratic form.}  
+For $t\in\mathbb R$ define
+\[
+Q(t)=\sum_{i=1}^{n}(a_{i}t-b_{i})^{2}.
+\]
+Each summand is a square, so $Q(t)\ge 0$ for every $t$.
+
+\textbf{3. Expand $Q(t)$.}
+\begin{align*}
+Q(t)&=\sum_{i=1}^{n}\bigl(a_{i}^{2}t^{2}-2a_{i}b_{i}t+b_{i}^{2}\bigr)\\
+&=\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)t^{2}
+   -2\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)t
+   +\sum_{i=1}^{n}b_{i}^{2}.
+\end{align*}
+Hence $Q(t)=At^{2}+Bt+C$ with  
+\[
+A=\sum_{i=1}^{n}a_{i}^{2},\qquad 
+B=-2\sum_{i=1}^{n}a_{i}b_{i},\qquad 
+C=\sum_{i=1}^{n}b_{i}^{2}.
+\]
+
+\textbf{4. Discriminant condition.}  
+A real quadratic polynomial that never becomes negative must have a
+non‑positive discriminant, i.e. $B^{2}-4AC\le 0$.
+
+\textbf{5. Compute the discriminant.}
+\begin{align*}
+B^{2}-4AC
+&=\bigl(-2\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)\\
+&=4\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\end{align*}
+
+\textbf{6. Derive the inequality.}  
+From $B^{2}-4AC\le 0$ we obtain
+\[
+4\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)\le 0,
+\]
+and dividing by the positive constant $4$ yields
+\[
+\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr),
+\]
+which is the Cauchy–Schwarz inequality.
+
+\textbf{7. Equality condition.}  
+Equality holds exactly when the discriminant is zero, i.e. when
+\[
+\sum_{i=1}^{n}(a_{i}t-b_{i})^{2}=0
+\quad\text{for }t_{0}=-\frac{B}{2A}
+   =\frac{\sum_{i=1}^{n}a_{i}b_{i}}{\sum_{i=1}^{n}a_{i}^{2}}.
+\]
+The sum of squares can vanish only if each term vanishes, so
+$a_{i}t_{0}=b_{i}$ for all $i$. Hence either $\mathbf a=\mathbf 0$ (trivial
+equality) or there exists $\lambda=t_{0}$ such that $a_{i}=\lambda b_{i}$ for every $i$.
+Thus equality occurs iff $\mathbf a$ and $\mathbf b$ are linearly dependent
+(including the degenerate zero‑vector case).
+
+\end{proof}

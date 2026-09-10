@@ -1,0 +1,136 @@
+\begin{theorem}[Chebyshev’s sum inequality]
+Let $n\ge 1$ and let
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers.  Then
+\[
+n\sum_{i=1}^{n}a_i b_i\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr).
+\tag{1}
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1 – Trivial cases.}  
+If $n=1$ the statement reduces to $a_{1}b_{1}\ge a_{1}b_{1}$, which holds with equality.  
+If all $a_i$ are equal (i.e.\ $a_{1}=\dots =a_{n}$) then both sides of \eqref{1} are equal to $(\sum a_i)(\sum b_i)/n$; the same holds when all $b_i$ are equal.  These are the degenerate cases that will later appear as the equality conditions.
+
+Henceforth assume $n\ge2$ and that the two sequences are not both constant.
+
+\medskip
+\textbf{Step 2 – Centering the sequences.}  
+Define the arithmetic means
+\[
+\bar a:=\frac1n\sum_{i=1}^{n}a_i,\qquad
+\bar b:=\frac1n\sum_{i=1}^{n}b_i .
+\]
+
+Write $a_i=\bar a+\alpha_i$ and $b_i=\bar b+\beta_i$ where
+\[
+\alpha_i:=a_i-\bar a,\qquad \beta_i:=b_i-\bar b,
+\quad\text{so that}\quad
+\sum_{i=1}^{n}\alpha_i=
+\sum_{i=1}^{n}\beta_i=0 .
+\]
+
+Then
+\begin{align*}
+n\sum_{i=1}^{n}a_i b_i
+&=n\sum_{i=1}^{n}(\bar a+\alpha_i)(\bar b+\beta_i)   \\
+&=n\Bigl( n\bar a\bar b
+        +\bar a\sum_{i=1}^{n}\beta_i
+        +\bar b\sum_{i=1}^{n}\alpha_i
+        +\sum_{i=1}^{n}\alpha_i\beta_i\Bigr)                \\
+&=n^{2}\bar a\bar b + n\sum_{i=1}^{n}\alpha_i\beta_i .
+\end{align*}
+Since $\sum a_i = n\bar a$ and $\sum b_i = n\bar b$,
+\[
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)
+= n^{2}\bar a\bar b .
+\]
+
+Subtracting gives the identity
+\[
+n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)
+= n\sum_{i=1}^{n}\alpha_i\beta_i . \tag{2}
+\]
+
+Thus \eqref{1} is equivalent to
+\[
+\sum_{i=1}^{n}\alpha_i\beta_i\;\ge\;0 . \tag{2'}
+\]
+
+\medskip
+\textbf{Step 3 – Covariance as a double sum.}  
+We claim that
+\[
+\sum_{i=1}^{n}\alpha_i\beta_i
+=\frac{1}{2n}\sum_{i=1}^{n}\sum_{j=1}^{n}
+   (a_i-a_j)(b_i-b_j). \tag{3}
+\]
+
+\emph{Proof of \eqref{3}.}  
+Expanding the right‑hand side,
+\begin{align*}
+\frac{1}{2n}\sum_{i,j}(a_i-a_j)(b_i-b_j)
+&=\frac{1}{2n}\sum_{i,j}
+   \bigl(a_i b_i - a_i b_j - a_j b_i + a_j b_j\bigr)  \\
+&=\frac{1}{2n}
+   \Bigl(
+        n\sum_{i}a_i b_i
+        -\sum_{i}a_i\sum_{j}b_j
+        -\sum_{j}a_j\sum_{i}b_i
+        + n\sum_{j}a_j b_j
+   \Bigr)                                              \\
+&=\frac{1}{2n}\bigl(2n\sum_{i}a_i b_i-2\sum_{i}a_i\sum_{j}b_j\bigr)\\
+&=\sum_{i}a_i b_i-\frac{1}{n}\Bigl(\sum_{i}a_i\Bigr)\Bigl(\sum_{j}b_j\Bigr).
+\end{align*}
+Since $\bar a=\frac1n\sum a_i$ and $\bar b=\frac1n\sum b_i$, the last line equals
+\[
+\sum_{i}(a_i-\bar a)(b_i-\bar b)=\sum_{i}\alpha_i\beta_i .
+\]
+Thus \eqref{3} holds. \hfill$\square$
+
+Combining \eqref{2} and \eqref{3} we obtain
+\[
+n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)
+= \frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}
+   (a_i-a_j)(b_i-b_j). \tag{4}
+\]
+
+\medskip
+\textbf{Step 4 – Sign of each summand.}  
+Because the two sequences are sorted in the same non‑decreasing order, for any indices $i,j$ we have
+\[
+i<j\;\Longrightarrow\; a_i\le a_j\ \text{and}\ b_i\le b_j,
+\]
+and similarly when $i>j$.  Consequently
+\[
+(a_i-a_j)(b_i-b_j)\ge 0\qquad\text{for all }i,j. \tag{5}
+\]
+
+Each term in the double sum of \eqref{4} is non‑negative, hence the whole double sum is non‑negative.  From \eqref{4} we deduce
+\[
+n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)\ge0,
+\]
+which is precisely inequality \eqref{1}.
+
+\medskip
+\textbf{Step 5 – Equality cases.}  
+Equality in \eqref{1} occurs exactly when the double sum in \eqref{4} is zero.  By \eqref{5} this happens iff every factor $(a_i-a_j)(b_i-b_j)$ is zero.  Hence for every pair $i,j$ we must have either $a_i=a_j$ or $b_i=b_j$.  The only possibilities compatible with the monotonicity of the two sequences are:
+
+\begin{itemize}
+\item all $a_i$ are equal (the sequence $(a_i)$ is constant), or
+\item all $b_i$ are equal (the sequence $(b_i)$ is constant).
+\end{itemize}
+The case $n=1$ is contained in both alternatives.  In all other situations the double sum is strictly positive, and the inequality is strict.
+
+\medskip
+\textbf{Conclusion.}  
+For any integer $n\ge1$ and any two real sequences that are similarly ordered, the Chebyshev sum inequality \eqref{1} holds.  Equality holds iff at least one of the sequences is constant (including the trivial $n=1$ case). \qed
+\end{proof}

@@ -1,0 +1,69 @@
+\begin{theorem}[Markov’s inequality]
+Let $(\Omega,\mathcal F,\mathbb P)$ be a probability space and let $X:\Omega\to[0,\infty]$ be a non‑negative random variable.  
+For any $a>0$,
+\[
+\mathbb P\bigl(X\ge a\bigr)\;\le\;\frac{\mathbb E[X]}{a}.
+\]
+Equality holds iff $X$ takes only the two values $0$ and $a$ almost surely (equivalently $X=a\,\mathbf 1_{\{X\ge a\}}$ a.s.).
+\end{theorem}
+
+\begin{proof}
+\textbf{1.  Assumptions and degenerate case.}  
+If $\mathbb P(X\ge a)=0$, the left–hand side of the desired inequality is $0$, while $\mathbb E[X]\ge0$ and $a>0$ imply $\mathbb E[X]/a\ge0$. Hence the inequality holds trivially, and we may assume $\mathbb P(X\ge a)>0$.
+
+\medskip\noindent\textbf{2.  Indicator of the event $\{X\ge a\}$.}  
+Define
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[4pt]
+0, & X(\omega)< a .
+\end{cases}
+\]
+
+\medskip\noindent\textbf{3.  Pointwise bound.}  
+For every $\omega\in\Omega$ we have
+\[
+a\,\mathbf 1_{\{X\ge a\}}(\omega)\le X(\omega).
+\tag{1}
+\]
+Indeed, if $X(\omega)\ge a$ then the left‑hand side equals $a\le X(\omega)$; if $X(\omega)<a$ the left‑hand side is $0\le X(\omega)$ by non‑negativity of $X$.
+
+\medskip\noindent\textbf{4.  Taking expectations.}  
+The expectation operator is monotone, so applying it to \eqref{1} gives
+\[
+a\,\mathbb E\bigl[\mathbf 1_{\{X\ge a\}}\bigr]\le\mathbb E[X].
+\tag{2}
+\]
+
+\medskip\noindent\textbf{5.  Expectation of an indicator.}  
+By definition,
+\[
+\mathbb E\bigl[\mathbf 1_{\{X\ge a\}}\bigr]=\mathbb P(X\ge a).
+\tag{3}
+\]
+Substituting \eqref{3} into \eqref{2} and dividing by the positive constant $a$ yields
+\[
+\mathbb P(X\ge a)\le\frac{\mathbb E[X]}{a},
+\]
+which is Markov’s inequality.
+
+\medskip\noindent\textbf{6.  Equality condition.}  
+Equality in the final inequality can occur only if every inequality used above is an equality almost surely.
+
+\begin{itemize}
+\item Equality in the monotonicity step \eqref{2} forces the pointwise bound \eqref{1} to hold with equality $\mathbb P$‑a.s., i.e.
+\[
+a\,\mathbf 1_{\{X\ge a\}}(\omega)=X(\omega)\quad\text{for $\mathbb P$‑a.e. }\omega .
+\]
+\item This identity means $X(\omega)=a$ on the set $\{X\ge a\}$ and $X(\omega)=0$ on its complement.
+\end{itemize}
+Thus $X$ must be of the form $X=a\,\mathbf 1_{\{X\ge a\}}$ a.s., i.e. $X$ takes only the values $0$ and $a$. Conversely, for such a two‑point distribution we have $\mathbb E[X]=a\,\mathbb P(X=a)$, so $\mathbb P(X\ge a)=\mathbb E[X]/a$ and equality holds.
+
+\medskip\noindent\textbf{7.  Conclusion.}  
+For every non‑negative random variable $X$ and every $a>0$,
+\[
+\mathbb P\bigl(X\ge a\bigr)\le\frac{\mathbb E[X]}{a},
+\]
+with equality precisely when $X$ assumes only the values $0$ and $a$ almost surely. \qed
+\end{proof}

@@ -1,0 +1,159 @@
+================================================================================
+EXAMPLE OUTPUT - MATHEMATICAL REASONING AGENT
+================================================================================
+
+This file demonstrates the expected output format from the agent system.
+
+================================================================================
+PROVING: Cauchy-Schwarz Inequality
+================================================================================
+Statement: For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: 
+           (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)
+Using OPTIMIZED prompt
+================================================================================
+
+GENERATED PROOF:
+--------------------------------------------------------------------------------
+Step 1: State the inequality and define variables
+
+We aim to prove the Cauchy-Schwarz inequality:
+(∑ᵢ₌₁ⁿ aᵢbᵢ)² ≤ (∑ᵢ₌₁ⁿ aᵢ²)(∑ᵢ₌₁ⁿ bᵢ²)
+
+for real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ.
+
+Step 2: Identify the approach
+
+We will use a quadratic discriminant approach. Consider the quadratic function:
+f(t) = ∑ᵢ₌₁ⁿ (aᵢt + bᵢ)²
+
+Step 3: Execute the proof
+
+Expanding f(t):
+f(t) = ∑ᵢ₌₁ⁿ (aᵢ²t² + 2aᵢbᵢt + bᵢ²)
+     = t²∑ᵢ₌₁ⁿ aᵢ² + 2t∑ᵢ₌₁ⁿ aᵢbᵢ + ∑ᵢ₌₁ⁿ bᵢ²
+
+Let A = ∑aᵢ², B = ∑aᵢbᵢ, C = ∑bᵢ²
+
+Then f(t) = At² + 2Bt + C
+
+Since f(t) is a sum of squares, f(t) ≥ 0 for all t ∈ ℝ.
+
+For a quadratic At² + 2Bt + C ≥ 0 for all t, the discriminant must satisfy:
+Δ = (2B)² - 4AC ≤ 0
+
+Therefore: 4B² - 4AC ≤ 0
+          B² ≤ AC
+          (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)
+
+Step 4: Verify equality condition
+
+Equality holds when Δ = 0, which occurs when f(t) = 0 for some t.
+This means aᵢt + bᵢ = 0 for all i, i.e., when aᵢ and bᵢ are proportional.
+
+Step 5: Conclusion
+
+We have proven the Cauchy-Schwarz inequality:
+(∑ᵢ₌₁ⁿ aᵢbᵢ)² ≤ (∑ᵢ₌₁ⁿ aᵢ²)(∑ᵢ₌₁ⁿ bᵢ²)
+
+with equality when aᵢ and bᵢ are proportional. Q.E.D.
+--------------------------------------------------------------------------------
+
+VERIFYING PROOF...
+
+================================================================================
+PROOF VERIFICATION RESULTS
+================================================================================
+
+Final Answer Judge: ✓ PASS
+  CORRECT
+  The final answer correctly states the Cauchy-Schwarz inequality with the 
+  proper equality condition. The mathematical form matches the ground truth.
+
+Toy Case Judge: ✓ PASS
+  PASS
+  The proof does not rely on specific numerical examples. The approach uses
+  general algebraic manipulation and the discriminant method, which is valid
+  for all real numbers.
+
+Logical Gap Judge: ✓ PASS
+  PASS
+  The proof provides complete reasoning:
+  - Constructs the quadratic function f(t)
+  - Expands it algebraically with clear steps
+  - Applies the discriminant condition for non-negative quadratics
+  - Derives the inequality through valid algebraic manipulation
+  - Identifies the equality condition
+  All steps are justified and follow logically.
+
+Numerical Approximation Judge: ✓ PASS
+  PASS
+  The proof uses only symbolic manipulation. No decimal approximations are
+  used. All expressions remain in exact form.
+
+Numerical Computation Judge: ✓ PASS
+  PASS
+  All algebraic computations are correct:
+  - Expansion of (aᵢt + bᵢ)² is correct
+  - Discriminant formula Δ = 4B² - 4AC is correct
+  - Simplification to B² ≤ AC is correct
+
+================================================================================
+OVERALL: ✓ PROOF VERIFIED
+================================================================================
+
+
+================================================================================
+COMPARISON: UNOPTIMIZED vs OPTIMIZED PROMPTS
+================================================================================
+
+OVERALL PASS RATE:
+  Unoptimized: 25.0%
+  Optimized:   75.0%
+  Improvement: +50.0% (+200.0%)
+
+JUDGE-SPECIFIC IMPROVEMENTS:
+
+  Final Answer:
+    Unoptimized: 75.0%
+    Optimized:   100.0%
+    Improvement: +25.0%
+
+  Toy Case:
+    Unoptimized: 50.0%
+    Optimized:   100.0%
+    Improvement: +50.0%
+
+  Logical Gap:
+    Unoptimized: 25.0%
+    Optimized:   75.0%
+    Improvement: +50.0%
+
+  Numerical Approximation:
+    Unoptimized: 75.0%
+    Optimized:   100.0%
+    Improvement: +25.0%
+
+  Numerical Computation:
+    Unoptimized: 100.0%
+    Optimized:   100.0%
+    Improvement: +0.0%
+
+================================================================================
+
+KEY FINDINGS:
+
+1. Prompt optimization significantly improved overall pass rate (2x improvement)
+2. Logical Gap judge showed the most improvement (50 percentage points)
+3. Toy Case errors were eliminated with optimized prompts
+4. Structured prompts with explicit constraints prevent common errors
+5. The five-judge system successfully identifies different error types
+
+CONCLUSIONS:
+
+✓ Optimized prompts with explicit requirements dramatically improve proof quality
+✓ Step-by-step structure guidance reduces logical gaps
+✓ Error prevention examples help avoid toy case generalizations
+✓ Granular evaluation reveals specific weaknesses in proof generation
+✓ GEPA-inspired optimization demonstrates measurable improvements
+
+================================================================================

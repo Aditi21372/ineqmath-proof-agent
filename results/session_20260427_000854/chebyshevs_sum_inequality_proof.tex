@@ -1,0 +1,88 @@
+\begin{theorem}[Chebyshev’s Sum Inequality]
+Let  
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad   
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers. Then  
+\[
+\boxed{\,n\sum_{i=1}^{n}a_i b_i\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)\,}.
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Degenerate cases.}
+\begin{itemize}
+\item $n=0$: the statement is vacuously true.
+\item $n=1$: the inequality reads $a_{1}b_{1}\ge a_{1}b_{1}$, true with equality.
+\item If the $a$–sequence (or the $b$–sequence) is constant, each factor $(a_i-a_j)$ (resp.\ $(b_i-b_j)$) is $0$, so the two sides are equal.  These are the trivial equality cases.
+\end{itemize}
+Hence we may assume $n\ge2$ and that at least one of the sequences is not constant.
+
+\item \textbf{A non‑negative double sum.}  
+Define  
+\[
+S:=\sum_{1\le i<j\le n}(a_i-a_j)(b_i-b_j).
+\]
+Because the sequences are non‑decreasing, for $i<j$ we have $a_i-a_j\le0$ and $b_i-b_j\le0$, whence  
+\[
+(a_i-a_j)(b_i-b_j)\ge0 .
+\]
+Summing over all $\binom{n}{2}$ pairs gives  
+\[
+S\ge0. \tag{1}
+\]
+
+\item \textbf{Expansion of $S$.}  Write the sum symmetrically:
+\[
+S=\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}(a_i-a_j)(b_i-b_j).
+\]
+Expanding the product inside the double sum,
+\begin{align*}
+S&=\frac12\Bigl(
+\sum_i\sum_j a_i b_i
+-\sum_i\sum_j a_i b_j
+-\sum_i\sum_j a_j b_i
++\sum_i\sum_j a_j b_j\Bigr)\\[2mm]
+&=\frac12\Bigl(
+n\sum_{i=1}^{n}a_i b_i
+-\bigl(\sum_{i=1}^{n}a_i\bigr)\bigl(\sum_{j=1}^{n}b_j\bigr)
+-\bigl(\sum_{j=1}^{n}a_j\bigr)\bigl(\sum_{i=1}^{n}b_i\bigr)
++n\sum_{i=1}^{n}a_i b_i\Bigr)\\[2mm]
+&=n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr).
+\end{align*}
+Thus we have the identity
+\[
+\sum_{1\le i<j\le n}(a_i-a_j)(b_i-b_j)
+=
+n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr). \tag{2}
+\]
+
+\item \textbf{Deriving the inequality.}  
+From (1) and (2) we obtain
+\[
+n\sum_{i=1}^{n}a_i b_i-
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr)\ge0,
+\]
+which is exactly the desired inequality.
+
+\item \textbf{Equality condition.}  
+Equality holds iff $S=0$.  Since each term $(a_i-a_j)(b_i-b_j)$ is non‑negative, $S=0$ precisely when every term vanishes, i.e.
+\[
+(a_i-a_j)(b_i-b_j)=0\quad\text{for all }1\le i<j\le n.
+\]
+Hence for each pair $(i,j)$ we must have either $a_i=a_j$ or $b_i=b_j$.  Consequently the equality cases are:
+
+\begin{enumerate}
+\item All $a_i$ are equal (the $a$‑sequence is constant);
+\item All $b_i$ are equal (the $b$‑sequence is constant);
+\item More generally, the index set $\{1,\dots,n\}$ can be partitioned into blocks such that on each block the $a$’s are equal and, on the same block, the $b$’s are equal.
+\end{enumerate}
+When both sequences are strictly increasing, only the first two possibilities can occur.
+
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,133 @@
+\begin{theorem}[Jensen’s Inequality]
+Let \(f:\mathbb{R}\to\mathbb{R}\) be convex, i.e.
+\[
+\forall\,x,y\in\mathbb{R},\;\forall\,t\in[0,1]\qquad
+f\bigl(t x+(1-t)y\bigr)\le t\,f(x)+(1-t)\,f(y). \tag{1}
+\]
+Let \(x_{1},\dots ,x_{n}\in\mathbb{R}\) and non‑negative weights
+\(\lambda_{1},\dots ,\lambda_{n}\) satisfy
+\[
+\lambda_{i}\ge0\;(i=1,\dots ,n),\qquad
+\sum_{i=1}^{n}\lambda_{i}=1. \tag{2}
+\]
+Then
+\[
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)\le
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}). \tag{3}
+\]
+Equality holds iff either all the \(x_{i}\) are equal, or \(f\) is affine on
+the convex hull of \(\{x_{1},\dots ,x_{n}\}\) (equivalently on the smallest
+interval containing the points), or the weights attached to points where
+\(f\) is not affine are zero.
+\end{theorem}
+
+\begin{proof}
+We proceed by induction on the number of points \(n\).
+
+\medskip\noindent\textbf{1. Degenerate cases.}
+\begin{itemize}
+\item If \(n=1\), then (2) forces \(\lambda_{1}=1\) and (3) reduces to
+\(f(x_{1})\le f(x_{1})\), true with equality.
+\item If some weight equals \(1\) (say \(\lambda_{k}=1\) and all other
+\(\lambda_{i}=0\)), then
+\(\sum_{i=1}^{n}\lambda_{i}x_{i}=x_{k}\) and
+\(\sum_{i=1}^{n}\lambda_{i}f(x_{i})=f(x_{k})\); again (3) holds with
+equality.
+\end{itemize}
+Thus the statement is valid in all degenerate situations.
+
+\medskip\noindent\textbf{2. Base case \(n=2\).}
+Write \(\lambda_{1}=t\), \(\lambda_{2}=1-t\) with \(t\in[0,1]\) (the
+condition \(\lambda_{1}+\lambda_{2}=1\) guarantees this).  Applying the
+definition of convexity (1) to \(x_{1},x_{2}\) yields
+\[
+f\bigl(t x_{1}+(1-t)x_{2}\bigr)\le t\,f(x_{1})+(1-t)f(x_{2}),
+\]
+which is exactly (3) for \(n=2\).
+
+\medskip\noindent\textbf{3. Induction hypothesis.}
+Assume that for some integer \(k\ge 2\) the inequality (3) holds for
+\emph{every} collection of at most \(k\) points with non‑negative weights
+summing to \(1\).  We shall prove it for \(n=k+1\).
+
+\medskip\noindent\textbf{4. Inductive step.}
+Let \(x_{1},\dots ,x_{n}\) (\(n=k+1\)) and weights \(\lambda_{1},\dots ,\lambda_{n}\)
+satisfy (2).  Set
+\[
+L:=\sum_{i=1}^{n-1}\lambda_{i}. \tag{4}
+\]
+If \(L=0\) then \(\lambda_{n}=1\) and we are back to a degenerate case.
+Hence assume \(L>0\).
+
+Define normalized weights for the first \(n-1\) indices:
+\[
+\mu_{i}:=\frac{\lambda_{i}}{L},\qquad i=1,\dots ,n-1. \tag{5}
+\]
+Clearly \(\mu_{i}\ge0\) and \(\sum_{i=1}^{n-1}\mu_{i}=1\).
+
+Set
+\[
+y:=\sum_{i=1}^{n-1}\mu_{i}x_{i}. \tag{6}
+\]
+By the induction hypothesis applied to the \((n-1)\)-tuple
+\((x_{1},\dots ,x_{n-1})\) with weights \(\mu_{i}\) we have
+\[
+f(y)\le\sum_{i=1}^{n-1}\mu_{i}f(x_{i}). \tag{7}
+\]
+
+The original convex combination can be rewritten as a two‑point
+combination of \(y\) and \(x_{n}\):
+\begin{align*}
+\sum_{i=1}^{n}\lambda_{i}x_{i}
+   &=\sum_{i=1}^{n-1}\lambda_{i}x_{i}+\lambda_{n}x_{n} \\
+   &=L\Bigl(\sum_{i=1}^{n-1}\mu_{i}x_{i}\Bigr)+\lambda_{n}x_{n}
+    =L\,y+\lambda_{n}x_{n}. \tag{8}
+\end{align*}
+From (2) and (4) we obtain
+\[
+L+\lambda_{n}=1. \tag{9}
+\]
+
+Apply the two‑point convexity (1) to the points \(y\) and \(x_{n}\) with
+weight \(L\):
+\[
+f(Ly+\lambda_{n}x_{n})\le L\,f(y)+\lambda_{n}f(x_{n}). \tag{10}
+\]
+Substituting (8) for the argument of \(f\) and using (7) to bound \(f(y)\)
+gives
+\begin{align*}
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)
+   &\le L\!\left(\sum_{i=1}^{n-1}\mu_{i}f(x_{i})\right)+\lambda_{n}f(x_{n}) \\
+   &=\sum_{i=1}^{n-1}L\mu_{i}f(x_{i})+\lambda_{n}f(x_{n}) \\
+   &=\sum_{i=1}^{n-1}\lambda_{i}f(x_{i})+\lambda_{n}f(x_{n}),
+\end{align*}
+which is precisely (3) for \(n\) points.  Hence the inequality holds for
+\(n=k+1\).  By induction it holds for every integer \(n\ge1\).
+
+\medskip\noindent\textbf{5. Equality case.}
+Equality in (1) occurs exactly when either the weight \(t\) equals \(0\) or
+\(1\) (so the convex combination reduces to a single point) or the
+restriction of \(f\) to the segment \([x,y]\) is affine:
+\[
+f\bigl(t x+(1-t)y\bigr)=t\,f(x)+(1-t)f(y)\quad\forall\,t\in[0,1].
+\]
+
+In the inductive proof equality in the final inequality requires equality
+at the two points where we used (1) (step (10)) and where we invoked the
+induction hypothesis (step (7)).  Consequently equality in (3) holds
+iff one of the following equivalent conditions is satisfied:
+
+\begin{enumerate}
+\item All points coincide: \(x_{1}=x_{2}=\dots =x_{n}\).  Then both sides of
+(3) equal \(f(x_{1})\).
+\item \(f\) is affine on the convex hull of the points, i.e. there exist
+constants \(a,b\) such that \(f(t)=a t+b\) for every \(t\) in the smallest
+interval containing \(\{x_{1},\dots ,x_{n}\}\).  On such an interval the
+inequality (1) is an equality for any weight, and every induction step
+becomes an equality.
+\item The weights attached to points where \(f\) is not affine are zero.
+Equivalently, all points with positive weight lie in an interval on which
+\(f\) is affine.
+\end{enumerate}
+These are precisely the conditions stated in the theorem. \(\square\)
+\end{proof}

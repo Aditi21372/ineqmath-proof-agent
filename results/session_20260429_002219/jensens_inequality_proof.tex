@@ -1,0 +1,174 @@
+\begin{proof}
+\textbf{Step 1. Degenerate / edge cases.}  
+
+\begin{enumerate}
+\item \textbf{Case \(n=1\).}  
+Since \(\displaystyle\sum_{i=1}^{1}\lambda_{i}x_{i}=x_{1}\) and
+\(\displaystyle\sum_{i=1}^{1}\lambda_{i}f(x_{i})=f(x_{1})\), inequality \((J)\) reads
+\(f(x_{1})\le f(x_{1})\), which holds with equality.
+
+\item \textbf{Zero weights.}  
+If \(\lambda_{k}=0\) for some index \(k\), the term \(\lambda_{k}f(x_{k})\) vanishes
+and the left–hand side does not contain \(x_{k}\). Hence the inequality for the
+full family \(\{x_{i},\lambda_{i}\}\) is equivalent to the inequality for the
+reduced family obtained by deleting all indices with zero weight. Therefore it
+suffices to prove \((J)\) under the assumption
+\[
+\lambda_{i}>0 \quad\text{for all }i.
+\]
+
+\item \textbf{A weight equal to \(1\).}  
+If \(\lambda_{j}=1\) (and consequently all other \(\lambda_{i}=0\)), then
+\(\sum_{i}\lambda_{i}x_{i}=x_{j}\) and \(\sum_{i}\lambda_{i}f(x_{i})=f(x_{j})\);
+again \((J)\) becomes an equality.
+\end{enumerate}
+Thus, apart from these trivial situations, we may assume
+\[
+n\ge 2,\qquad \lambda_{i}>0\;(i=1,\dots ,n). \tag{1}
+\]
+
+\bigskip
+
+\textbf{Step 2. Base case \(n=2\).}  
+
+For two points \(x_{1},x_{2}\) and a weight \(\lambda\in[0,1]\) (so the second
+weight is \(1-\lambda\)), the definition of convexity gives
+\begin{equation*}
+f\bigl(\lambda x_{1}+(1-\lambda)x_{2}\bigr)\le
+\lambda f(x_{1})+(1-\lambda)f(x_{2}). \tag{2.1}
+\end{equation*}
+Equality in \((2.1)\) holds \emph{iff} \(\lambda\in\{0,1\}\) or \(f\) is affine on
+the segment \([x_{1},x_{2}]\) (in particular when \(x_{1}=x_{2}\)). Hence \((J)\)
+is true for \(n=2\).
+
+\bigskip
+
+\textbf{Step 3. Inductive hypothesis.}  
+
+Assume that for some integer \(m\) with \(2\le m\le n-1\) the inequality
+\((J)\) holds for any collection of \(m\) points and any non‑negative weights
+summing to \(1\); i.e.
+\begin{equation*}
+f\!\left(\sum_{i=1}^{m}\mu_{i}x_{i}\right)\le
+\sum_{i=1}^{m}\mu_{i}f(x_{i})\qquad
+\bigl(\mu_{i}\ge0,\;\sum_{i=1}^{m}\mu_{i}=1\bigr). \tag{3.1}
+\end{equation*}
+
+\bigskip
+
+\textbf{Step 4. Inductive step \(m=n-1\Longrightarrow m=n\).}  
+
+Let the weights \(\lambda_{1},\dots ,\lambda_{n}\) satisfy (1).  
+The case \(\lambda_{1}=1\) is covered by Step 1.3, so we may assume
+\[
+0<\lambda_{1}<1 .
+\]
+
+Define
+\[
+y:=\frac{\displaystyle\sum_{i=2}^{n}\lambda_{i}x_{i}}{1-\lambda_{1}} .
+\]
+Because
+\[
+\sum_{i=2}^{n}\frac{\lambda_{i}}{1-\lambda_{1}}=1,
+\]
+the numbers
+\[
+\mu_{i}:=\frac{\lambda_{i}}{1-\lambda_{1}},\qquad i=2,\dots ,n,
+\]
+form a legitimate set of weights for the points \(x_{2},\dots ,x_{n}\).
+
+\medskip
+
+\textbf{4.1 Apply the inductive hypothesis to \(\{x_{2},\dots ,x_{n}\}\).}  
+Using \((3.1)\) with the points \(x_{2},\dots ,x_{n}\) and the weights \(\mu_{i}\) we obtain
+\begin{equation*}
+f(y)=f\!\left(\sum_{i=2}^{n}\mu_{i}x_{i}\right)
+\le \sum_{i=2}^{n}\mu_{i}f(x_{i})
+ =\frac{1}{1-\lambda_{1}}\sum_{i=2}^{n}\lambda_{i}f(x_{i}). \tag{4.1}
+\end{equation*}
+Multiplying \((4.1)\) by the positive factor \(1-\lambda_{1}\) yields
+\begin{equation*}
+(1-\lambda_{1})\,f(y)\le\sum_{i=2}^{n}\lambda_{i}f(x_{i}). \tag{4.2}
+\end{equation*}
+
+\medskip
+
+\textbf{4.2 Convexity step for the pair \((x_{1},y)\).}  
+Applying the two‑point convexity \((C)\) with weight \(\lambda_{1}\) gives
+\begin{equation*}
+f\bigl(\lambda_{1}x_{1}+(1-\lambda_{1})y\bigr)
+\le \lambda_{1}f(x_{1})+(1-\lambda_{1})f(y). \tag{4.3}
+\end{equation*}
+
+\medskip
+
+\textbf{4.3 Identify the aggregated point.}  
+By the definition of \(y\),
+\begin{equation*}
+\lambda_{1}x_{1}+(1-\lambda_{1})y
+=\lambda_{1}x_{1}+\sum_{i=2}^{n}\lambda_{i}x_{i}
+=\sum_{i=1}^{n}\lambda_{i}x_{i}. \tag{4.4}
+\end{equation*}
+Thus the left‑hand side of \((4.3)\) is exactly
+\(f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)\).
+
+\medskip
+
+\textbf{4.4 Assemble the inequalities.}  
+Insert \((4.2)\) into the right‑hand side of \((4.3)\) and use \((4.4)\):
+\begin{align*}
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)
+&\le \lambda_{1}f(x_{1})+(1-\lambda_{1})f(y) \\
+&\le \lambda_{1}f(x_{1})+\sum_{i=2}^{n}\lambda_{i}f(x_{i})
+   =\sum_{i=1}^{n}\lambda_{i}f(x_{i}).
+\end{align*}
+Hence \((J)\) holds for \(n\) points, completing the induction.
+
+\bigskip
+
+\textbf{Step 5. Equality condition.}  
+
+Equality in \((J)\) occurs precisely when equality holds in both \((4.3)\) and
+\((4.2)\).
+
+\begin{itemize}
+\item \emph{Equality in \((4.3)\).}  
+By the definition of convexity, equality holds iff either \(\lambda_{1}\in\{0,1\}\)
+(the trivial weight case) or \(f\) is affine on the segment joining \(x_{1}\) and
+\(y\) (in particular when \(x_{1}=y\)).
+
+\item \emph{Equality in \((4.2)\).}  
+Equality in the inductive hypothesis \((4.1)\) holds iff either one of the
+weights \(\lambda_{2},\dots ,\lambda_{n}\) equals \(1\) (the rest being \(0\)),
+or \(f\) is affine on the convex hull of \(\{x_{2},\dots ,x_{n}\}\) (in
+particular when all those points coincide).
+\end{itemize}
+
+Combining these observations and recalling that the cases where a weight
+equals \(1\) have already been dealt with in Step 1, we obtain the following
+complete description:
+
+\begin{enumerate}
+\item If at least one weight equals \(1\) (and the others are zero), equality
+holds (trivial case).
+\item Otherwise all weights are strictly positive.  
+Equality holds \emph{iff} the points with positive weight are all identical,
+i.e.
+\[
+x_{1}=x_{2}= \dots =x_{n},
+\]
+or more generally iff \(f\) is affine on the convex hull of the points
+\(\{x_{i}\}\). For a strictly convex function the only non‑trivial equality
+case is the former.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Step 6. Conclusion.}  
+We have proved Jensen’s inequality \((J)\) for any finite collection of real
+numbers and any convex function, treated all degenerate situations explicitly,
+and gave a rigorous derivation of the equality cases.
+
+\qed
+\end{proof}

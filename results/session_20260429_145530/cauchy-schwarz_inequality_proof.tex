@@ -1,0 +1,115 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Vector notation.}  
+Define  
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]  
+Their Euclidean inner product and norm are  
+\[
+\mathbf a\cdot\mathbf b=\sum_{i=1}^{n}a_{i}b_{i},\qquad 
+\|\mathbf a\|^{2}= \sum_{i=1}^{n}a_{i}^{2},\qquad 
+\|\mathbf b\|^{2}= \sum_{i=1}^{n}b_{i}^{2}.
+\]  
+Thus we have to show  
+\begin{equation}
+(\mathbf a\cdot\mathbf b)^{2}\le \|\mathbf a\|^{2}\,\|\mathbf b\|^{2}.
+\tag{1}
+\end{equation}
+
+\item \textbf{Degenerate case.}  
+If $\|\mathbf b\|^{2}=0$ then $b_{i}=0$ for every $i$, so $\mathbf a\cdot\mathbf b=0$ and both sides of \eqref{1} are zero.  
+By symmetry the same holds when $\|\mathbf a\|^{2}=0$.  
+Henceforth we assume  
+\begin{equation}
+\|\mathbf a\|^{2}>0,\qquad \|\mathbf b\|^{2}>0.
+\tag{2}
+\end{equation}
+
+\item \textbf{Quadratic auxiliary function.}  
+For $t\in\mathbb R$ set  
+\begin{equation}
+f(t)=\sum_{i=1}^{n}(a_{i}-t\,b_{i})^{2}.
+\tag{3}
+\end{equation}  
+Each summand is a square, therefore $f(t)\ge0$ for all $t\in\mathbb R$.
+
+Expanding a typical term,
+\[
+(a_{i}-t b_{i})^{2}=a_{i}^{2}-2t\,a_{i}b_{i}+t^{2}b_{i}^{2},
+\]
+we obtain  
+\[
+f(t)=\sum_{i=1}^{n}a_{i}^{2}
+      -2t\sum_{i=1}^{n}a_{i}b_{i}
+      +t^{2}\sum_{i=1}^{n}b_{i}^{2}.
+\]  
+Thus  
+\begin{equation}
+f(t)=A t^{2}+B t+C,
+\tag{4}
+\end{equation}
+with  
+\[
+A=\sum_{i=1}^{n}b_{i}^{2}>0,\qquad
+B=-2\sum_{i=1}^{n}a_{i}b_{i},\qquad
+C=\sum_{i=1}^{n}a_{i}^{2}.
+\tag{5}
+\]
+
+\item \textbf{Discriminant condition.}  
+A quadratic $A t^{2}+B t+C$ with $A>0$ is non‑negative for every real $t$ iff its discriminant does not exceed zero:
+\begin{equation}
+B^{2}-4AC\le0.
+\tag{6}
+\end{equation}
+Applying \eqref{6} to \eqref{4}–\eqref{5} yields the desired inequality.
+
+\item \textbf{Compute the discriminant.}  
+Substituting \eqref{5} into \eqref{6} gives  
+\begin{align*}
+B^{2}-4AC
+&=\bigl(-2\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+  -4\bigl(\sum_{i=1}^{n}b_{i}^{2}\bigr)\bigl(\sum_{i=1}^{n}a_{i}^{2}\bigr)\\[2mm]
+&=4\Bigl[\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+          -\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+           \Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)\Bigr].
+\end{align*}
+Dividing the inequality $B^{2}-4AC\le0$ by the positive constant $4$ we obtain exactly \eqref{1}.  
+Hence the Cauchy–Schwarz inequality holds.
+
+\item \textbf{Equality condition.}  
+Equality in \eqref{1} occurs precisely when the discriminant in \eqref{6} equals zero, i.e.  
+\begin{equation}
+B^{2}-4AC=0.
+\tag{7}
+\end{equation}
+For a quadratic with $A>0$, discriminant zero means that there exists $t_{0}\in\mathbb R$ such that $f(t_{0})=0$.  
+Because $f(t)$ is a sum of non‑negative squares \eqref{3}, $f(t_{0})=0$ forces each term to vanish:
+\[
+a_{i}-t_{0}b_{i}=0\qquad\text{for every }i,
+\]
+hence  
+\begin{equation}
+a_{i}=t_{0}\,b_{i}\qquad(i=1,\dots ,n).
+\tag{8}
+\end{equation}
+Thus $\mathbf a=\lambda\mathbf b$ with $\lambda=t_{0}$.  
+
+Conversely, if $a_{i}=\lambda b_{i}$ for some $\lambda\in\mathbb R$, then
+\[
+\sum a_{i}b_{i}= \lambda\sum b_{i}^{2},\qquad
+\sum a_{i}^{2}= \lambda^{2}\sum b_{i}^{2},
+\]
+and a direct substitution shows
+\[
+\bigl(\sum a_{i}b_{i}\bigr)^{2}
+= \lambda^{2}\bigl(\sum b_{i}^{2}\bigr)^{2}
+= \bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr).
+\]
+The degenerate case $\lambda=0$ corresponds to both vectors being zero.  
+Therefore equality in the Cauchy–Schwarz inequality holds \emph{iff} there exists $\lambda\in\mathbb R$ such that $a_{i}=\lambda b_{i}$ for all $i$.
+
+\end{enumerate}
+\end{proof}

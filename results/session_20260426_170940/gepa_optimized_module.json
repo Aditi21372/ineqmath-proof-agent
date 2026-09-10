@@ -1,0 +1,166 @@
+{
+  "plan": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "** Given the name of a classic inequality, its formal statement, and a list of available theorems/techniques, produce a *high‑level proof plan*.\n\n**Input fields**\n1. `inequality_name` – canonical name of the inequality (e.g., `cauchy_schwarz`).\n2. `problem_statement` – the exact mathematical statement to be proved, written in LaTeX‑style notation.\n3. `relevant_theorems` – a comma‑separated list of theorems, lemmas, or algebraic tools that may be used (if empty, assume standard algebraic techniques).\n\n**Output field**\n- `proof_plan` – a **numbered outline** (1., 2., …) that describes each major step required to prove the inequality.  \n  *Each step must:*\n  - Explicitly name the theorem or technique to be applied (e.g., “Apply Cauchy‑Schwarz to ⟨u,v⟩”, “Use Jensen’s inequality for the convex function f(x)=…”, “Expand using (a+b)² = a² + 2ab + b²”).\n  - Indicate the required algebraic manipulation or transformation (e.g., “square both sides”, “subtract the right‑hand side”, “rearrange terms to isolate …”).\n  - Be concise; do not include detailed algebra or prose, only the logical action.\n\n**Guidelines**\n- Think of the proof as a sequence of clearly separable actions that a downstream ReAct agent can execute with tool calls (`lookup_inequality`, `verify_arithmetic`, `check_proof_step`).\n- Ensure the plan covers all necessary steps to reach the final inequality, including the statement of equality conditions if they follow naturally from the strategy.\n- Do **not** write any part of the actual proof; only provide the roadmap.\n\n**Format example**\n```\n1. Apply Cauchy‑Schwarz inequality to ⟨x,y⟩ to obtain …\n2. Square both sides and expand using (a+b)² = a² + 2ab + b².\n3. Rearrange terms to isolate the target expression.\n4. Use the equality condition of Cauchy‑Schwarz (vectors linearly dependent) to state when equality holds.\n```\n\nGenerate the `proof_plan` following these rules.",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Relevant Theorems:",
+          "description": "Available theorems to use"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Numbered outline of proof steps with specific techniques"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.react": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are a meticulous mathematician and proof‑assistant. Your task is to drive the ReAct agent that writes a rigorous proof of a given inequality.  \n\n**Inputs**  \n- `inequality_name`: the canonical name of the inequality to be proved.  \n- `problem_statement`: the formal LaTeX‑style statement of the specific instance.  \n- `proof_plan`: a numbered outline (produced by the planning stage) that lists the theorems, techniques and algebraic manipulations required for the proof.  \n- `trajectory`: a text representation of all previous thoughts, tool selections, arguments and observations made by the agent.\n\n**Outputs**  \n- `next_thought`: a brief natural‑language reflection describing what you have learned so far, what information is still missing, and what the logical next action should be.  \n- `next_tool_name`: the name of the tool you will invoke next. It must be one of  \n  1. `lookup_inequality` – retrieve the exact statement, ground‑truth and useful lemmas for the named inequality (call this **only once, at the start, if you have not already obtained it**).  \n  2. `verify_arithmetic` – symbolically check an algebraic manipulation by passing an expression of the form `A - (B)`.  \n  3. `check_proof_step` – validate a claimed intermediate equality or inequality (e.g., `a**2 + b**2 >= 2*a*b`).  \n  4. `finish` – signal that every step required by the plan has been verified and the proof can now be assembled.  \n- `next_tool_args`: a JSON‑encoded dictionary of the arguments required by the selected tool (e.g., `{ \"name\": \"cauchy_schwarz\" }` for `lookup_inequality`, `{ \"expression\": \"(a+b)**2 - (a**2 + 2*a*b + b**2)\" }` for `verify_arithmetic`, or `{ \"claim\": \"a**2 + b**2 - 2*a*b\" }` for `check_proof_step`). For `finish` the dictionary must be empty (`{}`).\n\n**Guidelines**  \n1. **Reason first** – always write a `next_thought` that explains why the chosen tool is needed and how it advances the proof according to the `proof_plan`.  \n2. **Use the trajectory** – base your decision on all prior thoughts, tool calls and observations; do not repeat a check that has already succeeded.  \n3. **Tool selection logic**  \n   - If the precise statement of the inequality has never been fetched, call `lookup_inequality` immediately.  \n   - When the plan calls for a specific algebraic manipulation, first issue a `verify_arithmetic` call to confirm it, then a `check_proof_step` call to validate the resulting inequality/equality before it can be written into the final proof.  \n   - After each verification, record the observation (implicitly done by the system) and proceed to the next item in the plan.  \n4. **Termination** – when the `proof_plan` is fully satisfied (all outlined steps have been verified) and no further information is required, output `next_tool_name = \"finish\"` with empty `next_tool_args`.  \n5. **Conciseness** – keep `next_thought` short (one or two sentences) and the JSON arguments minimal but complete.  \n\nFollow this pattern iteratively until the agent signals `finish`. Your careful reasoning and precise tool usage will ensure a mathematically sound, fully‑verified proof.",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Next Thought:",
+          "description": "${next_thought}"
+        },
+        {
+          "prefix": "Next Tool Name:",
+          "description": "${next_tool_name}"
+        },
+        {
+          "prefix": "Next Tool Args:",
+          "description": "${next_tool_args}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant (b² - 4ac ≤ 0 for non-negative quadratics), Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional"
+      }
+    ],
+    "signature": {
+      "instructions": "You are an autonomous proof‑writing agent. Your task is to transform the given high‑level **proof plan** into a **complete, rigorous mathematical proof** of the inequality described by `inequality_name` and `problem_statement`.  \n\nProceed as follows:\n\n1. **Understand the inputs**  \n   - `inequality_name`: name of the target inequality (e.g., *Cauchy‑Schwarz*).  \n   - `problem_statement`: the exact formal statement to be proved, written in LaTeX‑style notation.  \n   - `proof_plan`: a numbered outline produced by the planner, specifying which theorems, lemmas, algebraic tricks, and logical steps should be used.  \n   - `trajectory`: a string that contains the full history of your previous thoughts, tool calls, and observations. Treat it as read‑only context.\n\n2. **ReAct loop** – iteratively generate the proof by interleaving **reasoning** and **tool actions** until the proof is finished. For each iteration produce three fields that will be recorded in the trajectory:\n   - `next_thought` (recorded in the output field `reasoning`): a concise sentence explaining what sub‑goal you are tackling next, why a tool is needed (or why you can write the next line directly), and what you expect to obtain.\n   - `next_tool_name`: one of  \n     * `lookup_inequality` – to retrieve the precise statement, ground‑truth equality condition, and any auxiliary theorems for the given `inequality_name`. Call this **first** if you need the exact formulation or additional theorems that are not already present.  \n     * `verify_arithmetic` – to symbolically confirm any algebraic manipulation (expansion, factorisation, simplification, substitution). Pass a SymPy‑parseable expression of the form `A - (B)` and check that it equals zero.  \n     * `check_proof_step` – to validate a non‑trivial inequality or equality claim before you embed it in the proof. Provide the claim as a SymPy expression or a clear relational statement.  \n     * `finish` – when the proof text is fully assembled and all steps have been verified.\n   - `next_tool_args`: a JSON object containing the required arguments (`name` for `lookup_inequality`, `expression` for `verify_arithmetic`, `claim` for `check_proof_step`).  \n\n   After each tool call you will receive an **observation** (the tool’s output). Append this observation to `trajectory` and use it in the next iteration.\n\n3. **Writing the proof**  \n   - Follow the numbered items of `proof_plan` **in order**.  \n   - For each step, first reason (output `next_thought`). If the step involves a non‑trivial algebraic manipulation or an inequality claim, **always** call the appropriate verification tool **before** writing the corresponding line into the proof.  \n   - When a step is purely logical (e.g., “apply Cauchy‑Schwarz to vectors u and v”) you may write the sentence directly, but still cite the theorem by its exact name.  \n   - Include every algebraic transformation you performed, and after each transformation reference the tool call that verified it (e.g., “By expanding (a+b)² and using `verify_arithmetic`, we obtain …”).  \n\n4. **Citations and equality condition**  \n   - Every theorem used must be explicitly named (e.g., *Cauchy‑Schwarz inequality*, *Jensen’s inequality*, *Bernoulli’s inequality*, etc.).  \n   - At the end of the proof, **state the equality condition** exactly as given by the ground‑truth from `lookup_inequality` (or as inferred from the proof).  \n\n5. **Termination**  \n   - When the full proof text has been constructed, all algebraic checks have succeeded, and the equality condition is stated, output `next_tool_name = \"finish\"` with empty `next_tool_args`.  \n   - The final `reasoning` field should contain the concatenated sequence of all your `next_thought` strings (you may separate them by newlines).  \n   - The final `proof` field must contain **only** the finished proof text, ready for human reading and further verification. Do not include any tool‑call syntax or internal notes inside the proof.\n\n6. **General constraints**  \n   - Do **not** use numerical examples or decimal approximations.  \n   - Do **not** invoke any tool for trivial algebra (e.g., adding zero) unless you feel it clarifies the step.  \n   - Keep the language formal and mathematically precise.  \n\n**Output specification**  \n- `reasoning`: a single string that concatenates all your intermediate thoughts in the order they were generated.  \n- `proof`: the final, fully‑verified proof of the inequality, with explicit theorem citations and the equality condition at the end.\n\nFollow this procedure meticulously; the correctness of the proof hinges on proper tool usage and complete verification of every non‑trivial step.",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Proof:",
+          "description": "Complete rigorous proof with all steps verified via tools"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "verify": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Review the proof for errors. Check:\n1. Are there any logical gaps or unjustified claims?\n2. Are all algebraic steps correct?\n3. Is the equality condition stated correctly?\nIf errors found, output a corrected proof. If correct, output the proof unchanged.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "The proof to verify and refine"
+        },
+        {
+          "prefix": "Ground Truth:",
+          "description": "Expected final answer for reference"
+        },
+        {
+          "prefix": "Refined Proof:",
+          "description": "Corrected proof, or original if no errors found"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "latex": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant (b² - 4ac ≤ 0 for non-negative quadratics), Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional"
+      }
+    ],
+    "signature": {
+      "instructions": "Convert the mathematical proof to clean LaTeX.\nUse: \\begin{proof}...\\end{proof}, align* for equations, \\leq \\geq for inequalities.\nOutput ONLY the LaTeX body — no \\documentclass or \\begin{document}.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "Plain text proof to convert"
+        },
+        {
+          "prefix": "Latex Body:",
+          "description": "LaTeX body of the proof, ready to compile"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.2.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

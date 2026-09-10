@@ -1,0 +1,109 @@
+\begin{theorem}[Bernoulli’s inequality]
+Let \(x\in\mathbb{R}\) satisfy \(x\ge -1\) and let \(n\in\mathbb{Z}\) with \(n\ge 0\). Then  
+\[
+(1+x)^{n}\;\ge\;1+nx .
+\]
+\end{theorem}
+
+\begin{proof}
+We proceed by induction on the integer exponent \(n\).
+
+\medskip\noindent\textbf{1. Base cases.}
+\begin{itemize}
+\item \textbf{\(n=0\).}  By convention we define \(0^{0}=1\); this agrees with the limit
+\(\displaystyle \lim_{y\to0^{+}}y^{0}=1\). Hence
+\begin{align*}
+(1+x)^{0}=1,\qquad 1+0\cdot x = 1 .
+\end{align*}
+The inequality holds with equality for every admissible \(x\ge -1\).
+
+\item \textbf{\(n=1\).}  Direct computation gives
+\begin{align*}
+(1+x)^{1}=1+x,\qquad 1+1\cdot x = 1+x .
+\end{align*}
+Equality again holds for all \(x\ge -1\).
+
+\item \textbf{\(x=-1\).}  Here \(1+x=0\). For any \(n\ge 0\)
+\[
+(1+x)^{n}=0^{n}=%
+\begin{cases}
+1, & n=0,\\[2pt]
+0, & n\ge 1 .
+\end{cases}
+\]
+The right–hand side equals \(1+n(-1)=1-n\). Thus
+\[
+0^{n}\ge 1-n .
+\]
+This is true because for \(n=0\) both sides are \(1\), and for \(n\ge 1\) the left side is \(0\) while the right side is at most \(0\). Equality occurs only when \(n=0\) or \(n=1\).
+\end{itemize}
+Hence the statement is valid for the initial exponents and for the special value \(x=-1\).
+
+\medskip\noindent\textbf{2. Induction hypothesis.}
+Assume that for a fixed integer \(k\ge 1\) the inequality
+\begin{align}
+(1+x)^{k}\;\ge\;1+kx \tag{IH}
+\end{align}
+holds for every real \(x\ge -1\).
+
+\medskip\noindent\textbf{3. Multiplication by the non‑negative factor \(1+x\).}
+Since \(x\ge -1\) we have \(1+x\ge 0\). Multiplying both sides of (IH) by this
+non‑negative quantity preserves the direction of the inequality:
+\begin{align}
+(1+x)^{k+1}= (1+x)^{k}(1+x)\;\ge\;(1+kx)(1+x). \tag{1}
+\end{align}
+
+\medskip\noindent\textbf{4. Expansion of the right‑hand side.}
+\begin{align}
+(1+kx)(1+x)=1+(k+1)x+kx^{2}. \tag{2}
+\end{align}
+
+\medskip\noindent\textbf{5. Dropping a non‑negative term.}
+For any real \(x\) we have \(x^{2}\ge 0\), and because \(k\ge 1\) the product
+\(k x^{2}\) is non‑negative:
+\begin{align}
+kx^{2}\ge 0. \tag{3}
+\end{align}
+Consequently, from (2) we obtain
+\begin{align}
+(1+kx)(1+x)\;\ge\;1+(k+1)x . \tag{4}
+\end{align}
+
+\medskip\noindent\textbf{6. Inductive step.}
+Combining (1) and (4) yields
+\begin{align}
+(1+x)^{k+1}\;\ge\;1+(k+1)x ,
+\end{align}
+which is precisely the desired inequality for the exponent \(k+1\).
+
+\medskip\noindent\textbf{7. Completion of the induction.}
+The property holds for \(n=0\) and \(n=1\); the inductive step shows that
+truth for \(n=k\) implies truth for \(n=k+1\).  By the Principle of
+Mathematical Induction, the inequality
+\[
+(1+x)^{n}\;\ge\;1+nx
+\]
+holds for every integer \(n\ge 0\) and every real \(x\ge -1\).
+
+\medskip\noindent\textbf{8. Equality cases.}
+Equality in the inductive step can arise in two ways:
+\begin{enumerate}
+\item The discarded non‑negative term in (5) vanishes, i.e. \(k x^{2}=0\).
+Since \(k\ge 1\), this forces \(x=0\).
+\item The factor \(1+x\) that multiplies both sides in (3) is zero, i.e.
+\(x=-1\).  In this situation (1) is an equality irrespective of the
+induction hypothesis.
+\end{enumerate}
+Collecting all possibilities, equality holds exactly in the following
+situations:
+\begin{itemize}
+\item \(n=0\) – both sides equal \(1\) for any \(x\ge -1\);
+\item \(n=1\) – both sides equal \(1+x\) for any \(x\ge -1\);
+\item \(x=0\) – \((1+0)^{n}=1=1+n\cdot0\) for any \(n\ge 0\);
+\item \(x=-1\) and \(n=1\) – both sides are \(0\).
+\end{itemize}
+For any \(n\ge 2\) and any \(x\neq 0,-1\) the term \(k x^{2}\) (and, more
+generally, the higher‑order terms of the binomial expansion) is strictly
+positive, making the left‑hand side strictly larger than \(1+nx\).  Hence no
+other equality cases exist. \(\square\)
+\end{proof}

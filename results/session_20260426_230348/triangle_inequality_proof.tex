@@ -1,0 +1,79 @@
+\begin{proof}
+\textbf{1. Norm via the inner product.}  
+By definition  
+\[
+\|x\|=\sqrt{\langle x,x\rangle},\qquad 
+\|y\|=\sqrt{\langle y,y\rangle}.
+\]
+
+\textbf{2. Degenerate cases.}  
+If \(x=0\) then \(\|x+y\|=\|y\|=\|x\|+\|y\|\); similarly for \(y=0\).  
+Hence we may assume \(x\neq0\) and \(y\neq0\).
+
+\textbf{3. Squaring the inequality.}  
+Since both sides are non‑negative,
+\begin{align}
+\|x+y\|\le\|x\|+\|y\|
+\;\Longleftrightarrow\;
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}. \tag{1}
+\end{align}
+Using \((\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}\) and \(\|z\|^{2}=\langle z,z\rangle\), inequality (1) becomes
+\begin{align}
+\langle x+y,x+y\rangle\le 
+\langle x,x\rangle+2\|x\|\|y\|+\langle y,y\rangle .
+\tag{2}
+\end{align}
+
+\textbf{4. Expand the left‑hand side.}  
+Bilinearity and \(\langle u,v\rangle=\overline{\langle v,u\rangle}\) give
+\begin{align}
+\langle x+y,x+y\rangle
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \\
+&=\langle x,x\rangle+2\operatorname{Re}\langle x,y\rangle+\langle y,y\rangle .
+\tag{3}
+\end{align}
+
+\textbf{5. Apply Cauchy–Schwarz.}  
+The Cauchy–Schwarz inequality yields
+\[
+|\langle x,y\rangle|\le\|x\|\,\|y\|,
+\]
+hence
+\begin{align}
+2\operatorname{Re}\langle x,y\rangle
+\le 2|\langle x,y\rangle|
+\le 2\|x\|\,\|y\|.
+\tag{4}
+\end{align}
+
+\textbf{6. Combine (3) and (4).}  
+Substituting the bound (4) into (3) we obtain exactly (2).
+
+\textbf{7. Take square roots.}  
+Both sides of (2) are non‑negative, so
+\[
+\|x+y\|
+=\sqrt{\langle x+y,x+y\rangle}
+\le\sqrt{\|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}}
+=\|x\|+\|y\|,
+\]
+which is the desired triangle inequality.
+
+\textbf{8. Equality condition.}  
+Equality can occur only where equality holds in (4), i.e. in the
+Cauchy–Schwarz step.  Equality in Cauchy–Schwarz holds iff
+\(y=\lambda x\) for some \(\lambda\in\mathbb{C}\) with
+\(|\lambda|=\lambda\); the requirement that
+\(2\operatorname{Re}\langle x,y\rangle=2\|x\|\,\|y\|\) forces \(\lambda\) to be a
+non‑negative real number.  Together with the degenerate cases \(x=0\) or
+\(y=0\) we obtain
+\[
+\|x+y\|=\|x\|+\|y\|
+\iff
+\bigl(x=0\bigr)\lor\bigl(y=0\bigr)\lor\bigl(y=\lambda x\ \text{with }\lambda\ge0\bigr).
+\]
+
+Thus the triangle inequality holds in every inner product space, and equality
+occurs precisely when the two vectors are non‑negative scalar multiples of each
+other (including the trivial zero‑vector cases). \(\square\)
+\end{proof}

@@ -1,0 +1,121 @@
+\begin{theorem}[Cauchy–Schwarz]
+For real numbers \(a_{1},\dots ,a_{n}\) and \(b_{1},\dots ,b_{n}\),
+\[
+\left(\sum_{i=1}^{n}a_{i}b_{i}\right)^{2}
+\le
+\left(\sum_{i=1}^{n}a_{i}^{2}\right)
+\left(\sum_{i=1}^{n}b_{i}^{2}\right).
+\]
+Equality holds iff there exists \(\lambda\in\mathbb{R}\) such that
+\(a_{i}=\lambda b_{i}\) for every \(i\) (including the trivial case
+\(b_{1}=\dots =b_{n}=0\) or \(a_{1}=\dots =a_{n}=0\)).
+\end{theorem}
+
+\begin{proof}
+\textbf{Degenerate case \(\displaystyle\sum_{i=1}^{n}b_{i}^{2}=0\).}
+If \(\sum_{i=1}^{n}b_{i}^{2}=0\) then each \(b_{i}=0\). Consequently
+\[
+\sum_{i=1}^{n}a_{i}b_{i}=0,\qquad
+\bigl(\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}=0,\qquad
+\bigl(\sum_{i=1}^{n}a_{i}^{2}\bigr)
+\bigl(\sum_{i=1}^{n}b_{i}^{2}\bigr)=0,
+\]
+so the inequality holds with equality.  
+From now on assume \(\displaystyle\sum_{i=1}^{n}b_{i}^{2}>0\).
+
+\medskip
+\textbf{Construction of a non‑negative quadratic.}
+For an arbitrary real parameter \(t\) define
+\[
+Q(t):=\sum_{i=1}^{n}\bigl(a_{i}-t\,b_{i}\bigr)^{2}.
+\]
+Each summand is a square, hence \(Q(t)\ge0\) for all \(t\in\mathbb{R}\).
+
+Expanding and collecting powers of \(t\) gives
+\begin{align*}
+Q(t)&=\sum_{i=1}^{n}\bigl(a_{i}^{2}-2t\,a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)\\
+    &=\underbrace{\sum_{i=1}^{n}b_{i}^{2}}_{A}\,t^{2}
+      +\underbrace{\bigl(-2\sum_{i=1}^{n}a_{i}b_{i}\bigr)}_{B}\,t
+      +\underbrace{\sum_{i=1}^{n}a_{i}^{2}}_{C}.
+\end{align*}
+Thus \(Q(t)=At^{2}+Bt+C\) with
+\[
+A=\sum_{i=1}^{n}b_{i}^{2}>0,\qquad
+B=-2\sum_{i=1}^{n}a_{i}b_{i},\qquad
+C=\sum_{i=1}^{n}a_{i}^{2}.
+\]
+
+\medskip
+\textbf{Discriminant condition for a non‑negative quadratic.}
+\emph{Lemma.} If a quadratic \(f(t)=At^{2}+Bt+C\) satisfies \(f(t)\ge0\) for
+all \(t\in\mathbb{R}\) and \(A>0\), then its discriminant is non‑positive:
+\(B^{2}-4AC\le0\).
+
+\emph{Proof of Lemma.} If \(B^{2}-4AC>0\) the polynomial would have two
+distinct real roots and would be negative between them, contradicting
+\(f(t)\ge0\).  If \(B^{2}-4AC=0\) the polynomial has a double root and is
+non‑negative; if \(B^{2}-4AC<0\) it has no real root and is strictly
+positive.  ∎
+
+Applying the lemma to \(Q(t)\) yields
+\[
+B^{2}-4AC\le0.
+\]
+Substituting the expressions for \(A,B,C\) we obtain
+\[
+\bigl(-2\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+-4\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)
+   \Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\le0.
+\]
+
+\medskip
+\textbf{Algebraic simplification.}
+Using the elementary identity
+\[
+\bigl(-2\sum a_{i}b_{i}\bigr)^{2}
+-4\Bigl(\sum b_{i}^{2}\Bigr)\Bigl(\sum a_{i}^{2}\Bigr)
+=4\Bigl[\bigl(\sum a_{i}b_{i}\bigr)^{2}
+      -\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr)\Bigr],
+\]
+the previous inequality becomes
+\[
+4\Bigl[\bigl(\sum a_{i}b_{i}\bigr)^{2}
+      -\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr)\Bigr]\le0.
+\]
+Dividing by the positive constant \(4\) gives the Cauchy–Schwarz inequality
+\[
+\boxed{\displaystyle
+\bigl(\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+\le
+\bigl(\sum_{i=1}^{n}a_{i}^{2}\bigr)
+\bigl(\sum_{i=1}^{n}b_{i}^{2}\bigr)}.
+\]
+
+\medskip
+\textbf{Equality condition.}
+Equality in the discriminant inequality occurs exactly when
+\(B^{2}-4AC=0\), i.e. when the quadratic \(Q(t)\) has a double root.
+Hence there exists \(t_{0}\in\mathbb{R}\) such that \(Q(t_{0})=0\).
+Since
+\[
+Q(t_{0})=\sum_{i=1}^{n}\bigl(a_{i}-t_{0}b_{i}\bigr)^{2}=0,
+\]
+each summand must be zero, giving
+\[
+a_{i}=t_{0}\,b_{i}\qquad\text{for all }i=1,\dots ,n.
+\]
+Conversely, if a constant \(\lambda\) satisfies \(a_{i}=\lambda b_{i}\) for
+all \(i\), then
+\[
+\bigl(\sum a_{i}b_{i}\bigr)^{2}
+=\bigl(\lambda\sum b_{i}^{2}\bigr)^{2}
+=\lambda^{2}\bigl(\sum b_{i}^{2}\bigr)^{2}
+=\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr),
+\]
+so equality holds.  The case \(\lambda=0\) corresponds to the
+degenerate situation where one of the vectors is the zero vector.
+
+Thus equality holds iff there exists \(\lambda\in\mathbb{R}\) such that
+\(a_{i}=\lambda b_{i}\) for every index \(i\) (including the trivial
+zero‑vector case). \(\square\)
+\end{proof}

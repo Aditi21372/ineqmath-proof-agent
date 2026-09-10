@@ -1,0 +1,70 @@
+\begin{proof}
+\textbf{1. Reduction to the case \(a,b>0\).}  
+If \(a=0\) or \(b=0\) then the left–hand side is \(0\) and the right–hand side is
+non‑negative, so the inequality holds. Hence we may assume \(a>0,\;b>0\).
+
+\medskip
+\textbf{2. Introduce the conjugate exponent.}  
+Let \(p>1\) and define \(q\) by  
+\[
+\frac{1}{p}+\frac{1}{q}=1\qquad\Longrightarrow\qquad 
+q=\frac{p}{p-1}>1 .
+\]
+
+\medskip
+\textbf{3. Convexity of the exponential function.}  
+The function \(\varphi(t)=e^{t}\) is convex on \(\mathbb{R}\).  
+By Jensen’s inequality, for any \(\lambda\in[0,1]\) and any real numbers \(x,y\),
+
+\begin{align}
+e^{\lambda x+(1-\lambda)y}\le \lambda e^{x}+(1-\lambda)e^{y}.
+\tag{1}
+\end{align}
+
+\medskip
+\textbf{4. Choice of the convex combination.}  
+Set
+\[
+\lambda=\frac{1}{p},\qquad 1-\lambda=\frac{1}{q},\qquad
+x=p\ln a,\qquad y=q\ln b .
+\]
+Then
+\begin{align}
+\lambda x+(1-\lambda)y
+&=\frac{1}{p}\,p\ln a+\frac{1}{q}\,q\ln b \\
+&=\ln a+\ln b \\
+&=\ln(ab).
+\tag{2}
+\end{align}
+
+\medskip
+\textbf{5. Apply Jensen’s inequality.}  
+Substituting the choices of \(\lambda,x,y\) and using \((2)\) in \((1)\) gives
+
+\begin{align}
+e^{\ln(ab)}\le \frac{1}{p}e^{p\ln a}+\frac{1}{q}e^{q\ln b}.
+\end{align}
+Since \(e^{\ln(ab)}=ab\) and \(e^{p\ln a}=a^{p},\;e^{q\ln b}=b^{q}\), we obtain
+
+\begin{align}
+ab\le \frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\tag{3}
+\end{align}
+
+\medskip
+\textbf{6. Extension to the non‑negative case.}  
+Both sides of \((3)\) are continuous in \((a,b)\) on \([0,\infty)^{2}\); therefore the
+inequality, proved for all \(a,b>0\), remains valid when either \(a=0\) or \(b=0\).
+
+\medskip
+\textbf{7. Equality condition.}  
+Equality in Jensen’s inequality \((1)\) occurs exactly when the two arguments are
+equal, i.e. when \(x=y\).  With the chosen \(x,y\) this means
+
+\[
+p\ln a = q\ln b \;\Longleftrightarrow\; a^{p}=b^{q}.
+\]
+
+Hence equality in Young’s inequality holds iff \(a^{p}=b^{q}\).
+
+\end{proof}

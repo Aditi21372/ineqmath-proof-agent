@@ -1,0 +1,106 @@
+\begin{proof}
+\textbf{Degenerate and edge cases.}\\[4pt]
+\emph{Case \(n=1\).}  
+The hypothesis gives \(\lambda_{1}=1\); hence the statement reads  
+\(f(x_{1})\le f(x_{1})\), which holds with equality.
+
+\emph{Zero weights.}  
+If \(\lambda_{k}=0\) for some index \(k\), then the term \(\lambda_{k}x_{k}\) (resp. \(\lambda_{k}f(x_{k})\)) disappears from the left‑hand (resp. right‑hand) side.  Thus the inequality for \(\{x_{i},\lambda_{i}\}_{i=1}^{n}\) is equivalent to the inequality for the reduced family obtained by omitting \(k\).  Hence we may assume \(\lambda_{i}>0\) for all \(i\).
+
+\medskip
+\textbf{The case \(n=2\).}\\[4pt]
+Let \(\lambda_{1},\lambda_{2}\ge0\) with \(\lambda_{1}+\lambda_{2}=1\).  By convexity,
+\[
+f(t x+(1-t)y)\le t\,f(x)+(1-t)f(y)\qquad (t\in[0,1],\;x,y\in\mathbb R).
+\]
+Choosing \(t=\lambda_{1}\), \(x=x_{1}\), \(y=x_{2}\) yields
+\[
+f(\lambda_{1}x_{1}+\lambda_{2}x_{2})\le
+\lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}),
+\]
+which is Jensen’s inequality for two points.
+
+\medskip
+\textbf{Inductive hypothesis.}\\[4pt]
+Assume that for some integer \(k\ge2\) and for every choice of points
+\(y_{1},\dots ,y_{k}\) and weights \(\mu_{1},\dots ,\mu_{k}\) with \(\mu_{i}\ge0\) and
+\(\sum_{i=1}^{k}\mu_{i}=1\) we have
+\begin{equation}
+f\!\Bigl(\sum_{i=1}^{k}\mu_{i}y_{i}\Bigr)\le
+\sum_{i=1}^{k}\mu_{i}f(y_{i}). \tag{IH}
+\end{equation}
+
+\medskip
+\textbf{Inductive step \(k\to k+1\).}\\[4pt]
+Let \(\lambda_{1},\dots ,\lambda_{k+1}\ge0\) satisfy \(\sum_{i=1}^{k+1}\lambda_{i}=1\).
+Set
+\[
+\alpha:=\lambda_{k+1},\qquad
+\beta:=1-\alpha=\sum_{i=1}^{k}\lambda_{i}.
+\]
+If \(\beta=0\) then \(\alpha=1\) and the desired inequality reduces to
+\(f(x_{k+1})\le f(x_{k+1})\).  Hence we may assume \(\beta>0\).
+
+Define the intermediate point
+\[
+y:=\frac{1}{\beta}\sum_{i=1}^{k}\lambda_{i}x_{i}.
+\]
+The numbers \(\frac{\lambda_{i}}{\beta}\;(i=1,\dots ,k)\) are non‑negative and sum to \(1\), so \(y\) is a convex combination of the first \(k\) points.
+
+\smallskip
+\emph{4.1 Applying two‑point convexity.}  
+Since \(\alpha\in[0,1]\) and \(\beta=1-\alpha\), convexity gives
+\begin{equation}
+f\bigl(\beta y+\alpha x_{k+1}\bigr)\le
+\beta\,f(y)+\alpha\,f(x_{k+1}). \tag{1}
+\end{equation}
+Moreover,
+\begin{align*}
+\beta y+\alpha x_{k+1}
+   &=\beta\Bigl(\frac{1}{\beta}\sum_{i=1}^{k}\lambda_{i}x_{i}\Bigr)
+     +\lambda_{k+1}x_{k+1} \\
+   &=\sum_{i=1}^{k}\lambda_{i}x_{i}+\lambda_{k+1}x_{k+1}
+   =\sum_{i=1}^{k+1}\lambda_{i}x_{i}. \tag{2}
+\end{align*}
+Thus the left–hand side of \((1)\) is precisely the term we need to bound.
+
+\smallskip
+\emph{4.2 Estimating \(\beta f(y)\) via the induction hypothesis.}  
+Applying \((\text{IH})\) to the points \(x_{1},\dots ,x_{k}\) with weights
+\(\frac{\lambda_{i}}{\beta}\) yields
+\begin{equation}
+f(y)=f\!\Bigl(\sum_{i=1}^{k}\frac{\lambda_{i}}{\beta}x_{i}\Bigr)
+     \le\sum_{i=1}^{k}\frac{\lambda_{i}}{\beta}\,f(x_{i}). \tag{3}
+\end{equation}
+Multiplying \((3)\) by \(\beta>0\) gives
+\begin{equation}
+\beta f(y)\le\sum_{i=1}^{k}\lambda_{i}f(x_{i}). \tag{4}
+\end{equation}
+
+\smallskip
+\emph{4.3 Combining the estimates.}  
+From \((1)\) and \((2)\) we have
+\[
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Bigr)
+   \le \beta f(y)+\alpha f(x_{k+1}).
+\]
+Using \((4)\) and \(\alpha=\lambda_{k+1}\) we obtain
+\[
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Bigr)
+   \le \sum_{i=1}^{k}\lambda_{i}f(x_{i})+\lambda_{k+1}f(x_{k+1})
+   =\sum_{i=1}^{k+1}\lambda_{i}f(x_{i}),
+\]
+which completes the inductive step.
+
+\medskip
+\textbf{Conclusion of the induction.}  
+The inequality holds for \(n=2\) (Section 2) and the step \(k\to k+1\) has been proved; therefore, by induction, Jensen’s inequality holds for every integer \(n\ge2\).  Together with the trivial case \(n=1\) (Section 1) we obtain the result for all \(n\in\mathbb N\).
+
+\medskip
+\textbf{Equality conditions.}\\[4pt]
+\begin{enumerate}
+\item If one weight equals \(1\) and the others are zero, both sides reduce to \(f(x_{j})\) for that index \(j\).
+\item If \(f\) is affine on the convex hull of the points \(\{x_{i}\mid\lambda_{i}>0\}\), i.e. there exist \(a,b\in\mathbb R\) such that \(f(t)=at+b\) on that hull, then equality holds.
+\item In all other situations at least one of the intermediate convexity inequalities used in the inductive step is strict, so the overall inequality is strict.
+\end{enumerate}
+\end{proof}

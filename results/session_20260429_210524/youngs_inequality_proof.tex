@@ -1,0 +1,84 @@
+\begin{proof}
+Let \(a,b\ge 0\) and let \(p,q>1\) satisfy \(\dfrac1p+\dfrac1q=1\).
+
+\medskip
+\noindent\textbf{Degenerate cases.}
+If \(a=0\) or \(b=0\) then \(ab=0\) while the right–hand side  
+\(\dfrac{a^{p}}{p}+\dfrac{b^{q}}{q}\) is non‑negative, so the inequality holds.
+Hence we may assume
+\[
+a>0,\qquad b>0 .
+\]
+
+\medskip
+\noindent\textbf{A convex function.}
+Define \(\displaystyle \phi(x)=\frac{x^{p}}{p}\) for \(x\ge 0\).
+Then
+\[
+\phi'(x)=x^{p-1},\qquad 
+\phi''(x)=(p-1)x^{p-2}>0\quad (p>1,\;x>0),
+\]
+so \(\phi\) is convex on \([0,\infty)\).  
+For a convex differentiable function the supporting‑line inequality holds:
+\begin{equation}
+\phi(a)\ge \phi(x_{0})+\phi'(x_{0})(a-x_{0})
+\qquad(\forall a\ge0,\;x_{0}>0). \tag{1}
+\end{equation}
+
+\medskip
+\noindent\textbf{Choice of the tangency point.}
+Take \(x_{0}=b^{\,q-1}\).  
+Since the exponents are conjugate,
+\[
+q=\frac{p}{p-1},\qquad q-1=\frac{1}{p-1},
+\]
+and therefore \((q-1)(p-1)=1\). Consequently
+\begin{align}
+\phi'(x_{0})&=(b^{\,q-1})^{p-1}=b^{(q-1)(p-1)}=b, \tag{2}\\[4pt]
+\phi(x_{0})&=\frac{(b^{\,q-1})^{p}}{p}
+          =\frac{b^{p(q-1)}}{p}
+          =\frac{b^{q}}{p}, \tag{3}
+\end{align}
+because \(p(q-1)=q\).
+
+\medskip
+\noindent\textbf{Applying (1).}
+Insert \(x_{0}=b^{\,q-1}\) together with (2) and (3) into (1):
+\[
+\frac{a^{p}}{p}
+   \ge \frac{b^{q}}{p}+b\bigl(a-b^{\,q-1}\bigr).
+\]
+Expanding the right–hand side yields
+\[
+\frac{a^{p}}{p}\ge \frac{b^{q}}{p}+ab-b^{q}.
+\]
+Rearranging,
+\[
+\frac{a^{p}}{p}+\Bigl(1-\frac1p\Bigr)b^{q}\ge ab.
+\]
+Since \(1-\dfrac1p=\dfrac{p-1}{p}=\dfrac1q\) (by \(\frac1p+\frac1q=1\)), we obtain
+\begin{equation}
+\frac{a^{p}}{p}+\frac{b^{q}}{q}\ge ab. \tag{4}
+\end{equation}
+Thus Young’s inequality holds for all \(a,b>0\).
+
+\medskip
+\noindent\textbf{Equality condition.}
+In (1) equality occurs iff \(a=x_{0}\). With our choice of \(x_{0}\) this means
+\(a=b^{\,q-1}\). Raising both sides to the power \(p\) and using \(p(q-1)=q\) gives
+\(a^{p}=b^{q}\). Conversely, if \(a^{p}=b^{q}\) then \(a=b^{\,q-1}\) and each step
+above is an equality. The trivial case \(a=b=0\) also gives equality. Hence
+\[
+ab=\frac{a^{p}}{p}+\frac{b^{q}}{q}
+\quad\Longleftrightarrow\quad a^{p}=b^{q}.
+\]
+
+\medskip
+\noindent\textbf{Conclusion.}
+Combining the zero case with the argument for \(a,b>0\) we have proved Young’s
+inequality
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+with equality precisely when \(a^{p}=b^{q}\) (including \(a=b=0\)). \(\square\)
+\end{proof}

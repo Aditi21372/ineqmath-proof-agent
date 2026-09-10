@@ -1,0 +1,120 @@
+\begin{theorem}[Jensen’s inequality]
+Let $f:\mathbb R\to\mathbb R$ be convex.  
+For any integer $n\ge 1$, any real numbers $x_{1},\dots ,x_{n}$ and any
+weights $\lambda_{1},\dots ,\lambda_{n}$ satisfying
+\[
+\lambda_i\ge 0\;(i=1,\dots ,n),\qquad
+\sum_{i=1}^{n}\lambda_i =1,
+\]
+we have
+\begin{equation}
+f\!\Bigl(\sum_{i=1}^{n}\lambda_i x_i\Bigr)\le
+\sum_{i=1}^{n}\lambda_i f(x_i).\tag{1}
+\end{equation}
+Equality holds exactly when either all points with positive weight are
+identical, or $f$ is affine on the convex hull of those points.
+\end{theorem}
+
+\begin{proof}
+\textbf{Binary convexity.}  
+Convexity of $f$ is equivalent to
+\begin{equation}
+f\bigl(t x+(1-t)y\bigr)\le t\,f(x)+(1-t)f(y)\qquad
+(x,y\in\mathbb R,\;t\in[0,1]).\tag{C}
+\end{equation}
+
+\medskip\noindent\textbf{Base case $n=1$.}  
+If $n=1$, then the only admissible weight is $\lambda_{1}=1$, so
+\[
+f\!\Bigl(\sum_{i=1}^{1}\lambda_i x_i\Bigr)=f(x_{1})
+=\sum_{i=1}^{1}\lambda_i f(x_i),
+\]
+and (1) holds with equality.
+
+\medskip\noindent\textbf{Induction hypothesis.}  
+Assume that for some $k\ge1$ inequality (1) holds for every choice of
+$x_{1},\dots ,x_{k}$ and non‑negative weights $\lambda_{1},\dots ,\lambda_{k}$
+with $\sum_{i=1}^{k}\lambda_i=1$:
+\begin{equation}
+f\!\Bigl(\sum_{i=1}^{k}\lambda_i x_i\Bigr)\le
+\sum_{i=1}^{k}\lambda_i f(x_i).\tag{IH}
+\end{equation}
+
+\medskip\noindent\textbf{Inductive step $k\to k+1$.}  
+Let $\lambda_{1},\dots ,\lambda_{k+1}\ge0$ with $\sum_{i=1}^{k+1}\lambda_i=1$
+and let $x_{1},\dots ,x_{k+1}\in\mathbb R$.
+
+Set
+\[
+\mu:=\sum_{i=1}^{k}\lambda_i,\qquad
+\lambda_{k+1}=1-\mu .
+\]
+
+If $\mu=0$ then $\lambda_{k+1}=1$ and we are back to the base case,
+so (1) is true.  Henceforth assume $\mu>0$.
+
+Define normalized weights for the first $k$ points,
+\[
+\alpha_i:=\frac{\lambda_i}{\mu}\qquad(i=1,\dots ,k),
+\]
+and the intermediate convex combination
+\[
+y:=\sum_{i=1}^{k}\alpha_i x_i
+   =\frac{1}{\mu}\sum_{i=1}^{k}\lambda_i x_i .
+\]
+Clearly $\alpha_i\ge0$ and $\sum_{i=1}^{k}\alpha_i=1$.
+
+\medskip\noindent\textbf{Step 1 – binary convexity.}  
+Apply \eqref{C} with $x:=y$, $y:=x_{k+1}$ and $t:=\mu\in[0,1]$:
+\begin{equation}
+f\bigl(\mu y+(1-\mu)x_{k+1}\bigr)
+\le \mu f(y)+(1-\mu)f(x_{k+1}).\tag{2}
+\end{equation}
+Since $\mu y+(1-\mu)x_{k+1}
+      =\sum_{i=1}^{k}\lambda_i x_i+\lambda_{k+1}x_{k+1}
+      =\sum_{i=1}^{k+1}\lambda_i x_i$,
+inequality \eqref{2} becomes
+\begin{equation}
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_i x_i\Bigr)
+\le \mu f(y)+(1-\mu)f(x_{k+1}).\tag{3}
+\end{equation}
+
+\medskip\noindent\textbf{Step 2 – induction hypothesis on the first $k$ points.}  
+Applying (IH) to $x_{1},\dots ,x_{k}$ with weights $\alpha_{1},\dots ,\alpha_{k}$ yields
+\[
+f(y)=f\!\Bigl(\sum_{i=1}^{k}\alpha_i x_i\Bigr)
+\le\sum_{i=1}^{k}\alpha_i f(x_i).\tag{4}
+\]
+Multiplying (4) by $\mu$ and using $\mu\alpha_i=\lambda_i$ gives
+\begin{equation}
+\mu f(y)\le\sum_{i=1}^{k}\lambda_i f(x_i).\tag{5}
+\end{equation}
+
+\medskip\noindent\textbf{Step 3 – conclusion of the inductive step.}  
+Insert (5) into (3):
+\[
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_i x_i\Bigr)
+\le\sum_{i=1}^{k}\lambda_i f(x_i)+(1-\mu)f(x_{k+1})
+ =\sum_{i=1}^{k+1}\lambda_i f(x_i),
+\]
+which is precisely (1) for $n=k+1$.
+
+Thus the inequality holds for all $n\ge1$ by induction.
+
+\medskip\noindent\textbf{Equality cases.}  
+In the binary convexity \eqref{C} equality occurs iff either $t=0$ or $t=1$
+(one of the two weights is zero) or $f$ is affine on the segment joining the
+two points.  Equality in the induction hypothesis (IH) occurs iff either
+all points with positive weight among $x_{1},\dots ,x_{k}$ coincide or
+$f$ is affine on their convex hull.
+
+Combining these observations through the inductive construction shows
+that equality in \eqref{1} holds exactly when
+
+\begin{enumerate}[(i)]
+\item all points $x_i$ with $\lambda_i>0$ are identical, or
+\item $f$ is affine on the convex hull $\operatorname{conv}\{x_i:\lambda_i>0\}$.
+\end{enumerate}
+These are the classical equality conditions for Jensen’s inequality.
+\qed
+\end{proof}

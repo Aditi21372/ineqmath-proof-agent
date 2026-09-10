@@ -1,0 +1,79 @@
+\begin{theorem}[Triangle Inequality]
+Let \((V,\langle\cdot,\cdot\rangle)\) be an inner‑product space and let \(x,y\in V\). Then
+\[
+\|x+y\|\le \|x\|+\|y\|,
+\]
+where the norm is defined by \(\|v\|=\sqrt{\langle v,v\rangle}\) for every \(v\in V\).
+\end{theorem}
+
+\begin{proof}
+\textbf{Norm definition.}  
+For any \(v\in V\),
+\[
+\|v\|:=\sqrt{\langle v,v\rangle}\ge 0,
+\]
+since \(\langle v,v\rangle\) is a non‑negative real number.
+
+\medskip
+
+\textbf{Zero‑vector cases.}  
+If \(x=0\) then \(\|x+y\|=\|y\|=\|x\|+\|y\|\); similarly if \(y=0\).  
+Henceforth assume \(x\neq0\) and \(y\neq0\).
+
+\medskip
+
+\textbf{Expansion of \(\|x+y\|^{2}\).}  
+Using linearity in the first argument and conjugate symmetry,
+\begin{align*}
+\langle x+y,x+y\rangle
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\\
+&=\|x\|^{2}+\|y\|^{2}+ \bigl(\langle x,y\rangle+\overline{\langle x,y\rangle}\bigr)\\
+&=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\end{align*}
+Consequently,
+\begin{equation}
+\|x+y\|^{2}= \|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\tag{1}
+\end{equation}
+
+\medskip
+
+\textbf{Cauchy–Schwarz inequality.}  
+For any vectors \(x,y\) in an inner‑product space,
+\begin{equation}
+|\langle x,y\rangle|\le \|x\|\,\|y\|,
+\tag{2}
+\end{equation}
+with equality iff \(x\) and \(y\) are linearly dependent.  
+Since \(\operatorname{Re}z\le|z|\) for any complex number \(z\), we obtain
+\begin{equation}
+\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|\le \|x\|\,\|y\|.
+\tag{3}
+\end{equation}
+
+\medskip
+
+\textbf{Upper bound for \(\|x+y\|^{2}\).}  
+Substituting \eqref{3} into \eqref{1} yields
+\begin{align}
+\|x+y\|^{2}
+&\le \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}\\
+&=(\|x\|+\|y\|)^{2}.
+\tag{4}
+\end{align}
+
+\medskip
+
+\textbf{Taking square roots.}  
+Both sides of \eqref{4} are non‑negative, and the square‑root function is monotone on \([0,\infty)\); therefore
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\medskip
+
+\textbf{Equality condition.}  
+Equality in the triangle inequality occurs precisely when equality holds in \eqref{3}.  
+Equality in Cauchy–Schwarz requires \(y=\lambda x\) for some \(\lambda\in\mathbb C\); equality in \(\operatorname{Re}z\le|z|\) forces \(\langle x,y\rangle\) to be a non‑negative real number, i.e. \(\lambda\ge0\).  
+Thus equality holds iff either one of the vectors is zero or there exists \(\lambda\ge0\) such that \(y=\lambda x\). \(\qed\)
+\end{proof}

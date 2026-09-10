@@ -1,0 +1,87 @@
+\begin{theorem}[Markov’s Inequality]
+Let \((\Omega,\mathcal{F},\mathbb{P})\) be a probability space.  
+Assume \(X:\Omega\to[0,\infty]\) is a non‑negative random variable and let \(a>0\).  
+Then
+\[
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}.
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Trivial cases.}  
+If \(\mathbb{E}[X]=+\infty\) the right‑hand side is \(+\infty\) and the inequality is automatically true.  
+If \(\mathbb{P}(X\ge a)=0\) the inequality reads \(0\le\mathbb{E}[X]/a\), which holds because \(\mathbb{E}[X]\ge0\).  
+Hence we may assume \(0<\mathbb{P}(X\ge a)<1\) and \(\mathbb{E}[X]<\infty\).
+
+\item \textbf{Indicator bound.}  
+Define the indicator of the event \(\{X\ge a\}\) by
+\[
+I_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\]
+For each \(\omega\in\Omega\),
+\begin{equation}
+X(\omega)\ge a\,I_{\{X\ge a\}}(\omega). \tag{2.1}
+\end{equation}
+Verification of (2.1): if \(X(\omega)\ge a\) then \(I_{\{X\ge a\}}(\omega)=1\) and \(a\le X(\omega)\);  
+if \(X(\omega)<a\) then \(I_{\{X\ge a\}}(\omega)=0\) and (2.1) reduces to \(X(\omega)\ge0\), true since \(X\ge0\) a.s.
+
+\item \textbf{Expectation of the bound.}  
+Both sides of (2.1) are non‑negative, so monotonicity of expectation yields
+\begin{equation}
+\mathbb{E}[X]\ge a\,\mathbb{E}\!\big[I_{\{X\ge a\}}\big]. \tag{3.1}
+\end{equation}
+
+\item \textbf{Expectation of an indicator.}  
+By definition of expectation for indicator functions,
+\begin{equation}
+\mathbb{E}\!\big[I_{\{X\ge a\}}\big]=\mathbb{P}(X\ge a). \tag{4.1}
+\end{equation}
+
+\item \textbf{Combine (3.1) and (4.1).}  
+Substituting (4.1) into (3.1) gives
+\[
+\mathbb{E}[X]\ge a\,\mathbb{P}(X\ge a),
+\]
+which is equivalent to
+\begin{equation}
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}. \tag{5.1}
+\end{equation}
+This completes the proof for finite expectations; the case \(\mathbb{E}[X]=+\infty\) was settled in step 1.
+
+\item \textbf{Equality condition.}  
+Equality in (5.1) can occur only if equality holds both in the pointwise bound (2.1) and in the expectation monotonicity step (3.1).
+
+\begin{itemize}
+\item \emph{Pointwise bound:} equality in (2.1) requires
+\[
+X(\omega)=a\,I_{\{X\ge a\}}(\omega)\quad\text{for }\mathbb{P}\text{-a.e. }\omega,
+\]
+i.e.
+\[
+X(\omega)=
+\begin{cases}
+a, & X(\omega)\ge a,\\
+0, & X(\omega)< a .
+\end{cases}
+\]
+
+\item \emph{Expectation step:} if the above identity holds \(\mathbb{P}\)-a.s., then taking expectations gives
+\[
+\mathbb{E}[X]=a\,\mathbb{P}(X\ge a),
+\]
+so (3.1) and consequently (5.1) become equalities.
+\end{itemize}
+Thus
+\[
+\mathbb{P}(X\ge a)=\frac{\mathbb{E}[X]}{a}
+\iff
+X=a\,I_{\{X\ge a\}}\quad\text{a.s.},
+\]
+i.e. \(X\) assumes only the two values \(0\) and \(a\) (up to a \(\mathbb{P}\)-null set). In all other situations the inequality is strict.
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,106 @@
+\begin{theorem}[Jensen’s inequality]
+Let \(f:\mathbb{R}\to\mathbb{R}\) be convex, i.e.
+\[
+\forall x,y\in\mathbb{R},\;\forall t\in[0,1]\qquad
+f\bigl(tx+(1-t)y\bigr)\le t\,f(x)+(1-t)f(y). \tag{C}
+\]
+Let \(x_{1},\dots,x_{n}\in\mathbb{R}\) and weights \(\lambda_{1},\dots,\lambda_{n}\) satisfy
+\(\lambda_i\ge0\) and \(\sum_{i=1}^{n}\lambda_i=1\).
+Then
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_i x_i\Bigr)
+   \le \sum_{i=1}^{n}\lambda_i f(x_i). \tag{J}
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item[\textbf{1.}] \textbf{Weight conditions.} The hypotheses imply that
+\[
+X:=\sum_{i=1}^{n}\lambda_i x_i
+\]
+is a convex combination of the numbers \(x_i\).
+
+\item[\textbf{2.}] \textbf{Base case \(n=2\).}  For two points write
+\(\lambda_{1}=t,\ \lambda_{2}=1-t\) with \(t\in[0,1]\).  By (C),
+\[
+f(t x_{1}+(1-t)x_{2})\le t\,f(x_{1})+(1-t)f(x_{2}),
+\]
+which is exactly (J) for \(n=2\).
+
+\item[\textbf{3.}] \textbf{Induction hypothesis.}  Assume that for a fixed
+\(k\ge2\) the statement (J) holds for every collection of \(k\) points and
+any non‑negative weights summing to one; i.e. for any \(y_{1},\dots ,y_{k}\)
+and any \(\mu_{1},\dots ,\mu_{k}\) with \(\mu_i\ge0\) and \(\sum_{i=1}^{k}\mu_i=1\),
+\[
+f\!\Bigl(\sum_{i=1}^{k}\mu_i y_i\Bigr)
+   \le \sum_{i=1}^{k}\mu_i f(y_i). \tag{IH}
+\]
+
+\item[\textbf{4.}] \textbf{Prepare the \((k+1)\)-point case.}  Let
+\(x_{1},\dots ,x_{k+1}\) and weights \(\lambda_{1},\dots ,\lambda_{k+1}\) satisfy the
+same conditions.  Set
+\[
+\alpha:=\lambda_{k+1},\qquad
+\beta:=1-\alpha=\sum_{i=1}^{k}\lambda_i .
+\]
+Because the \(\lambda_i\) are non‑negative, \(\beta\in[0,1]\).  If \(\beta=0\) then
+\(\lambda_{k+1}=1\) and the desired inequality reduces to the trivial equality
+\(f(x_{k+1})=f(x_{k+1})\).  Otherwise define
+\[
+y:=\frac{1}{\beta}\sum_{i=1}^{k}\lambda_i x_i . \tag{4}
+\]
+The coefficients \(\lambda_i/\beta\) are non‑negative and sum to one, so (4) is a convex
+combination of the first \(k\) points.
+
+\item[\textbf{5.}] \textbf{Apply the induction hypothesis to the first \(k\) points.}
+Using (IH) with the points \(x_{1},\dots ,x_{k}\) and the weights
+\(\lambda_i/\beta\) we obtain
+\[
+f(y)=f\!\Bigl(\sum_{i=1}^{k}\frac{\lambda_i}{\beta}x_i\Bigr)
+   \le \sum_{i=1}^{k}\frac{\lambda_i}{\beta}\,f(x_i). \tag{5}
+\]
+
+\item[\textbf{6.}] \textbf{Rewrite the whole convex combination as a two‑point
+convex combination.}  Directly from the definitions,
+\begin{align*}
+X&:=\sum_{i=1}^{k+1}\lambda_i x_i \\
+  &=\beta\Bigl(\frac{1}{\beta}\sum_{i=1}^{k}\lambda_i x_i\Bigr)+\alpha x_{k+1}\\
+  &=\beta y+\alpha x_{k+1}. \tag{6}
+\end{align*}
+Here \(\beta,\alpha\in[0,1]\) and \(\beta+\alpha=1\).
+
+\item[\textbf{7.}] \textbf{Apply convexity to the pair \((y,x_{k+1})\).}
+Using (C) with \(t=\beta\) gives
+\[
+f(X)=f(\beta y+\alpha x_{k+1})
+   \le \beta\,f(y)+\alpha\,f(x_{k+1}). \tag{7}
+\]
+
+\item[\textbf{8.}] \textbf{Insert the bound (5) for \(f(y)\) into (7).}
+Combining (5) and (7),
+\begin{align*}
+f(X) &\le \beta\Bigl(\sum_{i=1}^{k}\frac{\lambda_i}{\beta}f(x_i)\Bigr)
+        +\alpha f(x_{k+1})\\
+     &= \sum_{i=1}^{k}\lambda_i f(x_i)+\lambda_{k+1}f(x_{k+1})\\
+     &= \sum_{i=1}^{k+1}\lambda_i f(x_i). \tag{8}
+\end{align*}
+This is precisely the desired inequality for \(k+1\) points.
+
+\item[\textbf{9.}] \textbf{Induction conclusion.}  The base case \(n=2\) holds,
+and the induction step shows that truth for \(k\) implies truth for \(k+1\).
+Hence, by mathematical induction, (J) is valid for every integer
+\(n\ge2\).  The case \(n=1\) is immediate because both sides equal
+\(f(x_{1})\).
+
+\item[\textbf{10.}] \textbf{Equality condition.}  Equality in (C) occurs exactly
+when either the weight is \(0\) or \(1\) (so one point is not used) or when
+\(f\) is affine on the segment joining the two points.  Propagating this
+through the induction argument yields equality in Jensen’s inequality
+precisely when all points with positive weight are equal, or when \(f\) is
+affine on the convex hull of \(\{x_{1},\dots ,x_{n}\}\).
+
+\end{enumerate}
+Thus, for any convex function \(f\) and any convex combination of real
+numbers, Jensen’s inequality holds.
+\end{proof}

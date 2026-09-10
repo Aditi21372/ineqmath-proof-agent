@@ -1,0 +1,68 @@
+\begin{proof}
+Let \(a_{1},\dots ,a_{n}\) and \(b_{1},\dots ,b_{n}\) be real numbers.  
+
+\medskip
+\noindent\textbf{1. A non‑negative quadratic.}  
+For a real parameter \(t\) define
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_{i}-t\,b_{i}\bigr)^{2}.
+\]
+Each summand is a square, hence \(f(t)\ge 0\) for all \(t\in\mathbb{R}\).
+
+\medskip
+\noindent\textbf{2. Expansion of \(f(t)\).}  
+Using \((a_i-tb_i)^2=a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\), we obtain
+\[
+\begin{aligned}
+f(t)&=\sum_{i=1}^{n}a_{i}^{2}
+      -2t\sum_{i=1}^{n}a_{i}b_{i}
+      +t^{2}\sum_{i=1}^{n}b_{i}^{2}  \\
+    &= C-2Dt+Bt^{2},
+\end{aligned}
+\]
+where
+\[
+C=\sum_{i=1}^{n}a_{i}^{2},\qquad
+D=\sum_{i=1}^{n}a_{i}b_{i},\qquad
+B=\sum_{i=1}^{n}b_{i}^{2}\ge 0.
+\]
+
+\medskip
+\noindent\textbf{3. Discriminant argument.}  
+If \(B>0\), the quadratic \(Bt^{2}-2Dt+C\) is non‑negative for every real \(t\).  
+For a quadratic \(at^{2}+bt+c\) with \(a>0\) this is equivalent to its
+discriminant being non‑positive:
+\[
+\Delta =(-2D)^{2}-4BC = 4\bigl(D^{2}-BC\bigr)\le 0
+\;\Longrightarrow\;
+D^{2}\le BC.
+\]
+Substituting the definitions of \(B,C,D\) yields the Cauchy–Schwarz inequality
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\]
+If \(B=0\) then all \(b_{i}=0\) and the inequality is trivial.
+
+\medskip
+\noindent\textbf{4. Equality case.}  
+Equality \(D^{2}=BC\) occurs exactly when \(\Delta=0\), i.e. when the
+quadratic has a real root.  
+Since \(f(t)\ge 0\) and \(f(t)=0\) at that root, we must have
+\[
+f(t_{0})=0\quad\text{for}\quad
+t_{0}=\frac{D}{B}\;(B\neq0).
+\]
+Thus
+\[
+0=f(t_{0})=\sum_{i=1}^{n}\bigl(a_{i}-t_{0}b_{i}\bigr)^{2},
+\]
+which forces each summand to vanish:
+\(a_{i}=t_{0}b_{i}\) for all \(i\).
+Hence equality holds iff there exists \(\lambda\in\mathbb{R}\) such that
+\(a_{i}=\lambda b_{i}\) for every \(i\) (or trivially when one of the vectors
+is the zero vector).
+
+\end{proof}

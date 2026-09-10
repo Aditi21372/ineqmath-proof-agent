@@ -1,0 +1,72 @@
+\begin{proof}
+Let  
+
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_i-t\,b_i\bigr)^{2},\qquad t\in\mathbb{R}.
+\]
+
+Each summand is a square, hence \(f(t)\ge0\) for all \(t\).  
+
+Expanding \(f(t)\) using \((a-tb)^{2}=a^{2}-2tab+t^{2}b^{2}\) gives  
+
+\[
+\begin{aligned}
+f(t)
+&=\sum_{i=1}^{n}\Bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\Bigr)\\[2mm]
+&=\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)t^{2}
+   -2\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)t
+   +\sum_{i=1}^{n}a_i^{2}.
+\end{aligned}
+\]
+
+Set  
+
+\[
+A:=\sum_{i=1}^{n}b_i^{2},\qquad 
+B:=-2\sum_{i=1}^{n}a_i b_i,\qquad 
+C:=\sum_{i=1}^{n}a_i^{2},
+\]
+
+so that \(f(t)=At^{2}+Bt+C\).
+
+Since \(f(t)\ge0\) for every real \(t\), the quadratic polynomial must have non‑positive discriminant:
+
+\[
+B^{2}-4AC\le0. \tag{1}
+\]
+
+Substituting the expressions for \(A,B,C\) into (1) yields  
+
+\[
+\bigl(-2\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+-4\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\le0.
+\]
+
+Dividing by \(4>0\) and simplifying gives  
+
+\[
+\bigl(\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr),
+\]
+
+which is the Cauchy–Schwarz inequality.
+
+\medskip
+\noindent\textbf{Equality condition.}  
+Equality in (1) occurs iff the discriminant is zero, i.e. the quadratic has a double root. In that case  
+
+\[
+f(t)=A\bigl(t-t_{0}\bigr)^{2},\qquad 
+t_{0}=\frac{\sum_{i=1}^{n}a_i b_i}{\sum_{i=1}^{n}b_i^{2}}.
+\]
+
+Because \(f(t)=\sum_{i=1}^{n}(a_i-t b_i)^{2}\), the equality \(f(t_{0})=0\) forces each term to vanish:
+
+\[
+a_i=t_{0}\,b_i\quad\text{for all }i.
+\]
+
+Conversely, if there exists \(\lambda\in\mathbb{R}\) with \(a_i=\lambda b_i\) for every \(i\), then every summand \((a_i-\lambda b_i)^{2}\) is zero, so \(f(\lambda)=0\) and the discriminant is zero. Hence equality holds precisely when the vectors \((a_{1},\dots ,a_{n})\) and \((b_{1},\dots ,b_{n})\) are linearly dependent. \(\square\)
+\end{proof}

@@ -1,0 +1,73 @@
+\begin{proof}
+\textbf{(1) Norm expressed by the inner product.}  
+By definition,
+\[
+\|v\|^{2}= \langle v,v\rangle ,\qquad v\in V .
+\tag{1}
+\]
+
+\textbf{(2) Square the inequality.}  
+Since norms are non‑negative, \(\|x+y\|\le\|x\|+\|y\|\) is equivalent to
+\[
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\tag{2}
+\]
+
+\textbf{(3) Expand the left‑hand side.}  
+Using bilinearity (or sesquilinearity) of the inner product,
+\begin{align*}
+\|x+y\|^{2}
+&=\langle x+y,x+y\rangle \\
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \\
+&=\|x\|^{2}+2\,\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\end{align*}
+\tag{3}
+
+\textbf{(4) Expand the right‑hand side and cancel.}  
+\[
+(\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}.
+\]
+Substituting this and \eqref{3} into \eqref{2} gives
+\[
+\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}
+\le
+\|x\|^{2}+2\|x\|\|y\|+\|y\|^{2},
+\]
+hence, after cancelling the equal terms \(\|x\|^{2}\) and \(\|y\|^{2}\),
+\[
+2\operatorname{Re}\langle x,y\rangle\le 2\|x\|\|y\|
+\;\Longleftrightarrow\;
+\operatorname{Re}\langle x,y\rangle\le\|x\|\|y\|.
+\tag{4}
+\]
+
+\textbf{(5) Apply Cauchy–Schwarz.}  
+The Cauchy–Schwarz inequality states
+\[
+|\langle x,y\rangle|\le\|x\|\|y\|.
+\tag{CS}
+\]
+Since \(\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|\), \eqref{CS} implies \eqref{4}.
+
+\textbf{(6) Conclude the squared inequality.}  
+Insert the bound \(\operatorname{Re}\langle x,y\rangle\le\|x\|\|y\|\) into \eqref{3}:
+\[
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\]
+Both sides are non‑negative; taking the principal square root preserves the inequality:
+\[
+\|x+y\|\le\|x\|+\|y\|.
+\]
+
+\textbf{(7) Degenerate cases.}  
+If \(x=0\) or \(y=0\) (or both), the equality \(\|x+y\|=\|x\|+\|y\|\) holds trivially.
+
+\textbf{(8) Equality condition.}  
+Equality in the triangle inequality occurs precisely when equality holds in the Cauchy–Schwarz step \eqref{CS}.  Equality in Cauchy–Schwarz is equivalent to linear dependence with a non‑negative proportionality factor, i.e.
+\[
+\exists\,\lambda\ge0\text{ such that }y=\lambda x\quad(\text{or }x=0\text{ or }y=0).
+\]
+In this case the vectors point in the same direction and \(\|x+y\|=\|x\|+\|y\|\).
+
+Thus the triangle inequality holds for all vectors in an inner‑product space, with equality exactly in the described linear‑dependence situation. \(\square\)
+\end{proof}

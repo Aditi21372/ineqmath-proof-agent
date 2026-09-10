@@ -1,0 +1,105 @@
+\begin{proof}
+Let  
+
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})
+\]
+
+be vectors in \(\mathbb{R}^{n}\).  
+Their inner product and squared Euclidean norms are  
+
+\[
+\langle\mathbf a,\mathbf b\rangle=\sum_{i=1}^{n}a_{i}b_{i},\qquad 
+\|\mathbf a\|^{2}= \sum_{i=1}^{n}a_{i}^{2},\qquad 
+\|\mathbf b\|^{2}= \sum_{i=1}^{n}b_{i}^{2}.
+\]
+
+\medskip
+\textbf{1. A non‑negative quadratic.}  
+Define  
+
+\[
+f(t)=\sum_{i=1}^{n}(a_{i}t-b_{i})^{2},\qquad t\in\mathbb R .
+\]
+
+Each summand is a square, hence \(f(t)\ge 0\) for every real \(t\).
+
+\medskip
+\textbf{2. Expansion of \(f(t)\).}  
+Using \((x-y)^{2}=x^{2}-2xy+y^{2}\) and linearity of the sum,
+
+\begin{align*}
+f(t)
+&=\sum_{i=1}^{n}\bigl(a_{i}^{2}t^{2}-2a_{i}b_{i}t+b_{i}^{2}\bigr)\\
+&=\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)t^{2}
+   -2\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)t
+   +\sum_{i=1}^{n}b_{i}^{2}.
+\end{align*}
+
+Thus  
+
+\[
+f(t)=At^{2}+Bt+C,\qquad 
+A=\sum_{i=1}^{n}a_{i}^{2},\;
+B=-2\sum_{i=1}^{n}a_{i}b_{i},\;
+C=\sum_{i=1}^{n}b_{i}^{2}.
+\]
+
+\medskip
+\textbf{3. Discriminant condition.}  
+If a quadratic \(At^{2}+Bt+C\) is non‑negative for all real \(t\) and \(A>0\), its discriminant satisfies  
+
+\[
+\Delta = B^{2}-4AC\le 0.
+\]
+
+(The case \(A=0\) occurs only when \(\mathbf a=\mathbf 0\); then \(f(t)=\sum b_{i}^{2}\ge0\) and the desired inequality is trivial.)
+
+Substituting the expressions for \(A,B,C\),
+
+\begin{align*}
+\Delta
+&= \bigl(-2\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)\\
+&= 4\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)\le 0 .
+\end{align*}
+
+Dividing by \(4\) gives the **Cauchy–Schwarz inequality**
+
+\[
+\boxed{\left(\sum_{i=1}^{n}a_{i}b_{i}\right)^{2}
+      \le \left(\sum_{i=1}^{n}a_{i}^{2}\right)
+         \left(\sum_{i=1}^{n}b_{i}^{2}\right)} .
+\]
+
+\medskip
+\textbf{4. Equality condition.}  
+Equality holds exactly when \(\Delta=0\), i.e. when the quadratic \(f(t)\) has a single real root.  
+If \(\Delta=0\), there exists \(\lambda\in\mathbb R\) such that the root satisfies  
+
+\[
+a_{i}\lambda-b_{i}=0\qquad\text{for every }i,
+\]
+
+or equivalently  
+
+\[
+b_{i}= \lambda\,a_{i}\quad\text{for all }i .
+\]
+
+Hence the vectors are linearly dependent (one is a scalar multiple of the other).  
+Conversely, if \(\mathbf b=\lambda\mathbf a\) for some \(\lambda\in\mathbb R\), then  
+
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_{i}t-\lambda a_{i}\bigr)^{2}
+    =(t-\lambda)^{2}\sum_{i=1}^{n}a_{i}^{2},
+\]
+
+so \(\Delta=0\) and equality occurs.  
+The trivial case \(\mathbf a=\mathbf 0\) also yields equality, because both sides of the inequality are zero.
+
+Thus equality holds \emph{iff} the vectors \(\mathbf a\) and \(\mathbf b\) are proportional.
+
+\end{proof}

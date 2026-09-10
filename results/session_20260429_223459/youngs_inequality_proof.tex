@@ -1,0 +1,51 @@
+\begin{proof}
+\textbf{Young’s Inequality.}
+Let $a,b\ge0$ and let $p,q>1$ satisfy $\displaystyle\frac1p+\frac1q=1$. Then
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+with equality iff $a^{p}=b^{q}$ (including the trivial case $a=b=0$).
+
+\medskip
+\textbf{1. Degenerate cases.}
+If $a=0$ or $b=0$, the left–hand side is $0$ while the right–hand side is a sum of non‑negative terms; thus the inequality holds, and equality occurs only when $a=b=0$. Hence we may assume $a>0$ and $b>0$.
+
+\medskip
+\textbf{2. Weighted AM–GM.}
+Set
+\[
+\alpha=\frac1p,\qquad \beta=\frac1q,
+\]
+so that $\alpha,\beta>0$ and $\alpha+\beta=1$ because $\frac1p+\frac1q=1$.
+
+The weighted arithmetic–geometric mean inequality states that for any $X,Y\ge0$,
+\begin{equation*}
+\alpha X+\beta Y\ge X^{\alpha}Y^{\beta},
+\tag{2.1}
+\end{equation*}
+with equality iff $X=Y$.
+
+Choose $X=a^{p}$ and $Y=b^{q}$. Then
+\[
+X^{\alpha}=(a^{p})^{1/p}=a,\qquad
+Y^{\beta}=(b^{q})^{1/q}=b,
+\]
+and (2.1) becomes
+\begin{equation*}
+\frac{a^{p}}{p}+\frac{b^{q}}{q}\ge ab .
+\tag{2.2}
+\end{equation*}
+Inequality (2.2) is precisely Young’s inequality.
+
+\medskip
+\textbf{3. Equality condition.}
+Equality in (2.1) holds exactly when $X=Y$, i.e. when $a^{p}=b^{q}$. Under this relation the substitutions above give $\frac{a^{p}}{p}+\frac{b^{q}}{q}=ab$, so equality is attained in Young’s inequality. Conversely, if equality holds in Young’s inequality, then (2.2) must be an equality in the weighted AM–GM step, hence $a^{p}=b^{q}$. The trivial case $a=b=0$ also satisfies $a^{p}=b^{q}$.
+
+\medskip
+\textbf{4. Conclusion.}
+For all non‑negative $a,b$ and conjugate exponents $p,q>1$,
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+with equality iff $a^{p}=b^{q}$ (including $a=b=0$). \qed
+\end{proof}

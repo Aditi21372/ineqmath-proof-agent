@@ -1,0 +1,89 @@
+\begin{proof}
+\textbf{Bernoulli’s Inequality.}\\
+\textit{Statement.} Let $x\in\mathbb{R}$ with $x\ge -1$ and let $n\in\mathbb{Z}$ with $n\ge 0$. Then
+\[
+(1+x)^{\,n}\ge 1+ n x .
+\]
+
+\medskip
+\textbf{1. Degenerate cases.}
+\begin{itemize}
+\item $n=0$: $(1+x)^{0}=1=1+0\cdot x$.
+\item $x=0$: $(1+0)^{n}=1=1+n\cdot0$ for every $n$.
+\item $x=-1$: $1+x=0$ and hence $(1+x)^{n}=0$. The right‑hand side equals $1-n$. Because $n\ge0$, $0\ge 1-n$; equality occurs only when $n=1$.
+\end{itemize}
+These three situations also appear in the final description of equality.
+
+\medskip
+\textbf{2. Induction on the exponent.}
+We prove the claim for all integers $n\ge0$ by induction.
+
+\textbf{Base step $n=1$.}
+\[
+(1+x)^{1}=1+x=1+1\cdot x ,
+\]
+so the inequality holds with equality.
+
+\textbf{Inductive hypothesis.}
+Assume that for a fixed integer $k\ge1$ and for every real $x\ge-1$,
+\begin{equation}\label{IH}
+(1+x)^{k}\ge 1+kx .
+\end{equation}
+
+\textbf{Inductive step $k\to k+1$.}
+Since $x\ge-1$ we have $1+x\ge0$. Multiplying \eqref{IH} by this non‑negative factor preserves the inequality:
+\[
+(1+x)^{k+1}= (1+x)^{k}(1+x)\ge (1+kx)(1+x).
+\]
+Expanding the right‑hand side gives
+\begin{align*}
+(1+kx)(1+x)&=1+(k+1)x+kx^{2}.
+\end{align*}
+Because $k\ge1$ and $x^{2}\ge0$, the term $k x^{2}$ is non‑negative. Dropping this non‑negative term yields
+\[
+(1+x)^{k+1}\ge 1+(k+1)x .
+\]
+Thus the statement is true for $k+1$. By the principle of mathematical induction,
+\[
+(1+x)^{n}\ge 1+n x \qquad\text{for all }n\ge0\text{ and }x\ge-1 .
+\]
+
+\medskip
+\textbf{3. Equality cases.}
+In the inductive step equality can occur only if
+\begin{enumerate}
+\item equality holds in the inductive hypothesis $(1+x)^{k}=1+kx$; and
+\item the additional term $k x^{2}$ vanishes.
+\end{enumerate}
+Since $k\ge1$, condition~2 forces $x^{2}=0$, i.e. $x=0$. Tracing back through the induction, equality is therefore possible exactly in the following situations:
+\begin{itemize}
+\item $n=0$ (the trivial exponent);
+\item $n=1$ (the base case, where the formula is an identity for any admissible $x$);
+\item $x=0$ (any exponent).
+\end{itemize}
+The boundary value $x=-1$ yields equality only when $n=1$, which is already covered. Hence the complete equality condition is
+\[
+\boxed{\,n=0\ \text{or}\ n=1\ \text{or}\ x=0\,}.
+\]
+
+\medskip
+\textbf{4. Remarks on a direct proof via the binomial theorem.}
+Writing the binomial expansion,
+\[
+(1+x)^{n}=1+nx+\sum_{j=2}^{n}\binom{n}{j}x^{j}
+        =1+nx+x^{2}\sum_{j=0}^{n-2}\binom{n}{j+2}x^{j},
+\]
+the factor $x^{2}$ is non‑negative for $x\ge-1$, and every coefficient $\binom{n}{j+2}$ is non‑negative. Consequently the whole tail
+\[
+x^{2}\sum_{j=0}^{n-2}\binom{n}{j+2}x^{j}\ge0,
+\]
+which leads again to $(1+x)^{n}\ge 1+nx$.
+
+\medskip
+\textbf{Conclusion.}
+For every real number $x\ge-1$ and every integer $n\ge0$,
+\[
+(1+x)^{n}\ge 1+n x ,
+\]
+with equality precisely when $n=0$, $n=1$, or $x=0$. \qed
+\end{proof}

@@ -1,0 +1,70 @@
+\begin{theorem}[Triangle Inequality]
+Let $(V,\langle\cdot,\cdot\rangle)$ be an inner‑product space and let $x,y\in V$. Then
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Norm expressed through the inner product.} By definition of the norm induced by the inner product,
+\[
+\|v\|^{2}= \langle v,v\rangle \qquad\text{for every }v\in V .
+\tag{1}
+\]
+
+\textbf{2. Expand $\|x+y\|^{2}$.} Using bilinearity in the first argument and conjugate‑linearity in the second argument we obtain
+\begin{align*}
+\|x+y\|^{2}
+&=\langle x+y,x+y\rangle \\[2mm]
+&=\langle x,x\rangle +\langle x,y\rangle +\langle y,x\rangle +\langle y,y\rangle .
+\end{align*}
+\tag{2}
+Since $\langle y,x\rangle =\overline{\langle x,y\rangle}$, the sum of the mixed terms equals twice the real part of $\langle x,y\rangle$:
+\[
+\langle x,y\rangle +\langle y,x\rangle
+= \langle x,y\rangle +\overline{\langle x,y\rangle}
+= 2\,\operatorname{Re}\langle x,y\rangle .
+\tag{3}
+\]
+Substituting (3) into (2) and using (1) for $\|x\|^{2}$ and $\|y\|^{2}$ gives
+\[
+\|x+y\|^{2}= \|x\|^{2}+2\,\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\tag{4}
+\]
+
+\textbf{3. Bound the real part of the inner product.} The Cauchy–Schwarz inequality states
+\[
+|\langle x,y\rangle|\le \|x\|\,\|y\|.
+\tag{5}
+\]
+Because the real part of any complex number does not exceed its modulus,
+\[
+\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|.
+\tag{6}
+\]
+Combining (5) and (6) we obtain
+\[
+\operatorname{Re}\langle x,y\rangle\le \|x\|\,\|y\|.
+\tag{7}
+\]
+
+\textbf{4. Insert the bound into (4).} From (4) and (7),
+\[
+\|x+y\|^{2}\le \|x\|^{2}+2\,\|x\|\,\|y\|+\|y\|^{2}
+            = (\|x\|+\|y\|)^{2}.
+\tag{8}
+\]
+
+\textbf{5. Take square roots.} Norms are non‑negative, i.e. $\|z\|\ge0$ for all $z\in V$. Hence both sides of (8) are non‑negative, and the monotonicity of the square‑root function on $[0,\infty)$ yields
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\tag{9}
+\]
+
+\medskip
+\noindent\textbf{Equality case.} Equality in \eqref{9} occurs precisely when equality holds in both \eqref{5} and \eqref{6}.  
+Equality in the Cauchy–Schwarz inequality holds iff $x$ and $y$ are linearly dependent, i.e. $y=\lambda x$ for some $\lambda\in\mathbb{R}$.  
+Equality in \eqref{6} holds iff $\langle x,y\rangle$ is a non‑negative real number, which forces $\lambda\ge0$.  
+
+Consequently, equality in the triangle inequality holds exactly when there exists a non‑negative real scalar $\lambda$ such that $y=\lambda x$ (including the trivial cases $x=0$ or $y=0$).
+\end{proof}

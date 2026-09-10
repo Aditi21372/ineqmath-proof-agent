@@ -1,0 +1,79 @@
+\begin{theorem}[Bernoulli’s inequality]
+Let $x\in\mathbb R$ satisfy $x\ge -1$ and let $n\in\mathbb Z_{\ge0}$. Then
+\[
+(1+x)^{\,n}\ge 1+n\,x .
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate and trivial cases.}\\
+\emph{Case $n=0$.} $(1+x)^{0}=1=1+0\cdot x$.\\
+\emph{Case $x=0$.} $(1+0)^{n}=1=1+n\cdot0$.\\
+\emph{Case $x=-1$.} $(1+x)^{n}=0$, while $1+n x = 1-n$.  
+If $n=1$ we have $0=0$; if $n\ge2$, then $1-n\le -1$, so $0\ge 1-n$.  
+Thus the inequality holds for the endpoint $x=-1$.
+
+Henceforth assume $x>-1$ (so $1+x>0$) and $n\ge1$.
+
+\medskip\noindent\textbf{2. Basis of induction.}\\
+For $n=1$,
+\[
+(1+x)^{1}=1+x=1+1\cdot x ,
+\]
+so the statement is true (with equality).
+
+\medskip\noindent\textbf{3. Inductive hypothesis.}\\
+Assume that for a fixed $k\ge1$ we have
+\begin{equation}
+(1+x)^{k}\ge 1+kx \qquad\text{for all }x\ge-1 .
+\tag{IH}
+\end{equation}
+
+\medskip\noindent\textbf{4. Inductive step.}\\
+Multiplying \eqref{IH} by the non‑negative factor $1+x$ yields
+\begin{equation}
+(1+x)^{k+1}=(1+x)^{k}(1+x)\ge (1+kx)(1+x) .
+\tag{1}
+\end{equation}
+Expanding the right‑hand side,
+\begin{align}
+(1+kx)(1+x) &= 1 + (k+1)x + kx^{2} .
+\tag{2}
+\end{align}
+Substituting \eqref{2} into \eqref{1} gives
+\begin{equation}
+(1+x)^{k+1}\ge 1+(k+1)x+kx^{2} .
+\tag{3}
+\end{equation}
+Since $x^{2}\ge0$ and $k\ge1$, the term $k x^{2}$ is non‑negative; discarding it preserves the inequality:
+\[
+(1+x)^{k+1}\ge 1+(k+1)x .
+\]
+Thus the statement holds for $n=k+1$.
+
+\medskip\noindent\textbf{5. Completion of the induction.}\\
+The inequality is true for $n=1$ (basis) and the inductive step shows that truth for $n=k$ implies truth for $n=k+1$. By the principle of mathematical induction it holds for all integers $n\ge1$. Together with the trivial case $n=0$ proved in step 1, the theorem is valid for every $n\ge0$.
+
+\medskip\noindent\textbf{6. Equality cases.}\\
+From \eqref{3} we have
+\[
+(1+x)^{k+1}=1+(k+1)x \iff kx^{2}=0 .
+\]
+Because $k\ge1$, this forces $x=0$.  
+Consequently:
+\begin{itemize}
+\item for $n=0$ equality holds for every admissible $x$;
+\item for $n=1$ equality holds for every admissible $x$;
+\item for $n\ge2$ equality holds \emph{iff} $x=0$.
+\end{itemize}
+In compact form,
+\[
+(1+x)^{n}=1+n x \quad\Longleftrightarrow\quad
+\begin{cases}
+x=0,\; \text{any }n\ge0,\\[2pt]
+\text{or } n\in\{0,1\},\; \text{any }x\ge-1 .
+\end{cases}
+\]
+
+\qed
+\end{proof}

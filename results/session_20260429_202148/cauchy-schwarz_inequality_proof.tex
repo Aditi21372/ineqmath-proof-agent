@@ -1,0 +1,68 @@
+\begin{proof}
+\textbf{Construction of a non‑negative quadratic.} Define for any real parameter \(t\)
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_i-t\,b_i\bigr)^2 .
+\]
+Each summand is a square, therefore
+\begin{equation}
+f(t)\ge 0\qquad\text{for all }t\in\mathbb{R}. \tag{1}
+\end{equation}
+
+\textbf{Expansion of \(f(t)\).} Using \((x-y)^2=x^2-2xy+y^2\),
+\[
+(a_i-t b_i)^2=a_i^2-2t\,a_i b_i+t^2 b_i^2 .
+\]
+Summing over \(i\) gives
+\begin{align*}
+f(t)&=\sum_{i=1}^{n}a_i^{2}-2t\sum_{i=1}^{n}a_i b_i
+     +t^{2}\sum_{i=1}^{n}b_i^{2}\\
+    &=A t^{2}+B t+C,
+\end{align*}
+where
+\[
+A=\sum_{i=1}^{n}b_i^{2},\qquad
+B=-2\sum_{i=1}^{n}a_i b_i,\qquad
+C=\sum_{i=1}^{n}a_i^{2}. \tag{2}
+\]
+
+\textbf{Applying the discriminant condition.} Since the quadratic \(A t^{2}+B t+C\) is non‑negative for every real \(t\) (by (1)), we have
+\begin{equation}
+A\ge 0\quad\text{and}\quad B^{2}-4AC\le 0. \tag{3}
+\end{equation}
+The first inequality is obvious because \(A\) is a sum of squares.
+
+\textbf{Evaluating the discriminant.} Substituting (2) into \(B^{2}-4AC\) yields
+\begin{align*}
+B^{2}-4AC&=\bigl(-2\sum a_i b_i\bigr)^{2}
+          -4\Bigl(\sum b_i^{2}\Bigr)\Bigl(\sum a_i^{2}\Bigr)\\
+        &=4\Bigl[\bigl(\sum a_i b_i\bigr)^{2}
+                -\bigl(\sum a_i^{2}\bigr)\bigl(\sum b_i^{2}\bigr)\Bigr].
+\end{align*}
+Hence (3) is equivalent to
+\begin{equation}
+\bigl(\sum a_i b_i\bigr)^{2}\le
+\bigl(\sum a_i^{2}\bigr)\bigl(\sum b_i^{2}\bigr). \tag{4}
+\end{equation}
+This is the Cauchy–Schwarz inequality.
+
+\textbf{Degenerate case \(\sum b_i^{2}=0\).} If \(A=0\) then each \(b_i=0\). Consequently
+\[
+\sum a_i b_i=0,\qquad
+\bigl(\sum a_i^{2}\bigr)\bigl(\sum b_i^{2}\bigr)=0,
+\]
+and (4) holds with equality.
+
+\textbf{Equality condition.} Equality in (4) occurs exactly when the discriminant in (3) is zero, i.e. \(B^{2}-4AC=0\). In this case the non‑negative quadratic must be a perfect square:
+\[
+f(t)=A\,(t-t_{0})^{2}
+\]
+for some real \(t_{0}\). Evaluating at \(t=t_{0}\) gives \(f(t_{0})=0\), and because \(f(t_{0})\) is a sum of squares, each summand vanishes:
+\[
+a_i-t_{0}b_i=0\qquad\text{for every }i.
+\]
+Thus the vectors are proportional,
+\[
+(a_{1},\dots ,a_{n})=\lambda\,(b_{1},\dots ,b_{n})\quad\text{with }\lambda=t_{0}\in\mathbb{R},
+\]
+i.e. they are linearly dependent. If all \(b_i=0\) (the degenerate situation), the proportionality condition is trivially satisfied and equality also holds.
+\end{proof}

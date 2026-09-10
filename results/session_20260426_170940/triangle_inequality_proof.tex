@@ -1,0 +1,112 @@
+\begin{proof}
+Let \(x\) and \(y\) be vectors in an inner–product space \((V,\langle\cdot,\cdot\rangle)\).
+The norm induced by the inner product is  
+
+\[
+\|v\|=\sqrt{\langle v,v\rangle}\qquad (v\in V).
+\tag{1}
+\]
+
+\medskip
+\noindent\textbf{1.  Reduction to the squared inequality.}
+Both \(\|x+y\|\) and \(\|x\|+\|y\|\) are non‑negative, hence the triangle inequality  
+
+\[
+\|x+y\|\le \|x\|+\|y\|
+\tag{2}
+\]
+
+is equivalent to  
+
+\[
+\|x+y\|^{2}\le (\|x\|+\|y\|)^{2}.
+\tag{3}
+\]
+
+\medskip
+\noindent\textbf{2.  Expansion of \(\|x+y\|^{2}\).}
+Using bilinearity of the inner product and \(\langle y,x\rangle
+=\overline{\langle x,y\rangle}\),
+
+\[
+\begin{aligned}
+\|x+y\|^{2}
+   &=\langle x+y,\,x+y\rangle \\[2pt]
+   &=\langle x,x\rangle+\langle x,y\rangle
+     +\langle y,x\rangle+\langle y,y\rangle \\[2pt]
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\end{aligned}
+\tag{4}
+\]
+
+\medskip
+\noindent\textbf{3.  Expansion of the right–hand side of (3).}
+
+\[
+(\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}.
+\tag{5}
+\]
+
+\medskip
+\noindent\textbf{4.  Application of Cauchy–Schwarz.}
+The Cauchy–Schwarz inequality gives  
+
+\[
+|\langle x,y\rangle|\le \|x\|\,\|y\|.
+\tag{6}
+\]
+
+Since \(\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|\), we obtain  
+
+\[
+2\operatorname{Re}\langle x,y\rangle\le 2\|x\|\,\|y\|.
+\tag{7}
+\]
+
+\medskip
+\noindent\textbf{5.  Comparison of (4) and (5).}
+Insert the estimate (7) into (4):
+
+\[
+\begin{aligned}
+\|x+y\|^{2}
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}\\
+   &\le \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}\\
+   &= (\|x\|+\|y\|)^{2}.
+\end{aligned}
+\]
+
+Thus (3) holds.
+
+\medskip
+\noindent\textbf{6.  Return to the original inequality.}
+Both sides of (3) are non‑negative; taking square roots yields (2):
+
+\[
+\boxed{\;\|x+y\|\le \|x\|+\|y\|\;}.
+\]
+
+\medskip
+\noindent\textbf{7.  Equality condition.}
+Equality in the chain above occurs precisely when equality holds in both
+\(\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|\) and in the
+Cauchy–Schwarz inequality (6).
+
+\begin{itemize}
+\item \(\operatorname{Re}\langle x,y\rangle = |\langle x,y\rangle|\) means that
+\(\langle x,y\rangle\) is a non‑negative real number.
+\item Equality in Cauchy–Schwarz holds iff \(x\) and \(y\) are linearly dependent,
+i.e. \(y=\lambda x\) for some scalar \(\lambda\in\mathbb{C}\).
+\end{itemize}
+Combining the two requirements forces \(\lambda\) to be a \emph{real non‑negative}
+scalar. Hence, for non‑zero vectors,
+
+\[
+\|x+y\| = \|x\|+\|y\|\quad\Longleftrightarrow\quad y=\lambda x\ \text{with}\ \lambda\ge 0.
+\]
+
+The statement also holds trivially when \(x=0\) or \(y=0\).
+
+Consequently, the triangle inequality is proved, and equality occurs exactly
+when the vectors are collinear and point in the same (or zero) direction. \(\square\)
+\end{proof}

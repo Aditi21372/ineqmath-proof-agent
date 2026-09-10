@@ -1,0 +1,17 @@
+================================================================================
+EXPERIMENT SUMMARY
+================================================================================
+Timestamp: 2026-04-29T22:07:33.951329
+
+Unoptimized Pass Rate: 57.1%
+Optimized Pass Rate:   85.7%
+Absolute Improvement:  +28.6%
+Relative Improvement:  +50.0%
+
+JUDGE-SPECIFIC:
+  Final Answer: 100.0% → 100.0% (+0.0%)
+  Toy Case: 100.0% → 100.0% (+0.0%)
+  Logical Gap: 71.4% → 100.0% (+28.6%)
+  Numerical Approximation: 100.0% → 100.0% (+0.0%)
+  Numerical Computation: 85.7% → 85.7% (+0.0%)
+================================================================================

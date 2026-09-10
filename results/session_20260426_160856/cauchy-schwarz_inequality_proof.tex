@@ -1,0 +1,86 @@
+\begin{proof}[Cauchy–Schwarz inequality in $\mathbb{R}^{n}$]
+Let  
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+The standard inner product and Euclidean norm are  
+\[
+\langle\mathbf a,\mathbf b\rangle=\sum_{i=1}^{n}a_i b_i ,\qquad
+\|\mathbf a\|=\sqrt{\langle\mathbf a,\mathbf a\rangle}
+        =\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)^{1/2}.
+\]
+
+For any real $t$ consider the non‑negative quadratic form  
+\[
+f(t)=\|\mathbf a-t\mathbf b\|^{2}
+    =\langle\mathbf a-t\mathbf b,\mathbf a-t\mathbf b\rangle
+    =\sum_{i=1}^{n}(a_i-t b_i)^{2}\ge 0 .
+\]
+
+Expanding the sum gives  
+\[
+\begin{aligned}
+f(t)
+   &=\sum_{i=1}^{n}\bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\bigr)\\
+   &=\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)t^{2}
+     -2\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)t
+     +\sum_{i=1}^{n}a_i^{2}.
+\end{aligned}
+\]
+Set  
+\[
+A:=\sum_{i=1}^{n}b_i^{2},\qquad
+B:=-2\sum_{i=1}^{n}a_i b_i,\qquad
+C:=\sum_{i=1}^{n}a_i^{2},
+\]
+so that $f(t)=At^{2}+Bt+C$.
+
+Since $f(t)\ge0$ for all $t\in\mathbb R$, the quadratic $At^{2}+Bt+C$ cannot have two distinct real roots; consequently its discriminant is non‑positive:
+\[
+B^{2}-4AC\le 0 .
+\]
+(If $A=0$ then $\mathbf b=0$, whence $B=0$ and the inequality is trivial.)
+
+Substituting $A,B,C$ yields
+\[
+\bigl(-2\sum_{i=1}^{n}a_i b_i\bigr)^{2}
+   -4\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\le0 .
+\]
+Simplifying,
+\[
+4\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+   \le 4\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr).
+\]
+Dividing by $4>0$ we obtain the **Cauchy–Schwarz inequality**
+\[
+\boxed{\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+       \le\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+          \Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)} .
+\]
+
+\textbf{Equality case.}  
+Equality holds iff the discriminant vanishes, i.e. $B^{2}=4AC$.  
+In that situation the quadratic $f(t)$ has a double root at
+\[
+t_{0}= \frac{\sum_{i=1}^{n}a_i b_i}{\sum_{i=1}^{n}b_i^{2}}
+      \qquad\bigl(\text{provided }\sum_{i=1}^{n}b_i^{2}\neq0\bigr).
+\]
+Then $f(t_{0})=0$, so $\mathbf a=t_{0}\mathbf b$. Hence there exists
+$\lambda\in\mathbb R$ such that $a_i=\lambda b_i$ for every $i$, i.e.
+the two vectors are linearly dependent.  
+If $\mathbf b=0$ then both sides of the inequality are zero, and equality
+holds trivially; this is consistent with the statement that equality occurs
+precisely when the vectors are linearly dependent (the zero vector being
+linearly dependent with any vector).
+
+Thus, for any real families $(a_i)_{i=1}^{n}$ and $(b_i)_{i=1}^{n}$,
+\[
+\left(\sum_{i=1}^{n}a_i b_i\right)^{2}
+   \le
+\left(\sum_{i=1}^{n}a_i^{2}\right)
+\left(\sum_{i=1}^{n}b_i^{2}\right),
+\]
+with equality exactly when $\mathbf a$ and $\mathbf b$ are linearly
+dependent. This is the Cauchy–Schwarz inequality for real sequences.
+\end{proof}

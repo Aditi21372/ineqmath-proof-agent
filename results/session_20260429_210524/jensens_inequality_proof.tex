@@ -1,0 +1,124 @@
+\begin{proof}
+\textbf{Theorem (Jensen).}  
+Let $f:\mathbb R\to\mathbb R$ be convex, i.e.
+\[
+f\big(t x+(1-t)y\big)\le t\,f(x)+(1-t)f(y)\qquad\text{for all }x,y\in\mathbb R,\;t\in[0,1].
+\tag{C}
+\]
+For any integer $n\ge1$, real numbers $x_{1},\dots,x_{n}$ and non‑negative
+weights $\lambda_{1},\dots,\lambda_{n}$ with $\sum_{i=1}^{n}\lambda_{i}=1$, one has
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\Bigr)\le
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}).\tag{J}
+\]
+
+\medskip
+\textbf{Proof by induction on $n$.}
+
+\textbf{1. Degenerate case.}  
+If $\lambda_{k}=1$ for some index $k$ and $\lambda_{i}=0$ for $i\neq k$, then both sides of \eqref{J} equal $f(x_{k})$; hence the inequality holds with equality.
+
+\medskip
+\textbf{2. Base case $n=2$.}  
+Let $\lambda_{1},\lambda_{2}\ge0$ with $\lambda_{1}+\lambda_{2}=1$. Applying \eqref{C} with $t=\lambda_{1}$ gives
+\[
+f(\lambda_{1}x_{1}+\lambda_{2}x_{2})
+\le \lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}),
+\]
+which is exactly \eqref{J} for two points.
+
+\medskip
+\textbf{3. Inductive hypothesis.}  
+Assume that for some $k\ge2$ the inequality \eqref{J} holds for every collection of $k$ points with non‑negative weights summing to $1$, i.e.
+\[
+f\!\Bigl(\sum_{i=1}^{k}\lambda_{i}x_{i}\Bigr)
+   \le \sum_{i=1}^{k}\lambda_{i}f(x_{i})\tag{IH}
+\]
+for all $\lambda_{i}\ge0$ with $\sum_{i=1}^{k}\lambda_{i}=1$.
+
+\medskip
+\textbf{4. Inductive step $k\to k+1$.}  
+Let $\lambda_{1},\dots,\lambda_{k+1}\ge0$ with $\sum_{i=1}^{k+1}\lambda_{i}=1$ and set $\mu:=\lambda_{k+1}$. If $\mu=1$ we are in the degenerate situation of Step 1, so assume $\mu\neq1$.
+
+Define new weights for the first $k$ points
+\[
+\alpha_{i}:=\frac{\lambda_{i}}{1-\mu},\qquad i=1,\dots,k .
+\]
+Because $\sum_{i=1}^{k}\lambda_{i}=1-\mu$, we have $\alpha_{i}\ge0$ and
+\[
+\sum_{i=1}^{k}\alpha_{i}=1 .
+\]
+
+Hence the full convex combination can be written as a two‑point mixture:
+\begin{align*}
+\sum_{i=1}^{k+1}\lambda_{i}x_{i}
+   &=(1-\mu)\Bigl(\sum_{i=1}^{k}\alpha_{i}x_{i}\Bigr)+\mu x_{k+1}. \tag{4.1}
+\end{align*}
+Applying convexity \eqref{C} to the right‑hand side of \eqref{4.1} with
+$t=1-\mu$ yields
+\begin{align*}
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Bigr)
+   &\le (1-\mu)\,
+      f\!\Bigl(\sum_{i=1}^{k}\alpha_{i}x_{i}\Bigr)+\mu f(x_{k+1}). \tag{4.2}
+\end{align*}
+By the inductive hypothesis \eqref{IH} applied to the inner combination
+$\sum_{i=1}^{k}\alpha_{i}x_{i}$ we have
+\begin{align*}
+f\!\Bigl(\sum_{i=1}^{k}\alpha_{i}x_{i}\Bigr)
+   &\le \sum_{i=1}^{k}\alpha_{i}f(x_{i}). \tag{4.3}
+\end{align*}
+Substituting \eqref{4.3} into \eqref{4.2} gives
+\begin{align*}
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Bigr)
+   &\le (1-\mu)\sum_{i=1}^{k}\alpha_{i}f(x_{i})+\mu f(x_{k+1}). \tag{4.4}
+\end{align*}
+Using the definition of $\alpha_{i}$ and the identity $(1-\mu)\alpha_{i}=\lambda_{i}$,
+the first term on the right‑hand side of \eqref{4.4} simplifies:
+\begin{align*}
+(1-\mu)\sum_{i=1}^{k}\alpha_{i}f(x_{i})
+   &=\sum_{i=1}^{k}\lambda_{i}f(x_{i}). \tag{4.5}
+\end{align*}
+Consequently,
+\begin{align*}
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Bigr)
+   &\le \sum_{i=1}^{k}\lambda_{i}f(x_{i})+\mu f(x_{k+1})\\
+   &=\sum_{i=1}^{k+1}\lambda_{i}f(x_{i}),
+\end{align*}
+which is precisely Jensen’s inequality for $k+1$ points.
+
+Thus the statement holds for $k+1$ whenever it holds for $k$. Together
+with the base case $n=2$ (and the trivial case $n=1$) the inequality
+\eqref{J} is true for every integer $n\ge1$.
+
+\medskip
+\textbf{5. Equality condition.}  
+Equality in the final inequality can occur only when equality holds in
+every step used above.
+
+\begin{itemize}
+\item In the outer application of convexity \eqref{4.2}, equality requires
+either $\mu\in\{0,1\}$ (the mixture collapses to a single point) \emph{or}
+\[
+\sum_{i=1}^{k}\alpha_{i}x_{i}=x_{k+1}.
+\]
+\item In the inner inequality \eqref{4.3}, equality holds precisely when
+the restriction of $f$ to the convex hull of $\{x_{1},\dots,x_{k}\}$ is
+affine; for a strictly convex $f$ this forces all those points to be
+equal (or all but one weight zero).
+\end{itemize}
+Hence, in general, equality in Jensen’s inequality holds \emph{iff}
+the points with positive weights lie in a region where $f$ is affine.
+In particular, if $f$ is \emph{strictly} convex, equality occurs only in
+the two situations listed in Step 1:
+
+\begin{enumerate}
+\item one weight equals $1$ (the degenerate case), or
+\item all points $x_{1},\dots,x_{n}$ are equal.
+\end{enumerate}
+
+\medskip
+\textbf{6. Remarks on zero weights.}  
+If some $\lambda_{i}=0$ the corresponding term disappears from both sides
+of \eqref{J}; the argument above is unchanged, so the inequality remains
+valid.
+\end{proof}

@@ -1,0 +1,84 @@
+\begin{proof}
+Let  
+
+\[
+\mathbf a=(a_{1},\dots ,a_{n}), \qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb{R}^{n},
+\]
+
+and denote the standard Euclidean inner product and norm by  
+
+\[
+\langle\mathbf a,\mathbf b\rangle =\sum_{i=1}^{n}a_{i}b_{i},
+\qquad 
+\|\mathbf a\| =\sqrt{\langle\mathbf a,\mathbf a\rangle}
+           =\sqrt{\sum_{i=1}^{n}a_{i}^{2}} .
+\]
+
+For any real scalar \(t\) consider the non‑negative quadratic form  
+
+\[
+f(t)=\|\mathbf a+t\mathbf b\|^{2}
+     =\sum_{i=1}^{n}(a_{i}+t b_{i})^{2}\ge 0\qquad (t\in\mathbb R).
+\]
+
+Expanding the square and collecting terms gives  
+
+\[
+\begin{aligned}
+f(t)
+&=\sum_{i=1}^{n}\bigl(a_{i}^{2}+2t\,a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)  \\
+&=\underbrace{\sum_{i=1}^{n}a_{i}^{2}}_{A}
+   +2t\underbrace{\sum_{i=1}^{n}a_{i}b_{i}}_{B}
+   +t^{2}\underbrace{\sum_{i=1}^{n}b_{i}^{2}}_{C}  \\
+&=A+2Bt+Ct^{2}.
+\end{aligned}
+\]
+
+Thus \(q(t):=Ct^{2}+2Bt+A\) satisfies \(q(t)=f(t)\ge0\) for every \(t\in\mathbb R\).
+
+\medskip
+\noindent\textbf{Case \(C>0\).}  
+Since the leading coefficient \(C\) is positive, a quadratic is non‑negative on \(\mathbb R\) iff its discriminant is non‑positive:
+\[
+(2B)^{2}-4AC\le 0.
+\]
+Dividing by \(4>0\) yields
+\[
+B^{2}\le AC.
+\]
+
+\noindent\textbf{Case \(C=0\).}  
+Then \(\mathbf b=\mathbf0\), whence \(B=0\) and the desired inequality reduces to \(0\le0\), which holds.
+
+Combining the two cases we obtain
+\[
+\biggl(\sum_{i=1}^{n}a_{i}b_{i}\biggr)^{2}
+\le
+\biggl(\sum_{i=1}^{n}a_{i}^{2}\biggr)
+\biggl(\sum_{i=1}^{n}b_{i}^{2}\biggr),
+\]
+i.e. the Cauchy–Schwarz inequality.
+
+\medskip
+\textbf{Equality case.}  
+Equality in the discriminant condition occurs exactly when  
+
+\[
+(2B)^{2}-4AC=0\;\Longleftrightarrow\;B^{2}=AC .
+\]
+
+If \(C>0\), this means that \(q(t)\) has a double root  
+\(t_{0}=-\dfrac{B}{C}\), and therefore  
+
+\[
+\mathbf a+t_{0}\mathbf b=\mathbf0 \quad\Longrightarrow\quad
+\mathbf a=-t_{0}\mathbf b .
+\]
+
+Thus the vectors are linearly dependent: there exists \(\lambda\in\mathbb R\) such that
+\(\mathbf a=\lambda\mathbf b\), i.e. \(a_{i}=\lambda b_{i}\) for all \(i\).
+Conversely, if \(\mathbf a=\lambda\mathbf b\) for some \(\lambda\), then both sides of the
+inequality are equal. Hence equality holds iff the two vectors are proportional.
+
+\end{proof}

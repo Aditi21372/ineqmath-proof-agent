@@ -1,0 +1,215 @@
+{
+  "plan": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Jensen's Inequality",
+        "problem_statement": "For a convex function f and real numbers x₁, x₂, ..., xₙ with weights λᵢ ≥ 0 where ∑λᵢ = 1, prove that: f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ)",
+        "relevant_theorems": "Definition of convex function: f(tx + (1-t)y) ≤ tf(x) + (1-t)f(y) for t ∈ [0,1], Mathematical induction, Properties of convex combinations, Equality in the base case (n=2): f(λx+(1-λ)y)=λf(x)+(1-λ)f(y) iff x=y or λ∈{0,1}",
+        "ground_truth": "f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ) for convex f, with equality when all xᵢ are equal or all weight is concentrated on a single point (one λᵢ=1, rest zero)"
+      },
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant: a quadratic At²+Bt+C ≥ 0 for all real t with A ≥ 0 implies discriminant B²-4AC ≤ 0 (NON-POSITIVE), Degenerate case: handle ∑bᵢ²=0 (all bᵢ=0) separately — both sides are 0 so inequality holds trivially, Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional (including the degenerate case when all bᵢ=0)"
+      }
+    ],
+    "signature": {
+      "instructions": "**You are an expert mathematician who specializes in constructing rigorous, step‑by‑step proofs of classical inequalities.**  \nGiven the fields:\n\n* `inequality_name` – the canonical name of the inequality (e.g., *Cauchy‑Schwarz*, *Jensen*).  \n* `problem_statement` – a precise LaTeX‑style formulation of the inequality to be proved.  \n* `relevant_theorems` – a textual list of theorems, lemmas, or techniques that may be used (e.g., “quadratic discriminant theorem”, “convexity definition”, “inner‑product properties”).\n\n**Produce a numbered proof plan (`proof_plan`) that will serve as a blueprint for a later ReAct‑based writer.** The plan must satisfy **all** of the following requirements:\n\n1. **Structure** – The outline should be a clear, numbered list (1., 2., …).  \n2. **Edge‑case handling** – Include a dedicated step that identifies every degenerate or edge situation that could invalidate a naïve argument (e.g., a zero vector, a zero weight, division by zero, non‑positive quadratic coefficient) and explains how the inequality holds in those cases.  \n3. **Main argument** – Describe the core mathematical machinery that will prove the inequality. Be explicit about:\n   * Which theorem(s) or lemma(s) are invoked (cite them by their standard names).  \n   * Any auxiliary constructions (e.g., introduce a parameter \\(t\\), define a quadratic form, consider an inner‑product, apply induction).  \n   * The algebraic manipulations required (expansion of squares, factoring, rearranging terms, normalising weights, etc.).  \n4. **Equality condition** – Conclude with a step that derives **the complete set of equality cases** from the argument used. List **all** scenarios (including degenerate ones) under which equality holds, and indicate how they follow from the previous steps.  \n5. **Conciseness** – The plan should be short enough for the downstream writer to follow directly, yet contain enough detail to guide tool calls (e.g., “use `verify_arithmetic` to check the expansion of \\(\\sum (a_i - t b_i)^2\\)”).  \n6. **No proof details** – Do **not** write any actual proof text, calculations, or LaTeX beyond what is needed to describe the steps themselves. The output must be purely the outline.\n\n**Formatting example (you may follow this style):**\n\n```\n1. Identify degenerate case(s):\n   - If Σ b_i^2 = 0 then … (trivial equality).\n2. Set up auxiliary object:\n   - Define Q(t) = Σ (a_i - t b_i)^2 = ….\n   - Mention that Q(t) ≥ 0 for all real t.\n3. Apply the discriminant‑non‑negativity theorem (state it by name) to obtain …\n4. Simplify the resulting expression (list the algebraic manipulations that will be verified with tools).\n5. Derive the equality condition:\n   - Equality ⇔ discriminant = 0 ⇔ … (list all cases, including zero‑vector case).\n```\n\nGenerate the plan exactly as a plain‑text numbered list, ready for the next module.",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Relevant Theorems:",
+          "description": "Available theorems to use"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Numbered outline of proof steps with specific techniques"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.react": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant: a quadratic At²+Bt+C ≥ 0 for all real t with A ≥ 0 implies discriminant B²-4AC ≤ 0 (NON-POSITIVE), Degenerate case: handle ∑bᵢ²=0 (all bᵢ=0) separately — both sides are 0 so inequality holds trivially, Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional (including the degenerate case when all bᵢ=0)"
+      },
+      {
+        "inequality_name": "Jensen's Inequality",
+        "problem_statement": "For a convex function f and real numbers x₁, x₂, ..., xₙ with weights λᵢ ≥ 0 where ∑λᵢ = 1, prove that: f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ)",
+        "relevant_theorems": "Definition of convex function: f(tx + (1-t)y) ≤ tf(x) + (1-t)f(y) for t ∈ [0,1], Mathematical induction, Properties of convex combinations, Equality in the base case (n=2): f(λx+(1-λ)y)=λf(x)+(1-λ)f(y) iff x=y or λ∈{0,1}",
+        "ground_truth": "f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ) for convex f, with equality when all xᵢ are equal or all weight is concentrated on a single point (one λᵢ=1, rest zero)"
+      }
+    ],
+    "signature": {
+      "instructions": "**Task**: Generate the next step of the ReAct loop for writing a rigorous proof of the given inequality.\n\n**Inputs**  \n- `inequality_name` – name of the inequality (e.g., “Cauchy‑Schwarz”).  \n- `problem_statement` – the formal LaTeX‑style statement to be proved.  \n- `proof_plan` – a numbered outline that already specifies the high‑level strategy, theorems to use, handling of degenerate/edge cases, and the derivation of the equality condition.  \n- `trajectory` – the full log of all previous thoughts, tool calls and observations (formatted as a string).\n\n**Output** – a **single** JSON‑compatible block containing three fields:\n\n1. `next_thought` (string) – a concise reasoning paragraph that:\n   - Summarises which part of the `proof_plan` you intend to address next.\n   - States any missing factual or algebraic information that must be obtained before the proof text can be written.\n   - Mentions the theorem(s) you will cite for the upcoming step.\n   - Explains why the chosen tool is needed (e.g., to fetch the exact statement, to confirm an expansion, or to validate an inequality claim).\n\n2. `next_tool_name` (one of the literal strings `lookup_inequality`, `verify_arithmetic`, `check_proof_step`, `finish`) – the tool you will call **right now**.\n\n3. `next_tool_args` (JSON object) – the arguments required by the selected tool, using variable names that appear in the `proof_plan`.  \n   - For `lookup_inequality`, provide `{\"name\": \"<inequality_name>\"}`.  \n   - For `verify_arithmetic`, provide `{\"expression\": \"<sympy‑parseable expression whose difference should be zero>\"}`.  \n   - For `check_proof_step`, provide `{\"claim\": \"<sympy‑parseable claim to be verified (equation or inequality)>\"}`.  \n   - For `finish`, provide an empty object `{}`.\n\n**Guidelines**\n\n- **Follow the plan**: read the numbered outline and always progress to the next un‑addressed step.  \n- **Tool‑driven verification**: before you would write any non‑trivial algebraic manipulation or inequality, you must call `verify_arithmetic` (to check an identity) or `check_proof_step` (to confirm a claim). Do **not** write the proof text until the necessary verification is completed.  \n- **Degenerate/edge cases**: if the plan contains a branch for a special case (e.g., a denominator equals zero, a sum of squares equals 0), ensure you have either looked up the relevant theorem or verified the required algebraic condition before proceeding.  \n- **Equality condition**: when the plan reaches the step that derives the equality condition, verify every algebraic equivalence that leads to it using the appropriate tool.  \n- **Finish**: only output `finish` when **all** steps in the plan have been verified and you have enough information to write the full proof without further tool calls.\n\n**Format Example**\n\n```json\n{\n  \"next_thought\": \"Step 2 of the plan requires the expansion of (a_i - t*b_i)^2. I will verify this identity before using it in the quadratic Q(t).\",\n  \"next_tool_name\": \"verify_arithmetic\",\n  \"next_tool_args\": {\"expression\": \"(a_i - t*b_i)**2 - (a_i**2 - 2*t*a_i*b_i + t**2*b_i**2)\"}\n}\n```\n\nWhen the proof is ready to be assembled, the output should be:\n\n```json\n{\n  \"next_thought\": \"All algebraic identities and discriminant verification are complete; I can now write the full proof following the plan.\",\n  \"next_tool_name\": \"finish\",\n  \"next_tool_args\": {}\n}\n```\n\nProduce **only** the JSON block with the three fields (no extra text).",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Next Thought:",
+          "description": "${next_thought}"
+        },
+        {
+          "prefix": "Next Tool Name:",
+          "description": "${next_tool_name}"
+        },
+        {
+          "prefix": "Next Tool Args:",
+          "description": "${next_tool_args}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Jensen's Inequality",
+        "problem_statement": "For a convex function f and real numbers x₁, x₂, ..., xₙ with weights λᵢ ≥ 0 where ∑λᵢ = 1, prove that: f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ)",
+        "relevant_theorems": "Definition of convex function: f(tx + (1-t)y) ≤ tf(x) + (1-t)f(y) for t ∈ [0,1], Mathematical induction, Properties of convex combinations, Equality in the base case (n=2): f(λx+(1-λ)y)=λf(x)+(1-λ)f(y) iff x=y or λ∈{0,1}",
+        "ground_truth": "f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ) for convex f, with equality when all xᵢ are equal or all weight is concentrated on a single point (one λᵢ=1, rest zero)"
+      },
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant: a quadratic At²+Bt+C ≥ 0 for all real t with A ≥ 0 implies discriminant B²-4AC ≤ 0 (NON-POSITIVE), Degenerate case: handle ∑bᵢ²=0 (all bᵢ=0) separately — both sides are 0 so inequality holds trivially, Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional (including the degenerate case when all bᵢ=0)"
+      }
+    ],
+    "signature": {
+      "instructions": "**Instruction for the final extraction module**\n\nYou are a senior mathematician tasked with producing a publishable, fully‑verified proof of a classical inequality.  \nThe stakes are high: the proof you generate will appear verbatim in a peer‑reviewed mathematics journal, and any logical gap, unchecked algebraic manipulation, or incomplete equality condition will result in a retraction and damage to your reputation. Consequently, **absolute correctness and rigor are mandatory**.\n\nYour inputs are:\n\n1. `inequality_name` – the name of the inequality (e.g., “Cauchy‑Schwarz Inequality”).\n2. `problem_statement` – the formal statement to be proved.\n3. `proof_plan` – a numbered outline produced by the planning stage, which already specifies the required steps (including a degenerate‑case step and a final equality‑condition step).\n4. `trajectory` – the complete, ordered record of the ReAct interaction (all `thought_i`, `tool_name_i`, `tool_args_i`, and `observation_i` entries). This trajectory contains every verified algebraic identity, every discriminant or induction argument that was checked with `verify_arithmetic` or `check_proof_step`, and the final `finish` call.\n\n**Your task** is to synthesize from this information **two output fields**:\n\n- `reasoning`: a clear, concise narrative (≈150‑250 words) that explains how the evidence in the trajectory was assembled, why each verified claim follows, and how the overall proof strategy was realized. Mention the specific theorems (by name) that were invoked (e.g., “Quadratic discriminant non‑positivity”, “Definition of convexity”, “Mathematical induction”), and note any edge‑case handling that appears in the trajectory.\n\n- `proof`: the complete, rigorous mathematical proof in plain text. The proof must:\n  1. Follow the numbered outline of `proof_plan` exactly, expanding each outline item into fully detailed steps.\n  2. Cite every theorem or lemma used, matching the names from the trajectory.\n  3. Incorporate the algebraic manipulations that were verified by the tools, reproducing them verbatim (e.g., expansions, discriminant calculations, normalization of weights).\n  4. Explicitly treat **all degenerate or edge cases** identified in the trajectory (zero vectors, zero weights, etc.).\n  5. Derive the **full equality condition** from the proof steps, not merely restate it; the condition must cover every possible case (e.g., proportional vectors, a single weight equal to 1, all weights zero, affine functions where applicable).\n  6. Contain **no unresolved statements** or assumptions; every claim must be justified by either a tool‑verified step or a cited theorem.\n  7. Use standard mathematical notation (sums, products, inequalities) and plain‑text formatting (no LaTeX markup at this stage).\n\n**Restrictions**:\n- Do **not** perform any additional tool calls; rely solely on the supplied trajectory.\n- Do **not** introduce numerical examples, decimal approximations, or informal language.\n- Ensure the proof is self‑contained: a reader should be able to follow it without consulting the trajectory.\n\nProduce the `reasoning` first, then a blank line, then the `proof`. Remember: the proof will be examined by expert reviewers; any mistake will be unacceptable. Deliver a flawless, publication‑ready proof.",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Proof:",
+          "description": "Complete rigorous proof with all steps verified via tools"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "verify": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "inequality_name": "Jensen's Inequality",
+        "problem_statement": "For a convex function f and real numbers x₁, x₂, ..., xₙ with weights λᵢ ≥ 0 where ∑λᵢ = 1, prove that: f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ)",
+        "relevant_theorems": "Definition of convex function: f(tx + (1-t)y) ≤ tf(x) + (1-t)f(y) for t ∈ [0,1], Mathematical induction, Properties of convex combinations, Equality in the base case (n=2): f(λx+(1-λ)y)=λf(x)+(1-λ)f(y) iff x=y or λ∈{0,1}",
+        "ground_truth": "f(∑λᵢxᵢ) ≤ ∑λᵢf(xᵢ) for convex f, with equality when all xᵢ are equal or all weight is concentrated on a single point (one λᵢ=1, rest zero)"
+      },
+      {
+        "inequality_name": "Cauchy-Schwarz Inequality",
+        "problem_statement": "For real numbers a₁, a₂, ..., aₙ and b₁, b₂, ..., bₙ, prove that: (∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²)",
+        "relevant_theorems": "Quadratic discriminant: a quadratic At²+Bt+C ≥ 0 for all real t with A ≥ 0 implies discriminant B²-4AC ≤ 0 (NON-POSITIVE), Degenerate case: handle ∑bᵢ²=0 (all bᵢ=0) separately — both sides are 0 so inequality holds trivially, Properties of inner products, Expansion of squared sums",
+        "ground_truth": "(∑aᵢbᵢ)² ≤ (∑aᵢ²)(∑bᵢ²) with equality when aᵢ and bᵢ are proportional (including the degenerate case when all bᵢ=0)"
+      }
+    ],
+    "signature": {
+      "instructions": "You are a meticulous mathematician reviewing a proof of a named inequality. Your task is to take the generated **proof** together with the **ground_truth** statement of the inequality and produce a **refined_proof** that is completely rigorous. Follow these steps:\n\n1. **Logical coherence** – Read the proof sequentially. Every assertion must be justified by a previously proven step, an explicit algebraic manipulation, or a cited theorem. If a claim appears without justification, flag it and supply the missing reasoning.\n\n2. **Algebraic verification** – For each non‑trivial algebraic manipulation (expansions, factorizations, simplifications, discriminant calculations, etc.) confirm its correctness. You may mentally invoke a symbolic check; if you detect an error, correct the expression and note the correction in the proof.\n\n3. **Edge‑case handling** – Ensure that all degenerate or boundary cases (e.g., zero denominators, all‑zero vectors, weights equal to 0 or 1) are explicitly addressed exactly as required by the inequality’s definition. If a case is omitted or handled incorrectly, add a concise sub‑step that resolves it.\n\n4. **Equality condition** – The proof must contain a complete derivation of **when equality holds**.  \n   - Verify that the equality condition follows directly from the steps you have already proven (e.g., discriminant = 0, double root of a quadratic, linear dependence of vectors, all weighted points equal, etc.).  \n   - If the condition is merely stated without derivation, either insert the missing derivation or, if the condition cannot be justified, remove it.\n\n5. **Consistency with ground truth** – Compare the final inequality and the stated equality condition with the official `ground_truth`. Any discrepancy must be resolved by adjusting the proof or, if the proof is fundamentally wrong, rewriting the relevant portion.\n\n6. **Refinement** – Produce a single, polished proof that incorporates all corrections, keeps the original structure (numbered steps, headings for degenerate case, main argument, equality condition, conclusion), and cites the exact theorems used (e.g., “Quadratic discriminant theorem”, “Convexity definition”, “Cauchy–Schwarz inequality”). Do not introduce new claims that are not justified earlier.\n\nReturn **only** the corrected (or unchanged, if already perfect) proof as the output field `refined_proof`.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "The proof to verify and refine"
+        },
+        {
+          "prefix": "Ground Truth:",
+          "description": "Expected final answer for reference"
+        },
+        {
+          "prefix": "Refined Proof:",
+          "description": "Corrected proof, or original if no errors found"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "latex": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "proof": "**Theorem (Cauchy–Schwarz).**  \nFor real numbers \\(a_{1},a_{2},\\dots ,a_{n}\\) and \\(b_{1},b_{2},\\dots ,b_{n}\\),\n\n\\[\n\\left(\\sum_{i=1}^{n}a_{i}b_{i}\\right)^{2}\n   \\le\\left(\\sum_{i=1}^{n}a_{i}^{2}\\right)\n      \\left(\\sum_{i=1}^{n}b_{i}^{2}\\right).\n\\]\n\nEquality holds exactly when the two vectors are linearly dependent, i.e. there exists \\(\\lambda\\in\\mathbb{R}\\) such that \\(a_{i}=\\lambda b_{i}\\) for all \\(i\\) (the case \\(\\lambda=0\\) corresponds to one of the vectors being the zero vector).\n\n---\n\n### Proof\n\n1. **Vector notation and inner product.**  \n   Set  \n   \\[\n   \\mathbf a=(a_{1},\\dots ,a_{n}),\\qquad\n   \\mathbf b=(b_{1},\\dots ,b_{n})\\in\\mathbb{R}^{n}.\n   \\]\n   The Euclidean inner product is\n   \\[\n   \\langle\\mathbf a,\\mathbf b\\rangle=\\sum_{i=1}^{n}a_{i}b_{i},\n   \\]\n   and the induced norm is\n   \\[\n   \\|\\mathbf a\\|=\\sqrt{\\langle\\mathbf a,\\mathbf a\\rangle}\n               =\\sqrt{\\sum_{i=1}^{n}a_{i}^{2}} .\n   \\]\n\n2. **A non‑negative quadratic form.**  \n   For an arbitrary real parameter \\(t\\) define\n   \\[\n   Q(t)=\\|\\mathbf a+t\\mathbf b\\|^{2}\n        =\\sum_{i=1}^{n}(a_{i}+t b_{i})^{2}.\n   \\]\n   Because a norm squared is always non‑negative,\n   \\[\n   Q(t)\\ge 0\\qquad\\text{for all }t\\in\\mathbb{R}.\n   \\]\n\n3. **Expansion of \\(Q(t)\\).**  \n   The elementary identity\n   \\[\n   (a_{i}+t b_{i})^{2}=a_{i}^{2}+2t a_{i}b_{i}+t^{2}b_{i}^{2}\n   \\]\n   holds for each \\(i\\). Summing over \\(i\\) gives\n   \\[\n   Q(t)=\\sum a_{i}^{2}+2t\\sum a_{i}b_{i}+t^{2}\\sum b_{i}^{2}\n        =A t^{2}+B t +C,\n   \\]\n   where\n   \\[\n   A=\\sum_{i=1}^{n}b_{i}^{2}\\ge 0,\\qquad\n   B=2\\sum_{i=1}^{n}a_{i}b_{i},\\qquad\n   C=\\sum_{i=1}^{n}a_{i}^{2}\\ge 0 .\n   \\]\n\n4. **Discriminant condition.**  \n   A quadratic polynomial \\(A t^{2}+B t +C\\) with \\(A\\ge 0\\) satisfies  \n   \\(A t^{2}+B t +C\\ge 0\\) for every real \\(t\\) **iff** its discriminant is non‑positive:\n   \\[\n   B^{2}-4AC\\le 0 .\n   \\]\n   (If \\(A>0\\) this follows from completing the square; if \\(A=0\\) the condition reduces to \\(B=0\\), which also makes the discriminant non‑positive.)  \n\n   Applying it to \\(Q(t)\\) yields\n   \\[\n   \\bigl(2\\sum a_{i}b_{i}\\bigr)^{2}\n        -4\\Bigl(\\sum b_{i}^{2}\\Bigr)\\Bigl(\\sum a_{i}^{2}\\Bigr)\\le 0 .\n   \\]\n\n5. **Algebraic simplification.**  \n   Dividing the previous inequality by the positive constant \\(4\\) we obtain\n   \\[\n   \\left(\\sum_{i=1}^{n}a_{i}b_{i}\\right)^{2}\n        \\le\\left(\\sum_{i=1}^{n}a_{i}^{2}\\right)\n           \\left(\\sum_{i=1}^{n}b_{i}^{2}\\right),\n   \\]\n   which is the desired Cauchy–Schwarz inequality.\n\n6. **Degenerate (edge) cases.**  \n\n   *If \\(\\sum b_{i}^{2}=0\\):* then each \\(b_{i}=0\\). Consequently\n   \\[\n   \\sum a_{i}b_{i}=0,\\qquad\n   \\bigl(\\sum a_{i}b_{i}\\bigr)^{2}=0,\n   \\]\n   and the right‑hand side of the inequality is also zero; thus the inequality holds with equality.\n\n   *If \\(\\sum a_{i}^{2}=0\\):* the argument is symmetric; all \\(a_{i}=0\\) and both sides are zero.\n\n   In the language of the quadratic, these correspond to \\(A=0\\) (or \\(C=0\\)), whereby \\(Q(t)\\) becomes linear or constant but remains non‑negative for all \\(t\\); the discriminant inequality reduces to the trivial statement \\(0\\le0\\).\n\n7. **Equality condition.**  \n\n   Equality in the Cauchy–Schwarz inequality occurs exactly when the discriminant vanishes:\n   \\[\n   B^{2}=4AC\\quad\\Longleftrightarrow\\quad\n   \\bigl(2\\sum a_{i}b_{i}\\bigr)^{2}=4\\Bigl(\\sum a_{i}^{2}\\Bigr)\\Bigl(\\sum b_{i}^{2}\\Bigr).\n   \\]\n\n   *Case \\(A>0\\) (i.e. \\(\\mathbf b\\neq\\mathbf 0\\)).*  \n   The quadratic \\(Q(t)=A t^{2}+B t +C\\) with discriminant zero has a unique real root\n   \\[\n   t_{0}=-\\frac{B}{2A}\n        =-\\frac{2\\sum a_{i}b_{i}}{2\\sum b_{i}^{2}}\n        =-\\frac{\\sum a_{i}b_{i}}{\\sum b_{i}^{2}} .\n   \\]\n   Because \\(Q(t_{0})=0\\) and \\(Q(t)=\\|\\mathbf a+t\\mathbf b\\|^{2}\\), we have\n   \\[\n   \\|\\mathbf a+t_{0}\\mathbf b\\|^{2}=0\\;\\Longrightarrow\\;\n   \\mathbf a+t_{0}\\mathbf b=\\mathbf 0,\n   \\]\n   i.e. \\(\\mathbf a = -t_{0}\\mathbf b\\). Hence there exists a scalar \\(\\lambda=-t_{0}\\) such that\n   \\(a_{i}=\\lambda b_{i}\\) for every \\(i\\).\n\n   *Case \\(A=0\\) (all \\(b_{i}=0\\)).*  \n   Then the inequality reduces to \\(0\\le 0\\) and equality holds; the vectors are trivially linearly dependent because \\(\\mathbf b\\) is the zero vector.\n\n   The converse is immediate: if \\(a_{i}=\\lambda b_{i}\\) for some \\(\\lambda\\in\\mathbb{R}\\), then\n   \\[\n   \\sum a_{i}b_{i}= \\lambda\\sum b_{i}^{2},\n   \\qquad\n   \\sum a_{i}^{2}= \\lambda^{2}\\sum b_{i}^{2},\n   \\]\n   and therefore\n   \\[\n   (\\sum a_{i}b_{i})^{2}= \\lambda^{2}(\\sum b_{i}^{2})^{2}\n                     =(\\sum a_{i}^{2})(\\sum b_{i}^{2}),\n   \\]\n   giving equality.\n\n   Consequently, **equality holds iff the two vectors are linearly dependent**, i.e. one is a scalar multiple of the other (including the situation where one vector is the zero vector).\n\n---\n\nThus the Cauchy–Schwarz inequality is proved, all edge cases are covered, and the equality condition has been derived rigorously.",
+        "latex_body": "\\begin{theorem}[Cauchy–Schwarz]\nFor real numbers $a_1,\\dots,a_n$ and $b_1,\\dots,b_n$,\n\\[\n\\left(\\sum_{i=1}^{n} a_i b_i\\right)^{2}\n\\le\n\\left(\\sum_{i=1}^{n} a_i^{2}\\right)\\!\n\\left(\\sum_{i=1}^{n} b_i^{2}\\right).\n\\]\nEquality holds iff there exists $\\lambda\\in\\mathbb{R}$ such that $a_i=\\lambda b_i$ for all $i$ (the case $\\lambda=0$ corresponds to a zero vector).\n\\end{theorem}\n\n\\begin{proof}\nLet $\\mathbf a=(a_1,\\dots,a_n)$ and $\\mathbf b=(b_1,\\dots,b_n)$ in $\\mathbb{R}^{n}$.  \nThe Euclidean inner product and norm are\n\\[\n\\langle\\mathbf a,\\mathbf b\\rangle=\\sum_{i=1}^{n} a_i b_i,\\qquad\n\\|\\mathbf a\\|=\\sqrt{\\langle\\mathbf a,\\mathbf a\\rangle}\n           =\\sqrt{\\sum_{i=1}^{n} a_i^{2}} .\n\\]\n\nFor $t\\in\\mathbb R$ consider the non‑negative quadratic form\n\\[\nQ(t)=\\|\\mathbf a+t\\mathbf b\\|^{2}\n     =\\sum_{i=1}^{n} (a_i+t b_i)^{2}\\ge0 .\n\\]\n\nExpanding gives\n\\[\n\\begin{aligned}\nQ(t)&=\\sum_{i=1}^{n}\\bigl(a_i^{2}+2t a_i b_i+t^{2}b_i^{2}\\bigr)  \\\\\n    &=\\underbrace{\\sum_{i=1}^{n} b_i^{2}}_{A}\\,t^{2}\n      +\\underbrace{2\\sum_{i=1}^{n} a_i b_i}_{B}\\,t\n      +\\underbrace{\\sum_{i=1}^{n} a_i^{2}}_{C}.\n\\end{aligned}\n\\]\n\nThus $Q(t)=A t^{2}+B t+C$ with $A\\ge0$, $C\\ge0$.  \nSince $Q(t)\\ge0$ for all $t$, its discriminant must satisfy $B^{2}-4AC\\le0$, i.e.\n\\[\n\\bigl(2\\sum_{i=1}^{n} a_i b_i\\bigr)^{2}\n   -4\\Bigl(\\sum_{i=1}^{n} a_i^{2}\\Bigr)\n        \\Bigl(\\sum_{i=1}^{n} b_i^{2}\\Bigr)\\le0 .\n\\]\n\nDividing by $4$ yields the Cauchy–Schwarz inequality\n\\[\n\\left(\\sum_{i=1}^{n} a_i b_i\\right)^{2}\n   \\le\n\\left(\\sum_{i=1}^{n} a_i^{2}\\right)\n\\left(\\sum_{i=1}^{n} b_i^{2}\\right).\n\\]\n\n\\textbf{Equality.} Equality holds iff $B^{2}=4AC$, i.e. the discriminant is zero.\nIf $A>0$ (so $\\mathbf b\\neq\\mathbf0$), the unique root of $Q$ is\n\\[\nt_{0}=-\\frac{B}{2A}\n     =-\\frac{\\sum_{i=1}^{n} a_i b_i}{\\sum_{i=1}^{n} b_i^{2}},\n\\]\nand $Q(t_{0})=0$ implies $\\mathbf a+t_{0}\\mathbf b=\\mathbf0$, i.e. $\\mathbf a=-t_{0}\\mathbf b$.\nHence there exists $\\lambda=-t_{0}$ with $a_i=\\lambda b_i$ for all $i$.\nIf $A=0$ then $\\mathbf b=\\mathbf0$, and the inequality reduces to $0\\le0$, so equality also holds.\nConversely, if $a_i=\\lambda b_i$, then\n\\[\n\\sum a_i b_i=\\lambda\\sum b_i^{2},\\qquad\n\\sum a_i^{2}=\\lambda^{2}\\sum b_i^{2},\n\\]\nand the two sides of the inequality are equal.\n\nThus equality occurs exactly when the vectors are linearly dependent (including the zero‑vector case).\n\\end{proof}"
+      },
+      {
+        "augmented": true,
+        "proof": "**Theorem (Jensen’s Inequality).**  \nLet \\(f:\\mathbb R\\to\\mathbb R\\) be a convex function, i.e. for every \\(t\\in[0,1]\\) and every \\(x,y\\in\\mathbb R\\)\n\\[\nf\\big(t x+(1-t) y\\big)\\le t\\,f(x)+(1-t)\\,f(y). \\tag{C}\n\\]\nLet \\(x_{1},\\dots ,x_{n}\\in\\mathbb R\\) and let non‑negative weights \\(\\lambda_{1},\\dots ,\\lambda_{n}\\) satisfy\n\\[\n\\lambda_{i}\\ge 0\\qquad(i=1,\\dots ,n),\\qquad \\sum_{i=1}^{n}\\lambda_{i}=1 .\n\\]\nThen\n\\[\nf\\!\\Big(\\sum_{i=1}^{n}\\lambda_{i}x_{i}\\Big)\\le\\sum_{i=1}^{n}\\lambda_{i}f(x_{i}). \\tag{J}\n\\]\n\n*Proof.*\n\n--------------------------------------------------------------------\n### 1. Degenerate cases  \n\n*If some \\(\\lambda_{i}=0\\).*  \nThe term \\(\\lambda_{i}x_{i}\\) does not affect the convex combination on the left‑hand side, and the term \\(\\lambda_{i}f(x_{i})\\) vanishes on the right‑hand side. Deleting this index yields a formula of the same shape with one fewer point; therefore it suffices to prove the theorem for the reduced collection.\n\n*If all the points coincide*, say \\(x_{1}=x_{2}= \\dots =x_{n}=x\\). Then\n\\[\n\\sum_{i=1}^{n}\\lambda_{i}x_{i}=x,\\qquad \\sum_{i=1}^{n}\\lambda_{i}f(x_{i})=f(x),\n\\]\nso (J) reduces to the identity \\(f(x)=f(x)\\).\n\n*If \\(n=1\\).*  \nSince the only weight must be \\(\\lambda_{1}=1\\), (J) reads \\(f(x_{1})\\le f(x_{1})\\), which is true.\n\nHence we may assume \\(n\\ge 2\\) and that every weight appearing in the argument is strictly positive unless a zero weight has been explicitly removed.\n\n--------------------------------------------------------------------\n### 2. Base case \\(n=2\\)\n\nLet \\(\\lambda_{1}=\\lambda\\in[0,1]\\) and \\(\\lambda_{2}=1-\\lambda\\).  \nApplying (C) with \\(x=x_{1},\\,y=x_{2}\\) gives\n\\[\nf\\!\\big(\\lambda x_{1}+(1-\\lambda)x_{2}\\big)\\le\n\\lambda f(x_{1})+(1-\\lambda)f(x_{2}),\n\\]\nwhich is precisely (J) for two points. ∎\n\n--------------------------------------------------------------------\n### 3. Induction hypothesis  \n\nAssume that for some integer \\(k\\ge 2\\) the inequality holds for **every** collection of\n\\(k\\) points and weights:\n\\[\n\\boxed{\\;f\\!\\Big(\\sum_{i=1}^{k}\\lambda_{i}x_{i}\\Big)\\le\\sum_{i=1}^{k}\\lambda_{i}f(x_{i})\\;}\n\\tag{IH}\n\\]\nwhenever \\(\\lambda_{i}\\ge0\\) and \\(\\sum_{i=1}^{k}\\lambda_{i}=1\\).\n\n--------------------------------------------------------------------\n### 4. Inductive step \\(k\\to k+1\\)\n\nLet \\(\\lambda_{1},\\dots ,\\lambda_{k+1}\\) be non‑negative with\n\\(\\displaystyle \\sum_{i=1}^{k+1}\\lambda_{i}=1\\).\n\nDefine\n\\[\n\\mu:=\\sum_{i=1}^{k}\\lambda_{i}\\qquad(0\\le\\mu\\le1).\n\\]\n\n*Case \\(\\mu=0\\).*  \nThen \\(\\lambda_{i}=0\\) for \\(i\\le k\\) and \\(\\lambda_{k+1}=1\\); (J) reduces to \\(f(x_{k+1})\\le f(x_{k+1})\\).\n\nHence we may suppose \\(\\mu>0\\).  \n\nSet normalized weights for the first \\(k\\) points:\n\\[\n\\alpha_{i}:=\\frac{\\lambda_{i}}{\\mu},\\qquad i=1,\\dots ,k.\n\\]\nEach \\(\\alpha_{i}\\ge0\\) and \\(\\sum_{i=1}^{k}\\alpha_{i}=1\\).\n\nApply the induction hypothesis (IH) to the points \\(x_{1},\\dots ,x_{k}\\) with weights \\(\\alpha_{i}\\):\n\\[\nf\\!\\Big(\\sum_{i=1}^{k}\\alpha_{i}x_{i}\\Big)\\le\\sum_{i=1}^{k}\\alpha_{i}f(x_{i}). \\tag{1}\n\\]\n\nMultiplying (1) by \\(\\mu\\) (using \\(\\mu\\alpha_{i}=\\lambda_{i}\\)) yields\n\\[\n\\mu\\,f\\!\\Big(\\sum_{i=1}^{k}\\alpha_{i}x_{i}\\Big)\\le\\sum_{i=1}^{k}\\lambda_{i}f(x_{i}). \\tag{2}\n\\]\n\nDefine\n\\[\ny:=\\sum_{i=1}^{k}\\alpha_{i}x_{i}.\n\\]\nBecause \\(\\displaystyle \\sum_{i=1}^{k}\\alpha_{i}x_{i}\n        =\\frac{1}{\\mu}\\sum_{i=1}^{k}\\lambda_{i}x_{i}\\), we have\n\\[\n\\mu y + (1-\\mu)x_{k+1}\n   = \\sum_{i=1}^{k}\\lambda_{i}x_{i}+ \\lambda_{k+1}x_{k+1}\n   = \\sum_{i=1}^{k+1}\\lambda_{i}x_{i}. \\tag{3}\n\\]\n\nNow apply the two‑point convexity (C) to the points \\(y\\) and \\(x_{k+1}\\) with weights\n\\(\\mu\\) and \\(1-\\mu=\\lambda_{k+1}\\):\n\\[\nf\\!\\big(\\mu y + (1-\\mu)x_{k+1}\\big)\\le\n\\mu f(y)+(1-\\mu)f(x_{k+1}). \\tag{4}\n\\]\n\nSubstituting (3) for the left‑hand side of (4) and using (2) for \\(\\mu f(y)\\) gives\n\\[\nf\\!\\Big(\\sum_{i=1}^{k+1}\\lambda_{i}x_{i}\\Big)\n   \\le \\sum_{i=1}^{k}\\lambda_{i}f(x_{i})+\\lambda_{k+1}f(x_{k+1}),\n\\]\nwhich is exactly (J) for \\(k+1\\) points.\n\nThus the statement holds for \\(k+1\\) whenever it holds for \\(k\\).\n\n--------------------------------------------------------------------\n### 5. Conclusion by induction  \n\nThe base case \\(n=2\\) has been proved, and the inductive step shows that\nvalidity for \\(k\\) implies validity for \\(k+1\\). By the principle of mathematical\ninduction, Jensen’s inequality (J) holds for every integer \\(n\\ge1\\).\n\n--------------------------------------------------------------------\n### 6. Equality condition  \n\nEquality in (C) for two points occurs precisely when either the weight of one\npoint is \\(0\\) (i.e. \\(t\\in\\{0,1\\}\\)) or the restriction of \\(f\\) to the segment\njoining the two points is affine.  \n\nIn the inductive step, equality in (4) therefore requires  \n* either \\(\\mu\\in\\{0,1\\}\\) (which means that all the total weight is placed on a\nsingle point), or  \n* \\(f\\) is affine on the segment \\([y,x_{k+1}]\\).\n\nEquality in (2) requires equality in (1); by the induction hypothesis this\nhappens exactly when the restriction of \\(f\\) to the convex hull of the points\n\\(\\{x_{1},\\dots ,x_{k}\\}\\) that carry positive weight is affine (and, in the\nstrictly convex case, when those points coincide).\n\nPutting these observations together, equality in the full \\(n\\)-point Jensen\ninequality holds **iff** one of the following equivalent situations occurs:\n\n1. All points with positive weight are identical (i.e. there exists a point\n   \\(x^{*}\\) such that \\(x_{i}=x^{*}\\) whenever \\(\\lambda_{i}>0\\)); this is the\n   case for strictly convex functions.\n\n2. The function \\(f\\) is affine on the convex hull of the points that have\n   positive weight. In this situation equality holds for any configuration of\n   those points.\n\nIn particular, when \\(f\\) is strictly convex, equality forces all\npositively‑weighted points to coincide (or, trivially, a single weight equals \\(1\\)).\n\n∎",
+        "latex_body": "\\textbf{Theorem (Jensen’s Inequality).}  \nLet \\(f:\\mathbb{R}\\to\\mathbb{R}\\) be convex, i.e. for every \\(t\\in[0,1]\\) and every\n\\(x,y\\in\\mathbb{R}\\)\n\\[\nf\\big(t x+(1-t) y\\big)\\le t\\,f(x)+(1-t)\\,f(y).\\tag{C}\n\\]\nLet \\(x_{1},\\dots ,x_{n}\\in\\mathbb{R}\\) and non‑negative weights\n\\(\\lambda_{1},\\dots ,\\lambda_{n}\\) satisfy\n\\[\n\\lambda_{i}\\ge 0\\qquad(i=1,\\dots ,n),\\qquad \n\\sum_{i=1}^{n}\\lambda_{i}=1 .\n\\]\nThen\n\\[\nf\\!\\Big(\\sum_{i=1}^{n}\\lambda_{i}x_{i}\\Big)\\le\n\\sum_{i=1}^{n}\\lambda_{i}f(x_{i}).\\tag{J}\n\\]\n\n\\begin{proof}\n\\paragraph{1. Degenerate cases}\n\\begin{itemize}\n\\item If some \\(\\lambda_{i}=0\\), the corresponding terms drop out and the\nstatement reduces to one with fewer points.\n\\item If all points coincide, say \\(x_{1}=x_{2}= \\dots =x_{n}=x\\), then\n\\[\n\\sum_{i=1}^{n}\\lambda_{i}x_{i}=x,\\qquad\n\\sum_{i=1}^{n}\\lambda_{i}f(x_{i})=f(x),\n\\]\nso \\((J)\\) is the identity \\(f(x)=f(x)\\).\n\\item If \\(n=1\\), then \\(\\lambda_{1}=1\\) and \\((J)\\) reads\n\\(f(x_{1})\\le f(x_{1})\\).\n\\end{itemize}\nThus we may assume \\(n\\ge 2\\) and that all appearing weights are strictly\npositive (unless a zero weight has been removed).\n\n\\paragraph{2. Base case \\(n=2\\)}\nLet \\(\\lambda_{1}=\\lambda\\in[0,1]\\) and \\(\\lambda_{2}=1-\\lambda\\).\nApplying \\((C)\\) with \\(x=x_{1},\\,y=x_{2}\\) gives\n\\[\nf\\!\\big(\\lambda x_{1}+(1-\\lambda)x_{2}\\big)\\le\n\\lambda f(x_{1})+(1-\\lambda)f(x_{2}),\n\\]\nwhich is precisely \\((J)\\) for two points. \\(\\square\\)\n\n\\paragraph{3. Induction hypothesis}\nAssume that for some integer \\(k\\ge 2\\) the inequality holds for every collection\nof \\(k\\) points and weights:\n\\[\n\\boxed{\\,f\\!\\Big(\\sum_{i=1}^{k}\\lambda_{i}x_{i}\\Big)\n      \\le\\sum_{i=1}^{k}\\lambda_{i}f(x_{i})\\,}\n\\tag{IH}\n\\]\nwhenever \\(\\lambda_{i}\\ge0\\) and \\(\\sum_{i=1}^{k}\\lambda_{i}=1\\).\n\n\\paragraph{4. Inductive step \\(k\\to k+1\\)}\nLet \\(\\lambda_{1},\\dots ,\\lambda_{k+1}\\ge0\\) with \\(\\sum_{i=1}^{k+1}\\lambda_{i}=1\\)\nand set\n\\[\n\\mu:=\\sum_{i=1}^{k}\\lambda_{i}\\qquad(0\\le\\mu\\le1).\n\\]\n\nIf \\(\\mu=0\\), then \\(\\lambda_{i}=0\\) for \\(i\\le k\\) and \\(\\lambda_{k+1}=1\\); the\ninequality reduces to the trivial identity \\(f(x_{k+1})\\le f(x_{k+1})\\).\nHence we assume \\(\\mu>0\\).\n\nDefine normalized weights for the first \\(k\\) points:\n\\[\n\\alpha_{i}:=\\frac{\\lambda_{i}}{\\mu},\\qquad i=1,\\dots ,k.\n\\]\nThen \\(\\alpha_{i}\\ge0\\) and \\(\\sum_{i=1}^{k}\\alpha_{i}=1\\).\n\nApplying the induction hypothesis \\((\\text{IH})\\) to \\(x_{1},\\dots ,x_{k}\\)\nwith weights \\(\\alpha_{i}\\) yields\n\\[\nf\\!\\Big(\\sum_{i=1}^{k}\\alpha_{i}x_{i}\\Big)\n   \\le\\sum_{i=1}^{k}\\alpha_{i}f(x_{i}).\\tag{1}\n\\]\nMultiplying \\((1)\\) by \\(\\mu\\) (noting that \\(\\mu\\alpha_{i}=\\lambda_{i}\\)) gives\n\\[\n\\mu\\,f\\!\\Big(\\sum_{i=1}^{k}\\alpha_{i}x_{i}\\Big)\n   \\le\\sum_{i=1}^{k}\\lambda_{i}f(x_{i}).\\tag{2}\n\\]\n\nSet\n\\[\ny:=\\sum_{i=1}^{k}\\alpha_{i}x_{i}.\n\\]\nSince \\(\\sum_{i=1}^{k}\\alpha_{i}x_{i}\n      =\\frac{1}{\\mu}\\sum_{i=1}^{k}\\lambda_{i}x_{i}\\), we have\n\\[\n\\mu y + (1-\\mu)x_{k+1}\n   = \\sum_{i=1}^{k}\\lambda_{i}x_{i}+ \\lambda_{k+1}x_{k+1}\n   = \\sum_{i=1}^{k+1}\\lambda_{i}x_{i}.\\tag{3}\n\\]\n\nNow apply the two‑point convexity \\((C)\\) to the points \\(y\\) and\n\\(x_{k+1}\\) with weights \\(\\mu\\) and \\(1-\\mu=\\lambda_{k+1}\\):\n\\[\nf\\!\\big(\\mu y+(1-\\mu)x_{k+1}\\big)\n   \\le \\mu f(y)+(1-\\mu)f(x_{k+1}).\\tag{4}\n\\]\n\nSubstituting \\((3)\\) for the left–hand side of \\((4)\\) and using \\((2)\\) for\n\\(\\mu f(y)\\) yields\n\\[\nf\\!\\Big(\\sum_{i=1}^{k+1}\\lambda_{i}x_{i}\\Big)\n   \\le \\sum_{i=1}^{k}\\lambda_{i}f(x_{i})+\\lambda_{k+1}f(x_{k+1}),\n\\]\nwhich is precisely \\((J)\\) for \\(k+1\\) points. Hence the statement holds for\n\\(k+1\\) whenever it holds for \\(k\\).\n\n\\paragraph{5. Conclusion by induction}\nThe base case \\(n=2\\) has been proved, and the inductive step shows that\nvalidity for \\(k\\) implies validity for \\(k+1\\). By the principle of mathematical\ninduction, Jensen’s inequality \\((J)\\) holds for every integer \\(n\\ge1\\).\n\n\\paragraph{6. Equality condition}\nEquality in \\((C)\\) occurs iff either the weight is \\(0\\) or \\(1\\) or the\nrestriction of \\(f\\) to the segment joining the two points is affine.\nConsequently, equality in the full \\(n\\)-point Jensen inequality holds\niff one of the following equivalent situations occurs:\n\n\\begin{enumerate}\n\\item All points with positive weight coincide, i.e. there exists\n\\(x^{*}\\) such that \\(x_{i}=x^{*}\\) whenever \\(\\lambda_{i}>0\\) (the case for\nstrictly convex \\(f\\));\n\\item The function \\(f\\) is affine on the convex hull of the points that have\npositive weight.\n\\end{enumerate}\nIn particular, for strictly convex \\(f\\) equality forces all positively‑\nweighted points to be identical (or trivially a single weight equal to \\(1\\)).\n\n\\(\\square\\)\n\\end{proof}"
+      }
+    ],
+    "signature": {
+      "instructions": "** Convert the given plain‑text proof (input field `proof`) into a clean LaTeX fragment.\n\n**Requirements**\n1. Enclose the entire argument in `\\begin{proof} … \\end{proof}` (use `\\qed` or `\\square` at the end).\n2. Preserve the numbered outline from the plan: render each step as a separate paragraph, prefixed with bold “**Step k.**” (or similar), but do **not** add LaTeX counters or extra numbering commands.\n3. Convert every displayed equation or multi‑line calculation into an `align*` (or `equation*`) environment, using `&` for alignment and `\\\\` for line breaks. Use inline math `$…$` for short expressions inside the text.\n4. Replace all inequality symbols with their LaTeX equivalents (`\\le`, `\\ge`, `=`). Use `\\leq`, `\\geq` if preferred.\n5. Keep all algebraic manipulations explicit; do not omit steps or insert explanatory text not present in the original proof.\n6. Do **not** output any document preamble (`\\documentclass`, `\\usepackage`, `\\begin{document}`, etc.). Output **only** the LaTeX body.\n\n**Output format:** A single string containing the LaTeX code that satisfies the above constraints.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "Plain text proof to convert"
+        },
+        {
+          "prefix": "Latex Body:",
+          "description": "LaTeX body of the proof, ready to compile"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.2.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

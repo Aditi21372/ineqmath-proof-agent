@@ -1,0 +1,64 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Assumptions and degenerate cases.}  
+We assume throughout that \(X(\omega)\ge0\) for every \(\omega\in\Omega\) and that \(a>0\).  
+If \(\mathbb{E}[X]=0\), then \(X=0\) \(\mathbb{P}\)-a.s., whence \(\mathbb{P}(X\ge a)=0\) for all \(a>0\) and the desired inequality holds with equality.  Hence we may suppose \(\mathbb{E}[X]>0\).
+
+\item \textbf{Indicator of the event \(\{X\ge a\}\).}  
+Define the indicator random variable
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & \text{if }X(\omega)\ge a,\\[2pt]
+0, & \text{if }X(\omega)< a .
+\end{cases}
+\]
+Clearly \(0\le \mathbf 1_{\{X\ge a\}}(\omega)\le1\) for all \(\omega\).
+
+\item \textbf{Pointwise inequality.}  
+For each \(\omega\in\Omega\) we have
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)\le\frac{X(\omega)}{a}. \tag{1}
+\]
+Indeed, if \(X(\omega)\ge a\) then the left–hand side equals \(1\) and \(1\le X(\omega)/a\);  
+if \(X(\omega)<a\) then the left–hand side is \(0\) and \(0\le X(\omega)/a\) because \(X(\omega)\ge0\).
+
+\item \textbf{Monotonicity of expectation.}  
+Since expectation preserves the order of non‑negative random variables, (1) yields
+\[
+\mathbb{E}\!\big[\mathbf 1_{\{X\ge a\}}\big]\le \mathbb{E}\!\Big[\frac{X}{a}\Big].
+\]
+
+\item \textbf{Linearity of expectation.}  
+The factor \(1/a\) is constant, so
+\[
+\mathbb{E}\!\Big[\frac{X}{a}\Big]=\frac{1}{a}\,\mathbb{E}[X]. \tag{2}
+\]
+
+\item \textbf{Expectation of an indicator equals probability.}  
+For any event \(A\in\mathcal{F}\), \(\mathbb{E}[\mathbf 1_{A}]=\mathbb{P}(A)\).  Taking \(A=\{X\ge a\}\) gives
+\[
+\mathbb{E}\!\big[\mathbf 1_{\{X\ge a\}}\big]=\mathbb{P}(X\ge a). \tag{3}
+\]
+
+\item \textbf{Conclusion.}  
+Combining (2) and (3) with the inequality of step 4 we obtain
+\[
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a},
+\]
+which is Markov’s inequality.
+
+\item \textbf{Equality case.}  
+Equality throughout the chain occurs precisely when equality holds in the pointwise estimate (1) for \(\mathbb{P}\)-almost every \(\omega\).  Thus we must have
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=\frac{X(\omega)}{a}\quad\text{a.s.}
+\]
+which forces
+\[
+X(\omega)=0\ \text{whenever }X(\omega)<a,\qquad
+X(\omega)=a\ \text{whenever }X(\omega)\ge a.
+\]
+Hence \(X\) takes only the two values \(0\) and \(a\) (the trivial case \(X\equiv0\) being included).  Conversely, if \(X\) assumes only these two values, then \(\mathbb{P}(X\ge a)=\mathbb{P}(X=a)\) and \(\mathbb{E}[X]=a\,\mathbb{P}(X=a)\), so the bound is attained.
+
+\end{enumerate}
+\end{proof}

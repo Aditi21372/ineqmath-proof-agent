@@ -1,0 +1,91 @@
+\begin{theorem}[Cauchy–Schwarz Inequality]
+Let $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$ be real numbers. Then
+\[
+\Bigl(\sum_{i=1}^{n} a_i b_i\Bigr)^{2}\le
+\Bigl(\sum_{i=1}^{n} a_i^{2}\Bigr)\,
+\Bigl(\sum_{i=1}^{n} b_i^{2}\Bigr),
+\]
+with equality iff there exists $\lambda\in\mathbb R$ such that $a_i=\lambda b_i$ for every $i$.
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Inner‑product notation.}  
+Define the vectors
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+The standard Euclidean inner product and norm are
+\[
+\langle\mathbf a,\mathbf b\rangle =\sum_{i=1}^{n}a_i b_i,\qquad
+\|\mathbf a\|^{2}= \langle\mathbf a,\mathbf a\rangle =\sum_{i=1}^{n}a_i^{2},\qquad
+\|\mathbf b\|^{2}= \sum_{i=1}^{n}b_i^{2}.
+\]
+
+\textbf{2. A non‑negative quadratic.}  
+For an arbitrary real parameter $t$ consider
+\[
+Q(t)=\|\mathbf a-t\mathbf b\|^{2}= \sum_{i=1}^{n}(a_i-t b_i)^{2}.
+\]
+Since a squared norm is non‑negative,
+\[
+Q(t)\ge 0\qquad\text{for all }t\in\mathbb R. \tag{1}
+\]
+
+\textbf{3. Expansion of $Q(t)$.}  
+Using $(x-ty)^{2}=x^{2}-2txy+t^{2}y^{2}$ we obtain
+\begin{align*}
+Q(t)
+&=\sum_{i=1}^{n}\bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\bigr)\\
+&=\|\mathbf a\|^{2}-2t\langle\mathbf a,\mathbf b\rangle+t^{2}\|\mathbf b\|^{2}.
+\end{align*}
+Thus $Q(t)$ is the quadratic polynomial
+\[
+Q(t)=\|\mathbf b\|^{2}t^{2}-2\langle\mathbf a,\mathbf b\rangle t+\|\mathbf a\|^{2}.
+\]
+
+\textbf{4. Discriminant condition.}  
+If $\|\mathbf b\|\neq0$ then the leading coefficient $\|\mathbf b\|^{2}>0$.  
+A quadratic $At^{2}+Bt+C$ with $A>0$ that is non‑negative for every real $t$ must have non‑positive discriminant:
+\[
+B^{2}-4AC\le0.
+\]
+Applying this to the coefficients above gives
+\[
+(-2\langle\mathbf a,\mathbf b\rangle)^{2}
+-4\|\mathbf b\|^{2}\|\mathbf a\|^{2}\le0,
+\]
+i.e.
+\[
+4\langle\mathbf a,\mathbf b\rangle^{2}\le4\|\mathbf a\|^{2}\|\mathbf b\|^{2}.
+\]
+Cancelling the positive factor $4$ yields
+\[
+\langle\mathbf a,\mathbf b\rangle^{2}\le\|\mathbf a\|^{2}\|\mathbf b\|^{2},
+\]
+which is exactly
+\[
+\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr). \tag{2}
+\]
+
+\textbf{5. Zero‑vector case.}  
+If $\|\mathbf a\|=0$ then all $a_i=0$ and both sides of (2) are $0$.  
+Similarly, if $\|\mathbf b\|=0$ the right‑hand side is $0$ while the left‑hand side is also $0$.  
+Hence the inequality holds trivially when either vector is the zero vector.
+
+\textbf{6. Equality condition.}  
+Equality in (2) occurs precisely when the discriminant is zero, i.e.
+\[
+(-2\langle\mathbf a,\mathbf b\rangle)^{2}=4\|\mathbf a\|^{2}\|\mathbf b\|^{2}.
+\]
+In this case the quadratic $Q(t)$ has a unique root
+\[
+t_{0}= \frac{\langle\mathbf a,\mathbf b\rangle}{\|\mathbf b\|^{2}},
+\]
+and because $Q(t_{0})=0$ we have $\|\mathbf a-t_{0}\mathbf b\|^{2}=0$, whence $\mathbf a=t_{0}\mathbf b$.  
+Thus there exists $\lambda\in\mathbb R$ with $a_i=\lambda b_i$ for all $i$.  
+Conversely, if the vectors are proportional the inequality becomes an equality.
+\end{proof}

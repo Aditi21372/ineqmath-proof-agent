@@ -1,0 +1,97 @@
+\begin{theorem}[Chebyshev’s Sum Inequality]
+Let  
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers.  Then  
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr). \tag{1}
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Degenerate cases.}  
+If \(n=1\) the inequality reduces to \(a_{1}b_{1}\ge a_{1}b_{1}\), true with
+equality.  If all the \(a_{i}\) are equal (or all the \(b_{i}\) are equal)
+both sides of \((1)\) equal \(a_{1}\sum_{i}b_{i}\) (respectively
+\(b_{1}\sum_{i}a_{i}\)), so equality holds.  These situations will be
+mentioned again at the end of the proof.
+
+\medskip\noindent\textbf{Reformulation of the inequality.}  
+The right–hand side of \((1)\) can be written as a double sum:
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr)
+   =\sum_{i=1}^{n}a_{i}b_{i}
+    +\sum_{1\le i<j\le n}\bigl(a_{i}b_{j}+a_{j}b_{i}\bigr). \tag{2}
+\]
+Subtracting \(\sum_{i}a_{i}b_{i}\) from both sides of \((1)\) and using
+\((2)\) we obtain the equivalent statement
+\[
+(n-1)\sum_{i=1}^{n}a_{i}b_{i}
+   \;\ge\;
+\sum_{1\le i<j\le n}\bigl(a_{i}b_{j}+a_{j}b_{i}\bigr). \tag{3}
+\]
+
+\medskip\noindent\textbf{A non‑negative elementary inequality.}  
+For any pair \(i<j\) the monotonicity \(a_{i}\le a_{j}\) and \(b_{i}\le b_{j}\)
+implies
+\[
+(a_{j}-a_{i})(b_{j}-b_{i})\ge 0. \tag{4}
+\]
+Expanding the product gives
+\[
+a_{j}b_{j}+a_{i}b_{i}-a_{j}b_{i}-a_{i}b_{j}\ge 0,
+\]
+or equivalently
+\[
+a_{i}b_{i}+a_{j}b_{j}\;\ge\;a_{i}b_{j}+a_{j}b_{i}. \tag{5}
+\]
+
+\medskip\noindent\textbf{Summation over all unordered pairs.}  
+Summing \((5)\) over all \(\binom{n}{2}\) pairs \((i,j)\) with \(i<j\) yields
+\[
+\sum_{1\le i<j\le n}\bigl(a_{i}b_{i}+a_{j}b_{j}\bigr)
+   \;\ge\;
+\sum_{1\le i<j\le n}\bigl(a_{i}b_{j}+a_{j}b_{i}\bigr). \tag{6}
+\]
+
+Each diagonal term \(a_{k}b_{k}\) appears exactly \(n-1\) times on the left
+hand side of \((6)\) (once together with every other index), so
+\[
+\sum_{1\le i<j\le n}\bigl(a_{i}b_{i}+a_{j}b_{j}\bigr)
+   =(n-1)\sum_{k=1}^{n}a_{k}b_{k}. \tag{7}
+\]
+
+Substituting \((7)\) into \((6)\) gives precisely inequality \((3)\):
+\[
+(n-1)\sum_{i=1}^{n}a_{i}b_{i}
+   \ge
+\sum_{1\le i<j\le n}\bigl(a_{i}b_{j}+a_{j}b_{i}\bigr).
+\]
+
+Thus \((3)\) holds, and by the equivalence established in Step 2 we obtain
+the original Chebyshev inequality \((1)\).
+
+\medskip\noindent\textbf{Equality condition.}  
+Equality in \((4)\) occurs exactly when \((a_{j}-a_{i})(b_{j}-b_{i})=0\).
+Hence for every pair \(i<j\) we must have either \(a_{i}=a_{j}\) or
+\(b_{i}=b_{j}\).  Because the sequences are non‑decreasing, the only way
+all such products vanish is that **one entire sequence is constant**:
+
+\begin{itemize}
+\item either \(a_{1}=a_{2}= \dots =a_{n}\), or
+\item \(b_{1}=b_{2}= \dots =b_{n}\).
+\end{itemize}
+The case \(n=1\) is automatically covered (the condition is vacuous).
+No other configuration can make all pairwise products zero while preserving
+the ordering, so these are the complete equality cases.
+
+\medskip\noindent\textbf{Conclusion.}  
+We have rewritten Chebyshev’s sum inequality as a sum over unordered pairs,
+used the elementary non‑negativity \((a_{j}-a_{i})(b_{j}-b_{i})\ge0\) that
+follows from the similarly ordered sequences, and summed over all index
+pairs.  The argument works for every \(n\ge1\).  Equality holds **iff** at
+least one of the sequences is constant (or trivially when \(n=1\)). \(\square\)
+\end{proof}

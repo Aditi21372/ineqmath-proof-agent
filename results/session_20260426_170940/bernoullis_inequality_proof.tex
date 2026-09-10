@@ -1,0 +1,58 @@
+\begin{proof}
+Let \(x\ge -1\) be a real number and let \(n\) be a non‑negative integer.
+
+\textbf{Base case \(n=0\).} By definition,
+\[
+(1+x)^{0}=1\ge 1+0\cdot x = 1 .
+\]
+
+\textbf{Base case \(n=1\).} Directly,
+\[
+(1+x)^{1}=1+x\ge 1+1\cdot x ,
+\]
+with equality for every admissible \(x\).
+
+\textbf{Inductive hypothesis.} Assume that for some integer \(k\ge 1\) the inequality
+\[
+(1+x)^{k}\ge 1+kx \tag{IH}
+\]
+holds for all \(x\ge -1\).
+
+\textbf{Inductive step.} Multiply both sides of (IH) by the non‑negative factor \(1+x\) (note that \(1+x\ge 0\) because \(x\ge -1\)). Using monotonicity of multiplication by a non‑negative number we obtain
+\begin{align*}
+(1+x)^{k+1}&=(1+x)^{k}(1+x)\\
+&\ge (1+kx)(1+x). \tag{1}
+\end{align*}
+
+Expanding the right‑hand side gives
+\[
+(1+kx)(1+x)=1+(k+1)x+kx^{2}. \tag{2}
+\]
+
+Since \(k\ge 1\) and \(x^{2}\ge 0\) for every real \(x\), the term \(kx^{2}\) is non‑negative, i.e. \(kx^{2}\ge 0\). Hence
+\[
+1+(k+1)x+kx^{2}\ge 1+(k+1)x . \tag{3}
+\]
+
+Combining (1), (2) and (3) yields
+\[
+(1+x)^{k+1}\ge 1+(k+1)x .
+\]
+Thus the inequality holds for \(k+1\).
+
+\textbf{Conclusion by induction.} The statement is true for \(n=0\) and \(n=1\), and the inductive step shows that truth for \(n=k\) implies truth for \(n=k+1\). By the principle of mathematical induction, for every integer \(n\ge 0\) and every real \(x\ge -1\) we have
+\[
+(1+x)^{n}\ge 1+nx .
+\]
+
+\textbf{Equality condition.}
+\begin{itemize}
+\item For \(n=0\) we have \((1+x)^{0}=1=1+0\cdot x\) for all \(x\).
+\item For \(n=1\) the inequality is an identity: \((1+x)^{1}=1+x\) for all \(x\).
+\item For \(n\ge 2\) equality in the inductive step can occur only when the non‑negative term \(kx^{2}\) vanishes, i.e. when \(x=0\). Consequently, for \(n\ge 2\)
+\[
+(1+x)^{n}=1+nx \;\Longleftrightarrow\; x=0 .
+\]
+\end{itemize}
+Hence, apart from the trivial cases \(n=0\) or \(n=1\), equality holds exactly when \(x=0\).
+\end{proof}

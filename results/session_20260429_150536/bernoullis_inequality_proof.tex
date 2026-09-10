@@ -1,0 +1,93 @@
+\begin{proof}
+\textbf{Theorem (Bernoulli’s Inequality).}  
+Let \(x\in\mathbb{R}\) satisfy \(x\ge -1\) and let \(n\in\mathbb{N}_{0}\). Then  
+
+\[
+(1+x)^{n}\;\ge\;1+nx .
+\]
+
+\begin{enumerate}
+\item \textbf{Degenerate cases.}
+\begin{itemize}
+\item \(\mathbf{n=0}\).  \((1+x)^{0}=1\) and \(1+0\cdot x=1\); equality holds.
+\item \(\mathbf{x=-1}\).  For \(n\ge1\), \((1+x)^{n}=0\) and \(1+nx=1-n\le0\); hence \(0\ge1-n\). Equality occurs only when \(n=1\) (already covered by the case \(n=1\)).
+\item \(\mathbf{x=0}\).  \((1+0)^{n}=1\) and \(1+n\cdot0=1\); equality holds for every \(n\).
+\end{itemize}
+Thus the theorem is true in all degenerate situations.
+
+\item \textbf{Induction on the exponent.}
+\begin{enumerate}
+\item \textbf{Base step (\(n=1\)).}
+\[
+(1+x)^{1}=1+x=1+1\cdot x ,
+\]
+so the inequality holds with equality.
+
+\item \textbf{Inductive hypothesis.}  
+Assume that for a fixed integer \(k\ge1\)
+
+\[
+\boxed{(1+x)^{k}\;\ge\;1+kx}\qquad\text{for every }x\ge-1 . \tag{H\(_k\)}
+\]
+
+\item \textbf{Inductive step.}  
+Since \(x\ge-1\) we have \(1+x\ge0\). Multiplying both sides of \((\text{H}_k)\) by this non‑negative factor preserves the inequality:
+
+\begin{align*}
+(1+x)^{k+1}
+   &= (1+x)\,(1+x)^{k} \\
+   &\ge (1+x)(1+kx). \tag{1}
+\end{align*}
+
+Expanding the product gives the identity  
+
+\[
+(1+x)(1+kx)=1+(k+1)x+kx^{2}. \tag{2}
+\]
+
+Because \(k\ge1\) and \(x^{2}\ge0\), the term \(kx^{2}\) is non‑negative; discarding it yields  
+
+\[
+1+(k+1)x+kx^{2}\;\ge\;1+(k+1)x . \tag{3}
+\]
+
+Combining (1), (2) and (3) we obtain  
+
+\[
+(1+x)^{k+1}\;\ge\;1+(k+1)x .
+\]
+
+Thus the statement holds for \(n=k+1\).
+\end{enumerate}
+By the principle of mathematical induction, \((\text{H}_n)\) is true for every integer \(n\ge0\); i.e.
+
+\[
+(1+x)^{n}\;\ge\;1+nx \qquad\forall\,x\ge-1,\; n\in\mathbb{N}_{0}. \tag{*}
+\]
+
+\item \textbf{Equality conditions.}  
+Equality can arise only in the steps where we did not introduce a strict inequality:
+
+\begin{itemize}
+\item In the base cases \(n=0\) and \(n=1\) we have exact equality for all admissible \(x\).
+\item In the inductive step the only possible loss of equality is the removal of the non‑negative term \(kx^{2}\) in \((3)\). Equality there forces \(kx^{2}=0\); since \(k\ge1\) this yields \(x^{2}=0\), i.e. \(x=0\).
+\end{itemize}
+
+Hence equality holds \emph{iff} one of the following occurs:
+\begin{enumerate}
+\item \(n=0\) (any \(x\ge-1\));
+\item \(n=1\) (any \(x\ge-1\));
+\item \(x=0\) (any \(n\ge0\)).
+\end{enumerate}
+No other combination gives equality, because for \(n\ge2\) and \(x\neq0\) the term \(kx^{2}>0\) appears at the first inductive step and yields a strict inequality that persists for larger \(n\).
+
+\item \textbf{Conclusion.}  
+For every real number \(x\ge-1\) and every integer \(n\ge0\),
+
+\[
+\boxed{(1+x)^{n}\;\ge\;1+nx},
+\]
+
+with equality precisely in the cases listed above. \(\square\)
+\end{enumerate}
+\end{proof}

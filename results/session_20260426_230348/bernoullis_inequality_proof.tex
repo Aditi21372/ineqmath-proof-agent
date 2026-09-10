@@ -1,0 +1,92 @@
+\begin{proof}
+\textbf{1. Trivial (base) cases.}
+\begin{itemize}
+\item \textbf{Case $n=0$.}  
+\[
+(1+x)^{0}=1=1+0\cdot x .
+\]
+
+\item \textbf{Case $x=0$.}  
+\[
+(1+0)^{n}=1=1+n\cdot0 .
+\]
+
+\item \textbf{Case $x=-1$.}  Here $1+x=0$.
+\begin{itemize}
+\item If $n=0$, then $(1+x)^{0}=1=1-0$.
+\item If $n=1$, then $0=1-1$.
+\item If $n\ge2$, then $(1+x)^{n}=0$ while $1+nx=1-n\le0$, so $0\ge1-n$.
+\end{itemize}
+\end{itemize}
+
+\medskip\noindent\textbf{2. Induction hypothesis.}  
+Assume that for a fixed integer $n\ge1$,
+\begin{align}
+(1+x)^{n}\ge 1+nx \qquad\text{for all }x\ge-1 .
+\tag{IH}
+\end{align}
+
+\medskip\noindent\textbf{3. Inductive step.}  
+Let $x\ge-1$, whence $1+x\ge0$. Multiplying \eqref{IH} by the non‑negative factor $1+x$ preserves the inequality:
+\begin{align}
+(1+x)^{n}(1+x) &\ge (1+nx)(1+x) .
+\tag{1}
+\end{align}
+The left‑hand side is $(1+x)^{n+1}$. Expanding the right‑hand side gives
+\begin{align}
+(1+nx)(1+x)=1+(n+1)x+nx^{2}.
+\tag{2}
+\end{align}
+Substituting \eqref{2} into \eqref{1} we obtain
+\begin{align}
+(1+x)^{n+1}\ge 1+(n+1)x+nx^{2}.
+\tag{3}
+\end{align}
+Since $n\ge1$ and $x^{2}\ge0$, the term $nx^{2}$ is non‑negative; dropping it can only decrease the right‑hand side:
+\begin{align}
+(1+x)^{n+1}\ge 1+(n+1)x .
+\tag{4}
+\end{align}
+Equation \eqref{4} is Bernoulli’s inequality for the exponent $n+1$.
+
+\medskip\noindent\textbf{4. Completion of the induction.}  
+The inequality holds for the base case $n=0$, and the implication
+\[
+(1+x)^{n}\ge1+nx\;\Longrightarrow\;(1+x)^{n+1}\ge1+(n+1)x
+\]
+has been proved. By the principle of mathematical induction,  
+\[
+(1+x)^{n}\ge1+nx\qquad\text{for every integer }n\ge0\text{ and every }x\ge-1 .
+\]
+
+\medskip\noindent\textbf{5. Equality cases.}  
+Equality may occur only at the steps where we did not lose a non‑negative term.
+
+\begin{itemize}
+\item In the base case $n=0$ we have $(1+x)^{0}=1=1+0x$ for all $x\ge-1$.
+\item In the base case $x=0$ we have $(1+0)^{n}=1=1+n\cdot0$ for all $n\ge0$.
+\item In the inductive step the discarded term is $nx^{2}$.  
+If $n\ge1$ and $x\neq0$, then $nx^{2}>0$, so the inequality in \eqref{3} is strict and hence \eqref{4} is strict.  
+If $x=0$, then $nx^{2}=0$ and equality is preserved for every $n$.  
+If $x=-1$, then $1+x=0$ and $(1+x)^{n}=0$, $1+nx=1-n$. Equality holds exactly when $n=1$ (both sides equal $0$); for $n\ge2$ we have $0>1-n$.
+\end{itemize}
+
+Collecting these observations, equality holds precisely in the following situations:
+
+\begin{tabular}{ll}
+\toprule
+Condition & Reason \\ \midrule
+$n=0$ (any $x\ge-1$) & Both sides equal $1$.\\
+$x=0$ (any $n\ge0$) & Both sides equal $1$.\\
+$(x,n)=(-1,1)$ & Both sides equal $0$.\\ \bottomrule
+\end{tabular}
+
+No other pair $(x,n)$ with $x\ge-1$, $n\ge0$ yields equality.
+
+\medskip\noindent\textbf{6. Conclusion.}  
+For every real $x\ge-1$ and every integer $n\ge0$,
+\[
+(1+x)^{\,n}\ge 1+nx ,
+\]
+with equality exactly in the three cases listed above. \(\square\)
+\end{proof}

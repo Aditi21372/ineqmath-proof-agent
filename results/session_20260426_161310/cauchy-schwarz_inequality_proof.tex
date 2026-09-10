@@ -1,0 +1,80 @@
+\begin{proof}
+\textbf{Step 1. A non‑negative quadratic.}  
+For a real parameter \(t\) define  
+\[
+f(t)=\sum_{i=1}^{n}\bigl(a_{i}-t\,b_{i}\bigr)^{2}.
+\tag{1}
+\]
+Each summand is a square, hence \(f(t)\ge 0\) for all \(t\in\mathbb{R}\).
+
+\textbf{Step 2. Expanding \(f(t)\).}  
+Using \((x-y)^{2}=x^{2}-2xy+y^{2}\) we obtain  
+\[
+(a_{i}-t b_{i})^{2}=a_{i}^{2}-2t\,a_{i}b_{i}+t^{2}b_{i}^{2}.
+\]
+Summing over \(i\) gives  
+\[
+\begin{aligned}
+f(t)&=\sum_{i=1}^{n}a_{i}^{2}
+      -2t\sum_{i=1}^{n}a_{i}b_{i}
+      +t^{2}\sum_{i=1}^{n}b_{i}^{2}   \\
+    &=A-2Ct+Bt^{2},
+\end{aligned}
+\tag{2}
+\]
+where  
+\[
+A:=\sum_{i=1}^{n}a_{i}^{2}\ge 0,\qquad
+B:=\sum_{i=1}^{n}b_{i}^{2}\ge 0,\qquad
+C:=\sum_{i=1}^{n}a_{i}b_{i}.
+\]
+
+\textbf{Step 3. Discriminant condition.}  
+A quadratic polynomial \(qt^{2}+pt+r\) satisfies \(qt^{2}+pt+r\ge0\) for every real \(t\) iff either  
+
+* \(q>0\) and its discriminant is non‑positive: \(p^{2}-4qr\le0\); or  
+* \(q=0\) and the resulting linear (or constant) function is non‑negative for all \(t\).
+
+In \eqref{2} the leading coefficient is \(q=B\).
+
+\begin{itemize}
+\item If \(B>0\), then \(p=-2C\) and \(r=A\). The discriminant condition yields  
+\[
+(-2C)^{2}-4BA\le0\;\Longrightarrow\;C^{2}\le AB,
+\]
+i.e.  
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\tag{3}
+\]
+
+\item If \(B=0\), then every \(b_{i}=0\). Hence \(C=0\) and \eqref{3} reads \(0\le0\), which is true. The same argument applies when \(A=0\).
+\end{itemize}
+Thus \eqref{3} holds in all cases.
+
+\textbf{Step 4. Equality case.}  
+Equality in \eqref{3} occurs precisely when the discriminant is zero (or when \(B=0\) or \(A=0\)).
+
+\begin{itemize}
+\item \emph{Generic case \(B>0\).}  
+If the discriminant is zero, then \(C^{2}=AB\) and the quadratic can be written as  
+\[
+f(t)=B\bigl(t-\lambda\bigr)^{2},\qquad \lambda:=\frac{C}{B}.
+\]
+Hence
+\[
+\sum_{i=1}^{n}\bigl(a_{i}-\lambda b_{i}\bigr)^{2}=0,
+\]
+which forces each term to vanish:
+\[
+a_{i}=\lambda b_{i}\qquad\text{for all }i.
+\]
+
+\item \emph{Degenerate case \(B=0\).}  
+Then \(b_{i}=0\) for all \(i\). The inequality becomes \(0\le0\) and equality holds for every choice of \((a_{i})\). Since the zero vector is a scalar multiple of any vector, the condition “there exists \(\lambda\) with \(a_{i}=\lambda b_{i}\) for all \(i\)” is still satisfied (any \(\lambda\) works). An analogous argument applies when \(A=0\).
+\end{itemize}
+Consequently, equality holds \emph{iff} the two vectors are linearly dependent, i.e. there exists \(\lambda\in\mathbb{R}\) such that \(a_{i}=\lambda b_{i}\) for every \(i\) (including the degenerate case where one of the vectors is the zero vector). \(\square\)
+\end{proof}

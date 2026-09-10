@@ -1,0 +1,69 @@
+\begin{theorem}[Young’s Inequality]
+Let \(a,b\ge 0\) and \(p,q>1\) satisfy  
+\[
+\frac{1}{p}+\frac{1}{q}=1 .
+\]
+Then  
+\[
+ab\le \frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\]
+Equality holds iff either \(a=0\), \(b=0\), or \(a>0,\;b>0\) and  
+\[
+a^{p}=b^{q}\qquad\bigl(\text{equivalently } a^{p-1}=b^{q-1}\bigr).
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Conjugate exponents.}  
+From \(\frac{1}{p}+\frac{1}{q}=1\) we obtain  
+\[
+q=\frac{p}{p-1},\qquad p=\frac{q}{q-1},
+\]
+so that indeed \(p,q\in(1,\infty)\).
+
+\medskip
+
+\textbf{2. Degenerate cases.}  
+If \(a=0\) then \(ab=0\) and the right–hand side equals \(\frac{b^{q}}{q}\ge0\); thus the inequality holds, with equality only when also \(b=0\).  
+The same argument works when \(b=0\).  
+Henceforth assume \(a>0\) and \(b>0\).
+
+\medskip
+
+\textbf{3. Weighted AM–GM.}  
+Set  
+\[
+\lambda_{1}:=\frac{1}{p},\qquad \lambda_{2}:=\frac{1}{q},
+\]
+so that \(\lambda_{1},\lambda_{2}>0\) and \(\lambda_{1}+\lambda_{2}=1\).  
+The weighted arithmetic–geometric mean inequality states that for any non‑negative numbers \(x_{1},x_{2}\),
+\begin{align}
+\lambda_{1}x_{1}+\lambda_{2}x_{2}\ge x_{1}^{\lambda_{1}}x_{2}^{\lambda_{2}},
+\tag{★}
+\end{align}
+with equality iff \(x_{1}=x_{2}\).  
+Choosing \(x_{1}=a^{p}\) and \(x_{2}=b^{q}\) gives
+\begin{align*}
+\frac{1}{p}a^{p}+\frac{1}{q}b^{q}
+&\ge (a^{p})^{1/p}\,(b^{q})^{1/q} \\
+&= a\,b .
+\end{align*}
+Rearranging yields Young’s inequality
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\]
+
+\medskip
+
+\textbf{4. Equality condition.}  
+In \eqref{★} equality holds precisely when \(x_{1}=x_{2}\), i.e. when  
+\[
+a^{p}=b^{q},
+\]
+which is exactly the condition stated in the theorem, together with the degenerate cases treated in step 2.
+
+\medskip
+
+\textbf{5. Conclusion.}  
+All hypotheses have been used; the desired inequality follows from the weighted AM–GM inequality, and the equality cases follow from the equality condition of that inequality. \(\qed\)
+\end{proof}

@@ -1,0 +1,93 @@
+\begin{theorem}[Markov’s Inequality]
+Let \((\Omega,\mathcal F,\mathbb P)\) be a probability space and let
+\(X:\Omega\to[0,\infty]\) be a non‑negative random variable with finite
+expectation \(\mathbb E[X]\). For any constant \(a>0\),
+\[
+\mathbb P\!\bigl(X\ge a\bigr)\le\frac{\mathbb E[X]}{a}.
+\]
+Equality holds iff \(X=a\,\mathbf 1_{\{X\ge a\}}\) a.s. (i.e. \(X\) takes only
+the two values \(0\) and \(a\)).
+\end{theorem}
+
+\begin{proof}
+\textbf{Assumptions and edge‑case analysis.}  We assume \(X(\omega)\ge0\) for
+every \(\omega\in\Omega\) and \(a>0\).  If \(\mathbb P(X\ge a)=0\) the
+inequality is immediate.  If \(\mathbb E[X]=\infty\) the right‑hand side is
+\(+\infty\) and the inequality holds trivially.  The case \(a=0\) is
+excluded by hypothesis.
+
+\medskip
+\textbf{Indicator of the event \(\{X\ge a\}\).}  Define the random variable
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & \text{if }X(\omega)\ge a,\\[2mm]
+0, & \text{otherwise}.
+\end{cases}
+\]
+By the definition of expectation of an indicator,
+\begin{equation*}
+\mathbb E\!\bigl[\mathbf 1_{\{X\ge a\}}\bigr]=\mathbb P\!\bigl(X\ge a\bigr).
+\tag{2.1}
+\end{equation*}
+
+\medskip
+\textbf{Pointwise domination.}  For each \(\omega\in\Omega\) we have
+\begin{equation*}
+X(\omega)\;\ge\;a\,\mathbf 1_{\{X\ge a\}}(\omega). \tag{3.1}
+\end{equation*}
+\emph{Verification.}  If \(X(\omega)\ge a\) then
+\(\mathbf 1_{\{X\ge a\}}(\omega)=1\) and the right‑hand side equals \(a\le
+X(\omega)\).  If \(X(\omega)<a\) then the indicator is zero and the
+inequality reduces to \(X(\omega)\ge0\), which holds by non‑negativity of
+\(X\).
+
+\medskip
+\textbf{Taking expectations and applying monotonicity.}  Since (3.1) holds
+pointwise, monotonicity of expectation yields
+\begin{equation*}
+\mathbb E[X]\;\ge\;\mathbb E\!\bigl[a\,\mathbf 1_{\{X\ge a\}}\bigr].
+\tag{4.1}
+\end{equation*}
+Linearity of expectation gives
+\begin{equation*}
+\mathbb E\!\bigl[a\,\mathbf 1_{\{X\ge a\}}\bigr]
+   =a\,\mathbb E\!\bigl[\mathbf 1_{\{X\ge a\}}\bigr].
+\tag{4.2}
+\end{equation*}
+Substituting (2.1) into (4.2) and then into (4.1) we obtain
+\begin{equation*}
+\mathbb E[X]\;\ge\;a\,\mathbb P\!\bigl(X\ge a\bigr).
+\tag{4.3}
+\end{equation*}
+
+\medskip
+\textbf{Division by the positive constant \(a\).}  Because \(a>0\),
+\begin{equation*}
+\mathbb P\!\bigl(X\ge a\bigr)\;\le\;\frac{\mathbb E[X]}{a}.
+\tag{5.1}
+\end{equation*}
+This is precisely Markov’s inequality.
+
+\medskip
+\textbf{Equality condition.}  Equality in (5.1) can occur only if every
+inequality used above is an equality.
+
+Equality in the monotonicity step (4.1) requires that the pointwise
+inequality (3.1) be an equality \(\mathbb P\)-almost everywhere, i.e.
+\begin{equation*}
+X(\omega)=a\,\mathbf 1_{\{X\ge a\}}(\omega)\qquad\text{a.s.}
+\tag{6.1}
+\end{equation*}
+Thus \(X\) takes only the values \(0\) and \(a\) almost surely.  Conversely,
+if \(X\) assumes only the two values \(0\) and \(a\) with probabilities
+\(p_{0}\) and \(p_{a}\) (\(p_{0}+p_{a}=1\)), then
+\(\mathbb P(X\ge a)=p_{a}\) and \(\mathbb E[X]=a\,p_{a}\), so (5.1) holds
+with equality.
+
+Hence equality holds \emph{iff}
+\[
+X=a\,\mathbf 1_{\{X\ge a\}}\quad\text{a.s.},
+\]
+i.e. the random variable takes only the values \(0\) and \(a\). \(\square\)
+\end{proof}

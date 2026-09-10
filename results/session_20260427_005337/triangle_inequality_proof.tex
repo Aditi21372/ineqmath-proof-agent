@@ -1,0 +1,73 @@
+\begin{proof}
+\textbf{1. Inner‑product expansion.}  
+By linearity in the first argument and conjugate symmetry,
+\begin{align*}
+\langle x+y,\,x+y\rangle
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle  \\
+&=\|x\|^{2}+2\,\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\end{align*}
+In a real inner‑product space \(\operatorname{Re}\langle x,y\rangle=\langle x,y\rangle\); in the complex case the argument below is unchanged because
+\(|\langle x,y\rangle|\ge\operatorname{Re}\langle x,y\rangle\).
+
+\medskip
+\textbf{2. Cauchy–Schwarz inequality.}  
+\[
+|\langle x,y\rangle|\le \|x\|\,\|y\|,
+\]
+with equality iff \(x\) and \(y\) are linearly dependent.
+
+\medskip
+\textbf{3. Bounding the mixed term.}  
+Since \(\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|\),
+\[
+2\,\operatorname{Re}\langle x,y\rangle\le 2\,|\langle x,y\rangle|
+\le 2\,\|x\|\,\|y\|.
+\]
+
+\medskip
+\textbf{4. Inequality for the squared norm.}  
+Insert the estimate from step 3 into the expansion of step 1:
+\begin{align*}
+\|x+y\|^{2}
+&=\|x\|^{2}+2\,\operatorname{Re}\langle x,y\rangle+\|y\|^{2} \\
+&\le \|x\|^{2}+2\,\|x\|\,\|y\|+\|y\|^{2}
+   =\bigl(\|x\|+\|y\|\bigr)^{2}.
+\end{align*}
+
+\medskip
+\textbf{5. Taking square roots.}  
+Norms are non‑negative, hence the square‑root function is monotone on
+\([0,\infty)\). From the previous inequality we obtain
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\medskip
+\textbf{6. Degenerate cases.}  
+If \(x=0\) (or \(y=0\)) the inequality reduces to \(\|y\|\le\|y\|\) (or the symmetric
+statement), which is true. When both vectors are zero both sides equal \(0\).
+
+\medskip
+\textbf{7. Equality condition.}  
+Equality in step 4 requires equality in both inequalities of step 3:
+
+\begin{enumerate}[(a)]
+\item \(\operatorname{Re}\langle x,y\rangle = |\langle x,y\rangle|\) forces
+      \(\langle x,y\rangle\) to be a non‑negative real number.
+\item \(|\langle x,y\rangle| = \|x\|\,\|y\|\) forces linear dependence, i.e.
+      there exists \(\alpha\in\mathbb{C}\) with \(y=\alpha x\).
+\end{enumerate}
+Writing \(y=\alpha x\) we have \(\langle x,y\rangle=\alpha\|x\|^{2}\).
+Condition (a) then gives \(\alpha\|x\|^{2}\in[0,\infty)\), so \(\alpha\) is a
+non‑negative real scalar. Setting \(\lambda:=\alpha\ge 0\) yields \(y=\lambda x\).
+
+Conversely, if \(y=\lambda x\) with \(\lambda\ge 0\), then
+\[
+\|x+y\|=\|(1+\lambda)x\|=(1+\lambda)\|x\|
+       =\|x\|+\|\lambda x\|=\|x\|+\|y\|,
+\]
+so equality holds. The cases \(x=0\) or \(y=0\) correspond to \(\lambda=0\).
+
+Hence equality occurs exactly when the two vectors are positively collinear,
+i.e. there exists \(\lambda\ge 0\) such that \(y=\lambda x\). \(\square\)
+\end{proof}

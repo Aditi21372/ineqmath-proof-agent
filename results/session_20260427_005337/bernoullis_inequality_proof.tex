@@ -1,0 +1,70 @@
+\begin{proof}
+Let \(x\in\mathbb{R}\) satisfy \(x\ge -1\) and let \(n\in\mathbb{Z}_{\ge 0}\).
+
+\medskip\noindent\textbf{1. Preliminary observations.}
+Since \(x\ge -1\) we have \(1+x\ge 0\), so \((1+x)^{n}\) is well defined for every
+non‑negative integer \(n\).
+
+\begin{itemize}
+  \item \(n=0\): \((1+x)^{0}=1=1+0\cdot x\); equality holds.
+  \item \(n=1\): \((1+x)^{1}=1+x=1+1\cdot x\); equality holds.
+\end{itemize}
+
+\medskip\noindent\textbf{2. Base of induction (\(n=2\)).}
+\begin{align*}
+(1+x)^{2}=1+2x+x^{2}\ge 1+2x ,
+\end{align*}
+because \(x^{2}\ge 0\). Hence the inequality holds for \(n=2\).
+
+\medskip\noindent\textbf{3. Inductive hypothesis.}
+Assume that for some integer \(k\ge 2\) we have, for every \(x\ge -1\),
+\begin{equation}
+(1+x)^{k}\ge 1+kx . \tag{IH}
+\end{equation}
+
+\medskip\noindent\textbf{4. Inductive step (\(k\to k+1\)).}
+Multiplying \((\text{IH})\) by the non‑negative factor \(1+x\) preserves the
+inequality:
+\begin{align}
+(1+x)^{k+1}
+   &= (1+x)^{k}(1+x) \\
+   &\ge (1+kx)(1+x). \tag{1}
+\end{align}
+Expanding the right‑hand side gives
+\begin{align}
+(1+kx)(1+x)=1+(k+1)x+kx^{2}. \tag{2}
+\end{align}
+Since \(k\ge 2\) we have \(k\ge 0\) and \(x^{2}\ge 0\), whence
+\begin{align}
+kx^{2}\ge 0. \tag{3}
+\end{align}
+Adding the non‑negative term \(kx^{2}\) to \(1+(k+1)x\) cannot decrease the
+value, so from \((2)\) and \((3)\) we obtain
+\begin{align}
+(1+x)^{k+1}\ge 1+(k+1)x. \tag{4}
+\end{align}
+Thus the inequality holds for the exponent \(k+1\).
+
+\medskip\noindent\textbf{5. Conclusion by induction.}
+The base case \(n=2\) is true, and the inductive step shows that truth for
+\(n=k\) (\(k\ge 2\)) implies truth for \(n=k+1\). Together with the already
+verified cases \(n=0\) and \(n=1\), we have
+\[
+(1+x)^{n}\ge 1+nx\qquad\text{for all }n\in\mathbb{Z}_{\ge 0},\;x\ge -1.
+\]
+
+\medskip\noindent\textbf{6. Equality condition.}
+In the inductive step the only potentially strict term is the non‑negative
+quantity \(kx^{2}\) appearing in \((2)\).  Equality in \((4)\) therefore
+requires
+\[
+kx^{2}=0 .
+\]
+For \(k\ge 2\) this forces \(x=0\).  The previously treated exponents give
+equality for any \(x\) when \(n=0\) or \(n=1\).  Consequently,
+\[
+(1+x)^{n}=1+nx\quad\Longleftrightarrow\quad n=0\ \text{or}\ n=1\ \text{or}\ x=0 .
+\]
+
+Hence the theorem is proved. \(\square\)
+\end{proof}

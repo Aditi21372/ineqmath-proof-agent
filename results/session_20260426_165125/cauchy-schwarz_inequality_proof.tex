@@ -1,0 +1,81 @@
+\begin{theorem}[Cauchy–Schwarz Inequality]
+For real numbers $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$,
+\[
+\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr),
+\]
+with equality iff there exists $\lambda\in\mathbb{R}$ such that $a_{i}=\lambda b_{i}$ for every $i$.
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Interpretation as vectors and inner product.}
+Let
+\[
+a=(a_{1},\dots ,a_{n}),\qquad b=(b_{1},\dots ,b_{n})\in\mathbb{R}^{n}.
+\]
+On $\mathbb{R}^{n}$ consider the standard inner product
+\[
+\langle a,b\rangle:=\sum_{i=1}^{n} a_{i}b_{i},
+\]
+and the induced Euclidean norm
+\[
+\|a\|:=\sqrt{\langle a,a\rangle}= \sqrt{\sum_{i=1}^{n} a_{i}^{2}},\qquad
+\|b\|:=\sqrt{\sum_{i=1}^{n} b_{i}^{2}}.
+\]
+
+\item \textbf{Non‑negativity of a squared norm.}
+For any real scalar $t$ the vector $a-tb$ satisfies $\|a-tb\|^{2}\ge0$.
+Expanding using the inner product gives
+\begin{align*}
+\|a-tb\|^{2}
+&=\langle a-tb,\,a-tb\rangle \\
+&=\langle a,a\rangle-2t\langle a,b\rangle+t^{2}\langle b,b\rangle \\
+&=\sum_{i=1}^{n} a_{i}^{2}-2t\sum_{i=1}^{n} a_{i}b_{i}
+   +t^{2}\sum_{i=1}^{n} b_{i}^{2}.
+\end{align*}
+
+\item \textbf{Quadratic in $t$.}
+Define
+\[
+Q(t):=\Bigl(\sum_{i=1}^{n} b_{i}^{2}\Bigr)t^{2}
+       -2\Bigl(\sum_{i=1}^{n} a_{i}b_{i}\Bigr)t
+       +\Bigl(\sum_{i=1}^{n} a_{i}^{2}\Bigr).
+\]
+From the previous step $Q(t)=\|a-tb\|^{2}\ge0$ for every real $t$.
+If $\sum b_{i}^{2}=0$ then $b=0$ and the inequality is trivial, so we may assume the leading coefficient is positive.
+
+\item \textbf{Discriminant condition.}
+A quadratic $\alpha t^{2}+\beta t+\gamma$ with $\alpha>0$ that is non‑negative for all $t\in\mathbb{R}$ must satisfy $\beta^{2}-4\alpha\gamma\le0$.
+Here
+\[
+\alpha=\sum b_{i}^{2},\qquad
+\beta=-2\sum a_{i}b_{i},\qquad
+\gamma=\sum a_{i}^{2}.
+\]
+Hence
+\begin{align*}
+\Delta
+&=\beta^{2}-4\alpha\gamma \\
+&=\bigl(-2\sum a_{i}b_{i}\bigr)^{2}
+   -4\Bigl(\sum b_{i}^{2}\Bigr)\Bigl(\sum a_{i}^{2}\Bigr) \\
+&=4\Bigl[\bigl(\sum a_{i}b_{i}\bigr)^{2}
+        -\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr)\Bigr].
+\end{align*}
+Since $\Delta\le0$, we obtain
+\[
+\bigl(\sum a_{i}b_{i}\bigr)^{2}
+\le
+\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr),
+\]
+which is precisely the Cauchy–Schwarz inequality.
+
+\item \textbf{Equality case.}
+Equality holds iff $\Delta=0$, i.e. iff the minimizing
+\[
+t_{0}= \frac{\sum a_{i}b_{i}}{\sum b_{i}^{2}}
+\]
+satisfies $\|a-t_{0}b\|^{2}=0$. This is equivalent to $a=t_{0}b$, or $a_{i}=t_{0}b_{i}$ for every $i$.
+Conversely, if $a_{i}=\lambda b_{i}$ for some $\lambda\in\mathbb{R}$, then both sides of the inequality coincide. Hence equality occurs exactly when the vectors $a$ and $b$ are linearly dependent.
+\end{enumerate}
+\end{proof}

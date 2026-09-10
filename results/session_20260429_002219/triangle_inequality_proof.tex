@@ -1,0 +1,85 @@
+\textbf{Theorem (Triangle Inequality).}  
+Let \((V,\langle\cdot,\cdot\rangle)\) be an inner‑product space and \(x,y\in V\). Then
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\begin{proof}
+\textbf{Step 1 (Degenerate case).}  
+If \(x=0\) or \(y=0\) the inequality reduces to \(\|y\|\le\|y\|\) or
+\(\|x\|\le\|x\|\), which holds with equality. Hence we may assume
+\(x\neq0\) and \(y\neq0\).
+
+\textbf{Step 2 (Square the inequality).}  
+Since norms are non‑negative,
+\[
+\|x+y\|\le\|x\|+\|y\|
+\iff
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\]
+
+\textbf{Step 3 (Expand both sides).}
+\begin{align*}
+\|x+y\|^{2}
+   &=\langle x+y,\,x+y\rangle \\
+   &=\langle x,x\rangle+\langle x,y\rangle
+     +\langle y,x\rangle+\langle y,y\rangle \\
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2},
+\end{align*}
+and
+\[
+(\|x\|+\|y\|)^{2}
+   =\|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}.
+\]
+
+\textbf{Step 4 (Cauchy–Schwarz bound).}  
+The Cauchy–Schwarz inequality gives \(|\langle x,y\rangle|\le\|x\|\,\|y\|\).
+Since \(\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|\),
+\[
+\operatorname{Re}\langle x,y\rangle\le\|x\|\,\|y\|.
+\]
+
+\textbf{Step 5 (Insert the bound).}  
+Substituting the estimate from Step 4 into the expansion of \(\|x+y\|^{2}\) yields
+\begin{align*}
+\|x+y\|^{2}
+   &=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}\\
+   &\le\|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}
+    =(\|x\|+\|y\|)^{2}.
+\end{align*}
+
+\textbf{Step 6 (Square roots).}  
+Both sides of the inequality in Step 5 are non‑negative; taking square roots
+preserves the order:
+\[
+\|x+y\|\le\|x\|+\|y\|.
+\]
+
+\textbf{Step 7 (Equality condition).}  
+Equality in the triangle inequality occurs precisely when equality holds in
+each inequality used above.
+
+\begin{itemize}
+\item Equality in Cauchy–Schwarz holds iff there exists \(\lambda\in\mathbb{C}\) such that
+\(y=\lambda x\).
+\item Equality \(\operatorname{Re}\langle x,y\rangle=|\langle x,y\rangle|\) forces
+\(\lambda\) to be a non‑negative real number; otherwise the real part would be
+strictly smaller than the modulus.
+\end{itemize}
+Thus
+\[
+\|x+y\|=\|x\|+\|y\|
+\iff
+\bigl(x=0\bigr)\ \text{or}\ \bigl(y=0\bigr)\ \text{or}\ \bigl(y=\lambda x\text{ with }\lambda\ge0\bigr).
+\]
+
+In the latter case,
+\[
+\|x+y\|=\|x+\lambda x\|=(1+\lambda)\|x\|
+        =\|x\|+\|\lambda x\|=\|x\|+\|y\|.
+\]
+
+Hence the triangle inequality holds for all vectors, and equality holds
+iff the vectors are positively linearly dependent (including the zero‑vector
+cases). \qed
+\end{proof}

@@ -1,0 +1,50 @@
+\begin{proof}
+\textbf{1. Norm as inner product.}  
+By definition of the norm induced by an inner product, for any vector \(x\) we have  
+\[
+\|x\|^{2}= \langle x, x\rangle .
+\]
+
+\textbf{2. Expansion of \(\|x+y\|^{2}\).}  
+Using bilinearity and symmetry of the inner product,
+\begin{align*}
+\langle x+y, x+y\rangle &= \langle x, x\rangle + \langle x, y\rangle + \langle y, x\rangle + \langle y, y\rangle \\
+&= \langle x, x\rangle + 2\langle x, y\rangle + \langle y, y\rangle .
+\end{align*}
+Hence
+\[
+\|x+y\|^{2}= \|x\|^{2} + 2\langle x, y\rangle + \|y\|^{2}.
+\]
+
+\textbf{3. Cauchy–Schwarz bound.}  
+The Cauchy–Schwarz inequality states \(|\langle x, y\rangle| \le \|x\|\,\|y\|\).  
+Since \(\langle x, y\rangle \le |\langle x, y\rangle|\), we obtain
+\[
+\langle x, y\rangle \le \|x\|\,\|y\| \quad\Longrightarrow\quad
+2\langle x, y\rangle \le 2\|x\|\,\|y\|.
+\]
+
+\textbf{4. Bounding the squared norm.}  
+Substituting the estimate from step 3 into the expression of step 2 gives
+\begin{align*}
+\|x+y\|^{2}
+&= \|x\|^{2} + 2\langle x, y\rangle + \|y\|^{2} \\
+&\le \|x\|^{2} + 2\|x\|\,\|y\| + \|y\|^{2} \\
+&= (\|x\|+\|y\|)^{2}.
+\end{align*}
+
+\textbf{5. Taking square roots.}  
+Both sides of the inequality in step 4 are non‑negative, so the square‑root function is monotone. Hence
+\[
+\|x+y\| \le \|x\| + \|y\|.
+\]
+
+\textbf{6. Equality condition.}  
+Equality in step 4 occurs exactly when equality holds in the Cauchy–Schwarz inequality used in step 3, i.e. when
+\[
+|\langle x, y\rangle| = \|x\|\,\|y\|.
+\]
+The equality case of Cauchy–Schwarz states that this happens iff the vectors are linearly dependent: there exists a scalar \(\lambda\) such that \(y = \lambda x\). Moreover, for the inequality in step 3 to be an equality we need \(\langle x, y\rangle = \|x\|\,\|y\|\), which forces \(\lambda \ge 0\). Thus equality in the triangle inequality holds precisely when \(y = \lambda x\) with \(\lambda \ge 0\) (the vectors point in the same direction).
+
+Therefore the triangle inequality \(\|x+y\| \le \|x\|+\|y\|\) holds for all vectors \(x, y\) in an inner‑product space, with equality exactly when \(x\) and \(y\) are positively proportional. \(\square\)
+\end{proof}

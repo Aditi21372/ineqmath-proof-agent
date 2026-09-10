@@ -1,0 +1,67 @@
+\begin{theorem}[Triangle Inequality]
+Let $(V,\langle\cdot,\cdot\rangle)$ be an inner‑product space and let $\|\cdot\|$ be the norm induced by the inner product, $\|z\|=\sqrt{\langle z,z\rangle}$.  
+For any $x,y\in V$,
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate cases.}  
+If $x=0$ then $\|x+y\|=\|y\|$ and the right‑hand side is $\|0\|+\|y\|=\|y\|$; similarly for $y=0$. Hence the inequality holds with equality. In the sequel we assume $x\neq0$ and $y\neq0$.
+
+\medskip\noindent\textbf{2. Squaring.}  
+Both $\|x+y\|$ and $\|x\|+\|y\|$ are non‑negative, therefore
+\begin{equation}
+\|x+y\|\le\|x\|+\|y\|\iff
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\tag{1}
+\end{equation}
+
+\medskip\noindent\textbf{3. Expansion of the left‑hand side.}  
+Using linearity in the first argument and conjugate symmetry,
+\begin{align*}
+\|x+y\|^{2}
+&=\langle x+y,\,x+y\rangle\\
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\\
+&=\|x\|^{2}+\|y\|^{2}+ \langle x,y\rangle+\overline{\langle x,y\rangle}\\
+&=\|x\|^{2}+\|y\|^{2}+2\operatorname{Re}\langle x,y\rangle .
+\end{align*}
+\tag{2}
+\]
+
+The right‑hand side of \eqref{1} expands as
+\begin{equation}
+(\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}.
+\tag{3}
+\end{equation}
+
+\medskip\noindent\textbf{4. Bounding the mixed term.}  
+By the Cauchy–Schwarz inequality,
+\begin{equation}
+|\langle x,y\rangle|\le\|x\|\,\|y\|.
+\tag{4}
+\end{equation}
+Since $\operatorname{Re}z\le|z|$ for any $z\in\mathbb{C}$, we obtain
+\begin{equation}
+\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|\le\|x\|\,\|y\|.
+\tag{5}
+\end{equation}
+
+\medskip\noindent\textbf{5. Comparison.}  
+Substituting \eqref{5} into \eqref{2} gives
+\[
+\|x+y\|^{2}
+=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}
+\le\|x\|^{2}+2\|x\|\|y\|+\|y\|^{2}
+=(\|x\|+\|y\|)^{2}.
+\]
+Thus \eqref{1} holds, and taking square roots yields $\|x+y\|\le\|x\|+\|y\|$ for all $x,y\in V$.
+
+\medskip\noindent\textbf{6. Equality condition.}  
+Equality occurs precisely when equality holds in both \eqref{4} and in $\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|$.
+
+Equality in \eqref{4} (Cauchy–Schwarz) means $x$ and $y$ are linearly dependent, i.e. $x=\lambda y$ for some $\lambda\in\mathbb{F}$ (or $y=0$).  
+Equality in $\operatorname{Re}\langle x,y\rangle\le|\langle x,y\rangle|$ forces $\langle x,y\rangle$ to be a non‑negative real number.  
+Hence $\|x+y\|=\|x\|+\|y\|$ iff either $x=0$, $y=0$, or $x=\alpha y$ with $\alpha\ge0$ (real). In other words, the two vectors point in the same direction (or one is the zero vector).
+\end{proof}

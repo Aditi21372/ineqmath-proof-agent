@@ -1,0 +1,111 @@
+\begin{proof}
+\textbf{Assumptions.}  
+Let \((\Omega,\mathcal F,\mathbb P)\) be a probability space and let
+\(X:\Omega\to[0,\infty]\) satisfy \(X\ge 0\) a.s.  Fix a constant \(a>0\).
+
+\medskip
+\textbf{Trivial cases.}
+\begin{enumerate}
+\item If \(\mathbb{E}[X]=+\infty\) then \(\mathbb{E}[X]/a=+\infty\) and
+\(\mathbb{P}(X\ge a)\le+\infty\) holds automatically.
+\item If \(\mathbb{P}(X\ge a)=0\) then the left–hand side of the desired inequality is \(0\), while the right–hand side is non‑negative; thus the inequality holds with equality.
+\end{enumerate}
+Hence we may restrict to the non‑degenerate situation
+\(\mathbb{E}[X]<\infty\) and \(\mathbb{P}(X\ge a)>0\).
+
+\medskip
+\textbf{1. Indicator function and pointwise bound.}  
+Define the measurable set
+\[
+A:=\{\omega\in\Omega : X(\omega)\ge a\}
+\]
+and its indicator (characteristic) function
+\[
+\mathbf 1_{A}(\omega)=\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & \omega\in A,\\[2pt]
+0, & \omega\notin A .
+\end{cases}
+\]
+
+Because \(X\ge0\) and \(a>0\), for every \(\omega\) we have the pointwise inequality
+\begin{equation}
+\mathbf 1_{\{X\ge a\}}(\omega)\le \frac{X(\omega)}{a}.
+\tag{1}
+\end{equation}
+Indeed,
+\begin{itemize}
+\item If \(\mathbf 1_{\{X\ge a\}}(\omega)=0\) then \(0\le X(\omega)/a\) since \(X(\omega)\ge0\).
+\item If \(\mathbf 1_{\{X\ge a\}}(\omega)=1\) then \(X(\omega)\ge a\) by definition of \(A\); dividing by the positive constant \(a\) yields \(1\le X(\omega)/a\).
+\end{itemize}
+Thus \eqref{1} holds for all \(\omega\).
+
+\medskip
+\textbf{2. Taking expectations.}  
+Both sides of \eqref{1} are non‑negative measurable functions, so the
+Monotonicity of Expectation applies:
+
+\begin{theorem}[Monotonicity]
+If \(Y,Z\) are random variables with \(0\le Y(\omega)\le Z(\omega)\) for all \(\omega\) and \(\mathbb{E}[Z]\) exists (finite or \(+\infty\)), then \(\mathbb{E}[Y]\le\mathbb{E}[Z]\).
+\end{theorem}
+
+Applying the theorem with \(Y=\mathbf 1_{\{X\ge a\}}\) and \(Z=X/a\) gives
+\begin{equation}
+\mathbb{E}\!\bigl[\mathbf 1_{\{X\ge a\}}\bigr]\le
+\mathbb{E}\!\left[\frac{X}{a}\right].
+\tag{2}
+\end{equation}
+
+The left‑hand side is, by definition of expectation of an indicator,
+\begin{equation}
+\mathbb{E}\!\bigl[\mathbf 1_{\{X\ge a\}}\bigr]=\mathbb{P}(X\ge a).
+\tag{3}
+\end{equation}
+The right‑hand side simplifies by linearity of expectation (constants factor out):
+\begin{equation}
+\mathbb{E}\!\left[\frac{X}{a}\right]=\frac{1}{a}\,\mathbb{E}[X].
+\tag{4}
+\end{equation}
+Combining \eqref{2}–\eqref{4} yields Markov’s inequality:
+\begin{equation}
+\boxed{\;\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}\;}
+\tag{5}
+\end{equation}
+as claimed.
+
+\medskip
+\textbf{3. Equality case.}  
+Equality in \eqref{5} can occur only if equality holds in the monotonicity step \eqref{2}.  The monotonicity theorem states that \(\mathbb{E}[Y]=\mathbb{E}[Z]\) holds \emph{iff} \(Y=Z\) almost surely.  Hence we must have
+\begin{equation}
+\mathbf 1_{\{X\ge a\}}(\omega)=\frac{X(\omega)}{a}
+\qquad\text{for }\mathbb{P}\text{-a.e. }\omega.
+\tag{6}
+\end{equation}
+Equation \eqref{6} forces \(X\) to take only the two values \(0\) and \(a\):
+\begin{itemize}
+\item If \(X(\omega)<a\) then the indicator on the left is \(0\); \eqref{6} gives \(X(\omega)/a=0\), i.e. \(X(\omega)=0\).
+\item If \(X(\omega)\ge a\) then the indicator equals \(1\); \eqref{6} gives \(X(\omega)/a=1\), i.e. \(X(\omega)=a\).
+\end{itemize}
+Thus
+\[
+X = a\,\mathbf 1_{\{X\ge a\}}\quad\text{a.s.}
+\]
+Equivalently, there exists \(p\in[0,1]\) such that
+\[
+\mathbb{P}(X=a)=p,\qquad \mathbb{P}(X=0)=1-p,
+\]
+and \(p=\mathbb{P}(X\ge a)\).  In this situation \(\mathbb{E}[X]=ap\) and \eqref{5} becomes an equality:
+\[
+\mathbb{P}(X\ge a)=p=\frac{ap}{a}=\frac{\mathbb{E}[X]}{a}.
+\]
+
+Hence equality holds \emph{iff} \(X\) is almost surely supported on the set \(\{0,a\}\); otherwise the inequality is strict.
+
+\medskip
+\textbf{4. Conclusion.}  
+For every non‑negative random variable \(X\) and every constant \(a>0\),
+\[
+\boxed{\;\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}\;}
+\]
+with equality precisely when \(X\) takes only the values \(0\) and \(a\) (with appropriate probabilities).  The degenerate cases of infinite mean or zero probability have already been addressed, completing the proof.
+\end{proof}

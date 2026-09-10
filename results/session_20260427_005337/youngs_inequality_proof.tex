@@ -1,0 +1,74 @@
+\begin{proof}
+\paragraph{1. Degenerate cases.}
+If \(a=0\) then the right–hand side equals \(\dfrac{b^{q}}{q}\ge 0\) while the left–hand side is \(0\); the inequality holds.  
+If \(b=0\) the argument is symmetric.  
+Hence we may assume \(a>0\) and \(b>0\), so that all logarithms below are well defined.
+
+\paragraph{2. Weighted AM–GM via Jensen’s inequality.}
+Consider the convex function \(f(t)=e^{t}\) on \(\mathbb{R}\) (since \(f''(t)=e^{t}>0\)).  
+Apply Jensen’s inequality to the two points  
+
+\[
+x_{1}= \ln a^{p},\qquad x_{2}= \ln b^{q},
+\]
+
+with weights  
+
+\[
+\lambda_{1}= \frac{1}{p},\qquad \lambda_{2}= \frac{1}{q}.
+\]
+
+Because \(\lambda_{1},\lambda_{2}\ge 0\) and \(\lambda_{1}+\lambda_{2}= \frac1p+\frac1q =1\), Jensen gives  
+
+\[
+f\!\Bigl(\lambda_{1}x_{1}+\lambda_{2}x_{2}\Bigr)
+\le
+\lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}).
+\tag{1}
+\]
+
+Writing the weights explicitly we obtain  
+
+\begin{align*}
+e^{\frac1p\ln a^{p}+\frac1q\ln b^{q}}
+&\le
+\frac1p\,e^{\ln a^{p}}+\frac1q\,e^{\ln b^{q}} .
+\end{align*}
+\tag{2}
+
+\paragraph{3. Simplification.}
+For any positive \(x\) we have \(e^{\ln x}=x\). Moreover  
+
+\[
+e^{\frac1p\ln a^{p}} = a,\qquad
+e^{\frac1q\ln b^{q}} = b,
+\]
+
+since \(\frac1p\ln a^{p}= \ln a\) and \(\frac1q\ln b^{q}= \ln b\).  
+Substituting these equalities into (2) yields  
+
+\[
+ab \;\le\; \frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\tag{3}
+\]
+
+Thus the desired inequality holds for all \(a,b>0\). Together with the trivial cases from Step 1, (3) is valid for all non‑negative \(a,b\).
+
+\paragraph{4. Equality condition.}
+For a strictly convex function, Jensen’s inequality is an equality **iff** the
+arguments are equal. Hence equality in (1) (and therefore in (3)) occurs exactly when  
+
+\[
+x_{1}=x_{2}\quad\Longleftrightarrow\quad
+\ln a^{p}= \ln b^{q}\quad\Longleftrightarrow\quad
+a^{p}=b^{q}.
+\]
+
+When \(a=b=0\) both sides of (3) are zero, so equality also holds. No other
+choice of \((a,b)\) gives equality. Consequently the equality case is precisely  
+
+\[
+a^{p}=b^{q}\qquad(\text{including }a=b=0).
+\]
+
+\end{proof}

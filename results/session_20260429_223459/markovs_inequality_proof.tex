@@ -1,0 +1,72 @@
+\begin{proof}
+\textbf{Pointwise bound.}  
+Define the indicator of the event $\{X\ge a\}$ by
+\begin{equation*}
+\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\end{equation*}
+For every $\omega$ we have
+\[
+a\,\mathbf 1_{\{X\ge a\}}(\omega)\le X(\omega),
+\]
+and dividing by the positive constant $a$ yields the pointwise inequality
+\begin{equation}
+\mathbf 1_{\{X\ge a\}}\le \frac{X}{a}\qquad\text{a.s.}
+\tag{1}
+\end{equation}
+
+\medskip
+\textbf{Take expectations.}  
+Both sides of \eqref{1} are non‑negative, so by monotonicity of expectation,
+\begin{equation}
+\mathbb{E}\!\big[\mathbf 1_{\{X\ge a\}}\big]\le
+\mathbb{E}\!\Big[\frac{X}{a}\Big].
+\end{equation}
+Using linearity of expectation,
+\begin{equation}
+\mathbb{E}\!\big[\mathbf 1_{\{X\ge a\}}\big]\le
+\frac{\mathbb{E}[X]}{a}.
+\tag{2}
+\end{equation}
+
+\medskip
+\textbf{Replace the expectation of the indicator.}  
+For any event $A$, $\mathbb{E}[\mathbf 1_A]=\mathbb{P}(A)$. Hence
+\begin{equation}
+\mathbb{E}\!\big[\mathbf 1_{\{X\ge a\}}\big]=\mathbb{P}(X\ge a).
+\tag{3}
+\end{equation}
+Substituting \eqref{3} into \eqref{2} gives the desired inequality
+\begin{equation}
+\boxed{\mathbb{P}(X\ge a)\le \frac{\mathbb{E}[X]}{a}}.
+\end{equation}
+
+\medskip
+\textbf{Edge (degenerate) cases.}
+\begin{itemize}
+\item If $\mathbb{E}[X]=0$, then $X=0$ almost surely, so $\mathbb{P}(X\ge a)=0$ for every $a>0$, and the inequality holds with equality.
+\item If $a\downarrow0$, the hypothesis $a>0$ prevents division by zero; letting $a\to0^{+}$ makes the right–hand side diverge, so the bound remains true (vacuously).
+\end{itemize}
+
+\medskip
+\textbf{Equality condition.}  
+Equality in the final inequality can occur only if every intermediate inequality is an equality almost surely. Equality in \eqref{1} requires
+\[
+\mathbf 1_{\{X\ge a\}}(\omega)=\frac{X(\omega)}{a}\quad\text{for a.e. }\omega,
+\]
+i.e. $X(\omega)=a\,\mathbf 1_{\{X\ge a\}}(\omega)$.  Hence $X$ takes only the values $0$ and $a$ almost surely.  Thus
+\begin{equation}
+\mathbb{P}\bigl(X\in\{0,a\}\bigr)=1
+\qquad\Longleftrightarrow\qquad
+X=a\,\mathbf 1_{\{X\ge a\}}\ \text{a.s.}
+\tag{4}
+\end{equation}
+and this condition is both necessary and sufficient for equality.
+
+\medskip
+\textbf{Conclusion.}  
+Using the pointwise bound $a\,\mathbf 1_{\{X\ge a\}}\le X$, monotonicity and linearity of expectation, and $\mathbb{E}[\mathbf 1_A]=\mathbb{P}(A)$, we have derived Markov’s inequality together with a complete description of edge cases and the equality scenario. \qed
+\end{proof}

@@ -1,0 +1,81 @@
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Degenerate cases.}  
+If \(x=0\) then \(\|x+y\|=\|y\|=\|0\|+\|y\|\); similarly if \(y=0\). Hence the inequality holds with equality.  
+Henceforth assume \(x\neq0\) and \(y\neq0\).
+
+\item \textbf{Expand \(\|x+y\|^{2}\).}  
+By definition of the norm and bilinearity of the inner product,
+\begin{align*}
+\|x+y\|^{2}
+   &=\langle x+y,x+y\rangle                                      \\
+   &=\langle x,x\rangle+\langle x,y\rangle
+     +\langle y,x\rangle+\langle y,y\rangle .
+\end{align*}
+Since \(\langle y,x\rangle=\overline{\langle x,y\rangle}\),
+\begin{align}
+\|x+y\|^{2}
+   &=\|x\|^{2}+ \|y\|^{2}
+     +\langle x,y\rangle+\overline{\langle x,y\rangle} \nonumber\\
+   &=\|x\|^{2}+ \|y\|^{2}+2\Re\langle x,y\rangle .
+\tag{1}
+\end{align}
+
+\item \textbf{Estimate the middle term.}  
+For any complex number \(z\),
+\[
+|\Re z|\le |z| .
+\tag{2}
+\]
+Indeed, \(|z|^{2}=(\Re z)^{2}+(\Im z)^{2}\ge (\Re z)^{2}\), whence \(|\Re z|\le|z|\).  
+Applying (2) with \(z=\langle x,y\rangle\) gives
+\[
+\Re\langle x,y\rangle\le |\langle x,y\rangle| .
+\tag{3}
+\]
+
+Now invoke the Cauchy–Schwarz inequality:
+\[
+|\langle x,y\rangle|\le \|x\|\,\|y\| .
+\tag{4}
+\]
+
+Combining (3) and (4) we obtain
+\[
+\Re\langle x,y\rangle\le \|x\|\,\|y\| .
+\tag{5}
+\]
+
+\item \textbf{Upper bound for \(\|x+y\|^{2}\).}  
+Insert (5) into (1):
+\begin{align}
+\|x+y\|^{2}
+   &\le \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2} \nonumber\\
+   &=\bigl(\|x\|+\|y\|\bigr)^{2}.
+\tag{6}
+\end{align}
+All quantities involved are non‑negative.
+
+\item \textbf{Take square roots.}  
+Since the square‑root function is monotone on \([0,\infty)\),
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\item \textbf{Equality condition.}  
+Equality in the chain (6) occurs precisely when each inequality used becomes an equality.
+
+\begin{itemize}
+\item From (5): equality in \(\Re\langle x,y\rangle\le |\langle x,y\rangle|\) forces \(\langle x,y\rangle\) to be a non‑negative real number (i.e. \(\Im\langle x,y\rangle=0\) and \(\Re\langle x,y\rangle\ge0\)).
+\item Equality in Cauchy–Schwarz (4) holds iff \(x\) and \(y\) are linearly dependent, i.e. \(y=\lambda x\) for some \(\lambda\in\mathbb{C}\).
+\item Substituting \(y=\lambda x\) gives \(\langle x,y\rangle=\lambda\langle x,x\rangle\); this is real and non‑negative exactly when \(\lambda\) is a non‑negative real scalar.
+\end{itemize}
+Thus equality \(\|x+y\|=\|x\|+\|y\|\) holds iff one of the following is true:
+
+\begin{enumerate}
+\item \(x=0\) or \(y=0\) (the degenerate case);
+\item There exists \(\lambda\in\mathbb{R}\) with \(\lambda\ge0\) such that \(y=\lambda x\) (the vectors are positively colinear).
+\end{enumerate}
+These are precisely the cases announced in the statement of the triangle inequality.
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,57 @@
+\begin{theorem}[Young’s inequality]
+Let \(a,b\ge0\) and let \(p,q>1\) satisfy \(\frac1p+\frac1q=1\). Then
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+and equality holds iff either \(a=b=0\) or \(a^{p}=b^{q}\).
+\end{theorem}
+
+\begin{proof}
+\textbf{Hypotheses and notation.}  We are given \(a,b\ge0\) and \(p,q>1\) with \(\frac1p+\frac1q=1\).  Define
+\[
+\lambda:=\frac1p,\qquad 1-\lambda:=\frac1q .
+\]
+
+From the relation \(\frac1p+\frac1q=1\) we obtain \(1-\frac1p=\frac1q\).
+
+\medskip
+\textbf{Reduction to the non‑trivial case.}  If \(a=0\) then the left‑hand side of the desired inequality is \(0\) and the right‑hand side is \(\frac{0^{p}}{p}+\frac{b^{q}}{q}\ge0\); similarly if \(b=0\).  Hence the inequality holds in those cases.  Consequently we may assume
+\[
+a>0,\qquad b>0 .
+\]
+
+\medskip
+\textbf{Convexity of the exponential function.}  The function \(f(t)=e^{t}\) is convex on \(\mathbb{R}\) because \(f''(t)=e^{t}>0\) for all \(t\).  By Jensen’s inequality for a convex function, for any real numbers \(x,y\) and any \(\lambda\in[0,1]\),
+\begin{equation*}
+e^{\lambda x+(1-\lambda )y}\le \lambda e^{x}+(1-\lambda )e^{y}. \tag{J}
+\end{equation*}
+
+\medskip
+\textbf{Choice of the arguments.}  Set
+\[
+x:=p\ln a,\qquad y:=q\ln b .
+\]
+Then, using the definition of \(\lambda\),
+\begin{align*}
+\lambda x+(1-\lambda )y
+&=\frac1p\,(p\ln a)+\frac1q\,(q\ln b)\\
+&=\ln a+\ln b\\
+&=\ln (ab). \tag{1}
+\end{align*}
+
+\medskip
+\textbf{Apply Jensen’s inequality.}  Substituting \(x,y\) and \(\lambda\) into \((J)\) and using \((1)\) we obtain
+\[
+e^{\ln(ab)}\le \frac1p\,e^{p\ln a}+\frac1q\,e^{q\ln b}.
+\]
+The left‑hand side simplifies to \(ab\), and the right‑hand side simplifies using \(e^{p\ln a}=a^{p}\) and \(e^{q\ln b}=b^{q}\):
+\[
+ab\le \frac{a^{p}}{p}+\frac{b^{q}}{q}. \tag{2}
+\]
+
+\medskip
+\textbf{Equality condition.}  Since \(e^{t}\) is strictly convex, equality in \((J)\) occurs iff the two arguments are equal, i.e. \(x=y\), which is equivalent to \(p\ln a=q\ln b\).  Exponentiating gives \(a^{p}=b^{q}\).  Together with the trivial case \(a=b=0\) handled above, equality in \((2)\) occurs exactly when \(a^{p}=b^{q}\) or \(a=b=0\).
+
+\medskip
+\textbf{Conclusion.}  For all non‑negative real numbers \(a,b\) and conjugate exponents \(p,q>1\) satisfying \(\frac1p+\frac1q=1\), inequality \((2)\) holds, and equality holds precisely under the condition described above. \(\square\)
+\end{proof}

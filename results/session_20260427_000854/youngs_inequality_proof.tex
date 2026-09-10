@@ -1,0 +1,63 @@
+\begin{proof}
+\textbf{(1) Set the conjugate weights.}  
+Define
+\[
+\alpha:=\frac{1}{p},\qquad \beta:=\frac{1}{q}.
+\]
+Since $p,q>1$, we have $\alpha,\beta\in(0,1)$ and
+\[
+\alpha+\beta=\frac{1}{p}+\frac{1}{q}=1 .
+\]
+
+\medskip
+
+\textbf{(2) Degenerate cases.}  
+If $a=0$ or $b=0$, then $ab=0$ while $\frac{a^{p}}{p}+\frac{b^{q}}{q}\ge0$, so the inequality holds with equality. Hence we may assume $a>0$ and $b>0$ in what follows.
+
+\medskip
+
+\textbf{(3) Weighted AM–GM.}  
+For any non‑negative numbers $X,Y$ and weights $\alpha,\beta\ge0$ with $\alpha+\beta=1$, the weighted arithmetic–geometric mean inequality states
+\[
+\alpha X+\beta Y\;\ge\;X^{\alpha}Y^{\beta}.
+\tag{3}
+\]
+Equality in \eqref{3} occurs iff $X=Y$.
+
+\medskip
+
+\textbf{(4) Apply \eqref{3} with $X=a^{p}$, $Y=b^{q}$.}  
+Since $a,b\ge0$, also $X,Y\ge0$. Substituting gives
+\[
+\alpha a^{p}+\beta b^{q}\;\ge\;(a^{p})^{\alpha}(b^{q})^{\beta}.
+\tag{4}
+\]
+
+\medskip
+
+\textbf{(5) Simplify the right‑hand side of \eqref{4}.}  
+Using $\alpha=1/p$ and $\beta=1/q$,
+\[
+(a^{p})^{\alpha}(b^{q})^{\beta}
+= (a^{p})^{1/p}\,(b^{q})^{1/q}
+= a\,b ,
+\]
+because the bases are non‑negative and we take the principal roots.  Inserting this into \eqref{4} yields
+\[
+\frac{a^{p}}{p}+\frac{b^{q}}{q}\;\ge\;ab .
+\tag{5}
+\]
+
+\medskip
+
+\textbf{(6) Conclusion.}  
+Inequality \eqref{5} is precisely Young’s inequality. Together with the degenerate case handled in step~2, the statement holds for all non‑negative $a,b$.
+
+\medskip
+
+\textbf{(7) Equality case.}  
+Equality in the weighted AM–GM occurs exactly when $X=Y$, i.e. when $a^{p}=b^{q}$. Together with the trivial possibilities $a=0$ or $b=0$, the equality cases are
+\[
+a=0\quad\text{or}\quad b=0\quad\text{or}\quad a^{p}=b^{q}>0 .
+\]
+\end{proof}

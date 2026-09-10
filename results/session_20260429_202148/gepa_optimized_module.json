@@ -1,0 +1,152 @@
+{
+  "plan": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Given an inequality, decide the best proof strategy and outline the key steps.\nBe specific: name the exact theorems, techniques, and algebraic manipulations needed.\nOutput a numbered outline — do NOT write the full proof yet.\nThe plan MUST include:\n- A step for handling any degenerate/edge cases (e.g. zero vectors, zero weights)\n- A final step deriving the complete equality condition (ALL cases under which equality holds)",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Relevant Theorems:",
+          "description": "Available theorems to use"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Numbered outline of proof steps with specific techniques"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.react": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Write a complete rigorous mathematical proof following the given plan.\n\nYou have access to tools — USE THEM at every non-trivial step:\n  - Call lookup_inequality(name) to get the precise statement if needed\n  - Call verify_arithmetic(expression) to confirm every algebraic manipulation\n    e.g. verify_arithmetic('(a+b)**2 - (a**2 + 2*a*b + b**2)') before writing it\n  - Call check_proof_step(claim) to validate each inequality step before including it\n\nRequirements:\n- Every step must follow logically from the previous\n- Cite every theorem by name when used\n- Show all algebraic manipulations explicitly\n- Handle ALL degenerate/edge cases explicitly (e.g. if a denominator could be zero, treat that case separately)\n- Do NOT use specific numerical examples to prove general statements\n- Do NOT use decimal approximations (no sqrt(2) = 1.414)\n- State the equality condition at the end — it must be FULLY DERIVED from the proof steps, not just asserted\n- The equality condition must be complete: state ALL cases under which equality holds\n\nYou are an Agent. In each episode, you will be given the fields `inequality_name`, `problem_statement`, `proof_plan` as input. And you can see your past trajectory so far.\nYour goal is to use one or more of the supplied tools to collect any necessary information for producing `proof`.\n\nTo do this, you will interleave next_thought, next_tool_name, and next_tool_args in each turn, and also when finishing the task.\nAfter each tool call, you receive a resulting observation, which gets appended to your trajectory.\n\nWhen writing next_thought, you may reason about the current situation and plan for future steps.\nWhen selecting the next_tool_name and its next_tool_args, the tool must be one of:\n\n(1) lookup_inequality, whose description is <desc>  Look up the formal statement, ground truth, and relevant theorems for a named inequality.  Call this FIRST before writing any proof to get the precise mathematical statement.    Args:      name: One of: cauchy_schwarz, jensen, triangle, bernoulli, young, chebyshev, markov    Returns:      The inequality's formal statement, ground truth answer, and list of useful theorems.    Example call: lookup_inequality(\"cauchy_schwarz\")  </desc>. It takes arguments {'name': {'type': 'string'}}.\n(2) verify_arithmetic, whose description is <desc>  Symbolically verify whether an arithmetic or algebraic expression simplifies to zero.  Use this to confirm that A == B by passing 'A - (B)' and checking if the result is zero.  Call this whenever you perform an algebraic manipulation and want to confirm it is correct.    Args:      expression: A SymPy-parseable string. To check if A equals B, pass 'A - (B)'.                  Variables like a, b, x, y, n are treated as symbols automatically.                  Examples:                    '(a+b)**2 - (a**2 + 2*a*b + b**2)'  → Is zero: True  (correct expansion)                    'a**2 + b**2 - 2*a*b'                → simplifies to (a-b)**2                    '4*B**2 - 4*A*C'                     → discriminant expression    Returns:      Simplified form, expanded form, and whether the expression equals zero.    Example call: verify_arithmetic(\"(a+b)**2 - (a**2 + 2*a*b + b**2)\")  </desc>. It takes arguments {'expression': {'type': 'string'}}.\n(3) check_proof_step, whose description is <desc>  Verify a specific algebraic claim or inequality step using SymPy.  Use this DURING the proof to validate each non-trivial step before including it.  This catches errors like wrong discriminant signs, incorrect expansions, or false inequalities.    Args:      claim: A string describing the step to verify. Can be:             - An equation to check: 'expand (u+tv, u+tv) = ||u||^2 + 2t<u,v> + t^2||v||^2'             - An expression to simplify: '4*inner_uv**2 - 4*norm_u**2 * norm_v**2'             - A factoring check: '(norm_x + norm_y)**2 - norm_x**2 - 2*norm_x*norm_y - norm_y**2'             For symbolic checks, use SymPy-parseable expressions with named variables.    Returns:      Verification result: simplified/expanded form and whether the claim holds (is zero).    Example call: check_proof_step(\"4*B**2 - 4*A*C - (2*B)**2 + 4*A*C\")  </desc>. It takes arguments {'claim': {'type': 'string'}}.\n(4) finish, whose description is <desc>Marks the task as complete. That is, signals that all information for producing the outputs, i.e. `proof`, are now available to be extracted.</desc>. It takes arguments {}.\nWhen providing `next_tool_args`, the value inside the field must be in JSON format",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Next Thought:",
+          "description": "${next_thought}"
+        },
+        {
+          "prefix": "Next Tool Name:",
+          "description": "${next_tool_name}"
+        },
+        {
+          "prefix": "Next Tool Args:",
+          "description": "${next_tool_args}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "write.extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Write a complete rigorous mathematical proof following the given plan.\n\nYou have access to tools — USE THEM at every non-trivial step:\n  - Call lookup_inequality(name) to get the precise statement if needed\n  - Call verify_arithmetic(expression) to confirm every algebraic manipulation\n    e.g. verify_arithmetic('(a+b)**2 - (a**2 + 2*a*b + b**2)') before writing it\n  - Call check_proof_step(claim) to validate each inequality step before including it\n\nRequirements:\n- Every step must follow logically from the previous\n- Cite every theorem by name when used\n- Show all algebraic manipulations explicitly\n- Handle ALL degenerate/edge cases explicitly (e.g. if a denominator could be zero, treat that case separately)\n- Do NOT use specific numerical examples to prove general statements\n- Do NOT use decimal approximations (no sqrt(2) = 1.414)\n- State the equality condition at the end — it must be FULLY DERIVED from the proof steps, not just asserted\n- The equality condition must be complete: state ALL cases under which equality holds",
+      "fields": [
+        {
+          "prefix": "Inequality Name:",
+          "description": "Name of the inequality"
+        },
+        {
+          "prefix": "Problem Statement:",
+          "description": "Formal mathematical statement"
+        },
+        {
+          "prefix": "Proof Plan:",
+          "description": "Proof outline to follow"
+        },
+        {
+          "prefix": "Trajectory:",
+          "description": "${trajectory}"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Proof:",
+          "description": "Complete rigorous proof with all steps verified via tools"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "verify": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Review the proof for errors. Check:\n1. Are there any logical gaps or unjustified claims?\n2. Are all algebraic steps correct?\n3. Is the equality condition stated correctly AND fully justified by the proof steps?\n   If the equality condition is stated but not derived from the proof, remove or justify it.\n4. Are there any claims introduced at the end that were not proven earlier?\nIf errors found, output a corrected proof. If correct, output the proof unchanged.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "The proof to verify and refine"
+        },
+        {
+          "prefix": "Ground Truth:",
+          "description": "Expected final answer for reference"
+        },
+        {
+          "prefix": "Refined Proof:",
+          "description": "Corrected proof, or original if no errors found"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "latex": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Convert the mathematical proof to clean LaTeX.\nUse: \\begin{proof}...\\end{proof}, align* for equations, \\leq \\geq for inequalities.\nOutput ONLY the LaTeX body — no \\documentclass or \\begin{document}.",
+      "fields": [
+        {
+          "prefix": "Proof:",
+          "description": "Plain text proof to convert"
+        },
+        {
+          "prefix": "Latex Body:",
+          "description": "LaTeX body of the proof, ready to compile"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.2.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

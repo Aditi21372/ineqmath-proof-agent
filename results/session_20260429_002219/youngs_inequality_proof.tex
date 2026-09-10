@@ -1,0 +1,91 @@
+\begin{proof}
+\textbf{Step 1. Degenerate cases.}  
+If \(a=0\) then \(ab=0\) and the right–hand side equals \(\frac{b^{q}}{q}\ge0\); thus the inequality holds, with equality only when also \(b=0\).  
+The same argument applies when \(b=0\).  Hence the statement is true whenever at least one of the numbers is zero, and equality occurs exactly in the case \(a=b=0\).
+
+\medskip
+\textbf{Step 2. Convex function and its Legendre‑conjugate.}  
+Define the function
+\[
+\phi:[0,\infty)\to\mathbb{R},\qquad \phi(x)=\frac{x^{p}}{p},
+\]
+with \(p>1\).  Its first and second derivatives are
+\[
+\phi'(x)=x^{p-1},\qquad 
+\phi''(x)=(p-1)x^{p-2}>0\quad(x>0),
+\]
+so \(\phi\) is strictly convex on \([0,\infty)\).
+
+The convex (Legendre) conjugate of \(\phi\) is
+\[
+\phi^{*}(y)=\sup_{x\ge0}\bigl\{xy-\phi(x)\bigr\},\qquad y\ge0.
+\]
+
+To find the supremum we differentiate the inner expression:
+\[
+\frac{d}{dx}\bigl(xy-\phi(x)\bigr)=y-\phi'(x)=y-x^{\,p-1}.
+\]
+The unique stationary point satisfies \(x_{0}=y^{\,1/(p-1)}\).  Because \(\phi\) is strictly convex, this point gives the global maximum.  Substituting \(x_{0}\) we obtain
+\begin{align*}
+\phi^{*}(y)
+&=y\,y^{1/(p-1)}-\frac{\bigl(y^{1/(p-1)}\bigr)^{p}}{p}\\[4pt]
+&=y^{\,p/(p-1)}-\frac{y^{\,p/(p-1)}}{p}\\[4pt]
+&=\frac{p-1}{p}\,y^{\,p/(p-1)}.
+\end{align*}
+Define
+\[
+q:=\frac{p}{p-1}\qquad\Longleftrightarrow\qquad \frac{1}{q}=\frac{p-1}{p},
+\]
+so that \(\frac{1}{p}+\frac{1}{q}=1\).  Consequently
+\[
+\boxed{\;\phi^{*}(y)=\frac{y^{q}}{q}\;}\qquad (y\ge0).
+\]
+
+\medskip
+\textbf{Step 3. Application of the Fenchel‑Young inequality.}  
+For any convex function \(\phi\) and its conjugate \(\phi^{*}\), the Fenchel‑Young inequality states
+\[
+ab\le\phi(a)+\phi^{*}(b),\qquad a,b\ge0.
+\]
+
+\emph{Proof of Fenchel‑Young.}  By definition of \(\phi^{*}(b)\),
+\[
+\phi^{*}(b)=\sup_{x\ge0}\bigl(bx-\phi(x)\bigr)\ge ba-\phi(a).
+\]
+Rearranging yields \(ab\le\phi(a)+\phi^{*}(b)\), completing the lemma.
+
+Applying the lemma with the concrete \(\phi\) and \(\phi^{*}\) computed in Step 2 gives
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+which is precisely Young’s inequality.
+
+\medskip
+\textbf{Step 4. Equality condition.}  
+In the Fenchel‑Young inequality equality holds iff the supremum defining \(\phi^{*}(b)\) is attained at \(x=a\).  The maximiser of \(bx-\phi(x)\) is \(x=b^{\,1/(p-1)}\); therefore equality requires
+\[
+a=b^{\,1/(p-1)}\qquad\Longleftrightarrow\qquad b=a^{p-1}.
+\]
+Raising both sides to the power \(p\) yields the equivalent condition \(a^{p}=b^{q}\).  Together with the degenerate case handled in Step 1, we obtain that equality occurs exactly when \((a,b)=(0,0)\) or \(a^{p}=b^{q}\) (equivalently \(b=a^{p-1}\)).
+
+\medskip
+\textbf{Step 5. Elementary proof via weighted AM–GM (optional).}  
+The weighted arithmetic–geometric mean inequality states that for non‑negative \(X,Y\) and weights \(\alpha,\beta>0\) with \(\alpha+\beta=1\),
+\[
+X^{\alpha}Y^{\beta}\le\alpha X+\beta Y.
+\]
+Take \(X=a^{p}\), \(Y=b^{q}\), \(\alpha=\frac{1}{p}\) and \(\beta=\frac{1}{q}\); note that \(\alpha+\beta=1\) because \(\frac{1}{p}+\frac{1}{q}=1\).  Then
+\[
+(a^{p})^{1/p}(b^{q})^{1/q}\le\frac{1}{p}a^{p}+\frac{1}{q}b^{q},
+\]
+i.e. \(ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}\).  Equality in the weighted AM–GM occurs exactly when \(a^{p}=b^{q}\), matching the condition found above.
+
+\medskip
+\textbf{Step 6. Conclusion.}  
+For all non‑negative real numbers \(a,b\) and exponents \(p,q>1\) satisfying \(\frac{1}{p}+\frac{1}{q}=1\),
+\[
+\boxed{\,ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}\,}.
+\]
+The inequality is strict unless either \(a=b=0\) or \(a^{p}=b^{q}\) (equivalently \(b=a^{p-1}\)).  This completes the proof.
+\qed
+\end{proof}

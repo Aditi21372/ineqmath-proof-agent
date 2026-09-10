@@ -1,0 +1,100 @@
+\begin{theorem}[Bernoulli’s inequality]
+Let $x\in\mathbb R$ with $x\ge -1$ and let $n\in\mathbb Z_{\ge 0}$. Then  
+\[
+(1+x)^{n}\;\ge\;1+nx .
+\]
+
+Equality holds exactly in one of the following cases  
+
+\begin{itemize}
+\item $n=0$ (any admissible $x$);
+\item $x=0$ (any $n\ge 0$);
+\item $x=-1$ and $n=1$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate cases.}  
+
+\begin{itemize}
+\item \emph{$n=0$.}  $(1+x)^{0}=1$ and $1+0\cdot x=1$, so equality holds.
+\item \emph{$x=-1$.}  Then $(1+x)^{n}=0$ and the right–hand side equals $1-n$.  
+Since $n\ge0$, $0\ge 1-n$ is equivalent to $n\ge1$, so the inequality is true for all $n\ge1$.  
+Equality $0=1-n$ occurs only when $n=1$.
+\item \emph{$x=0$.}  Both sides equal $1$, which will also appear in the general equality analysis.
+\end{itemize}
+Henceforth we assume $n\ge1$ and $x>-1$ (the case $x=-1$ already settled).
+
+\medskip
+
+\textbf{2. Proof for $x\ge0$ (binomial expansion).}  
+
+The Binomial Theorem gives, for any integer $n\ge0$,
+\begin{align}
+(1+x)^{n}= \sum_{k=0}^{n}\binom{n}{k}x^{k}.
+\end{align}
+Separating the first two terms,
+\begin{align}
+(1+x)^{n}=1+nx+\underbrace{\sum_{k=2}^{n}\binom{n}{k}x^{k}}_{S}.
+\tag{2}
+\end{align}
+When $x\ge0$ each binomial coefficient $\binom{n}{k}>0$ and each power $x^{k}\ge0$, hence $S\ge0$. Consequently
+\[
+(1+x)^{n}\ge 1+nx .
+\]
+If equality holds then $S=0$. Because every term in $S$ is non‑negative and the coefficients are positive, we must have $x^{k}=0$ for all $k\ge2$, i.e. $x=0$. This yields the equality case $x=0$ (with any $n$).
+
+\medskip
+
+\textbf{3. Proof for the whole interval $[-1,\infty)$ (induction).}  
+
+\emph{Base step $n=0$.}  Already covered in the degenerate cases.
+
+\emph{Inductive hypothesis.}  Assume for a fixed $n\ge0$
+\begin{align}
+(1+x)^{n}\ge 1+nx \qquad\text{for every }x\ge-1 .
+\tag{H\_n}
+\end{align}
+
+\emph{Inductive step.}  Since $x\ge-1$ we have $1+x\ge0$, so multiplying \eqref{H\_n} by the non‑negative factor $1+x$ preserves the inequality:
+\begin{align}
+(1+x)^{n+1}\ge (1+nx)(1+x).
+\tag{3}
+\end{align}
+Expanding the right–hand side,
+\begin{align}
+(1+nx)(1+x)=1+(n+1)x+nx^{2}.
+\tag{4}
+\end{align}
+Substituting \eqref{4} into \eqref{3} gives
+\begin{align}
+(1+x)^{n+1}\ge 1+(n+1)x+nx^{2}.
+\tag{5}
+\end{align}
+Because $n\ge0$ and $x^{2}\ge0$, the term $nx^{2}$ is non‑negative. Dropping this non‑negative term yields
+\[
+(1+x)^{n+1}\ge 1+(n+1)x ,
+\]
+which is the desired inequality for $n+1$.  
+
+\emph{Equality analysis in the inductive step.}  In \eqref{5} the extra term $nx^{2}$ vanishes precisely when $n=0$ or $x=0$. If $n\ge1$ and $x\neq0$, the term is positive, making the inequality strict. The case $x=-1$ has been handled separately; equality then occurs only for $n=1$.
+
+Thus, by induction, Bernoulli’s inequality holds for every integer $n\ge0$ and every real $x\ge-1$.
+
+\medskip
+
+\textbf{4. Equality condition (combined).}  
+
+From \eqref{2} we have
+\[
+(1+x)^{n}=1+nx+S,\qquad
+S:=\sum_{k=2}^{n}\binom{n}{k}x^{k}\ge0 .
+\]
+Equality $(1+x)^{n}=1+nx$ is equivalent to $S=0$. Since each coefficient $\binom{n}{k}>0$, each term $\binom{n}{k}x^{k}$ must be zero. Hence either $x=0$ (forcing all terms with $k\ge2$ to vanish) or the sum is empty, i.e. $n\le1$.  
+
+When $n=0$ the statement reduces to $1=1$ for any admissible $x$.  
+When $n=1$ the inequality reads $(1+x)\ge1+x$, which is an equality for every $x$; in particular for the endpoint $x=-1$ we obtain the extra equality case $x=-1$, $n=1$.
+
+Collecting all possibilities, equality holds exactly in the three cases listed at the beginning of the theorem.
+
+\end{proof}

@@ -1,0 +1,110 @@
+\begin{proof}
+We argue by induction on \(n\).
+
+\textbf{Base case \(n=1\).}  
+If \(\lambda_{k}=1\) for some index \(k\) and \(\lambda_{i}=0\) for \(i\neq k\), then
+\[
+\sum_{i=1}^{n}\lambda_{i}x_{i}=x_{k},\qquad 
+\sum_{i=1}^{n}\lambda_{i}f(x_{i})=f(x_{k}),
+\]
+so Jensen’s inequality
+\[
+f\!\Big(\sum_{i=1}^{n}\lambda_{i}x_{i}\Big)\le\sum_{i=1}^{n}\lambda_{i}f(x_{i}) \tag{J}
+\]
+holds with equality. This also covers the situation where some \(\lambda_{i}=0\).
+
+\textbf{Binary convexity.}  
+For two points \(x,y\in I\) and a weight \(t\in[0,1]\) the defining property of convexity,
+\[
+f\big(t x+(1-t) y\big)\le t f(x)+(1-t)f(y) \tag{C}
+\]
+is the elementary case from which the general inequality will be built.
+
+\textbf{Induction hypothesis.}  
+Assume that for a fixed integer \(k\ge 2\) the statement (J) holds for any collection of
+\(k\) points and any non‑negative weights summing to \(1\); i.e.
+\[
+f\!\Big(\sum_{i=1}^{k}\lambda_{i}x_{i}\Big)\le\sum_{i=1}^{k}\lambda_{i}f(x_{i}) \tag{IH\(_k\)}
+\]
+whenever \(\lambda_{i}\ge0\) and \(\sum_{i=1}^{k}\lambda_{i}=1\).
+
+\textbf{Inductive step \(k\to k+1\).}  
+Let \(\lambda_{1},\dots ,\lambda_{k+1}\ge0\) with \(\sum_{i=1}^{k+1}\lambda_{i}=1\).  
+Set
+\[
+\mu:=\lambda_{k+1},\qquad t:=1-\mu=\sum_{i=1}^{k}\lambda_{i}\;( \ge 0).
+\]
+If \(t=0\) then \(\mu=1\) and we are in the base case, so (J) holds with equality.
+Hence we may assume \(t>0\).
+
+Define the normalized convex combination of the first \(k\) points:
+\[
+y:=\frac{1}{t}\sum_{i=1}^{k}\lambda_{i}x_{i}.
+\]
+Because the coefficients \(\lambda_{i}/t\) are non‑negative and sum to \(1\), the induction
+hypothesis applied to the \(k\) points \(x_{1},\dots ,x_{k}\) yields
+\[
+f(y)\le\frac{1}{t}\sum_{i=1}^{k}\lambda_{i}f(x_{i}). \tag{2}
+\]
+
+Now apply the binary convexity inequality \((\text{C})\) to the pair \((y,x_{k+1})\) with
+weight \(t\):
+\[
+f\big(t y+\mu x_{k+1}\big)\le t f(y)+\mu f(x_{k+1}). \tag{3}
+\]
+
+\textit{Algebraic identity.}  
+Since \(y=\frac{1}{t}\sum_{i=1}^{k}\lambda_{i}x_{i}\),
+\[
+t y+\mu x_{k+1}= \sum_{i=1}^{k}\lambda_{i}x_{i}+\lambda_{k+1}x_{k+1}
+= \sum_{i=1}^{k+1}\lambda_{i}x_{i}. \tag{4}
+\]
+
+Substituting \((2)\) into the right–hand side of \((3)\) gives
+\[
+\begin{aligned}
+f\!\Big(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\Big)
+&\le t\Big(\frac{1}{t}\sum_{i=1}^{k}\lambda_{i}f(x_{i})\Big)+\mu f(x_{k+1}) \\
+&= \sum_{i=1}^{k}\lambda_{i}f(x_{i})+\lambda_{k+1}f(x_{k+1}) \\
+&= \sum_{i=1}^{k+1}\lambda_{i}f(x_{i}),
+\end{aligned}
+\]
+which is precisely (J) for \(k+1\) points. Thus the inductive step is proved.
+
+\textbf{Completion of induction.}  
+Since the inequality holds for the base case \(n=1\) and the inductive step is valid
+for every \(k\ge 1\), by the principle of mathematical induction inequality (J) holds
+for all integers \(n\ge 1\).
+
+\textbf{Edge cases.}  
+If some \(\lambda_{i}=0\), the corresponding term disappears from both sides; the
+remaining weights still sum to \(1\), so the argument above applies unchanged.
+If exactly one weight equals \(1\), the inequality reduces to equality, as shown in
+the base case.
+
+\textbf{Equality condition.}  
+Equality in (J) can occur only when every inequality used in the proof becomes an
+equality.
+
+\begin{itemize}
+\item In the binary convexity \((\text{C})\) equality holds iff either \(t\in\{0,1\}\) (i.e. one
+weight is zero) or \(f\) is affine on the line segment joining the two points. For a
+strictly convex \(f\) the latter forces the two points to coincide.
+\item In the induction hypothesis \((\text{IH}_k)\) equality holds exactly when the same
+condition holds for the reduced set of points.
+\end{itemize}
+Putting these together, equality in Jensen’s inequality holds \emph{iff} one (or more)
+of the following is true:
+
+\begin{enumerate}
+\item \textbf{Weight concentration:} there exists \(j\) with \(\lambda_{j}=1\) and
+\(\lambda_{i}=0\) for \(i\neq j\);
+\item \textbf{All points equal:} \(x_{1}=x_{2}= \dots =x_{n}\) (then the convex
+combination equals each \(x_{i}\));
+\item \textbf{Affineness on the convex hull:} the function \(f\) is affine on the
+convex hull of \(\{x_{1},\dots ,x_{n}\}\). In that case the inequality reduces to an
+equality for any set of weights.
+\end{enumerate}
+For a strictly convex \(f\) the only possibilities are (1) and (2).
+
+\end{proof}

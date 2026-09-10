@@ -1,0 +1,69 @@
+\begin{proof}
+\textbf{Step 1. Indicator of the tail event.}  
+Define the indicator random variable  
+\[
+I(\omega)=\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2mm]
+0, & X(\omega)< a .
+\end{cases}
+\]
+By definition of expectation of an indicator,
+\[
+\mathbb{E}[I]=\mathbb{P}(X\ge a).
+\]
+
+\textbf{Step 2. Pointwise bound.}  
+For every $\omega\in\Omega$ we compare $I(\omega)$ with $X(\omega)/a$.
+
+\begin{itemize}
+\item If $X(\omega)<a$, then $I(\omega)=0$ and $X(\omega)/a\ge0$, so $0=I(\omega)\le X(\omega)/a$.
+\item If $X(\omega)\ge a$, then $I(\omega)=1$ and $X(\omega)/a\ge a/a=1$, hence $1=I(\omega)\le X(\omega)/a$.
+\end{itemize}
+
+Thus
+\begin{equation}
+I(\omega)\le\frac{X(\omega)}{a}\qquad\text{for all }\omega\in\Omega.\tag{1}
+\end{equation}
+
+\textbf{Step 3. Take expectations (monotonicity).}  
+Both sides of \eqref{1} are non‑negative random variables, so by monotonicity of the expectation operator,
+\[
+\mathbb{E}[I]\le\mathbb{E}\!\left[\frac{X}{a}\right]
+               =\frac{1}{a}\,\mathbb{E}[X].
+\]
+Recalling that $\mathbb{E}[I]=\mathbb{P}(X\ge a)$ we obtain
+\[
+\boxed{\;\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}\;}.
+\]
+
+\textbf{Step 4. Degenerate / edge cases.}
+\begin{itemize}
+\item \textbf{Case $a\le0$.}  The hypothesis of the inequality requires $a>0$.  If one allows $a\le0$, then $\{X\ge a\}=\Omega$ (since $X\ge0$), so $\mathbb{P}(X\ge a)=1$, while the right–hand side $\mathbb{E}[X]/a$ is either undefined (division by zero) or non‑positive; the statement is then vacuous or interpreted as $1\le+\infty$.
+\item \textbf{Case $\mathbb{E}[X]=+\infty$.}  The right–hand side is $+\infty$, which trivially dominates any probability, so the inequality holds.
+\item \textbf{Case $X\equiv0$.}  Both sides equal $0$, giving equality.
+\end{itemize}
+In what follows we assume $a>0$ and $\mathbb{E}[X]$ finite (the argument is unchanged when $\mathbb{E}[X]=+\infty$).
+
+\textbf{Step 5. Equality condition.}  
+Equality in the chain
+\[
+\mathbb{P}(X\ge a)=\mathbb{E}[I]\le\mathbb{E}\!\left[\frac{X}{a}\right]=\frac{\mathbb{E}[X]}{a}
+\]
+occurs iff equality holds in the pointwise bound \eqref{1} $\mathbb{P}$‑a.s., because expectation is strictly monotone: if $Y\le Z$ a.s. and $\mathbb{E}[Y]=\mathbb{E}[Z]$, then $Y=Z$ a.s.  
+Thus we require
+\[
+I(\omega)=\frac{X(\omega)}{a}\quad\text{for }\mathbb{P}\text{-a.e. }\omega.
+\]
+
+On $\{X<a\}$ we have $I=0$, so the equality forces $X(\omega)=0$ a.e. on this set.  
+On $\{X\ge a\}$ we have $I=1$, so we must have $X(\omega)=a$ a.e. on this set.  
+Consequently,
+\[
+X = a\,\mathbf 1_{\{X\ge a\}}\qquad\text{a.s.},
+\]
+i.e. $X$ takes only the values $0$ and $a$ (the latter possibly with probability $0$, which reduces to the trivial case $X\equiv0$).  This is exactly the condition for equality in Markov’s inequality.
+
+\textbf{Step 6. Conclusion.}  
+We have proved Markov’s inequality for any non‑negative random variable $X$ and any real $a>0$, treated the degenerate situations, and described precisely when equality occurs. \qed
+\end{proof}

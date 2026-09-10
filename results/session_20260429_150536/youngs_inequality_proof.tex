@@ -1,0 +1,131 @@
+\begin{proof}
+\textbf{Young’s Inequality.}  
+Let \(a,b\ge0\) and let \(p,q>1\) satisfy \(\dfrac1p+\dfrac1q=1\).  
+We prove  
+
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+
+with equality exactly when \(a^{p}=b^{q}\).
+
+\begin{enumerate}
+\item \textbf{Conjugate exponents.}  
+From \(\dfrac1p+\dfrac1q=1\) we obtain the familiar identities  
+
+\[
+q=\frac{p}{p-1},\qquad p=\frac{q}{q-1}. \tag{C}
+\]
+
+\item \textbf{Degenerate cases.}  
+If \(a=0\) or \(b=0\) then both sides of the desired inequality are zero, so the claim holds (with equality).  
+Henceforth assume  
+
+\[
+a>0,\qquad b>0. \tag{D}
+\]
+
+\item \textbf{Homogenisation.}  
+Dividing the inequality by the positive product \(ab\) yields  
+
+\[
+1\le\frac{a^{p-1}}{p\,b}+\frac{b^{q-1}}{q\,a}. \tag{1}
+\]
+
+Introduce  
+
+\[
+u:=\frac{a^{p-1}}{b},\qquad v:=\frac{b^{q-1}}{a}, \tag{2}
+\]
+
+so that (1) becomes  
+
+\[
+\frac{u}{p}+\frac{v}{q}\ge1. \tag{3}
+\]
+
+\item \textbf{Weighted AM–GM.}  
+The weighted arithmetic–geometric mean inequality states that for non‑negative \(x,y\) and weights \(\lambda,\mu\ge0\) with \(\lambda+\mu=1\),
+
+\[
+\lambda x+\mu y\ge x^{\lambda}y^{\mu},
+\]
+
+with equality iff \(x=y\) (or a weight equals \(1\)).  
+Choose  
+
+\[
+\lambda=\frac1p,\qquad \mu=\frac1q
+\quad(\text{so }\lambda+\mu=1\text{ by }(C)),
+\]
+
+and set \(x=u,\;y=v\).  Then
+
+\[
+\frac{u}{p}+\frac{v}{q}\ge u^{1/p}v^{1/q}. \tag{4}
+\]
+
+\item \textbf{Simplification of the right–hand side.}  
+Using the definitions (2),
+
+\[
+\begin{aligned}
+u^{1/p}v^{1/q}
+&=\left(\frac{a^{p-1}}{b}\right)^{\!1/p}
+  \left(\frac{b^{q-1}}{a}\right)^{\!1/q} \\[2mm]
+&=a^{\frac{p-1}{p}}\,b^{-\frac1p}\,
+  b^{\frac{q-1}{q}}\,a^{-\frac1q}.
+\end{aligned}
+\]
+
+Because \(\frac1p+\frac1q=1\) (equivalently (C)), we have  
+
+\[
+a^{\frac{p-1}{p}-\frac1q}=a^{1-\frac1p-\frac1q}=a^{0}=1,
+\qquad
+b^{\frac{q-1}{q}-\frac1p}=b^{0}=1,
+\]
+
+hence  
+
+\[
+u^{1/p}v^{1/q}=1. \tag{5}
+\]
+
+\item \textbf{Conclusion of the core inequality.}  
+Combining (4) and (5) gives  
+
+\[
+\frac{u}{p}+\frac{v}{q}\ge1,
+\]
+
+which is exactly (3). Restoring \(u,v\) from (2) we obtain (1).
+
+\item \textbf{Returning to the original variables.}  
+Multiplying (1) by the positive quantity \(ab\) (permitted by (D)) yields  
+
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+
+the desired Young’s inequality.
+
+\item \textbf{Equality condition.}  
+Equality in the weighted AM–GM step (4) occurs iff \(u=v\).  From (2),
+
+\[
+u=v\;\Longleftrightarrow\;
+\frac{a^{p-1}}{b}=\frac{b^{q-1}}{a}
+\;\Longleftrightarrow\;
+a^{p}=b^{q}.
+\]
+
+Together with the degenerate case \(a=0\) or \(b=0\) (where both sides vanish), the complete equality condition is:
+
+\begin{itemize}
+\item either \(a=0\) or \(b=0\);
+\item or \(a,b>0\) and \(a^{p}=b^{q}\).
+\end{itemize}
+Thus the statement is proved. ∎
+\end{enumerate}
+\end{proof}

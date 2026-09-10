@@ -1,0 +1,47 @@
+{
+  "improvement_metrics": {
+    "overall_pass_rate": {
+      "unoptimized": 0.5714285714285714,
+      "optimized": 0.8571428571428571,
+      "improvement": 0.2857142857142857,
+      "relative_improvement": 50.0
+    },
+    "judge_improvements": {
+      "final_answer": {
+        "unoptimized": 1.0,
+        "optimized": 1.0,
+        "improvement": 0.0
+      },
+      "toy_case": {
+        "unoptimized": 1.0,
+        "optimized": 1.0,
+        "improvement": 0.0
+      },
+      "logical_gap": {
+        "unoptimized": 0.7142857142857143,
+        "optimized": 1.0,
+        "improvement": 0.2857142857142857
+      },
+      "numerical_approximation": {
+        "unoptimized": 1.0,
+        "optimized": 1.0,
+        "improvement": 0.0
+      },
+      "numerical_computation": {
+        "unoptimized": 0.8571428571428571,
+        "optimized": 0.8571428571428571,
+        "improvement": 0.0
+      }
+    }
+  },
+  "timestamp": "2026-04-29T22:07:33.951329",
+  "num_tests": 7,
+  "models": {
+    "generation": "openai/gpt-oss-120b (thinking=True)",
+    "judge_final": "nvidia/nemotron-3-super-120b-a12b (thinking=True)",
+    "judge_toycase": "nvidia/nemotron-3-super-120b-a12b (thinking=True)",
+    "judge_logical": "openai/gpt-oss-120b (thinking=True)",
+    "judge_numcomp": "nvidia/nemotron-3-super-120b-a12b (thinking=True)",
+    "gepa": "qwen/qwen3-next-80b-a3b-instruct (thinking=False)"
+  }
+}

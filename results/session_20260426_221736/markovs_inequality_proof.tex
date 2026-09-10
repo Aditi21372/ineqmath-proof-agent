@@ -1,0 +1,90 @@
+\begin{theorem}[Markov’s Inequality]
+Let \((\Omega,\mathcal{F},\mathbb{P})\) be a probability space and let
+\(X:\Omega\to[0,\infty]\) be a non‑negative random variable.
+For any real number \(a>0\),
+
+\[
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}.
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Indicator of the event \(\{X\ge a\}\).}  
+Define the indicator (characteristic) function
+
+\[
+I_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, &\text{if } X(\omega)\ge a,\\[2mm]
+0, &\text{if } X(\omega)< a .
+\end{cases}
+\]
+
+By definition, \(I_{\{X\ge a\}}\) is a non‑negative random variable taking only the
+values \(0\) and \(1\).
+
+\medskip
+\textbf{2. Pointwise inequality.}  
+Because \(a>0\) and \(X(\omega)\ge0\) for every \(\omega\),
+
+\begin{align*}
+I_{\{X\ge a\}}(\omega)\le\frac{X(\omega)}{a}\qquad\text{for all }\omega\in\Omega.
+\tag{1}
+\end{align*}
+
+\noindent\textit{Justification.}
+\begin{itemize}
+\item If \(X(\omega)\ge a\), then \(I_{\{X\ge a\}}(\omega)=1\) and
+\(\frac{X(\omega)}{a}\ge\frac{a}{a}=1\), so \(1\le\frac{X(\omega)}{a}\).
+\item If \(X(\omega)< a\), then \(I_{\{X\ge a\}}(\omega)=0\) while
+\(\frac{X(\omega)}{a}\ge0\); thus \(0\le\frac{X(\omega)}{a}\).
+\end{itemize}
+Hence (1) holds in every case.
+
+\medskip
+\textbf{3. Monotonicity of expectation.}  
+The expectation operator is monotone for non‑negative random variables:
+if \(Y(\omega)\le Z(\omega)\) for all \(\omega\), then \(\mathbb{E}[Y]\le\mathbb{E}[Z]\).
+Applying this to (1) gives
+
+\begin{align*}
+\mathbb{E}\!\big[\,I_{\{X\ge a\}}\,\big]\le
+\mathbb{E}\!\bigg[\frac{X}{a}\bigg].
+\tag{2}
+\end{align*}
+
+\medskip
+\textbf{4. Linearity of expectation.}  
+Since \(\frac{X}{a}= \frac{1}{a}\,X\) and \(\frac{1}{a}\) is a deterministic constant,
+
+\begin{align*}
+\mathbb{E}\!\bigg[\frac{X}{a}\bigg]=\frac{1}{a}\,\mathbb{E}[X].
+\tag{3}
+\end{align*}
+
+\medskip
+\textbf{5. Expectation of an indicator equals a probability.}  
+For any event \(A\in\mathcal{F}\), \(\mathbb{E}[I_A]=\mathbb{P}(A)\); therefore
+
+\begin{align*}
+\mathbb{E}\!\big[\,I_{\{X\ge a\}}\,\big]=\mathbb{P}(X\ge a).
+\tag{4}
+\end{align*}
+
+\medskip
+\textbf{6. Combine the previous relations.}  
+Substituting (3) and (4) into (2) yields
+
+\begin{align*}
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a},
+\end{align*}
+which is precisely Markov’s inequality.
+
+\medskip
+\textbf{7. Discussion of assumptions.}  
+The argument uses only that \(X(\omega)\ge0\) for all \(\omega\) (so that
+\(X/a\) is non‑negative) and that \(a>0\) (to avoid division by zero). No
+further integrability conditions are required beyond the existence (possibly
+infinite) of \(\mathbb{E}[X]\).
+
+\end{proof}

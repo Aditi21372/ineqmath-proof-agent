@@ -1,0 +1,117 @@
+\begin{theorem}[Jensen’s Inequality]
+Let \(f:\mathbb{R}\to\mathbb{R}\) be convex, i.e.  
+\[
+\forall x,y\in\mathbb{R},\;\forall t\in[0,1]\;:\qquad 
+f\bigl(tx+(1-t)y\bigr)\le t\,f(x)+(1-t)\,f(y). \tag{C}
+\]
+Let \(x_{1},\dots ,x_{n}\in\mathbb{R}\) and let weights \(\lambda_{1},\dots ,\lambda_{n}\) satisfy  
+\[
+\lambda_{i}\ge 0\;(i=1,\dots ,n),\qquad \sum_{i=1}^{n}\lambda_{i}=1 .
+\]
+Then  
+\[
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)\le 
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}). \tag{J}
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate cases.}  
+
+If \(\lambda_{k}=1\) and \(\lambda_{i}=0\) for \(i\neq k\), then  
+\(\sum_{i=1}^{n}\lambda_{i}x_{i}=x_{k}\) and 
+\(\sum_{i=1}^{n}\lambda_{i}f(x_{i})=f(x_{k})\); (J) reduces to the identity  
+\(f(x_{k})\le f(x_{k})\).  
+
+If some weight equals \(0\), the corresponding index can be omitted from both
+sides of (J). Hence we may assume that at least two weights are positive.
+
+\textbf{2. Binary case \((n=2)\).}  
+
+Let \(\lambda_{1},\lambda_{2}\ge0\) with \(\lambda_{1}+\lambda_{2}=1\).  
+Applying (C) with \(t=\lambda_{1}\), \(x=x_{1}\), \(y=x_{2}\) yields  
+\[
+f\bigl(\lambda_{1}x_{1}+\lambda_{2}x_{2}\bigr)
+\le \lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}),
+\]
+which is (J) for \(n=2\).
+
+\textbf{3. Inductive step.}  
+
+Assume (J) holds for any collection of \(n-1\) points (\(n\ge3\)).
+Let \(x_{1},\dots ,x_{n}\) and non‑negative weights \(\lambda_{1},\dots ,\lambda_{n}\) satisfy \(\sum_{i=1}^{n}\lambda_{i}=1\).
+
+Set  
+\[
+L:=\sum_{i=1}^{n-1}\lambda_{i},\qquad 1-L=\lambda_{n}.
+\]
+Since the \(\lambda_{i}\) are non‑negative, \(0\le L\le1\).
+
+If \(L=0\) (resp.\ \(L=1\)), we are back to the trivial single‑weight case or to the
+induction hypothesis applied to the first \(n-1\) points.  
+Thus we may assume \(0<L<1\).
+
+Define normalized weights for the first \(n-1\) points:
+\[
+\mu_{i}:=\frac{\lambda_{i}}{L}\qquad (i=1,\dots ,n-1),
+\]
+so that \(\mu_{i}\ge0\) and \(\sum_{i=1}^{n-1}\mu_{i}=1\).  
+Let  
+\[
+y:=\sum_{i=1}^{n-1}\mu_{i}x_{i}.
+\]
+
+\textit{Induction hypothesis} applied to \(\{x_{i}\}_{i=1}^{n-1}\) gives  
+\begin{equation}
+f(y)\le\sum_{i=1}^{n-1}\mu_{i}f(x_{i}). \tag{IH}
+\end{equation}
+
+The full convex combination can be rewritten as  
+\begin{equation}
+\sum_{i=1}^{n}\lambda_{i}x_{i}=L\,y+(1-L)\,x_{n}. \tag{*}
+\end{equation}
+
+Applying convexity (C) to the pair \((y,x_{n})\) with parameter \(t=L\) yields  
+\begin{equation}
+f\bigl(Ly+(1-L)x_{n}\bigr)\le L\,f(y)+(1-L)f(x_{n}). \tag{C2}
+\end{equation}
+
+Using (IH) and the definition of \(\mu_{i}\),
+\[
+L\,f(y)=L\sum_{i=1}^{n-1}\mu_{i}f(x_{i})
+       =\sum_{i=1}^{n-1}\lambda_{i}f(x_{i}). \tag{*1}
+\]
+
+Now
+\[
+\begin{aligned}
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)
+&\overset{(*)}{=}f\bigl(Ly+(1-L)x_{n}\bigr) \\
+&\le L\,f(y)+(1-L)f(x_{n}) \\
+&\overset{(*1)}{=}\sum_{i=1}^{n-1}\lambda_{i}f(x_{i})+\lambda_{n}f(x_{n}) \\
+&=\sum_{i=1}^{n}\lambda_{i}f(x_{i}),
+\end{aligned}
+\]
+which is precisely (J) for \(n\) points.  
+Thus, by induction, (J) holds for every integer \(n\ge1\).
+
+\textbf{4. Equality condition.}  
+
+In the binary inequality (C) equality holds iff either \(t=0\) or \(t=1\) (one
+weight is zero) or the restriction of \(f\) to the segment \([x,y]\) is affine.
+In the inductive proof we used (C) once, with \(t=L\) and points \(y\) and
+\(x_{n}\). Hence equality in (J) occurs precisely when  
+
+\begin{enumerate}
+\item \(L=0\) or \(L=1\) (all weight concentrated on a single point), or
+\item \(f\) is affine on the segment \([y,x_{n}]\) and equality already held in
+the induction hypothesis for the first \(n-1\) points.
+\end{enumerate}
+
+Iterating this observation shows that equality holds iff either all but one
+weight are zero, or \(f\) is affine on the convex hull of the points with
+positive weight. In particular, if all such points coincide or if \(f\) is
+globally affine (\(f(t)=at+b\)), equality holds for every choice of
+\(\{x_{i}\},\{\lambda_{i}\}\).
+
+\end{proof}

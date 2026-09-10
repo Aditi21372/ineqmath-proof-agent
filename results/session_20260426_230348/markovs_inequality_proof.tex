@@ -1,0 +1,88 @@
+\begin{proof}
+\textbf{1. Standing hypotheses and the degenerate case.}  
+We assume \(X\ge 0\) a.s. and \(a>0\).  If \(\mathbb{P}(X=0)=1\) then
+\(\mathbb{E}[X]=0\) and \(\mathbb{P}(X\ge a)=0\); thus (M) holds with equality.
+Henceforth we suppose \(\mathbb{P}(X>0)>0\).
+
+\textbf{2. Indicator of the event \(\{X\ge a\}\).}  
+Define the indicator
+\[
+I(\omega):=\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\]
+By definition of expectation of an indicator,
+\begin{align}
+\mathbb{E}[I]=\mathbb{P}(X\ge a).\tag{2.1}
+\end{align}
+
+\textbf{3. Pointwise bound.}  
+For every \(\omega\in\Omega\),
+\begin{align}
+I(\omega)\le\frac{X(\omega)}{a}.\tag{3.1}
+\end{align}
+Indeed, if \(X(\omega)\ge a\) then \(I(\omega)=1\le X(\omega)/a\); if
+\(X(\omega)<a\) then \(I(\omega)=0\le X(\omega)/a\).
+
+\textbf{4. Taking expectations.}  
+Since both sides of (3.1) are non‑negative random variables, monotonicity of
+expectation yields
+\begin{align}
+\mathbb{E}[I]\le\mathbb{E}\!\left[\frac{X}{a}\right].\tag{4.1}
+\end{align}
+Linearity of expectation gives
+\begin{align}
+\mathbb{E}\!\left[\frac{X}{a}\right]=\frac{1}{a}\,\mathbb{E}[X].\tag{4.2}
+\end{align}
+Combining (4.1) and (4.2) we obtain
+\begin{align}
+\mathbb{E}[I]\le\frac{\mathbb{E}[X]}{a}.\tag{4.3}
+\end{align}
+
+\textbf{5. Replacing \(\mathbb{E}[I]\) by the probability.}  
+Using (2.1) in (4.3) we get
+\[
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a},
+\]
+which is precisely Markov’s inequality (M).
+
+\textbf{6. Equality case.}  
+Equality in (M) can occur only if equality holds in every step above.
+Equality in (4.1) requires equality in the pointwise bound (3.1) on a set of
+full probability, because for non‑negative random variables \(Y\le Z\) a.s.
+\[
+\mathbb{E}[Y]=\mathbb{E}[Z]\;\Longrightarrow\;Y=Z\ \text{a.s.}
+\tag{6.1}
+\]
+Applying (6.1) with \(Y=I\) and \(Z=X/a\) yields
+\[
+\frac{X}{a}=I\quad\text{a.s.}
+\]
+Hence, for \(\mathbb{P}\)-a.e. \(\omega\),
+\[
+X(\omega)=a\,I(\omega)=
+\begin{cases}
+a, & X(\omega)\ge a,\\[2pt]
+0, & X(\omega)< a .
+\end{cases}
+\]
+Thus \(X\) takes only the two values \(0\) and \(a\); equivalently,
+\(X\) is a Bernoulli‑type random variable with
+\[
+\mathbb{P}(X=a)=\mathbb{P}(X\ge a),\qquad
+\mathbb{P}(X=0)=1-\mathbb{P}(X\ge a).
+\]
+In this situation \(\mathbb{E}[X]=a\,\mathbb{P}(X\ge a)\), so the inequality
+becomes an equality.
+
+\textbf{7. Additional remarks.}  
+If \(\mathbb{E}[X]=\infty\) the right‑hand side of (M) is infinite and the
+inequality is trivial.  The requirement \(a>0\) is essential; for \(a\le0\)
+the statement either reduces to \(\mathbb{P}(X\ge a)=1\) or becomes undefined.
+
+Therefore Markov’s inequality holds for every non‑negative random variable,
+with equality exactly when \(X\) assumes only the values \(0\) and \(a\) a.s.
+\(\square\)
+\end{proof}

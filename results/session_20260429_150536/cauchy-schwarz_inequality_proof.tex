@@ -1,0 +1,120 @@
+\begin{proof}
+Let \(a=(a_{1},\dots ,a_{n})\) and \(b=(b_{1},\dots ,b_{n})\) be vectors of real numbers.  
+Define the inner product and the associated Euclidean norms by  
+
+\[
+\langle a,b\rangle :=\sum_{i=1}^{n}a_{i}b_{i},\qquad
+\|a\|^{2}:=\langle a,a\rangle =\sum_{i=1}^{n}a_{i}^{2},\qquad
+\|b\|^{2}:=\langle b,b\rangle =\sum_{i=1}^{n}b_{i}^{2}.
+\]
+
+\medskip\noindent\textbf{Zero‑vector case.}  
+If \(\|b\|^{2}=0\) then each \(b_{i}=0\). Hence  
+
+\[
+\langle a,b\rangle =\sum_{i=1}^{n}a_{i}\cdot0 =0,\qquad
+\|a\|^{2}\|b\|^{2}= \|a\|^{2}\cdot0 =0,
+\]
+
+so that \(\langle a,b\rangle^{2}=0=\|a\|^{2}\|b\|^{2}\).  
+The same argument works when \(\|a\|^{2}=0\).  
+Consequently we may assume from now on that \(\|a\|^{2}>0\) and \(\|b\|^{2}>0\).
+
+\medskip\noindent\textbf{A non‑negative quadratic.}  
+For a real parameter \(t\) set  
+
+\[
+Q(t):=\|a-tb\|^{2}
+      =\sum_{i=1}^{n}(a_{i}-t b_{i})^{2}.
+\]
+
+Each term \((a_{i}-t b_{i})^{2}\) is a square, therefore  
+
+\[
+Q(t)\ge 0\qquad\text{for all }t\in\mathbb{R}. \tag{1}
+\]
+
+Expanding and summing yields  
+
+\[
+\begin{aligned}
+Q(t) &=\sum_{i=1}^{n}\bigl(a_{i}^{2}-2t a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)  \\
+     &=\sum_{i=1}^{n}a_{i}^{2}-2t\sum_{i=1}^{n}a_{i}b_{i}+t^{2}\sum_{i=1}^{n}b_{i}^{2} \\
+     &=\|a\|^{2}-2t\langle a,b\rangle + t^{2}\|b\|^{2}. \tag{2}
+\end{aligned}
+\]
+
+Thus \(Q(t)=At^{2}+Bt+C\) with  
+
+\[
+A=\|b\|^{2}\ge0,\qquad B=-2\langle a,b\rangle ,\qquad C=\|a\|^{2}>0 .
+\]
+
+\medskip\noindent\textbf{Discriminant argument.}  
+A quadratic polynomial \(At^{2}+Bt+C\) that satisfies \(A\ge0\) and \(At^{2}+Bt+C\ge0\) for every real \(t\) must have a non‑positive discriminant:
+
+\[
+\Delta:=B^{2}-4AC\le0.
+\]
+
+Applying this to the polynomial \(Q(t)\) (which fulfills the hypothesis by (1)) gives  
+
+\[
+\begin{aligned}
+0 &\ge B^{2}-4AC \\
+  &=(-2\langle a,b\rangle)^{2}-4\|b\|^{2}\|a\|^{2} \\
+  &=4\langle a,b\rangle^{2}-4\|a\|^{2}\|b\|^{2}.
+\end{aligned}
+\]
+
+Dividing by the positive constant \(4\) we obtain the Cauchy–Schwarz inequality  
+
+\[
+\boxed{\;\langle a,b\rangle^{2}\le \|a\|^{2}\,\|b\|^{2}\;}. \tag{3}
+\]
+
+\medskip\noindent\textbf{Equality case.}  
+Equality in the discriminant condition occurs exactly when \(\Delta=0\); then the quadratic has a double root. From (2) we can write  
+
+\[
+Q(t)=\|b\|^{2}\bigl(t-t_{0}\bigr)^{2},
+\qquad
+t_{0}=\frac{\langle a,b\rangle}{\|b\|^{2}} .
+\]
+
+Hence \(Q(t_{0})=0\) and, by the definition of \(Q\),
+
+\[
+0=Q(t_{0})=\|a-t_{0}b\|^{2}
+      =\sum_{i=1}^{n}\bigl(a_{i}-t_{0}b_{i}\bigr)^{2}.
+\]
+
+A sum of non‑negative squares is zero only if each square vanishes, i.e.  
+
+\[
+a_{i}=t_{0}b_{i}\qquad\text{for all }i=1,\dots ,n.
+\]
+
+Thus equality in (3) holds iff there exists a scalar \(\lambda\) (namely \(\lambda=t_{0}\)) such that \(a_{i}=\lambda b_{i}\) for every \(i\).  
+Conversely, if \(a_{i}=\lambda b_{i}\) for some \(\lambda\in\mathbb{R}\), then  
+
+\[
+\langle a,b\rangle =\lambda\sum_{i=1}^{n}b_{i}^{2}= \lambda\|b\|^{2},\qquad
+\|a\|^{2}= \lambda^{2}\|b\|^{2},
+\]
+
+and a direct substitution shows \(\langle a,b\rangle^{2}= \|a\|^{2}\|b\|^{2}\).  
+The case \(\lambda=0\) corresponds to one of the vectors being the zero vector and is included in the statement.
+
+\medskip\noindent\textbf{Conclusion.}  
+For arbitrary real sequences \(\{a_{i}\}_{i=1}^{n}\) and \(\{b_{i}\}_{i=1}^{n}\) we have  
+
+\[
+\biggl(\sum_{i=1}^{n}a_{i}b_{i}\biggr)^{2}
+\le
+\biggl(\sum_{i=1}^{n}a_{i}^{2}\biggr)
+\biggl(\sum_{i=1}^{n}b_{i}^{2}\biggr),
+\]
+
+with equality exactly when the two vectors are proportional (or one of them is the zero vector).  
+\end{proof}

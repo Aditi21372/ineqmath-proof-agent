@@ -1,0 +1,108 @@
+\begin{proof}
+\textbf{Statement.}  Let $x\in[-1,\infty)$ and $n\in\mathbb N_{0}$.
+Then
+\[
+(1+x)^{\,n}\;\ge\;1+nx .
+\tag{*}
+\]
+Equality holds precisely in one of the following situations  
+
+\begin{itemize}
+\item $n=0$ (any $x$);
+\item $n=1$ (any $x$);
+\item $x=0$ (any $n$).
+\end{itemize}
+
+\medskip
+
+\textbf{1. Preliminaries.}  For a fixed integer $n\ge0$ define  
+\[
+f_{n}(x):=(1+x)^{n}-1-nx .
+\]
+Since $f_{n}$ is a polynomial, all binomial coefficients $\binom{n}{k}$ are non‑negative.  We shall repeatedly use the elementary fact  
+
+\begin{equation}
+x^{2}\ge0\qquad\text{for all }x\in\mathbb R .
+\tag{1}
+\end{equation}
+
+\medskip
+
+\textbf{2. Degenerate / edge cases.}  The inequality \eqref{*} is easy to verify in the following situations:
+
+\begin{center}
+\begin{tabular}{>{\bfseries}l l}
+\textbf{Case} & \textbf{Verification}\\
+\hline
+$n=0$ & $(1+x)^{0}=1=1+0\cdot x$\\[2pt]
+$n=1$ & $(1+x)^{1}=1+x=1+1\cdot x$\\[2pt]
+$x=0$ & $(1+0)^{n}=1=1+n\cdot0$\\[2pt]
+$x=-1,\;n\ge1$ & $(1-1)^{n}=0\le1-n\le0$ (strict unless $n=1$)
+\end{tabular}
+\end{center}
+These cases will be excluded from the induction step; henceforth we assume $n\ge2$ and $x\neq0$.
+
+\medskip
+
+\textbf{3. Induction on $n$.}
+
+\medskip
+\noindent\textit{Base of induction.}  The inequality has already been proved for $n=0,1$ in the table above.
+
+\medskip
+\noindent\textit{Induction hypothesis.}  Suppose that for a fixed $n\ge2$
+\[
+(1+x)^{n}\;\ge\;1+nx\qquad\text{for all }x\ge-1 .
+\tag{IH}
+\]
+
+\medskip
+\noindent\textit{Inductive step.}  For $n+1$ we write
+\[
+(1+x)^{n+1}=(1+x)^{n}(1+x)
+\overset{\text{(IH)}}{\ge}(1+nx)(1+x) .
+\tag{2}
+\]
+Expanding the right–hand side gives
+\[
+(1+nx)(1+x)=1+(n+1)x+nx^{2} .
+\tag{3}
+\]
+Hence
+\[
+(1+x)^{n+1}\ge 1+(n+1)x+nx^{2} .
+\tag{4}
+\]
+Since $n\ge0$ and by \eqref{1} we have $nx^{2}\ge0$, (4) implies
+\[
+(1+x)^{n+1}\ge 1+(n+1)x .
+\tag{5}
+\]
+Thus the statement holds for $n+1$.  By the principle of mathematical induction, \eqref{*} is true for every integer $n\ge0$ and all $x\ge-1$.
+
+\medskip
+
+\textbf{4. Equality cases.}  Equality in the final inequality \eqref{5} requires simultaneously  
+
+\begin{enumerate}
+\item equality in the induction hypothesis, i.e. $(1+x)^{n}=1+nx$; and
+\item equality in the non‑negative term $nx^{2}=0$.
+\end{enumerate}
+Condition 2 forces either $n=0$ or $x=0$.  
+
+\begin{itemize}
+\item If $n=0$, we are in the base case where equality holds for every $x$.
+\item If $x=0$, then $(1+0)^{n}=1=1+n\cdot0$ for all $n$.
+\end{itemize}
+The remaining possibility is $n=1$, which also yields equality for all $x$ (see the edge‑case table).  No other choices satisfy both conditions.
+
+Consequently, equality holds \emph{iff} one of the three alternatives listed at the beginning of the proof occurs.
+
+\medskip
+
+\textbf{5. Conclusion.}  For every $x\ge-1$ and every integer $n\ge0$,
+\[
+\boxed{(1+x)^{n}\ge 1+nx},
+\]
+with equality exactly in the cases $n=0$, $n=1$, or $x=0$.
+\end{proof}

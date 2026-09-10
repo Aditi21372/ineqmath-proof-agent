@@ -1,0 +1,116 @@
+\begin{proof}
+Let  
+
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad   
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+
+Define the Euclidean inner product and norm  
+
+\[
+\langle\mathbf a,\mathbf b\rangle =\sum_{i=1}^{n}a_{i}b_{i},\qquad 
+\|\mathbf a\|^{2}= \langle\mathbf a,\mathbf a\rangle =\sum_{i=1}^{n}a_{i}^{2},\qquad 
+\|\mathbf b\|^{2}= \langle\mathbf b,\mathbf b\rangle =\sum_{i=1}^{n}b_{i}^{2}.
+\]
+
+\medskip\noindent\textbf{Degenerate cases.}  
+If \(\mathbf a=\mathbf 0\) or \(\mathbf b=\mathbf 0\) then  
+\(\langle\mathbf a,\mathbf b\rangle =0\) and also \(\|\mathbf a\|^{2}=0\) or \(\|\mathbf b\|^{2}=0\). Hence  
+
+\[
+\bigl(\langle\mathbf a,\mathbf b\rangle\bigr)^{2}=0=
+\|\mathbf a\|^{2}\,\|\mathbf b\|^{2},
+\]
+
+so the inequality holds with equality.  
+Henceforth assume \(\mathbf a\neq\mathbf 0\) and \(\mathbf b\neq\mathbf 0\); consequently  
+\(\|\mathbf a\|^{2}>0\) and \(\|\mathbf b\|^{2}>0\).
+
+\medskip\noindent\textbf{A non‑negative quadratic.}  
+For a real parameter \(t\) define  
+
+\[
+Q(t)=\sum_{i=1}^{n}\bigl(a_{i}-t b_{i}\bigr)^{2}.
+\]
+
+Each summand is a square, therefore \(Q(t)\ge 0\) for every \(t\in\mathbb R\). Expanding,
+
+\[
+\begin{aligned}
+Q(t)&=\sum_{i=1}^{n}\bigl(a_{i}^{2}-2t a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)\\[2mm]
+    &=\|\mathbf a\|^{2}-2t\langle\mathbf a,\mathbf b\rangle
+      +t^{2}\|\mathbf b\|^{2}.
+\end{aligned}
+\]
+
+Thus  
+
+\[
+Q(t)=\|\mathbf b\|^{2}\,t^{2}-2\langle\mathbf a,\mathbf b\rangle\,t+\|\mathbf a\|^{2},
+\]
+
+a quadratic polynomial with positive leading coefficient \(\|\mathbf b\|^{2}>0\).
+
+\medskip\noindent\textbf{Discriminant condition.}  
+A quadratic \(At^{2}+Bt+C\) with \(A>0\) satisfies \(At^{2}+Bt+C\ge0\) for all real \(t\) iff its discriminant is non‑positive:
+
+\[
+B^{2}-4AC\le0 .
+\]
+
+Applying this to the coefficients  
+
+\[
+A=\|\mathbf b\|^{2},\qquad B=-2\langle\mathbf a,\mathbf b\rangle,\qquad 
+C=\|\mathbf a\|^{2},
+\]
+
+we obtain  
+
+\[
+\Delta =(-2\langle\mathbf a,\mathbf b\rangle)^{2}
+        -4\|\mathbf b\|^{2}\|\mathbf a\|^{2}
+      \le0 .
+\]
+
+Since  
+
+\[
+(-2\langle\mathbf a,\mathbf b\rangle)^{2}
+-4\|\mathbf b\|^{2}\|\mathbf a\|^{2}
+=4\bigl(\langle\mathbf a,\mathbf b\rangle^{2}
+        -\|\mathbf a\|^{2}\|\mathbf b\|^{2}\bigr),
+\]
+
+dividing the inequality \(\Delta\le0\) by the positive constant \(4\) yields  
+
+\[
+\langle\mathbf a,\mathbf b\rangle^{2}\le\|\mathbf a\|^{2}\,\|\mathbf b\|^{2}.
+\]
+
+Writing the inner products and norms in component form gives the **Cauchy–Schwarz inequality**
+
+\[
+\boxed{\displaystyle
+\biggl(\sum_{i=1}^{n}a_{i}b_{i}\biggr)^{2}
+\le
+\biggl(\sum_{i=1}^{n}a_{i}^{2}\biggr)
+   \biggl(\sum_{i=1}^{n}b_{i}^{2}\biggr)}.
+\]
+
+\medskip\noindent\textbf{Equality condition.}  
+Equality holds precisely when \(\Delta=0\), i.e. when the quadratic has a double root  
+\(t_{0}= \dfrac{\langle\mathbf a,\mathbf b\rangle}{\|\mathbf b\|^{2}}\).  
+Since \(Q(t_{0})=0\) and each term \((a_{i}-t_{0}b_{i})^{2}\ge0\), we must have  
+
+\[
+a_{i}=t_{0}b_{i}\qquad (i=1,\dots ,n).
+\]
+
+Thus the vectors are linearly dependent; there exists \(\lambda\in\mathbb R\) such that  
+\(a_{i}= \lambda b_{i}\) for every \(i\) (the trivial case \(\lambda=0\) corresponds to one of the vectors being the zero vector).
+
+Hence equality in the Cauchy–Schwarz inequality holds **iff** the two sequences are proportional.
+
+\end{proof}

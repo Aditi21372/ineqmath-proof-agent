@@ -1,0 +1,108 @@
+\begin{proof}
+\textbf{1. Preliminaries and notation.}  
+Set  
+\[
+\lambda:=\frac1p\in(0,1),\qquad 1-\lambda=\frac1q .
+\]
+Hence \(p=\frac1\lambda\) and \(q=\frac1{1-\lambda}\); the relation \(\frac1p+\frac1q=1\) is equivalent to \(q=\frac{p}{p-1}\) (or \(p=\frac{q}{q-1}\)).
+
+\medskip\noindent\textbf{2. Degenerate cases.}  
+If \(a=0\) or \(b=0\) then \(ab=0\) while the right–hand side of  
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}
+\tag{1}
+\]
+is a sum of non‑negative terms, so (1) holds. Equality forces both terms on the right to vanish, i.e. \(a=b=0\).
+
+\medskip\noindent\textbf{3. Convex function and its conjugate.}  
+Consider  
+\[
+\varphi:[0,\infty)\to[0,\infty),\qquad \varphi(t)=\frac{t^{p}}{p}.
+\]
+
+\textit{Convexity.}  
+\[
+\varphi'(t)=t^{p-1},\qquad 
+\varphi''(t)=(p-1)t^{p-2}\ge0\quad(p>1,\;t\ge0),
+\]
+so \(\varphi\) is convex.
+
+\textit{Legendre (convex) conjugate.}  
+\[
+\varphi^{*}(s)=\sup_{t\ge0}\bigl\{\,st-\varphi(t)\,\bigr\},
+\qquad s\ge0 .
+\]
+To locate the supremum differentiate the bracketed expression:
+\[
+\frac{d}{dt}\bigl(st-\tfrac{t^{p}}{p}\bigr)=s-t^{p-1}.
+\]
+The unique maximiser satisfies \(s=t^{p-1}\), i.e.  
+\[
+t=s^{\,q-1}\qquad\bigl(q-1=\tfrac1{p-1}\bigr).
+\]
+Substituting this \(t\) gives
+\[
+\begin{aligned}
+\varphi^{*}(s)
+&=s\cdot s^{\,q-1}-\frac{(s^{\,q-1})^{p}}{p} \\
+&=s^{q}-\frac{s^{q}}{p}
+   =\frac{s^{q}}{q},
+\end{aligned}
+\]
+where we used \(\frac1p+\frac1q=1\).
+
+\medskip\noindent\textbf{4. Fenchel–Young inequality.}  
+For any convex \(\varphi\) and \(s,t\ge0\) one has  
+\[
+st\le\varphi(t)+\varphi^{*}(s).
+\tag{2}
+\]
+(See Rockafellar, *Convex Analysis*, Theorem 23.5.)
+
+Applying the concrete \(\varphi\) and \(\varphi^{*}\) from step 3 to (2) yields
+\[
+st\le\frac{t^{p}}{p}+\frac{s^{q}}{q}.
+\tag{3}
+\]
+
+\medskip\noindent\textbf{5. Application to the present variables.}  
+Choose \(t=a\) and \(s=b\) in (3). Then (3) becomes exactly (1):
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\]
+
+\medskip\noindent\textbf{6. Equality condition.}  
+Equality in (2) holds iff the maximiser satisfies \(s\in\partial\varphi(t)\).
+Since \(\varphi\) is differentiable on \((0,\infty)\),
+\[
+s=\varphi'(t)=t^{p-1}.
+\]
+With \(s=b\) and \(t=a\) this reads \(b=a^{p-1}\), i.e.  
+\[
+a^{p}=b^{q}.
+\tag{4}
+\]
+Together with the degenerate case of step 2 we obtain the complete equality
+description:
+\[
+a=b=0\quad\text{or}\quad a,b>0\ \text{and}\ a^{p}=b^{q}.
+\]
+
+\medskip\noindent\textbf{7. Alternative elementary proof (weighted AM–GM).}  
+Write
+\[
+ab=(a^{p})^{1/p}\,(b^{q})^{1/q}.
+\]
+Since \(\frac1p+\frac1q=1\), the weighted AM–GM inequality with weights
+\(\frac1p\) and \(\frac1q\) gives
+\[
+(a^{p})^{1/p}\,(b^{q})^{1/q}
+\le\frac1p\,a^{p}+\frac1q\,b^{q},
+\]
+which is precisely (1). Equality in weighted AM–GM occurs exactly when the
+two weighted terms are equal, i.e. when \((a^{p})^{1/p}=(b^{q})^{1/q}\), again
+equivalent to (4).
+
+Thus Young’s inequality holds for all \(a,b\ge0\) with conjugate exponents
+\(p,q>1\), and equality occurs precisely in the cases described above. \(\square\)
+\end{proof}

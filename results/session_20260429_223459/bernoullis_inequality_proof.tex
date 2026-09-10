@@ -1,0 +1,63 @@
+\begin{proof}
+\textbf{Theorem (Bernoulli’s inequality).}  
+Let $x\in\mathbb R$ with $x\ge-1$ and let $n\in\mathbb N$ (i.e. $n\ge0$). Then
+\[
+(1+x)^{\,n}\;\ge\;1+n\,x .
+\]
+
+\medskip
+\textbf{Base case $n=0$.}
+\[
+(1+x)^{0}=1=1+0\cdot x .
+\]
+Hence the inequality holds with equality for every admissible $x$.
+
+\medskip
+\textbf{Inductive step.}  
+Assume that for some $n\ge0$ and for every $x\ge-1$
+\begin{equation*}
+(1+x)^{\,n}\;\ge\;1+n x .\tag{IH}
+\end{equation*}
+Because $x\ge-1$ we have $1+x\ge0$, so multiplication by the non‑negative factor $1+x$ preserves the inequality direction:
+\begin{align*}
+(1+x)^{\,n+1}
+   &=(1+x)^{\,n}(1+x)\\
+   &\ge (1+n x)(1+x). \tag{1}
+\end{align*}
+Expanding the right–hand side gives
+\begin{align*}
+(1+n x)(1+x)=1+(n+1)x+n x^{2}. \tag{2}
+\end{align*}
+Since $n\ge0$ and $x^{2}\ge0$, the term $n x^{2}$ is non‑negative. Dropping this non‑negative term yields the weaker (hence still valid) inequality
+\begin{align*}
+1+(n+1)x+n x^{2}\;\ge\;1+(n+1)x .\tag{3}
+\end{align*}
+Combining \eqref{1}–\eqref{3} we obtain
+\[
+(1+x)^{\,n+1}\;\ge\;1+(n+1)x ,
+\]
+which is precisely the desired statement for the exponent $n+1$.
+
+\medskip
+\textbf{Conclusion.}  
+The base case $n=0$ is true, and the inductive step shows that truth for a given $n$ implies truth for $n+1$. By the principle of mathematical induction the inequality holds for every integer $n\ge0$ and every real $x\ge-1$.
+
+\medskip
+\textbf{Equality cases.}  
+Equality can occur only in the steps where a non‑negative term was discarded.
+
+\begin{itemize}
+\item In the base case $n=0$ we have equality for all admissible $x$.
+\item In the inductive step the term $n x^{2}$ was removed. Equality in that step requires $n x^{2}=0$, i.e.\ either $n=0$ (the base case) or $x=0$.
+\end{itemize}
+Consequently the original inequality becomes an equality precisely in the following situations
+\[
+\begin{cases}
+n=0 &\text{(any }x\ge-1),\\[4pt]
+n=1 &\text{(any }x\ge-1),\\[4pt]
+x=0 &\text{(any }n\ge0).
+\end{cases}
+\]
+(For $x=-1$ the inequality reads $0\ge 1-n$, and equality holds only when $n=1$, which is already included above.)  
+Thus equality holds \emph{iff} $x=0$ or $n\le1$.\qed
+\end{proof}

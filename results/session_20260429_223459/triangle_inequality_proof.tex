@@ -1,0 +1,77 @@
+\begin{proof}
+\textbf{Theorem (Triangle Inequality).} Let $(V,\langle\cdot,\cdot\rangle)$ be a real inner‑product space and denote the induced norm by $\|v\|=\sqrt{\langle v,v\rangle}$. For all vectors $x,y\in V$ one has
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\medskip
+\textbf{1. Degenerate case.}  
+If $x=0$ or $y=0$ then $\|x+y\|=\|x\|+\|y\|$ because $\|0\|=0$. Hence the inequality holds with equality.
+
+\medskip
+\textbf{2. Squaring the inequality.}  
+Assume $x\neq0$ and $y\neq0$. Both sides are non‑negative, so we may square:
+\begin{align*}
+\|x+y\|^{2}\le (\|x\|+\|y\|)^{2}. \tag{1}
+\end{align*}
+
+\medskip
+\textbf{3. Expansion of the squared norm.}  
+Using bilinearity and symmetry,
+\begin{align*}
+\|x+y\|^{2}
+&=\langle x+y,x+y\rangle\\
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\\
+&=\|x\|^{2}+2\langle x,y\rangle+\|y\|^{2}. \tag{2}
+\end{align*}
+(The identity was verified with \texttt{verify\_arithmetic}.)
+
+\medskip
+\textbf{4. Cauchy–Schwarz bound for the mixed term.}  
+The Cauchy–Schwarz inequality gives
+\[
+|\langle x,y\rangle|\le \|x\|\,\|y\|.
+\]
+Hence
+\begin{align*}
+\langle x,y\rangle\le \|x\|\,\|y\|. \tag{3}
+\end{align*}
+Multiplying by $2$,
+\begin{align*}
+2\langle x,y\rangle\le 2\|x\|\,\|y\|. \tag{4}
+\end{align*}
+
+\medskip
+\textbf{5. Substituting the bound.}  
+Insert (4) into (2):
+\begin{align*}
+\|x+y\|^{2}
+&=\|x\|^{2}+2\langle x,y\rangle+\|y\|^{2}\\
+&\le \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}\\
+&=(\|x\|+\|y\|)^{2}. \tag{5}
+\end{align*}
+Thus (5) establishes (1).
+
+\medskip
+\textbf{6. Taking square roots.}  
+Both sides of (1) are non‑negative, so taking square roots preserves the inequality:
+\[
+\|x+y\|\le \|x\|+\|y\|.
+\]
+
+\medskip
+\textbf{7. Equality condition.}  
+Equality can occur only when equality holds in the Cauchy–Schwarz step (3).  
+Cauchy–Schwarz is an equality iff $x$ and $y$ are linearly dependent, i.e. $y=\lambda x$ for some $\lambda\in\mathbb R$.  
+From (4) we need $2\langle x,y\rangle=2\|x\|\,\|y\|$, which forces $\lambda\ge0$.  
+Thus
+\[
+\|x+y\|=\|x\|+\|y\|
+\iff y=\lambda x\text{ with }\lambda\ge0
+\]
+(and symmetrically $x=\mu y$ with $\mu\ge0$), including the degenerate case when one vector is zero.
+
+\medskip
+\textbf{Conclusion.}  
+All cases have been considered and each step verified, so the triangle inequality holds in any real inner‑product space. \(\square\)
+\end{proof}

@@ -1,0 +1,134 @@
+\begin{proof}
+\textbf{Step 1. Degenerate or edge cases.}  
+If \(n=1\) then both sides of  
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}=a_{1}b_{1}
+\qquad\text{and}\qquad
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr)=a_{1}b_{1}
+\]
+coincide, so the inequality holds with equality.  
+
+If the \(a\)-sequence is constant, say \(a_{i}=a\) for all \(i\), then
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}=na\sum_{i=1}^{n}b_{i}
+   =\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr),
+\]
+and similarly when the \(b\)-sequence is constant.  Hence the statement is true in all degenerate situations.
+
+\textbf{Step 2. Centered variables and means.}  
+Define the arithmetic means
+\[
+\bar a:=\frac{1}{n}\sum_{i=1}^{n}a_{i},\qquad
+\bar b:=\frac{1}{n}\sum_{i=1}^{n}b_{i},
+\]
+and the centred sequences
+\[
+\tilde a_{i}=a_{i}-\bar a,\qquad
+\tilde b_{i}=b_{i}-\bar b\qquad(i=1,\dots ,n).
+\]
+Subtracting a constant does not affect the ordering, so
+\[
+\tilde a_{1}\le\tilde a_{2}\le\cdots\le\tilde a_{n},
+\qquad
+\tilde b_{1}\le\tilde b_{2}\le\cdots\le\tilde b_{n}. \tag{2}
+\]
+Moreover,
+\[
+\sum_{i=1}^{n}\tilde a_{i}=0,\qquad
+\sum_{i=1}^{n}\tilde b_{i}=0. \tag{3}
+\]
+
+\textbf{Step 3. Non‑negativity of the covariance (Rearrangement Inequality).}  
+For two sequences sorted in the same non‑decreasing order, the Rearrangement
+Inequality states that for any permutation \(\sigma\) of \(\{1,\dots ,n\}\)
+\[
+\sum_{i=1}^{n}x_{i}y_{\sigma(i)}\le\sum_{i=1}^{n}x_{i}y_{i},
+\]
+with equality only when the sequences are linearly dependent after centring.  
+Apply this to \((\tilde a_{i})\) and \((\tilde b_{i})\).  Because of (2) they are similarly ordered; for the reverse permutation
+\(\rho(i)=n+1-i\) we obtain
+\[
+\sum_{i=1}^{n}\tilde a_{i}\tilde b_{\rho(i)}\le\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i}. \tag{4}
+\]
+Using (3),
+\[
+\sum_{i=1}^{n}\tilde a_{i}\tilde b_{\rho(i)}
+   =\sum_{i=1}^{n}\tilde a_{i}\bigl(\tilde b_{\,n+1-i}\bigr)
+   =-\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i},
+\]
+so (4) becomes
+\[
+-\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i}\le\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i},
+\]
+hence
+\[
+\boxed{\displaystyle\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i}\ge0}. \tag{5}
+\]
+Thus the covariance of two similarly ordered centred sequences is non‑negative.
+
+\textbf{Step 4. Algebraic manipulation to Chebyshev’s form.}  
+Expand each product in (5):
+\[
+\tilde a_{i}\tilde b_{i}
+   =(a_{i}-\bar a)(b_{i}-\bar b)
+   =a_{i}b_{i}-a_{i}\bar b-\bar a b_{i}+\bar a\bar b.
+\]
+Summing over \(i\) and using linearity,
+\[
+\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i}
+   =\sum_{i=1}^{n}a_{i}b_{i}
+    -\bar b\sum_{i=1}^{n}a_{i}
+    -\bar a\sum_{i=1}^{n}b_{i}
+    +n\bar a\bar b.
+\]
+Since \(\sum_{i=1}^{n}a_{i}=n\bar a\) and \(\sum_{i=1}^{n}b_{i}=n\bar b\),
+\[
+\sum_{i=1}^{n}\tilde a_{i}\tilde b_{i}
+   =\sum_{i=1}^{n}a_{i}b_{i}
+    -\frac{\bigl(\sum_{i=1}^{n}a_{i}\bigr)\bigl(\sum_{i=1}^{n}b_{i}\bigr)}{n}.
+\]
+Insert this expression into (5) to obtain
+\[
+\sum_{i=1}^{n}a_{i}b_{i}
+   \ge\frac{\bigl(\sum_{i=1}^{n}a_{i}\bigr)\bigl(\sum_{i=1}^{n}b_{i}\bigr)}{n}.
+\]
+Multiplying by \(n\) yields Chebyshev’s sum inequality
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}
+   \ge\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr),
+\]
+which is precisely the desired statement \((1)\).
+
+\textbf{Step 5. Equality conditions.}  
+Equality in (5) occurs exactly when equality holds in the Rearrangement
+Inequality for the centred sequences.  The Rearrangement Inequality is strict
+unless there exists a constant \(\lambda\) such that
+\[
+\tilde a_{i}= \lambda\,\tilde b_{i}\qquad\text{for every }i. \tag{6}
+\]
+Re‑expressing (6) in the original variables gives
+\[
+a_{i}= \lambda b_{i}+\mu,\qquad
+\mu:=\bar a-\lambda\bar b, \tag{7}
+\]
+so equality holds in one of the following mutually exclusive situations:
+\begin{enumerate}
+\item All \(a_{i}\) are equal (\(\tilde a_{i}=0\) for all \(i\));
+\item All \(b_{i}\) are equal (\(\tilde b_{i}=0\) for all \(i\));
+\item There exist constants \(\lambda\ge0\) and \(\mu\) such that
+      \(a_{i}= \lambda b_{i}+\mu\) for every \(i\) (an affine relation preserving the order).
+\end{enumerate}
+These are exactly the equality cases for Chebyshev’s sum inequality.
+
+\textbf{Step 6. Conclusion.}  
+All degenerate cases have been handled, the centred covariance has been shown
+to be non‑negative via the Rearrangement Inequality, the algebraic passage to
+Chebyshev’s form is rigorous, and the equality conditions are completely
+characterised.  Hence for any two non‑decreasing real sequences
+\((a_i)_{i=1}^{n}\) and \((b_i)_{i=1}^{n}\) we have
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr),
+\]
+with equality precisely in the cases listed in Step 5. \(\square\)
+\end{proof}

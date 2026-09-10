@@ -1,0 +1,91 @@
+\begin{proof}
+\textbf{Degenerate case.} If \(\displaystyle\sum_{i=1}^{n}b_i^{2}=0\), then each \(b_i=0\). Hence
+\[
+\sum_{i=1}^{n}a_i b_i =0,
+\qquad 
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)=0,
+\]
+so \(0^{2}=0\le 0\). The equality condition is satisfied because the zero vector is proportional to any vector.
+
+\medskip
+
+\textbf{Non‑degenerate case.} Assume
+\[
+A:=\sum_{i=1}^{n}b_i^{2}>0
+\]
+and define, for a real parameter \(t\),
+\[
+Q(t):=\sum_{i=1}^{n}\bigl(a_i-t b_i\bigr)^{2}.
+\]
+Each summand is non‑negative, therefore
+\begin{equation}
+Q(t)\ge 0\qquad\text{for all }t\in\mathbb{R}. \label{eq:Qnonneg}
+\end{equation}
+
+Expanding \(Q(t)\) and using \((x-y)^{2}=x^{2}-2xy+y^{2}\) gives
+\begin{align*}
+Q(t)
+&=\sum_{i=1}^{n}\bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\bigr) \\
+&= \underbrace{\sum_{i=1}^{n}a_i^{2}}_{C}
+   -2t\underbrace{\sum_{i=1}^{n}a_i b_i}_{S_{ab}}
+   +t^{2}\underbrace{\sum_{i=1}^{n}b_i^{2}}_{A}.
+\end{align*}
+Thus \(Q(t)=A t^{2}+B t +C\) with
+\[
+A=\sum_{i=1}^{n}b_i^{2}>0,\qquad
+B=-2S_{ab},\qquad
+C=\sum_{i=1}^{n}a_i^{2}.
+\]
+
+A quadratic polynomial with leading coefficient \(A>0\) that satisfies
+\(At^{2}+Bt+C\ge0\) for every real \(t\) must have a non‑positive
+discriminant:
+\[
+B^{2}-4AC\le 0.
+\]
+Applying this to \eqref{eq:Qnonneg} we obtain
+\[
+(-2S_{ab})^{2}-4\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\le0.
+\]
+Dividing by \(4>0\) yields
+\[
+S_{ab}^{2}\le\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr),
+\]
+i.e.
+\[
+\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr).
+\]
+This is the Cauchy–Schwarz inequality.
+
+\medskip
+
+\textbf{Equality condition.} Equality occurs precisely when the
+discriminant is zero, i.e. \(B^{2}-4AC=0\). Then the quadratic has the
+unique real root
+\[
+t_{0}= -\frac{B}{2A}= \frac{S_{ab}}{\sum_{i=1}^{n}b_i^{2}}.
+\]
+Since \(Q(t_{0})=0\) and each term \((a_i-t_{0}b_i)^{2}\) is
+non‑negative, we must have \(a_i-t_{0}b_i=0\) for every \(i\); thus
+\(a_i=\lambda b_i\) with \(\lambda:=t_{0}\). Conversely, if such a scalar
+\(\lambda\) exists, then every term \((a_i-\lambda b_i)^{2}\) vanishes,
+so \(Q(\lambda)=0\) and the discriminant is zero, giving equality in the
+Cauchy–Schwarz inequality. This also covers the degenerate case where
+all \(b_i=0\) (or all \(a_i=0\)), because any \(\lambda\) satisfies
+\(a_i=\lambda b_i\).
+
+Hence, for all real families \((a_i)_{i=1}^{n}\) and \((b_i)_{i=1}^{n}\),
+\[
+\boxed{\displaystyle
+\Bigl(\sum_{i=1}^{n}a_i b_i\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_i^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_i^{2}\Bigr)}
+\]
+with equality iff there exists \(\lambda\in\mathbb{R}\) such that
+\(a_i=\lambda b_i\) for every \(i\) (including the case where one of
+the vectors is the zero vector). \(\square\)
+\end{proof}

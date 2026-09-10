@@ -1,0 +1,117 @@
+\begin{proof}
+\textbf{Preliminary cases.}  
+
+If \(n=1\) then both sides of (C) equal \(a_{1}b_{1}\), so the inequality holds with
+equality.  
+
+If \(a_{1}=a_{2}= \dots =a_{n}=a\) (or similarly for the \(b\)-sequence), then  
+
+\[
+\sum_{i=1}^{n}a_{i}b_{i}=a\sum_{i=1}^{n}b_{i},
+\qquad
+n\sum_{i=1}^{n}a_{i}b_{i}
+   =\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr),
+\]
+
+so (C) is an equality.  Hence we may assume \(n\ge 2\) and that neither
+sequence is constant.
+
+\medskip\noindent\textbf{Reformulation in symmetric form.}  
+
+Define the arithmetic means  
+
+\[
+\bar a:=\frac1n\sum_{i=1}^{n}a_{i},
+\qquad
+\bar b:=\frac1n\sum_{i=1}^{n}b_{i},
+\]
+
+and consider  
+
+\[
+\Sigma:=\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b). \tag{2.1}
+\]
+
+Expanding and collecting terms gives  
+
+\begin{align*}
+\Sigma
+&=\sum_{i=1}^{n}a_{i}b_{i}
+   -\bar a\sum_{i=1}^{n}b_{i}
+   -\bar b\sum_{i=1}^{n}a_{i}
+   +n\bar a\bar b \\[2pt]
+&=\sum_{i=1}^{n}a_{i}b_{i}
+   -\frac1n\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+           \Bigl(\sum_{i=1}^{n}b_{i}\Bigr). \tag{2.2}
+\end{align*}
+
+Thus (C) is equivalent to  
+
+\[
+\Sigma\ge 0. \tag{2.3}
+\]
+
+\medskip\noindent\textbf{Rearrangement inequality argument.}  
+
+\paragraph{Rearrangement Inequality (standard form).}  
+If \(x_{1}\le x_{2}\le\cdots\le x_{n}\) and \(y_{1}\le y_{2}\le\cdots\le y_{n}\),
+then for every permutation \(\sigma\in S_{n}\),
+
+\[
+\sum_{i=1}^{n}x_{i}y_{i}\;\ge\;\sum_{i=1}^{n}x_{i}y_{\sigma(i)}. \tag{3.1}
+\]
+
+The identity permutation yields the maximal possible sum.  Applying (3.1) with
+\(x_{i}=a_{i}\) and \(y_{i}=b_{i}\) and averaging over all permutations we obtain
+
+\[
+\sum_{i=1}^{n}a_{i}b_{i}
+   \;\ge\;
+   \frac1{n!}\sum_{\sigma\in S_{n}}\sum_{i=1}^{n}a_{i}b_{\sigma(i)}. \tag{3.2}
+\]
+
+For a fixed pair \((i,j)\) the term \(a_{i}b_{j}\) appears exactly \((n-1)!\)
+times in the double sum, because we may fix \(\sigma(i)=j\) and permute the
+remaining \(n-1\) indices arbitrarily.  Hence
+
+\[
+\sum_{\sigma\in S_{n}}\sum_{i=1}^{n}a_{i}b_{\sigma(i)}
+   =(n-1)!\sum_{i=1}^{n}\sum_{j=1}^{n}a_{i}b_{j}
+   =(n-1)!\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+            \Bigl(\sum_{j=1}^{n}b_{j}\Bigr).
+\]
+
+Dividing by \(n!\) gives  
+
+\[
+\frac1{n!}\sum_{\sigma\in S_{n}}\sum_{i=1}^{n}a_{i}b_{\sigma(i)}
+   =\frac1{n}\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+               \Bigl(\sum_{j=1}^{n}b_{j}\Bigr). \tag{3.3}
+\]
+
+Insert (3.3) into (3.2) and multiply by \(n\):
+
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}
+   \;\ge\;
+   \Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+   \Bigl(\sum_{j=1}^{n}b_{j}\Bigr),
+\]
+
+which is precisely inequality (C).  By (2.2) this also shows \(\Sigma\ge0\).
+
+\medskip\noindent\textbf{Equality conditions.}  
+
+The Rearrangement Inequality is strict unless the two sequences are
+similarly ordered **and** at least one of them is constant.  Consequently,
+equality in (C) occurs iff one of the sequences \((a_{i})\) or \((b_{i})\) is
+constant.  When both sequences contain at least two distinct elements the
+inequality is strict.
+
+\medskip\noindent\textbf{Conclusion.}  
+
+We have treated the trivial cases, rewritten Chebyshev’s sum inequality in a
+symmetric covariance form, and proved its non‑negativity by averaging over all
+permutations (a direct consequence of the Rearrangement Inequality).  This
+establishes (C) for all \(n\ge 1\) and characterises the equality cases. \(\square\)
+\end{proof}

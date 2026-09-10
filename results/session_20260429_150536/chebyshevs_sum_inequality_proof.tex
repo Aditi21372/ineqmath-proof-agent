@@ -1,0 +1,135 @@
+\begin{proof}
+\textbf{Chebyshev’s Sum Inequality.}  
+Let  
+
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad 
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+
+be real numbers.  We shall prove  
+
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}\Bigr),
+\tag{∗}
+\]
+
+and describe the equality case.
+
+\begin{enumerate}
+\item \textbf{Base case and degenerate sequences.}  
+If \(n=1\) the inequality reads \(a_{1}b_{1}\ge a_{1}b_{1}\), true with equality.  
+
+If all \(a_i\) are equal, say \(a_i=a\) for all \(i\), then  
+
+\begin{align*}
+n\sum_{i=1}^{n}a_i b_i
+&=a\sum_{i=1}^{n}b_i
+   =\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr),
+\end{align*}
+so (∗) holds as an equality.  The same argument works when the \(b_i\) are all equal.  
+Henceforth we assume \(n\ge2\) and that \emph{not both} sequences are constant.
+
+\item \textbf{A convenient notation.}  
+Define  
+
+\[
+S:=n\sum_{i=1}^{n}a_{i}b_{i}
+   -\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)
+    \Bigl(\sum_{i=1}^{n}b_{i}\Bigr).
+\]
+
+Our goal is to show \(S\ge0\).
+
+\item \textbf{Transforming \(S\) into a symmetric double sum.}  
+
+The product of the two simple sums can be written as  
+
+\[
+\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{j=1}^{n}b_j\Bigr)
+   =\sum_{i=1}^{n}\sum_{j=1}^{n}a_i b_j .
+\]
+
+Likewise  
+
+\[
+n\sum_{i=1}^{n}a_i b_i
+   =\sum_{i=1}^{n}\sum_{j=1}^{n}a_i b_i ,
+\]
+
+since for each fixed \(i\) the inner sum over \(j\) contributes exactly \(n\) copies
+of the term \(a_i b_i\).  Hence  
+
+\begin{align*}
+S&=
+\sum_{i=1}^{n}\sum_{j=1}^{n}a_i b_i
+-\sum_{i=1}^{n}\sum_{j=1}^{n}a_i b_j  \\[2mm]
+&=\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}
+   \bigl(a_i b_i-a_i b_j-a_j b_i+a_j b_j\bigr) \\[2mm]
+&=\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}
+   (a_i-a_j)(b_i-b_j). \tag{1}
+\end{align*}
+
+Equation (1) is the desired double‑sum representation of \(S\).
+
+\item \textbf{Non‑negativity of each summand.}  
+Take any ordered pair \((i,j)\) with \(i<j\).  
+Because the sequences are non‑decreasing,  
+
+\[
+a_i\le a_j,\qquad b_i\le b_j,
+\]
+
+so  
+
+\[
+a_i-a_j\le0,\qquad b_i-b_j\le0,
+\]
+
+and consequently  
+
+\[
+(a_i-a_j)(b_i-b_j)\ge0 .
+\]
+
+When \(i>j\) the same product appears (the double sum in (1) is symmetric);
+therefore \((a_i-a_j)(b_i-b_j)\ge0\) for \emph{every} pair \((i,j)\).
+
+From (1) we obtain  
+
+\[
+S=\frac12\sum_{i,j}(a_i-a_j)(b_i-b_j)\;\ge\;0 .
+\]
+
+Re‑substituting the definition of \(S\) yields precisely inequality (∗).
+
+\item \textbf{Equality condition.}  
+Equality \(S=0\) occurs iff each summand in (1) vanishes, i.e.  
+
+\[
+(a_i-a_j)(b_i-b_j)=0\qquad\text{for all }1\le i,j\le n .
+\]
+
+Thus for every unordered pair \(\{i,j\}\) we must have either \(a_i=a_j\) or
+\(b_i=b_j\).  The only way this can happen for all pairs simultaneously is
+that one of the two sequences is constant:
+
+\begin{itemize}
+\item either \(a_1=a_2=\dots =a_n\),
+\item or \(b_1=b_2=\dots =b_n\).
+\end{itemize}
+
+The case \(n=1\) trivially satisfies both alternatives.  Hence equality in
+Chebyshev’s inequality holds exactly when one of the sequences is constant.
+
+\item \textbf{Concluding remark.}  
+The same inequality follows from the rearrangement inequality, which states
+that for two similarly ordered sequences the sum \(\sum a_i b_{\sigma(i)}\) is
+maximal when the permutation \(\sigma\) preserves the ordering (the identity
+permutation).  Taking \(\sigma\) to be the identity gives Chebyshev’s sum
+inequality directly.
+
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,85 @@
+\begin{proof}
+Let $f:\mathbb R\to\mathbb R$ be convex. By the definition of convexity,
+\begin{align}
+f\bigl(t x+(1-t)y\bigr)\le t\,f(x)+(1-t)\,f(y)\qquad\text{for all }x,y\in\mathbb R,\;t\in[0,1].
+\tag{1}
+\end{align}
+We prove Jensen’s inequality
+\[
+f\!\left(\sum_{i=1}^{n}\lambda_i x_i\right)\le \sum_{i=1}^{n}\lambda_i f(x_i)
+\tag{J}
+\]
+for arbitrary real numbers $x_1,\dots ,x_n$ and non‑negative weights $\lambda_i$ with $\sum_{i=1}^{n}\lambda_i=1$, by mathematical induction on $n$.
+
+\medskip
+\noindent\textbf{Base case $n=2$.}  
+Take $t=\lambda_1$, $x=x_1$ and $y=x_2$ in \eqref{1}. Since $\lambda_2=1-\lambda_1$,
+\begin{align*}
+f\bigl(\lambda_1 x_1+(1-\lambda_1)x_2\bigr)
+   \le \lambda_1 f(x_1)+(1-\lambda_1)f(x_2),
+\end{align*}
+which is precisely \eqref{J} for $n=2$.
+
+\medskip
+\noindent\textbf{Inductive step.}  
+Assume that \eqref{J} holds for some integer $k\ge 2$; i.e., for any points $y_1,\dots ,y_k$ and weights $\mu_1,\dots ,\mu_k\ge0$ with $\sum_{i=1}^{k}\mu_i=1$,
+\begin{align}
+f\!\left(\sum_{i=1}^{k}\mu_i y_i\right)\le \sum_{i=1}^{k}\mu_i f(y_i).
+\tag{IH}
+\end{align}
+Consider $k+1$ points $x_1,\dots ,x_{k+1}$ with weights $\lambda_1,\dots ,\lambda_{k+1}\ge0$ and $\sum_{i=1}^{k+1}\lambda_i=1$.
+Set
+\[
+\alpha:=1-\lambda_{k+1}=\sum_{i=1}^{k}\lambda_i\in[0,1].
+\]
+If $\alpha=0$, then $\lambda_{k+1}=1$ and all other $\lambda_i$ are zero. In this case
+\[
+f\!\left(\sum_{i=1}^{k+1}\lambda_i x_i\right)=f(x_{k+1})
+      =\lambda_{k+1}f(x_{k+1})+\sum_{i=1}^{k}\lambda_i f(x_i),
+\]
+so \eqref{J} holds trivially. Hence we may assume $\alpha>0$.
+
+Define
+\[
+y:=\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_i x_i .
+\]
+The coefficients $\frac{\lambda_i}{\alpha}$ are non‑negative and sum to $1$, so $y$ is a convex combination of the first $k$ points.
+
+Apply \eqref{1} with $t=\alpha$, $x=y$ and $y=x_{k+1}$:
+\begin{align}
+f\bigl(\alpha y+(1-\alpha)x_{k+1}\bigr)
+   \le \alpha f(y)+(1-\alpha)f(x_{k+1}).
+\tag{2}
+\end{align}
+Since $\alpha y=\sum_{i=1}^{k}\lambda_i x_i$ and $1-\alpha=\lambda_{k+1}$,
+\begin{align}
+f\!\left(\sum_{i=1}^{k}\lambda_i x_i+\lambda_{k+1}x_{k+1}\right)
+   =f\!\left(\sum_{i=1}^{k+1}\lambda_i x_i\right).
+\tag{3}
+\end{align}
+By the inductive hypothesis applied to the convex combination that defines $y$,
+\[
+f(y)\le \sum_{i=1}^{k}\frac{\lambda_i}{\alpha}\,f(x_i),
+\]
+and multiplying by $\alpha$ yields
+\begin{align}
+\alpha f(y)\le \sum_{i=1}^{k}\lambda_i f(x_i).
+\tag{4}
+\end{align}
+Insert \eqref{4} into the right–hand side of \eqref{2} and use \eqref{3}:
+\begin{align*}
+f\!\left(\sum_{i=1}^{k+1}\lambda_i x_i\right)
+   \le \sum_{i=1}^{k}\lambda_i f(x_i)+\lambda_{k+1}f(x_{k+1})
+   =\sum_{i=1}^{k+1}\lambda_i f(x_i).
+\end{align*}
+Thus Jensen’s inequality holds for $k+1$.
+
+\medskip
+\noindent\textbf{Conclusion.}  
+The statement is true for $n=2$ (base case) and the inductive step shows that truth for $k$ implies truth for $k+1$. By mathematical induction, \eqref{J} holds for every integer $n\ge2$ (the case $n=1$ is immediate because both sides are equal).
+
+\medskip
+\noindent\textbf{Equality condition.}  
+From \eqref{1} we know that equality holds iff $f$ is affine on the segment joining the two points used in \eqref{1}. Consequently, equality in Jensen’s inequality occurs exactly when all the points $x_i$ lie in an interval on which $f$ is affine; equivalently, either all the $x_i$ are equal, or $f$ is linear on the convex hull of $\{x_1,\dots ,x_n\}$ (weights equal to zero are irrelevant).
+
+\end{proof}

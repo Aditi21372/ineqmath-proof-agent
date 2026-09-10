@@ -1,0 +1,66 @@
+\begin{proof}
+\textbf{1. Edge‑case verification.}  
+If $\mathbf b=\mathbf 0$, then $S_{b^{2}}=0$, whence $S_{ab}=0$ and the right–hand side of the Cauchy–Schwarz inequality equals $S_{a^{2}}\cdot0=0$, while the left–hand side is $(0)^{2}=0$. Hence the inequality holds with equality. The same argument applies when $\mathbf a=\mathbf 0$. Consequently we may assume $S_{b^{2}}>0$ (the case $S_{a^{2}}=0$ is analogous).
+
+\medskip
+\textbf{2. Construction of a non‑negative quadratic.}  
+For $t\in\mathbb R$ define
+\[
+Q(t)=\sum_{i=1}^{n}\bigl(a_{i}-t\,b_{i}\bigr)^{2}.
+\]
+Each summand is a square, so $Q(t)\ge0$ for every $t$. Expanding each term,
+\[
+(a_i-t b_i)^2=a_i^{2}-2t a_i b_i+t^{2}b_i^{2},
+\]
+we obtain
+\begin{align*}
+Q(t)&=\sum_{i=1}^{n}\bigl(a_i^{2}-2t a_i b_i+t^{2}b_i^{2}\bigr)\\
+    &=S_{a^{2}}-2t\,S_{ab}+t^{2}S_{b^{2}}.
+\end{align*}
+Thus $Q(t)$ is a quadratic polynomial
+\[
+Q(t)=S_{b^{2}}\,t^{2}-2S_{ab}\,t+S_{a^{2}}.
+\]
+
+\medskip
+\textbf{3. Discriminant criterion.}  
+A quadratic $At^{2}+Bt+C$ with $A>0$ that satisfies $At^{2}+Bt+C\ge0$ for all $t\in\mathbb R$ must have non‑positive discriminant,
+\[
+\Delta = B^{2}-4AC\le0.
+\]
+Here $A=S_{b^{2}}$, $B=-2S_{ab}$ and $C=S_{a^{2}}$, so
+\[
+\Delta =(-2S_{ab})^{2}-4S_{b^{2}}S_{a^{2}}
+        =4\bigl(S_{ab}^{2}-S_{a^{2}}S_{b^{2}}\bigr).
+\]
+Since $Q(t)\ge0$ for all $t$, we have $\Delta\le0$, i.e.
+\[
+S_{ab}^{2}\le S_{a^{2}}\,S_{b^{2}}.
+\]
+Writing the sums explicitly yields the Cauchy–Schwarz inequality
+\[
+\left(\sum_{i=1}^{n}a_{i}b_{i}\right)^{2}
+\le\left(\sum_{i=1}^{n}a_{i}^{2}\right)
+   \left(\sum_{i=1}^{n}b_{i}^{2}\right).
+\]
+
+\medskip
+\textbf{4. Equality condition.}  
+Equality occurs exactly when $\Delta=0$, i.e. when $S_{ab}^{2}=S_{a^{2}}S_{b^{2}}$. In this case the quadratic $Q(t)$ has a double root $t_{0}$ and can be written as
+\[
+Q(t)=S_{b^{2}}\,(t-t_{0})^{2}\ge0,\qquad Q(t_{0})=0.
+\]
+Because $Q(t_{0})=\sum_{i=1}^{n}(a_{i}-t_{0}b_{i})^{2}=0$, each summand must vanish:
+$a_{i}=t_{0}b_{i}$ for all $i$. Hence $\mathbf a = t_{0}\mathbf b$, i.e. the two vectors are linearly dependent (including the trivial case where one vector is zero). Conversely, if $\mathbf a = t_{0}\mathbf b$ for some $t_{0}\in\mathbb R$, then every term in $Q(t)$ vanishes at $t=t_{0}$, so the inequality becomes an equality.
+
+\medskip
+\textbf{5. Conclusion.}  
+The non‑negativity of the quadratic $Q(t)$ together with the discriminant condition yields
+\[
+\boxed{\displaystyle
+\left(\sum_{i=1}^{n}a_{i}b_{i}\right)^{2}
+\le\left(\sum_{i=1}^{n}a_{i}^{2}\right)
+   \left(\sum_{i=1}^{n}b_{i}^{2}\right)}
+\]
+for all real numbers $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$. Equality holds precisely when $\mathbf a$ and $\mathbf b$ are linearly dependent (including the case that one of them is the zero vector). \qed
+\end{proof}

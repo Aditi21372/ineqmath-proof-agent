@@ -1,0 +1,74 @@
+\begin{theorem}[Young’s inequality]
+Let $a,b\ge 0$ and let $p,q>1$ satisfy $\displaystyle\frac1p+\frac1q=1$. Then
+\[
+ab\;\le\;\frac{a^{p}}{p}+\frac{b^{q}}{q}\tag{1}
+\]
+and equality holds iff either $a=b=0$ or $a,b>0$ and $a^{p}=b^{q}$ (equivalently $a^{p-1}=b^{q-1}$).
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Degenerate cases.}  
+If $a=0$, then $ab=0$ and the right–hand side of \eqref{1} equals $\frac{0}{p}+\frac{b^{q}}{q}\ge0$, so \eqref{1} holds.  
+The same argument works when $b=0$.  
+When $a=b=0$ both sides are $0$, hence equality occurs.
+
+\medskip\noindent\textbf{2. Conjugate exponents.}  
+Set
+\[
+\lambda:=\frac1p,\qquad \mu:=\frac1q .
+\]
+Because $p,q>1$ and $\frac1p+\frac1q=1$, we have
+\[
+0<\lambda,\mu<1,\qquad \lambda+\mu=1.\tag{2}
+\]
+
+\medskip\noindent\textbf{3. Convexity of the exponential.}  
+The function $f(t)=e^{t}$ is convex on $\mathbb R$.  For any $X,Y\in\mathbb R$ and $\lambda\in[0,1]$ Jensen’s inequality (two‑point case) gives
+\begin{equation}
+e^{\lambda X+\mu Y}\le \lambda e^{X}+\mu e^{Y},\tag{3}
+\end{equation}
+with equality iff $X=Y$ (when $\lambda,\mu>0$).
+
+\medskip\noindent\textbf{4. Choice of $X$ and $Y$.}  
+Assume $a>0$ and $b>0$ (the degenerate cases have been settled).  Define
+\[
+X:=p\ln a,\qquad Y:=q\ln b .
+\]
+
+\medskip\noindent\textbf{5. Left–hand side of \eqref{3}.}  
+Using \eqref{2},
+\[
+\lambda X+\mu Y
+ =\frac1p(p\ln a)+\frac1q(q\ln b)
+ =\ln a+\ln b
+ =\ln(ab),
+\]
+hence
+\[
+e^{\lambda X+\mu Y}=e^{\ln(ab)}=ab.\tag{4}
+\]
+
+\medskip\noindent\textbf{6. Right–hand side of \eqref{3}.}  
+Again by \eqref{2},
+\[
+\lambda e^{X}+\mu e^{Y}
+ =\frac1p e^{p\ln a}+\frac1q e^{q\ln b}
+ =\frac{a^{p}}{p}+\frac{b^{q}}{q}.\tag{5}
+\]
+
+\medskip\noindent\textbf{7. Conclusion of the inequality.}  
+Substituting \eqref{4} and \eqref{5} into \eqref{3} yields
+\[
+ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+which is exactly \eqref{1}.
+
+\medskip\noindent\textbf{8. Equality condition.}  
+In \eqref{3} equality holds precisely when $X=Y$, i.e.
+\[
+p\ln a = q\ln b \;\Longleftrightarrow\; a^{p}=b^{q}.
+\]
+Together with the degenerate case $a=b=0$, the equality cases are those stated in the theorem.
+
+Thus Young’s inequality is proved, together with its equality conditions. \qed
+\end{proof}

@@ -1,0 +1,98 @@
+\begin{proof}
+\textbf{Trivial cases.}
+\begin{itemize}
+\item \textbf{If $a\le 0$.}  
+Since $X\ge 0$ a.s., the event $\{X\ge a\}$ is the whole space $\Omega$, hence
+\[
+\mathbb{P}(X\ge a)=1.
+\]
+Because $a\le 0$ the right–hand side $\frac{\mathbb{E}[X]}{a}$ is non‑negative (indeed it is $+\infty$ or undefined), so the inequality holds vacuously. From now on we restrict to $a>0$.
+
+\item \textbf{If $\mathbb{E}[X]=0$.}  
+For a non‑negative random variable, $\mathbb{E}[X]=0$ forces $X=0$ $\mathbb{P}$‑a.s. Consequently $\mathbb{P}(X\ge a)=0$ for any $a>0$, and the inequality becomes $0\le 0$, i.e. it holds with equality.
+\end{itemize}
+Thus we may assume
+\[
+a>0,\qquad \mathbb{E}[X]>0 .
+\]
+
+\medskip
+\textbf{Indicator of the event $\{X\ge a\}$.}
+Define the indicator (characteristic) function
+\[
+I(\omega):=\mathbf 1_{\{X\ge a\}}(\omega)=
+\begin{cases}
+1, & \text{if } X(\omega)\ge a,\\[4pt]
+0, & \text{if } X(\omega)< a .
+\end{cases}
+\]
+The indicator is measurable, takes values only in $\{0,1\}$, and by the
+\emph{Expectation of an indicator} theorem,
+\begin{equation}
+\mathbb{E}[I]=\mathbb{P}\bigl(X\ge a\bigr). \tag{1}
+\end{equation}
+
+\medskip
+\textbf{Pointwise comparison.}
+For every $\omega\in\Omega$ we have
+\begin{equation}
+X(\omega)\;\ge\;a\,I(\omega). \tag{2}
+\end{equation}
+Indeed,
+\begin{itemize}
+\item If $X(\omega)\ge a$, then $I(\omega)=1$ and (2) reads $X(\omega)\ge a$, true.
+\item If $X(\omega)<a$, then $I(\omega)=0$ and (2) reads $X(\omega)\ge 0$, true because $X$ is non‑negative.
+\end{itemize}
+Thus (2) holds pointwise.
+
+\medskip
+\textbf{Take expectations (monotonicity of the integral).}
+The expectation (Lebesgue integral) is monotone: from (2) we obtain
+\[
+\mathbb{E}[X]\;\ge\;\mathbb{E}[a\,I].
+\]
+Since $a$ is a deterministic constant, linearity gives
+\begin{equation}
+\mathbb{E}[a\,I]=a\,\mathbb{E}[I]. \tag{3}
+\end{equation}
+Combining the two displays,
+\begin{equation}
+\mathbb{E}[X]\;\ge\;a\,\mathbb{E}[I]. \tag{4}
+\end{equation}
+
+\medskip
+\textbf{Replace $\mathbb{E}[I]$ by the probability.}
+Substituting \eqref{1} into \eqref{4} yields
+\[
+\mathbb{E}[X]\;\ge\;a\,\mathbb{P}\bigl(X\ge a\bigr).
+\]
+Dividing by the positive constant $a$ we obtain the desired inequality
+\[
+\boxed{\;\mathbb{P}\bigl(X\ge a\bigr)\le\frac{\mathbb{E}[X]}{a}\;}.
+\]
+
+\medskip
+\textbf{Equality case.}
+Equality in the chain
+\[
+X(\omega)\ge a\,I(\omega)\quad\Longrightarrow\quad\mathbb{E}[X]=a\,\mathbb{E}[I]
+\]
+requires equality in the pointwise inequality \eqref{2} for $\mathbb{P}$‑almost every $\omega$.
+Hence, $\mathbb{P}$‑a.s.,
+\[
+X(\omega)=a\,I(\omega).
+\]
+Because $I(\omega)\in\{0,1\}$, this means that $X$ takes only the two values $0$ and $a$ (the degenerate sub‑case $X\equiv0$ corresponds to $\mathbb{P}(X\ge a)=0$). In this situation
+\[
+\mathbb{E}[X]=a\,\mathbb{P}(X\ge a),
+\]
+so the bound is attained.
+
+\medskip
+\textbf{Conclusion.}
+Under the sole hypotheses $X\ge 0$ a.s.\ and $a>0$, Markov’s inequality
+\[
+\mathbb{P}(X\ge a)\le\frac{\mathbb{E}[X]}{a}
+\]
+holds, with equality if and only if $X$ is almost surely supported on $\{0,a\}$ (including the trivial case $X\equiv0$). \qed
+\end{proof}

@@ -1,0 +1,89 @@
+\begin{theorem}[Jensen’s Inequality]
+Let \(f:\mathbb{R}\to\mathbb{R}\) be convex, i.e. for every \(x,y\in\mathbb{R}\) and every \(t\in[0,1]\)
+\begin{align}
+f\bigl(tx+(1-t)y\bigr)\le t\,f(x)+(1-t)\,f(y).\tag{C}
+\end{align}
+Let \(x_{1},\dots ,x_{n}\in\mathbb{R}\) and let the weights \(\lambda_{1},\dots ,\lambda_{n}\) satisfy
+\[
+\lambda_{i}\ge 0\;(i=1,\dots ,n),\qquad \sum_{i=1}^{n}\lambda_{i}=1 .
+\]
+Then
+\begin{align}
+f\!\Bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\Bigr)\le \sum_{i=1}^{n}\lambda_{i}f(x_{i}).\tag{J}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+We proceed by induction on the number of points \(n\).
+
+\medskip\noindent\textbf{Base case \(n=2\).}  
+Take \(\lambda_{1}=t\) and \(\lambda_{2}=1-t\) with \(t\in[0,1]\).  
+Applying \((\mathrm{C})\) with \(x=x_{1},\;y=x_{2},\;t=\lambda_{1}\) gives
+\[
+f(\lambda_{1}x_{1}+\lambda_{2}x_{2})\le \lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}),
+\]
+which is precisely \((\mathrm{J})\) for \(n=2\).
+
+\medskip\noindent\textbf{Reduction of zero weights.}  
+If some weight \(\lambda_{k}=0\), the corresponding term disappears from both sides of \((\mathrm{J})\); the inequality reduces to the same statement for the remaining indices.  
+If exactly one weight equals \(1\) (all others are \(0\)), both sides of \((\mathrm{J})\) equal \(f(x_{k})\).  
+Hence we may assume that all weights are non‑negative, at most one equals \(1\), and at least two are strictly positive.
+
+\medskip\noindent\textbf{Induction hypothesis.}  
+Assume that for some integer \(m\ge 2\) the inequality \((\mathrm{J})\) holds for every collection of at most \(m\) points with non‑negative weights summing to \(1\).  
+We shall prove \((\mathrm{J})\) for \(n=m+1\).
+
+\medskip\noindent\textbf{Reduction to a two‑point convex combination.}  
+Set
+\[
+\alpha:=\lambda_{n},\qquad
+\beta:=1-\alpha=\sum_{i=1}^{n-1}\lambda_{i}\;(\beta\ge 0).
+\]
+If \(\beta=0\) then \(\alpha=1\) and we are in the trivial case already treated; thus assume \(\beta>0\).  
+Define the auxiliary point
+\[
+y:=\frac{1}{\beta}\sum_{i=1}^{n-1}\lambda_{i}x_{i}.
+\]
+The coefficients \(\lambda_{i}/\beta\) are non‑negative and sum to \(1\), so \(y\) is a convex combination of the first \(n-1\) points. Moreover
+\begin{align}
+\sum_{i=1}^{n}\lambda_{i}x_{i}= \beta y+\alpha x_{n}. \tag{4.1}
+\end{align}
+
+\medskip\noindent\textbf{Apply convexity to the two‑point combination.}  
+Using \((\mathrm{C})\) with \(t=\beta\) (so \(1-t=\alpha\)), \(x=y\) and \(y=x_{n}\), we obtain
+\begin{align}
+f(\beta y+\alpha x_{n})\le \beta f(y)+\alpha f(x_{n}). \tag{5.1}
+\end{align}
+
+\medskip\noindent\textbf{Bound \(\beta f(y)\) via the induction hypothesis.}  
+Since \(y\) is a convex combination of \(x_{1},\dots ,x_{n-1}\) with normalized weights \(\lambda_{i}/\beta\), the induction hypothesis (applied with \(k=n-1\le m\)) yields
+\begin{align}
+f(y)\le \sum_{i=1}^{n-1}\frac{\lambda_{i}}{\beta}\,f(x_{i}). \tag{6.1}
+\end{align}
+Multiplying (6.1) by the non‑negative scalar \(\beta\) gives
+\begin{align}
+\beta f(y)\le \sum_{i=1}^{n-1}\lambda_{i}f(x_{i}). \tag{6.2}
+\end{align}
+
+\medskip\noindent\textbf{Combine (5.1) and (6.2).}
+\begin{align*}
+f\!\Bigl(\sum_{i=1}^{n}\lambda_{i}x_{i}\Bigr)
+&= f(\beta y+\alpha x_{n})\\
+&\le \beta f(y)+\alpha f(x_{n}) &&\text{by }(5.1)\\
+&\le \sum_{i=1}^{n-1}\lambda_{i}f(x_{i})+\alpha f(x_{n}) &&\text{by }(6.2)\\
+&= \sum_{i=1}^{n}\lambda_{i}f(x_{i}),
+\end{align*}
+which is exactly \((\mathrm{J})\) for \(n=m+1\).
+
+Thus the inequality holds for \(n=m+1\). By induction it holds for every integer \(n\ge 2\); the case \(n=1\) is immediate because it reduces to the identity \(f(x_{1})\le f(x_{1})\). \(\square\)
+
+\medskip\noindent\textbf{Equality case.}  
+If \(f\) is strictly convex, equality in the convexity step (5.1) can occur only when \(\beta=0\), \(\alpha=0\), or \(y=x_{n}\).  
+When \(\beta,\alpha>0\), the condition \(y=x_{n}\) forces
+\[
+x_{n}= \frac{1}{\beta}\sum_{i=1}^{n-1}\lambda_{i}x_{i},
+\]
+and the induction hypothesis shows that equality in (6.2) requires all points among \(x_{1},\dots ,x_{n-1}\) with positive weight to coincide. Consequently, for a strictly convex \(f\) equality in \((\mathrm{J})\) holds \emph{iff} all points with positive weight are equal (the case where a single weight equals \(1\) is a sub‑case).
+
+For a general convex (not strictly convex) function, equality may also occur when \(f\) is affine on the convex hull of the points that carry positive weight. Hence the “iff’’ statement above is valid under the additional hypothesis of strict convexity. \(\square\)
+\end{proof}

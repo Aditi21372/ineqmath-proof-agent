@@ -1,0 +1,111 @@
+\begin{proof}
+\textbf{Step 1. Degenerate and boundary cases.}\\
+\textbf{(a) }\(n=0\).  \((1+x)^{0}=1\) and \(1+0\cdot x=1\); equality holds for every admissible \(x\).\\
+\textbf{(b) }\(x=0\).  \((1+0)^{n}=1\) and \(1+n\cdot0=1\); equality holds for all \(n\).\\
+\textbf{(c) }\(x=-1\).  
+\[
+\begin{aligned}
+&\text{If }n=0\text{ we are back to case (a).}\\
+&\text{If }n\ge1,\;(1+(-1))^{n}=0,\qquad 1+n(-1)=1-n,\\
+&\qquad 0\ge1-n\;\Longleftrightarrow\;n\ge1,
+\end{aligned}
+\]
+which is true by hypothesis.  Equality \(0=1-n\) forces \(n=1\).
+
+Henceforth we assume  
+\[
+n\ge1,\qquad x>-1\quad(\text{so }1+x>0).
+\]
+
+\textbf{Step 2. Induction on the exponent \(n\).}\\
+We prove the inequality for all integers \(n\ge0\) by induction.
+
+\emph{Base step.}  \(n=0\) has been settled in Step 1(a).  
+
+\emph{Induction hypothesis.}  Fix a real \(x\ge-1\). Assume that for some integer \(k\ge0\)
+\[
+(1+x)^{k}\ge 1+kx.\tag{IH}
+\]
+
+Our goal is to show
+\[
+(1+x)^{k+1}\ge 1+(k+1)x.\tag{Goal}
+\]
+
+\textbf{Step 3. Inductive step (algebraic manipulation).}
+\[
+(1+x)^{k+1}=(1+x)^{k}(1+x).
+\]
+
+Since \(1+x\ge0\) (by \(x>-1\)), multiplying the inequality (IH) by the non‑negative factor \(1+x\) preserves the order:
+\[
+(1+x)^{k+1}\ge(1+kx)(1+x).\tag{1}
+\]
+
+Expanding the right–hand side,
+\[
+(1+kx)(1+x)=1+(k+1)x+kx^{2}.\tag{2}
+\]
+
+Substituting (2) into (1) gives
+\[
+(1+x)^{k+1}\ge 1+(k+1)x+kx^{2}.\tag{3}
+\]
+
+\textbf{Step 4. Non‑negativity of the extra term.}\\
+Because \(k\ge0\) and \(x^{2}\ge0\) for every real \(x\), we have \(kx^{2}\ge0\).  Hence
+\[
+1+(k+1)x+kx^{2}\ge1+(k+1)x,
+\]
+and together with (3) we obtain the desired inequality (Goal):
+\[
+(1+x)^{k+1}\ge 1+(k+1)x.
+\]
+
+Thus the induction step is complete, and by the principle of mathematical induction the inequality
+\[
+(1+x)^{n}\ge 1+nx
+\]
+holds for all integers \(n\ge0\) and all real \(x\ge-1\).
+
+\textbf{Step 5. Alternative proof via the binomial theorem (optional).}\\
+The binomial theorem yields
+\[
+(1+x)^{n}= \sum_{i=0}^{n}\binom{n}{i}x^{i}
+          =1+nx+\sum_{i=2}^{n}\binom{n}{i}x^{i}.
+\]
+Factor \(x^{2}\):
+\[
+\sum_{i=2}^{n}\binom{n}{i}x^{i}=x^{2}\sum_{j=0}^{n-2}\binom{n}{j+2}x^{j},
+\qquad (j=i-2).
+\]
+All binomial coefficients \(\binom{n}{j+2}\) are non‑negative, and for \(x\ge0\) each \(x^{j}\ge0\); for \(-1\le x<0\) we have \(|x|\le1\) and consequently the sum remains non‑negative.  Therefore
+\[
+(1+x)^{n}=1+nx+\underbrace{x^{2}\Bigl(\sum_{j=0}^{n-2}\binom{n}{j+2}x^{j}\Bigr)}_{\ge0}
+\ge1+nx.
+\]
+
+\textbf{Step 6. Equality conditions.}\\
+From (3) we see that equality
+\[
+(1+x)^{k+1}=1+(k+1)x+kx^{2}
+\]
+holds precisely when the extra term \(kx^{2}\) vanishes, i.e. when \(k=0\) or \(x=0\).
+
+\begin{itemize}
+\item \(k=0\) corresponds to the base case \(n=0\); then \((1+x)^{0}=1=1+0\cdot x\) for any \(x\ge-1\).
+\item \(x=0\) gives \((1+0)^{n}=1=1+n\cdot0\) for every \(n\ge0\).
+\item The boundary case \(x=-1\) was treated in Step 1(c); equality occurs only for \(n=1\) (or the trivial \(n=0\) case).
+\end{itemize}
+Collecting all possibilities,
+\[
+\boxed{
+\begin{aligned}
+&n=0\quad\text{(any }x\ge-1),\\
+&x=0\quad\text{(any }n\ge0),\\
+&x=-1\ \text{and}\ n=1 .
+\end{aligned}}
+\]
+
+\(\square\)
+\end{proof}

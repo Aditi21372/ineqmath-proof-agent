@@ -1,0 +1,127 @@
+\begin{proof}
+Let \(f:\mathbb{R}\to\mathbb{R}\) be convex, i.e.  
+\begin{equation}
+f\bigl(t x+(1-t)y\bigr)\le t\,f(x)+(1-t)\,f(y)\qquad
+\forall\,x,y\in\mathbb{R},\ \forall\,t\in[0,1]. \tag{1}
+\end{equation}
+Let \(x_{1},\dots ,x_{n}\in\mathbb{R}\) and let non‑negative weights
+\(\lambda_{1},\dots ,\lambda_{n}\) satisfy \(\sum_{i=1}^{n}\lambda_{i}=1\).
+We prove  
+
+\[
+f\!\left(\sum_{i=1}^{n}\lambda_{i}x_{i}\right)\le
+\sum_{i=1}^{n}\lambda_{i}f(x_{i}) \tag{2}
+\]
+
+by induction on \(n\).
+
+\medskip\noindent\textbf{1. Degenerate case.}  
+If some index \(j\) has \(\lambda_{j}=1\) and \(\lambda_{i}=0\) for \(i\neq j\), then
+\[
+\sum_{i=1}^{n}\lambda_{i}x_{i}=x_{j},\qquad
+\sum_{i=1}^{n}\lambda_{i}f(x_{i})=f(x_{j}),
+\]
+so \((2)\) reduces to the identity \(f(x_{j})\le f(x_{j})\).  
+The situation \(\lambda_{i}=0\) for all \(i\) cannot occur because the weights sum to
+\(1\). Hence we may assume that at least two weights are positive.
+
+\medskip\noindent\textbf{2. Base case \(n=2\).}  
+Put \(t:=\lambda_{1}\) (so \(1-t=\lambda_{2}\)).  Since \(t\in[0,1]\), \((1)\) yields
+\[
+f\bigl(\lambda_{1}x_{1}+\lambda_{2}x_{2}\bigr)
+   \le \lambda_{1}f(x_{1})+\lambda_{2}f(x_{2}),
+\]
+which is precisely \((2)\) for \(n=2\).
+
+\medskip\noindent\textbf{3. Inductive hypothesis.}  
+Assume that for some \(k\ge 2\) the statement holds for every choice of
+\(k\) points and weights summing to \(1\); i.e.
+
+\[
+\forall\,\mu_{1},\dots ,\mu_{k}\ge 0,\;
+\sum_{i=1}^{k}\mu_{i}=1,\;
+\forall\,y_{1},\dots ,y_{k}\in\mathbb{R}:
+\qquad
+f\!\left(\sum_{i=1}^{k}\mu_{i}y_{i}\right)
+      \le\sum_{i=1}^{k}\mu_{i}f(y_{i}). \tag{IH}
+\]
+
+\medskip\noindent\textbf{4. Inductive step \(k\to k+1\).}  
+Let \(\lambda_{1},\dots ,\lambda_{k+1}\ge 0\) satisfy \(\sum_{i=1}^{k+1}\lambda_{i}=1\),
+and let \(x_{1},\dots ,x_{k+1}\in\mathbb{R}\).
+
+Define
+\[
+\alpha:=\sum_{i=1}^{k}\lambda_{i},\qquad
+\beta :=\lambda_{k+1}=1-\alpha .
+\]
+If \(\alpha=0\) then \(\beta=1\) and we are in the degenerate case of step 1,
+so assume \(\alpha>0\).
+
+Set the intermediate point
+\[
+y:=\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_{i}x_{i}.
+\]
+The coefficients \(\lambda_{i}/\alpha\) are non‑negative and sum to \(1\), hence
+\(y\) is a convex combination of the first \(k\) points.
+
+Apply the convexity inequality \((1)\) to the pair \((y,x_{k+1})\) with weight
+\(\alpha\):
+\begin{equation}
+f\bigl(\alpha y+\beta x_{k+1}\bigr)
+   \le \alpha f(y)+\beta f(x_{k+1}). \tag{3}
+\end{equation}
+A direct computation shows
+\begin{align}
+\alpha y+\beta x_{k+1}
+   &=\alpha\Bigl(\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_{i}x_{i}\Bigr)
+     +\beta x_{k+1} \nonumber\\
+   &=\sum_{i=1}^{k}\lambda_{i}x_{i}+\lambda_{k+1}x_{k+1}
+    =\sum_{i=1}^{k+1}\lambda_{i}x_{i}. \tag{4}
+\end{align}
+Thus the left‑hand side of \((3)\) equals the left‑hand side of \((2)\) for
+\(k+1\) points.
+
+By the inductive hypothesis applied to the first \(k\) points,
+\begin{equation}
+f(y)=f\!\left(\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_{i}x_{i}\right)
+    \le\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_{i}f(x_{i}). \tag{5}
+\end{equation}
+Insert \((5)\) into \((3)\):
+\begin{align*}
+f\!\left(\sum_{i=1}^{k+1}\lambda_{i}x_{i}\right)
+   &\le \alpha\Bigl(\frac{1}{\alpha}\sum_{i=1}^{k}\lambda_{i}f(x_{i})\Bigr)
+        +\beta f(x_{k+1}) \\
+   &=\sum_{i=1}^{k}\lambda_{i}f(x_{i})+\lambda_{k+1}f(x_{k+1}) \\
+   &=\sum_{i=1}^{k+1}\lambda_{i}f(x_{i}),
+\end{align*}
+which is exactly \((2)\) for \(k+1\) points.  This completes the induction.
+
+\medskip\noindent\textbf{5. Equality condition.}  
+For two points, equality in \((1)\) occurs iff either \(t\in\{0,1\}\) (so one
+weight vanishes) or \(f\) is affine on the interval \([x,y]\).
+During the inductive step, equality in \((2)\) can arise only when
+
+\begin{itemize}
+  \item the convexity inequality \((3)\) is an equality, i.e. either
+        \(\alpha\in\{0,1\}\) (some weight is zero) or \(f\) is affine on the
+        segment joining \(y\) and \(x_{k+1}\); and
+  \item the inductive hypothesis \((5)\) is an equality, i.e. \(f\) is affine on
+        the convex hull of \(\{x_{1},\dots ,x_{k}\}\).
+\end{itemize}
+Combining these observations yields the following description:
+
+\begin{enumerate}
+  \item If some weight \(\lambda_{i}=0\), the inequality reduces to a lower‑dimensional case;
+  \item Otherwise, equality holds precisely when \(f\) is affine on the convex hull of
+        \(\{x_{1},\dots ,x_{n}\}\).
+\end{enumerate}
+In particular, for a strictly convex \(f\) the second alternative is impossible,
+so equality can occur only when a single weight equals \(1\) and all others are zero.
+
+\medskip\noindent\textbf{6. Conclusion.}  
+The base case (\(n=2\)) and the inductive step prove \((2)\) for every integer
+\(n\ge 1\).  Together with the degenerate situation of step 1, Jensen’s inequality
+holds for all choices of points and weights, and the equality cases have been
+completely characterised. \(\square\)
+\end{proof}

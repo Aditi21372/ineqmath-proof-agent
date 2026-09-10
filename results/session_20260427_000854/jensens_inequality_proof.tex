@@ -1,0 +1,124 @@
+\begin{proof}
+\textbf{(1) Degenerate and edge cases.}
+\begin{enumerate}
+\item[(a)] \textit{All weight on a single index.}  
+If $\lambda_k=1$ and $\lambda_i=0$ for $i\neq k$, then
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_i x_i\Bigr)=f(x_k)=\sum_{i=1}^{n}\lambda_i f(x_i),
+\]
+so equality holds.
+
+\item[(b)] \textit{Some weights equal zero.}  
+If $\lambda_j=0$ for some $j$, the term $\lambda_jx_j$ disappears from the weighted sum and $\lambda_jf(x_j)$ disappears from the right–hand side.  Removing those terms yields an instance of \eqref{jensen} with fewer indices, so the inequality is unchanged.
+
+\item[(c)] \textit{The case $n=1$.}  
+When there is only one point, \eqref{jensen} reads $f(x_1)\le f(x_1)$, which is true with equality.
+\end{enumerate}
+Hence the theorem holds in all degenerate situations.  In what follows we assume $n\ge2$ and that at least two weights are positive.
+
+\medskip
+
+\textbf{(2) Base case $n=2$.}  
+Let $\lambda_1=t$, $\lambda_2=1-t$ with $t\in[0,1]$.  The weighted average is $tx_1+(1-t)x_2$, and by convexity \eqref{convex}
+\[
+f\bigl(tx_1+(1-t)x_2\bigr)\le t f(x_1)+(1-t)f(x_2),
+\]
+which is exactly \eqref{jensen} for $n=2$.  Thus Jensen’s inequality holds for two points.
+
+\medskip
+
+\textbf{(3) Inductive step.}  
+Assume that \eqref{jensen} holds for any collection of $k\ge2$ points with non‑negative weights summing to one.  We prove it for $n=k+1$.
+
+Let $\lambda_1,\dots,\lambda_{k+1}$ satisfy \eqref{weights} and set
+\[
+\mu:=\sum_{i=1}^{k}\lambda_i\qquad(0\le\mu\le1).
+\tag{4}
+\]
+If $\mu=0$, then $\lambda_{k+1}=1$ and we are in the one‑weight case already treated; hence we may assume $\mu>0$.
+
+Define the combined point
+\[
+y:=\frac{1}{\mu}\sum_{i=1}^{k}\lambda_i x_i .
+\tag{5}
+\]
+Since the coefficients $\lambda_i/\mu$ are non‑negative and sum to one, $y$ is a convex combination of the first $k$ points.
+
+\medskip
+
+\textit{3.1 Two‑point convexity applied to $(y,x_{k+1})$.}  
+Using \eqref{4}–\eqref{5} we rewrite the full weighted average as
+\[
+\sum_{i=1}^{k+1}\lambda_i x_i
+= \mu y + (1-\mu)x_{k+1}.
+\tag{6}
+\]
+Applying convexity \eqref{convex} with $t=\mu$, $x=y$, $y=x_{k+1}$ gives
+\[
+f\!\bigl(\mu y+(1-\mu)x_{k+1}\bigr)\le \mu f(y)+(1-\mu)f(x_{k+1}).
+\tag{7}
+\]
+
+\medskip
+
+\textit{3.2 Bounding $f(y)$ by the induction hypothesis.}  
+Since $y$ is a convex combination of $x_1,\dots,x_k$, the induction hypothesis (with normalized weights $\lambda_i/\mu$) yields
+\[
+f(y)=
+f\!\Bigl(\sum_{i=1}^{k}\frac{\lambda_i}{\mu}x_i\Bigr)
+\le
+\sum_{i=1}^{k}\frac{\lambda_i}{\mu}\,f(x_i).
+\tag{8}
+\]
+Multiplying \eqref{8} by the positive $\mu$ we obtain
+\[
+\mu f(y)\le\sum_{i=1}^{k}\lambda_i f(x_i).
+\tag{9}
+\]
+
+\medskip
+
+\textit{3.3 Completion of the inductive step.}  
+Insert \eqref{9} into \eqref{7} and use \eqref{6} for the argument of $f$:
+\[
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_i x_i\Bigr)
+\le
+\sum_{i=1}^{k}\lambda_i f(x_i)+(1-\mu)f(x_{k+1}).
+\tag{10}
+\]
+Because of \eqref{4}, $1-\mu=\lambda_{k+1}$, and \eqref{10} becomes
+\[
+f\!\Bigl(\sum_{i=1}^{k+1}\lambda_i x_i\Bigr)
+\le
+\sum_{i=1}^{k+1}\lambda_i f(x_i),
+\]
+which is precisely \eqref{jensen} for $n=k+1$.
+
+Thus the inequality for $k$ points implies the inequality for $k+1$ points.
+
+\medskip
+
+\textbf{(4) Conclusion by induction.}  
+The base case $n=2$ has been proved, and the inductive step shows that validity for $k$ points implies validity for $k+1$ points.  By the principle of mathematical induction, Jensen’s inequality
+\[
+f\!\Bigl(\sum_{i=1}^{n}\lambda_i x_i\Bigr)\le\sum_{i=1}^{n}\lambda_i f(x_i)
+\tag{3}
+\]
+holds for every integer $n\ge1$.
+
+\medskip
+
+\textbf{(5) Equality conditions.}
+\begin{itemize}
+\item \textit{General convex $f$.}  
+Equality in \eqref{convex} for a pair $(x,y)$ and $t\in(0,1)$ occurs iff $f$ is affine on the interval $[x,y]$.  In the inductive proof, equality in \eqref{7} forces $f$ to be affine on the segment joining $y$ and $x_{k+1}$, while equality in \eqref{8} forces $f$ to be affine on $\operatorname{conv}\{x_1,\dots,x_k\}$.  Consequently, equality in \eqref{jensen} holds \emph{iff} $f$ is affine on the convex hull of $\{x_i:\lambda_i>0\}$.
+
+\item \textit{Strictly convex $f$.}  
+If $f$ is strictly convex, the only way an affine restriction can occur on a non‑trivial interval is when that interval collapses to a point.  Hence equality in \eqref{jensen} can occur only when all points with positive weight coincide, i.e.\ there exists $c\in\mathbb R$ such that $x_i=c$ whenever $\lambda_i>0$.
+\end{itemize}
+In particular, equality also occurs when at most one weight $\lambda_i$ is non‑zero (the inequality reduces to an identity).
+
+\medskip
+
+Therefore, Jensen’s inequality holds for any convex function and any finite collection of real numbers with non‑negative weights summing to one, with the equality cases described above.
+\end{proof}

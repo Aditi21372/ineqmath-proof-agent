@@ -1,0 +1,98 @@
+\textbf{Theorem (Cauchy–Schwarz).}  
+For any real numbers $a_{1},\dots ,a_{n}$ and $b_{1},\dots ,b_{n}$,
+\[
+\left(\sum_{i=1}^{n} a_{i}b_{i}\right)^{2}
+\le
+\left(\sum_{i=1}^{n} a_{i}^{2}\right)
+\left(\sum_{i=1}^{n} b_{i}^{2}\right).
+\]
+
+Equality holds iff there exists $\lambda\in\mathbb R$ such that $a_{i}= \lambda b_{i}$ for every $i$ (including the trivial case $a_{i}=b_{i}=0$ for all $i$).
+
+\begin{proof}
+\begin{enumerate}
+\item \textbf{Quadratic function.}  
+Define
+\[
+f(t)=\sum_{i=1}^{n}(a_{i}-t b_{i})^{2},\qquad t\in\mathbb R .
+\]
+Each summand is a square, hence $f(t)\ge 0$ for all real $t$.
+
+\item \textbf{Expansion.}  
+For a single index $i$,
+\[
+(a_{i}-t b_{i})^{2}=a_{i}^{2}-2a_{i}b_{i}t+b_{i}^{2}t^{2}.
+\]
+Summing over $i$ gives
+\begin{align*}
+f(t)&=\sum_{i=1}^{n}a_{i}^{2}
+      -2t\sum_{i=1}^{n}a_{i}b_{i}
+      +t^{2}\sum_{i=1}^{n}b_{i}^{2}\\
+    &=\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)t^{2}
+      -2\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)t
+      +\sum_{i=1}^{n}a_{i}^{2}.
+\end{align*}
+Thus $f(t)=At^{2}+Bt+C$ with
+\[
+A=\sum_{i=1}^{n}b_{i}^{2},\qquad
+B=-2\sum_{i=1}^{n}a_{i}b_{i},\qquad
+C=\sum_{i=1}^{n}a_{i}^{2}.
+\]
+Note that $A\ge 0$.
+
+\item \textbf{Non‑negativity of a quadratic.}  
+A real quadratic $At^{2}+Bt+C$ with $A>0$ satisfies $At^{2}+Bt+C\ge0$ for all $t$ iff its discriminant is non‑positive:
+\[
+B^{2}-4AC\le 0 .
+\]
+(If $A=0$ the polynomial is linear; the degenerate cases are handled in step~6.)
+
+\item \textbf{Discriminant.}  
+Substituting $A,B,C$,
+\begin{align*}
+B^{2}-4AC
+&=\bigl(-2\sum a_{i}b_{i}\bigr)^{2}
+  -4\Bigl(\sum b_{i}^{2}\Bigr)\Bigl(\sum a_{i}^{2}\Bigr)\\
+&=4\Bigl[\bigl(\sum a_{i}b_{i}\bigr)^{2}
+         -\bigl(\sum a_{i}^{2}\bigr)\bigl(\sum b_{i}^{2}\bigr)\Bigr].
+\end{align*}
+
+\item \textbf{Deriving the inequality.}  
+Since $f(t)\ge0$ for all $t$, the discriminant must satisfy $B^{2}-4AC\le0$. Dividing the expression in step~4 by $4$ yields
+\[
+\bigl(\sum_{i=1}^{n} a_{i}b_{i}\bigr)^{2}
+\le
+\bigl(\sum_{i=1}^{n} a_{i}^{2}\bigr)
+\bigl(\sum_{i=1}^{n} b_{i}^{2}\bigr),
+\]
+which is the Cauchy–Schwarz inequality.
+
+\item \textbf{Degenerate cases.}
+\begin{itemize}
+\item If $\displaystyle\sum_{i=1}^{n}a_{i}^{2}=0$, then $a_{i}=0$ for all $i$ and both sides of the inequality are $0$.
+\item If $\displaystyle\sum_{i=1}^{n}b_{i}^{2}=0$, then $b_{i}=0$ for all $i$ and again the inequality reduces to $0\le0$.
+\end{itemize}
+Thus the inequality holds in all possible configurations.
+
+\item \textbf{Equality condition.}  
+Equality occurs precisely when $B^{2}-4AC=0$, i.e. when the quadratic $f(t)$ has a double root. For $A>0$ this happens iff there exists $\lambda\in\mathbb R$ such that
+\[
+a_{i}-\lambda b_{i}=0\quad\text{for all }i,
+\]
+or equivalently $a_{i}=\lambda b_{i}$ for every $i$. Indeed, solving $f'(\lambda)=0$ gives
+\[
+\lambda=\frac{\sum a_{i}b_{i}}{\sum b_{i}^{2}},
+\]
+and $f(\lambda)=0$ forces $a_{i}=\lambda b_{i}$ for each index. Conversely, if $a_{i}=\lambda b_{i}$ for all $i$, then each summand $(a_{i}-\lambda b_{i})^{2}$ is zero, so $f(\lambda)=0$ and the discriminant vanishes, yielding equality in the Cauchy–Schwarz inequality.
+
+\item \textbf{Conclusion.}  
+For arbitrary real sequences $\{a_i\}_{i=1}^{n}$ and $\{b_i\}_{i=1}^{n}$ the inequality
+\[
+\left(\sum_{i=1}^{n} a_{i}b_{i}\right)^{2}
+\le
+\left(\sum_{i=1}^{n} a_{i}^{2}\right)
+\left(\sum_{i=1}^{n} b_{i}^{2}\right)
+\]
+holds, with equality exactly when the two vectors are linearly dependent (or one of them is the zero vector). \(\square\)
+\end{enumerate}
+\end{proof}

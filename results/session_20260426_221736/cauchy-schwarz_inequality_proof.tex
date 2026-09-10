@@ -1,0 +1,64 @@
+\begin{proof}
+Let 
+\[
+\mathbf a=(a_{1},\dots ,a_{n}),\qquad 
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+The Euclidean inner product and norm are  
+\[
+\langle\mathbf a,\mathbf b\rangle =\sum_{i=1}^{n}a_{i}b_{i},\qquad 
+\|\mathbf a\|^{2}= \sum_{i=1}^{n}a_{i}^{2},\qquad 
+\|\mathbf b\|^{2}= \sum_{i=1}^{n}b_{i}^{2}.
+\]
+We must prove \(\langle\mathbf a,\mathbf b\rangle^{2}\le\|\mathbf a\|^{2}\|\mathbf b\|^{2}\).
+
+\medskip
+\textbf{A non‑negative quadratic form.}  
+For an arbitrary real parameter \(t\) consider  
+\[
+Q(t)=\sum_{i=1}^{n}(a_{i}-t\,b_{i})^{2}\ge 0\qquad(t\in\mathbb R).
+\]
+
+\medskip
+\textbf{Expansion of \(Q(t)\).}  
+Using \((a-tb)^{2}=a^{2}-2t a b+t^{2}b^{2}\),
+\begin{align*}
+Q(t)&=\sum_{i=1}^{n}\bigl(a_{i}^{2}-2t a_{i}b_{i}+t^{2}b_{i}^{2}\bigr)\\
+    &=\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr)t^{2}
+      -2\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)t
+      +\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr).
+\end{align*}
+Set \(q=\sum b_{i}^{2}\), \(p=-2\sum a_{i}b_{i}\) and \(r=\sum a_{i}^{2}\).
+
+\medskip
+\textbf{Discriminant argument.}  
+If \(q=0\) then \(\mathbf b=\mathbf 0\) and the inequality is trivial.  
+Assume \(q>0\). Since \(Q(t)\ge 0\) for all \(t\), the discriminant of the quadratic
+\(qt^{2}+pt+r\) must satisfy \(p^{2}-4qr\le 0\); that is,
+\[
+\bigl(-2\sum a_{i}b_{i}\bigr)^{2}
+-4\Bigl(\sum b_{i}^{2}\Bigr)\Bigl(\sum a_{i}^{2}\Bigr)\le 0 .
+\]
+
+Dividing by \(4>0\) yields
+\[
+\bigl(\sum_{i=1}^{n}a_{i}b_{i}\bigr)^{2}
+\le
+\bigl(\sum_{i=1}^{n}a_{i}^{2}\bigr)
+\bigl(\sum_{i=1}^{n}b_{i}^{2}\bigr),
+\]
+which is the Cauchy–Schwarz inequality.
+
+\medskip
+\textbf{Equality case.}  
+Equality holds exactly when the discriminant is zero, i.e. when the quadratic
+has a double root. Then \(Q(t)=q\,(t-t_{0})^{2}\) for some \(t_{0}\in\mathbb R\), and
+\(Q(t_{0})=0\) forces \(a_{i}=t_{0}b_{i}\) for every \(i\). Hence there exists
+\(\lambda=t_{0}\) such that
+\[
+a_{i}= \lambda\,b_{i}\qquad\text{for all }i,
+\]
+or one of the vectors is the zero vector. Thus equality occurs precisely when the
+two vectors are linearly dependent.
+
+\end{proof}

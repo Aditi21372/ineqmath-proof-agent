@@ -1,0 +1,82 @@
+\begin{proof}
+\textbf{Norm non‑negativity and degenerate cases.}  
+By definition $\|v\|=\sqrt{\langle v,v\rangle}\ge 0$ for all $v\in V$.  
+If $x=0$, then $\|x+y\|=\|y\|=\|0\|+\|y\|$; similarly if $y=0$. Hence the inequality holds with equality in these cases.  
+Henceforth assume $x\neq0$ and $y\neq0$.
+
+\textbf{Squaring the inequality.}  
+Both $\|x+y\|$ and $\|x\|+\|y\|$ are non‑negative, so
+\begin{align}
+\|x+y\|\le\|x\|+\|y\|
+\iff
+\|x+y\|^{2}\le(\|x\|+\|y\|)^{2}.
+\tag{1}
+\end{align}
+
+\textbf{Expansion of $\|x+y\|^{2}$.}  
+Using linearity of the inner product in the first argument and conjugate symmetry,
+\begin{align}
+\|x+y\|^{2}
+&=\langle x+y,\,x+y\rangle \\
+&=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \\
+&=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2}.
+\tag{2}
+\end{align}
+
+\textbf{Expansion of $(\|x\|+\|y\|)^{2}$.}
+\begin{align}
+(\|x\|+\|y\|)^{2}= \|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}.
+\tag{3}
+\end{align}
+
+\textbf{Cauchy–Schwarz bound.}  
+The Cauchy–Schwarz inequality states
+\begin{align}
+|\langle x,y\rangle|\le \|x\|\,\|y\|.
+\tag{4}
+\end{align}
+Since $\operatorname{Re}z\le|z|$ for any $z\in\mathbb{C}$,
+\begin{align}
+\operatorname{Re}\langle x,y\rangle\le |\langle x,y\rangle|
+\le \|x\|\,\|y\|.
+\tag{5}
+\end{align}
+
+\textbf{Comparison of the two sides.}  
+Substituting the bound \eqref{5} into \eqref{2} yields
+\begin{align}
+\|x+y\|^{2}
+&=\|x\|^{2}+2\operatorname{Re}\langle x,y\rangle+\|y\|^{2} \\
+&\le\|x\|^{2}+2\|x\|\,\|y\|+\|y\|^{2}
+=(\|x\|+\|y\|)^{2},
+\end{align}
+which is precisely inequality \eqref{1}.
+
+\textbf{Taking square roots.}  
+Both sides of \eqref{1} are non‑negative, so taking the (non‑negative) square root preserves the order:
+\[
+\|x+y\|\le\|x\|+\|y\|.
+\]
+
+\textbf{Equality condition.}  
+Equality in the chain above occurs iff  
+
+\begin{itemize}
+\item $\operatorname{Re}\langle x,y\rangle = |\langle x,y\rangle|$ (so $\langle x,y\rangle$ is a non‑negative real number), and
+\item equality holds in Cauchy–Schwarz, i.e.\ $x$ and $y$ are linearly dependent: there exists $\lambda\in\mathbb{C}$ with $y=\lambda x$ (or $x=0$ or $y=0$).
+\end{itemize}
+If $y=\lambda x$ with $x\neq0$, then $\langle x,y\rangle = \lambda\langle x,x\rangle = \lambda\|x\|^{2}$.  
+The condition $\operatorname{Re}\langle x,y\rangle = |\langle x,y\rangle|$ forces $\lambda$ to be a real number and, because the real part equals the modulus, a non‑negative one. Hence $\lambda\ge0$.
+
+Consequently,
+\[
+\|x+y\|=\|x\|+\|y\|
+\;\Longleftrightarrow\;
+\begin{cases}
+x=0\ \text{or}\ y=0,\\[2pt]
+\text{or } y=\lambda x \text{ with }\lambda\ge0\ (\lambda\in\mathbb{R}).
+\end{cases}
+\]
+
+Thus the triangle inequality holds for all vectors in an inner‑product space, and equality occurs exactly in the stated cases. \qed
+\end{proof}

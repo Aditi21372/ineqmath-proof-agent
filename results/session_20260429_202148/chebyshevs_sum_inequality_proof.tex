@@ -1,0 +1,111 @@
+\begin{theorem}[Chebyshev’s sum inequality]
+Let \(n\in\mathbb{N}\) and let  
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad 
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers. Then  
+\begin{align}
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr).
+\end{align}
+Equality holds \emph{iff} one of the following occurs
+\begin{enumerate}
+\item \(n=1\);
+\item the sequence \((a_i)\) is constant, i.e. \(a_{1}=a_{2}= \dots =a_{n}\);
+\item the sequence \((b_i)\) is constant, i.e. \(b_{1}=b_{2}= \dots =b_{n}\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Trivial cases.}  
+If \(n=1\) both sides equal \(a_{1}b_{1}\), so the inequality is an equality.  
+If all \(a_i\) are equal (say \(a_i\equiv A\)), then
+\[
+n\sum_{i=1}^{n}a_i b_i = nA\sum_{i=1}^{n}b_i 
+    = \Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{i=1}^{n}b_i\Bigr),
+\]
+and similarly when all \(b_i\) are equal.  
+Henceforth assume \(n\ge2\) and that neither \((a_i)\) nor \((b_i)\) is constant.
+
+\medskip
+
+\textbf{1. A non‑negative double sum.}  
+Because the sequences are non‑decreasing, for any indices \(i<j\) we have
+\[
+a_i-a_j\le0,\qquad b_i-b_j\le0,
+\]
+and therefore
+\begin{align}
+\bigl(a_i-a_j\bigr)\bigl(b_i-b_j\bigr)\ge0
+\qquad(1\le i<j\le n). \tag{1}
+\end{align}
+Summing \eqref{1} over all unordered pairs \((i,j)\) with \(i<j\) yields a non‑negative quantity
+\begin{align}
+S:=\sum_{1\le i<j\le n}(a_i-a_j)(b_i-b_j)\;\ge\;0 . \tag{2}
+\end{align}
+
+\medskip
+
+\textbf{2. Expanding the double sum.}  
+For each pair \((i,j)\),
+\[
+(a_i-a_j)(b_i-b_j)=a_i b_i + a_j b_j - a_i b_j - a_j b_i .
+\]
+Hence
+\begin{align}
+S
+&=\sum_{i<j}\bigl(a_i b_i + a_j b_j - a_i b_j - a_j b_i\bigr) \\
+&=\underbrace{\sum_{i<j}a_i b_i}_{A}
+  \;+\;\underbrace{\sum_{i<j}a_j b_j}_{B}
+  \;-\;\underbrace{\sum_{i<j}a_i b_j}_{C}
+  \;-\;\underbrace{\sum_{i<j}a_j b_i}_{D}. \tag{3}
+\end{align}
+
+\textit{Counting the diagonal terms.}  
+Each product \(a_k b_k\) appears once for every index that can be paired with a different index, i.e. \(n-1\) times. Consequently
+\begin{align}
+A+B=(n-1)\sum_{k=1}^{n} a_k b_k . \tag{4}
+\end{align}
+
+\textit{Counting the mixed terms.}  
+Every mixed product \(a_i b_j\) with \(i\neq j\) occurs exactly once, either in \(C\) (when \(i<j\)) or in \(D\) (when \(j<i\)). Therefore
+\begin{align}
+C+D=\sum_{\substack{i,j=1\\ i\neq j}}^{n} a_i b_j
+    =\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{j=1}^{n}b_j\Bigr)-\sum_{k=1}^{n} a_k b_k . \tag{5}
+\end{align}
+
+Substituting \eqref{4} and \eqref{5} into \eqref{3} gives
+\begin{align}
+S &= (n-1)\sum_{k=1}^{n} a_k b_k
+     \;-\;\Bigl[\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{j=1}^{n}b_j\Bigr)
+            -\sum_{k=1}^{n} a_k b_k\Bigr] \\
+  &= n\sum_{k=1}^{n} a_k b_k
+     \;-\;
+     \Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{j=1}^{n}b_j\Bigr). \tag{6}
+\end{align}
+
+\medskip
+
+\textbf{3. Chebyshev’s inequality.}  
+From \eqref{2} we have \(S\ge0\).  Using the identity \eqref{6},
+\[
+0\le S = n\sum_{i=1}^{n} a_i b_i 
+          -\Bigl(\sum_{i=1}^{n}a_i\Bigr)\Bigl(\sum_{j=1}^{n}b_j\Bigr),
+\]
+which is exactly the claimed inequality.
+
+\medskip
+
+\textbf{4. Equality condition.}  
+Equality \(S=0\) in \eqref{2} occurs precisely when each term \((a_i-a_j)(b_i-b_j)\) vanishes.  
+For a fixed pair \(i<j\),
+\[
+(a_i-a_j)(b_i-b_j)=0 \iff a_i=a_j\ \text{or}\ b_i=b_j .
+\]
+If there exists a pair with \(a_i\neq a_j\), then we must have \(b_i=b_j\) for every such pair, forcing all \(b_k\) to be equal.  
+Conversely, if some pair satisfies \(b_i\neq b_j\), then all \(a_k\) must be equal.  
+Thus equality holds exactly in one of the mutually exclusive situations listed in the theorem statement:
+\(n=1\), or the \(a\)-sequence is constant, or the \(b\)-sequence is constant.
+
+\end{proof}

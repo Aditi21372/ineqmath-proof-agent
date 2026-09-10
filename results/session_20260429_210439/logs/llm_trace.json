@@ -1,0 +1,19 @@
+{
+  "session_log": [
+    {
+      "id": 1,
+      "timestamp": "2026-04-29T21:04:56.450477",
+      "type": "react_step",
+      "module": "ReAct",
+      "inputs": {
+        "args": [],
+        "kwargs": {
+          "proof": "Let  \n\n\\[\n\\mathbf a=(a_{1},a_{2},\\dots ,a_{n}),\\qquad   \n\\mathbf b=(b_{1},b_{2},\\dots ,b_{n})\\in\\mathbb R^{n}.\n\\]\n\nConsider the real\u2011valued quadratic function of a scalar \\(t\\)\n\n\\[\nf(t)=\\sum_{i=1}^{n}(a_{i}+t\\,b_{i})^{2}\n      =\\sum_{i=1}^{n}a_{i}^{2}+2t\\sum_{i=1}^{n}a_{i}b_{i}+t^{2}\\sum_{i=1}^{n}b_{i}^{2}.\n\\]\n\nSince each term \\((a_i+t b_i)^2\\) is non\u2011negative, we have \\(f(t)\\ge 0\\) for every real \\(t\\).\nThus the quadratic polynomial in \\(t\\)\n\n\\[\nf(t)=\\left(\\sum_{i=1}^{n}b_{i}^{2}\\right)t^{2}+2\\left(\\sum_{i=1}^{n}a_{i}b_{i}\\right)t\n      +\\left(\\sum_{i=1}^{n}a_{i}^{2}\\right)\n\\]\n\nhas a non\u2011negative discriminant. Actually, for a quadratic that never becomes negative, its discriminant must be **non\u2011positive**:\n\n\\[\n\\Delta = 4\\Bigl(\\sum_{i=1}^{n}a_{i}b_{i}\\Bigr)^{2}\n        -4\\Bigl(\\sum_{i=1}^{n}a_{i}^{2}\\Bigr)\\Bigl(\\sum_{i=1}^{n}b_{i}^{2}\\Bigr)\n        \\le 0 .\n\\]\n\nDividing by \\(4\\) yields\n\n\\[\n\\bigl(\\sum_{i=1}^{n}a_{i}b_{i}\\bigr)^{2}\n\\le\n\\Bigl(\\sum_{i=1}^{n}a_{i}^{2}\\Bigr)\n\\Bigl(\\sum_{i=1}^{n}b_{i}^{2}\\Bigr).\n\\]\n\nThis is exactly the Cauchy\u2013Schwarz inequality for real sequences \\(\\{a_i\\}\\) and \\(\\{b_i\\}\\).\n\n---\n\n**Equality case.**  \nThe discriminant \\(\\Delta\\) is zero precisely when the quadratic \\(f(t)\\) has a single real root, i.e. when the vector \\(\\mathbf a\\) is a scalar multiple of \\(\\mathbf b\\): there exists \\(\\lambda\\in\\mathbb R\\) such that \\(a_i=\\lambda b_i\\) for all \\(i\\). In this situation the two sides of the inequality are equal.\n\nHence, for any real numbers \\(a_{1},\\dots ,a_{n}\\) and \\(b_{1},\\dots ,b_{n}\\),\n\n\\[\n\\boxed{\\displaystyle \\bigl(\\sum_{i=1}^{n}a_{i}b_{i}\\bigr)^{2}\\le\n       \\Bigl(\\sum_{i=1}^{n}a_{i}^{2}\\Bigr)\\Bigl(\\sum_{i=1}^{n}b_{i}^{2}\\Bigr)} .\n\\]"
+        }
+      },
+      "outputs": null,
+      "duration_ms": 25256.6,
+      "error": null
+    }
+  ]
+}

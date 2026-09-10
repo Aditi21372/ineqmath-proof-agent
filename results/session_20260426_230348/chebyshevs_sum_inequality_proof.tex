@@ -1,0 +1,91 @@
+\begin{proof}
+\textbf{Statement.}  
+Let  
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad 
+b_{1}\le b_{2}\le\cdots\le b_{n}
+\]
+be real numbers.  We must show
+\begin{align}
+n\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr).\tag{1}
+\end{align}
+
+\medskip\noindent\textbf{1. Trivial and degenerate cases.}
+\begin{itemize}
+\item If \(n=1\), (1) reduces to \(a_{1}b_{1}\ge a_{1}b_{1}\), true with equality.
+\item If all \(a_{i}\) are equal, say \(a_{i}=a\), then  
+\(\sum a_{i}b_{i}=a\sum b_{i}\) and both sides of (1) equal \(na\sum b_{i}\).
+\item The case “all \(b_{i}\) equal’’ is symmetric.
+\end{itemize}
+Hence we may assume \(n\ge2\) and that neither sequence is constant.
+
+\medskip\noindent\textbf{2. Rearrangement Inequality.}  
+For increasing sequences \(x_{1}\le\cdots\le x_{n}\) and
+\(y_{1}\le\cdots\le y_{n}\) and any permutation \(\sigma\in S_{n}\),
+\[
+\sum_{i=1}^{n}x_{i}y_{\sigma(i)}\le
+\sum_{i=1}^{n}x_{i}y_{i}\le
+\sum_{i=1}^{n}x_{i}y_{\,n+1-i}.
+\]
+Thus the sum with the identity permutation is maximal.  
+Applying this with \(x_{i}=a_{i}\) and \(y_{i}=b_{i}\) yields
+\begin{align}
+\sum_{i=1}^{n}a_{i}b_{i}
+\text{ is the largest of the } n!
+\text{ numbers }
+\sum_{i=1}^{n}a_{i}b_{\sigma(i)}\;( \sigma\in S_{n}).\tag{2}
+\end{align}
+
+\medskip\noindent\textbf{3. Average over all permutations.}  
+Consider
+\begin{align}
+S:=\sum_{\sigma\in S_{n}}\;\sum_{i=1}^{n}a_{i}\,b_{\sigma(i)}.\tag{3}
+\end{align}
+Fix an index \(i\).  In the collection of all permutations each \(b_{j}\) appears
+in position \(i\) exactly \((n-1)!\) times, hence
+\[
+\sum_{\sigma\in S_{n}}b_{\sigma(i)}=(n-1)!\sum_{j=1}^{n}b_{j}.
+\]
+Multiplying by \(a_{i}\) and summing over \(i\) gives
+\begin{align}
+S=(n-1)!\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{j=1}^{n}b_{j}\Bigr).\tag{4}
+\end{align}
+Dividing by the number of permutations \(n!\) we obtain the average value:
+\begin{align}
+\frac{S}{n!}= \frac{1}{n}\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{j=1}^{n}b_{j}\Bigr).\tag{5}
+\end{align}
+
+\medskip\noindent\textbf{4. Comparison with the maximal sum.}  
+From (2) the ordered sum \(\sum a_{i}b_{i}\) is not smaller than any other
+\(\sum a_{i}b_{\sigma(i)}\); therefore it is not smaller than their average.  Using (5),
+\[
+\sum_{i=1}^{n}a_{i}b_{i}\;\ge\;
+\frac{S}{n!}
+=
+\frac{1}{n}\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{j=1}^{n}b_{j}\Bigr).
+\]
+Multiplying by \(n\) yields exactly inequality (1).
+
+\medskip\noindent\textbf{5. Equality condition.}  
+Equality in the Rearrangement Inequality (2) occurs iff the two sequences are
+not strictly ordered with respect to each other, i.e. at least one of the
+sequences is constant.  Consequently equality in Chebyshev’s inequality (1)
+holds precisely when all \(a_{i}\) are equal or all \(b_{i}\) are equal – the
+situations already treated in Step 1. No other case can give equality, because
+then the ordered sum would be strictly larger than the average in Step 4.
+
+\medskip\noindent\textbf{6. Conclusion.}  
+Using the Rearrangement Inequality together with a simple counting argument we
+have proved that for any two similarly ordered real sequences
+\[
+a_{1}\le a_{2}\le\cdots\le a_{n},\qquad
+b_{1}\le b_{2}\le\cdots\le b_{n},
+\]
+the Chebyshev sum inequality
+\[
+n\sum_{i=1}^{n}a_{i}b_{i}\ge
+\Bigl(\sum_{i=1}^{n}a_{i}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}\Bigr)
+\]
+holds, with equality exactly when one of the sequences is constant. \(\square\)
+\end{proof}

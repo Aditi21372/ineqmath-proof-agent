@@ -1,0 +1,94 @@
+\begin{theorem}[Cauchy–Schwarz]
+For real numbers \(a_{1},\dots ,a_{n}\) and \(b_{1},\dots ,b_{n}\),
+
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr).
+\]
+
+Equality holds iff there exists \(\lambda\in\mathbb{R}\) such that \(a_{i}= \lambda b_{i}\) for every \(i\) (the statement is vacuous when one of the vectors is the zero vector).
+\end{theorem}
+
+\begin{proof}
+\textbf{1. Interpretation as inner product.}  
+Define the vectors
+\[
+\mathbf a=(a_{1},\dots ,a_{n})\in\mathbb R^{n},
+\qquad
+\mathbf b=(b_{1},\dots ,b_{n})\in\mathbb R^{n}.
+\]
+The standard Euclidean inner product and norm are
+\[
+\langle\mathbf a,\mathbf b\rangle=\sum_{i=1}^{n}a_{i}b_{i},\qquad
+\|\mathbf a\|=\sqrt{\langle\mathbf a,\mathbf a\rangle}
+ =\sqrt{\sum_{i=1}^{n}a_{i}^{2}},\qquad
+\|\mathbf b\|=\sqrt{\sum_{i=1}^{n}b_{i}^{2}}.
+\]
+
+\textbf{2. A non‑negative quadratic.}  
+For \(t\in\mathbb R\) consider \(\mathbf a+t\mathbf b\). Its squared norm is
+\[
+f(t)=\|\mathbf a+t\mathbf b\|^{2}
+    =\langle\mathbf a+t\mathbf b,\;\mathbf a+t\mathbf b\rangle .
+\]
+Using bilinearity,
+\begin{align*}
+f(t)&=\langle\mathbf a,\mathbf a\rangle
+      +2t\langle\mathbf a,\mathbf b\rangle
+      +t^{2}\langle\mathbf b,\mathbf b\rangle  \\
+    &=\|\mathbf a\|^{2}+2t\,\langle\mathbf a,\mathbf b\rangle
+      +t^{2}\|\mathbf b\|^{2}. \tag{1}
+\end{align*}
+Since a squared norm is non‑negative,
+\[
+f(t)\ge 0\qquad\text{for all }t\in\mathbb R. \tag{2}
+\]
+
+\textbf{3. Discriminant argument.}  
+The right–hand side of (1) is a quadratic \(q t^{2}+p t+r\) with
+\[
+q=\|\mathbf b\|^{2},\quad
+p=2\langle\mathbf a,\mathbf b\rangle,\quad
+r=\|\mathbf a\|^{2}.
+\]
+
+If \(\mathbf b\neq\mathbf 0\) then \(q>0\). A quadratic with positive leading coefficient that never becomes negative must have a non‑positive discriminant:
+\[
+p^{2}-4qr\le 0.
+\]
+Substituting the expressions for \(p,q,r\) yields
+\[
+\bigl(2\langle\mathbf a,\mathbf b\rangle\bigr)^{2}
+-4\|\mathbf b\|^{2}\|\mathbf a\|^{2}\le 0. \tag{3}
+\]
+
+If \(\mathbf b=\mathbf 0\) then \(f(t)=\|\mathbf a\|^{2}\ge0\) for every \(t\), and (3) reduces to \(0\le0\). Hence (3) holds in all cases. Dividing (3) by \(4\) gives
+\[
+\langle\mathbf a,\mathbf b\rangle^{2}\le\|\mathbf a\|^{2}\,\|\mathbf b\|^{2}. \tag{4}
+\]
+
+\textbf{4. Returning to coordinates.}  
+Using the definitions from Step 1, (4) becomes
+\[
+\Bigl(\sum_{i=1}^{n}a_{i}b_{i}\Bigr)^{2}
+\le
+\Bigl(\sum_{i=1}^{n}a_{i}^{2}\Bigr)
+\Bigl(\sum_{i=1}^{n}b_{i}^{2}\Bigr),
+\]
+which is the Cauchy–Schwarz inequality.
+
+\textbf{5. Equality case.}  
+Equality in (4) occurs precisely when the discriminant in (3) is zero.
+
+If \(\mathbf b\neq\mathbf 0\), the discriminant being zero means that \(f(t)\) has a double root; there exists a unique \(t_{0}\) with \(f(t_{0})=0\). Because a norm vanishes only for the zero vector, \(\mathbf a+t_{0}\mathbf b=\mathbf 0\), i.e. \(\mathbf a=-t_{0}\mathbf b\). Setting \(\lambda=-t_{0}\) gives \(a_{i}= \lambda b_{i}\) for all \(i\).
+
+If \(\mathbf b=\mathbf 0\), both sides of the inequality are zero, so equality holds for every \(\mathbf a\); the proportionality condition is satisfied trivially (take \(\lambda=0\)).
+
+Conversely, if \(a_{i}= \lambda b_{i}\) for some \(\lambda\in\mathbb R\), then \(\mathbf a=\lambda\mathbf b\) and
+\[
+\langle\mathbf a,\mathbf b\rangle=\lambda\|\mathbf b\|^{2},
+\qquad
+\|\mathbf a\|^{2}= \lambda^{2}\|\mathbf b\|^{2},
+\]
+so (4) becomes an equality. Hence equality holds \emph{iff} the two families are proportional (including the degenerate case where one vector is zero). \(\square\)
+\end{proof}
